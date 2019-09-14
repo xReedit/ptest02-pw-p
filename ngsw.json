@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1568451069604,
+  "timestamp": 1568452089181,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -138,6 +138,7 @@
         "/assets/images/8.png",
         "/assets/images/9.png",
         "/assets/images/papaya_text.png",
+        "/assets/js/socket.io.js",
         "/assets/vendor/animate/animate.css"
       ],
       "patterns": []
@@ -258,9 +259,10 @@
     "/assets/images/8.png": "32a39a691fbd25277a7e2f3cf0b1046ba11119a7",
     "/assets/images/9.png": "cceaa2a222042b3fc0b562b542ede393c3599937",
     "/assets/images/papaya_text.png": "097d1afa7de934de4d58ded8609690e8058fc8b3",
+    "/assets/js/socket.io.js": "2c7440696029e79b94a93c4db05c579439691a1e",
     "/assets/vendor/animate/animate.css": "4c9f94bcce8734f290a3d0f40a97866a7ef7a316",
     "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/index.html": "36dbc17fe911d4a03fe7a1a385bdb309ad9174b5",
+    "/index.html": "71820526fe94bf8365981b451f4aaf4c7f4b25fd",
     "/main-es2015.65ffe65b46d25485d394.js": "c66712b9025db9951d2eba2549f00a1d19e2dc1a",
     "/main-es5.1fa380c939a46a787db2.js": "aa7ba8f7fa327b0d8eb8878339435a69bf0b2e78",
     "/polyfills-es2015.e9aa6ede3b392aeefaa3.js": "c2a5576a30ce44feed748bc35555948ea7e40dcb",
