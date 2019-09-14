@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1568457910507,
+  "timestamp": 1568492742755,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -262,7 +262,7 @@
     "/assets/js/socket.io.js": "2c7440696029e79b94a93c4db05c579439691a1e",
     "/assets/vendor/animate/animate.css": "4c9f94bcce8734f290a3d0f40a97866a7ef7a316",
     "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/index.html": "86cf30bb406e3fb98b832606a9b61b3f2fa7b72d",
+    "/index.html": "eecda122c88dd7ae68153fbe71ffd40648adb802",
     "/main-es2015.65ffe65b46d25485d394.js": "c66712b9025db9951d2eba2549f00a1d19e2dc1a",
     "/main-es5.1fa380c939a46a787db2.js": "aa7ba8f7fa327b0d8eb8878339435a69bf0b2e78",
     "/polyfills-es2015.e9aa6ede3b392aeefaa3.js": "c2a5576a30ce44feed748bc35555948ea7e40dcb",
