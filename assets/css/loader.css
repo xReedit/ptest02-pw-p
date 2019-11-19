@@ -74,6 +74,16 @@
   #loader-wrapper .loader-section.section-right {
     right: 0;
   }
+
+  #loader-wrapper .loader-msj {
+    color: #e0e0e0;
+    width: 100%;
+    z-index: 2000;
+    position: absolute;
+    text-align: center;
+    font-size: 12px;
+    bottom: 25%;
+  }
   
   @-webkit-keyframes spin {
     0% {
@@ -125,5 +135,11 @@
             transform: translateY(-100%);
     -webkit-transition: all 0.3s 1s ease-out;
             transition: all 0.3s 1s ease-out;
+  }
+
+  .loaded #loader-wrapper .loader-msj {
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
   }
   
