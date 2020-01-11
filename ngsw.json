@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1578675355137,
+  "timestamp": 1578710707026,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -28,7 +28,7 @@
         "/polyfills-es5.eb3beb9586a1fa35b053.js",
         "/runtime-es2015.49aadfb7bd9a340e3499.js",
         "/runtime-es5.6692f3f098f8b6363ca4.js",
-        "/styles.b195fef6fab0f1c78b05.css"
+        "/styles.0cc716994728fc77556f.css"
       ],
       "patterns": []
     },
@@ -86,6 +86,11 @@
         "/assets/fonts/ubuntu/Ubuntu-Medium.ttf",
         "/assets/fonts/ubuntu/Ubuntu-MediumItalic.ttf",
         "/assets/fonts/ubuntu/Ubuntu-Regular.ttf",
+        "/assets/icons-ios/apple-launch-1125x2436.png",
+        "/assets/icons-ios/apple-launch-1242x2208.png",
+        "/assets/icons-ios/apple-launch-1242x2688.png",
+        "/assets/icons-ios/apple-launch-750x1334.png",
+        "/assets/icons-ios/apple-launch-828x1792.png",
         "/assets/icons/favicon.ico",
         "/assets/icons/favicon.png",
         "/assets/icons/icon-128x128.png",
@@ -163,6 +168,7 @@
         "/assets/images/papaya_text.png",
         "/assets/images/reactions_1.gif",
         "/assets/images/success.gif",
+        "/assets/js/pwa-i.js",
         "/assets/vendor/animate/animate.css"
       ],
       "patterns": []
@@ -184,7 +190,7 @@
     "/9-es2015.16714a59dbb5afbe66b6.js": "578b394dc0d829f1f8387ecf80821c66e6831c10",
     "/assets/css/bootstrap.min.css": "da53279c601607c8b4116f8ccf0ec8bd70215c9f",
     "/assets/css/loader.css": "e66efdfc0bc9da17ec265fc0ddbd31bc983c0218",
-    "/assets/css/util.css": "57f87cdd07d931e9269befb587a8ea12cac80856",
+    "/assets/css/util.css": "4eeba1971b3de8b57944ac76f191bdecbff65e5c",
     "/assets/fonts/font-awesome-4.7.0/HELP-US-OUT.txt": "4f7bf961f1bed448f6ba99aeb9219fabf930ba96",
     "/assets/fonts/font-awesome-4.7.0/css/font-awesome.css": "0140952c64e3f2b74ef64e050f2fe86eab6624c8",
     "/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css": "512c7d79033e3028a9be61b540cf1a6870c896f8",
@@ -231,6 +237,11 @@
     "/assets/fonts/ubuntu/Ubuntu-Medium.ttf": "249d1f77b186bcd1f9af12001c760ebf1e9f9bdf",
     "/assets/fonts/ubuntu/Ubuntu-MediumItalic.ttf": "116b7b4e678a038eddd25ced32f8b4d095dac19f",
     "/assets/fonts/ubuntu/Ubuntu-Regular.ttf": "c1f6487b64a85c144bc0357832fc79b905dfbcb1",
+    "/assets/icons-ios/apple-launch-1125x2436.png": "e745285231497614f743947945dbd726dc433e13",
+    "/assets/icons-ios/apple-launch-1242x2208.png": "5e557b0f1ffaaf8a5b81a4b68dcd518a329932ff",
+    "/assets/icons-ios/apple-launch-1242x2688.png": "8897fe71f61ac2d091467b0f5552d2555299810a",
+    "/assets/icons-ios/apple-launch-750x1334.png": "7550965f0091eb5b68539147a501d0bafe2598de",
+    "/assets/icons-ios/apple-launch-828x1792.png": "540f96ae8de26c7fe1e48196e0fe3e15d94e268c",
     "/assets/icons/favicon.ico": "f8af8972475568f695ade19cb00a8540448b871f",
     "/assets/icons/favicon.png": "76e537b5fe42cb7085d4602827aa885324e182f3",
     "/assets/icons/icon-128x128.png": "6e6e209727f97e0077985964363857b2f59502b6",
@@ -308,16 +319,17 @@
     "/assets/images/papaya_text.png": "097d1afa7de934de4d58ded8609690e8058fc8b3",
     "/assets/images/reactions_1.gif": "20873c10c432b2569094bdda8e1afcec00491ca0",
     "/assets/images/success.gif": "4a23e6e973af6d9cc537853bb8f0c1d918049532",
+    "/assets/js/pwa-i.js": "c87537848e234870638ff062d6b6130fddb9258b",
     "/assets/vendor/animate/animate.css": "4c9f94bcce8734f290a3d0f40a97866a7ef7a316",
     "/favicon.ico": "f8af8972475568f695ade19cb00a8540448b871f",
-    "/index.html": "b513102471d99235ace07f7b9ba99d73e0f70a28",
+    "/index.html": "6114598e8e130cb04750b636e22ca4dca89bfe51",
     "/main-es2015.3644bd5afcdda412fe29.js": "4bba999a9e244fb421e1403b9267a0e795965e31",
     "/main-es5.bd70c92d2227b51ef8fa.js": "80ddc57926c0961884ef7b834cc7faaf7a060af8",
     "/polyfills-es2015.bcac694c9e98cb4f56f3.js": "365644ee17e21969b6e965e4f4490195912fec17",
     "/polyfills-es5.eb3beb9586a1fa35b053.js": "215382c1e2a515ccc8572cd3b77c498ff1a9a7c5",
     "/runtime-es2015.49aadfb7bd9a340e3499.js": "04d4f94e675642a09a5d435dc6ad75326eac76db",
     "/runtime-es5.6692f3f098f8b6363ca4.js": "27dd704232b3b77dffe97c007f0b6793ca7bd628",
-    "/styles.b195fef6fab0f1c78b05.css": "d0bd8feb6faf3154dd6e45daa93de9297e7c198a"
+    "/styles.0cc716994728fc77556f.css": "008a59c2c3e1805a1785a25d4ec96f95c7408b5f"
   },
   "navigationUrls": [
     {
