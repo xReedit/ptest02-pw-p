@@ -14,6 +14,8 @@ var dataCliente;
 // var urlApiAutorization =  "https://apitestenv.vnforapps.com/api.authorization/v3/authorization/ecommerce/";
 // var urlJs = "https://static-content-qas.vnforapps.com/v2/js/checkout.js?qa=true";
 
+// aW50ZWdyYWNpb25lcy52aXNhbmV0QG5lY29tcGx1cy5jb206ZDVlN25rJE0=
+
 
 // PROD
 var user = "macraze.info@gmail.com";
@@ -22,7 +24,9 @@ var merchantId = '650149801';
 var urlApiSeguridad = "https://apiprod.vnforapps.com/api.security/v1/security";
 var urlApiSesion = "https://apiprod.vnforapps.com/api.ecommerce/v2/ecommerce/token/session/";
 var urlApiAutorization =  "https://apiprod.vnforapps.com/api.authorization/v3/authorization/ecommerce/";
-var urlJs = "https://static-content.vnforapps.com/v2/js/checkout.js"; bWFjcmF6ZS5pbmZvQGdtYWlsLmNvbTpqMzRPeiFuQg==
+var urlJs = "https://static-content.vnforapps.com/v2/js/checkout.js"; 
+
+// bWFjcmF6ZS5pbmZvQGdtYWlsLmNvbTpqMzRPeiFuQg==
 
 
 function processTransaction(_importe, _purchasenumber, _dataClie) {
@@ -42,7 +46,7 @@ function generarToken() {
     "url": urlApiSeguridad,
     "method": "POST",
     "headers": {
-      "Authorization": "Basic aW50ZWdyYWNpb25lcy52aXNhbmV0QG5lY29tcGx1cy5jb206ZDVlN25rJE0=",
+      "Authorization": "Basic bWFjcmF6ZS5pbmZvQGdtYWlsLmNvbTpqMzRPeiFuQg==",
       "Accept": "*/*"
     }
   }

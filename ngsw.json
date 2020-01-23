@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1579774517529,
+  "timestamp": 1579774808029,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -32,7 +32,7 @@
         "/polyfills-es5.ef468bf00a74522da146.js",
         "/runtime-es2015.f2141db1ccd576fb500a.js",
         "/runtime-es5.6b9143b94be805d16226.js",
-        "/scripts.a70ecc3012d331891073.js",
+        "/scripts.4863fdc7f271b977b275.js",
         "/styles.0cc716994728fc77556f.css"
       ],
       "patterns": []
@@ -332,21 +332,21 @@
     "/assets/images/papaya_text.png": "097d1afa7de934de4d58ded8609690e8058fc8b3",
     "/assets/images/reactions_1.gif": "20873c10c432b2569094bdda8e1afcec00491ca0",
     "/assets/images/success.gif": "4a23e6e973af6d9cc537853bb8f0c1d918049532",
-    "/assets/js/boton-pago.js": "691c2b25846c316573c879926ebc34db6ee3f162",
+    "/assets/js/boton-pago.js": "239ea6482c4ee2e776127921c2032a440d360052",
     "/assets/js/jquery.js": "2115753ca5fb7032aec498db7bb5dca624dbe6be",
     "/assets/js/pwa-i.js": "c87537848e234870638ff062d6b6130fddb9258b",
     "/assets/vendor/animate/animate.css": "4c9f94bcce8734f290a3d0f40a97866a7ef7a316",
     "/common-es2015.1c32ad37b5c09f7ad284.js": "3cf44957e5d08965a83be16866299fcc8d683e16",
     "/common-es5.03f716d761a5eeb7650d.js": "c590a26ed1609544d40c57d7f18f5ce62b7b35e8",
     "/favicon.ico": "f8af8972475568f695ade19cb00a8540448b871f",
-    "/index.html": "6158a444fb25c2086f52ff7c0e4964ea2f405a6b",
+    "/index.html": "9a71bcc753c93e1d789d9ea773ddfd42144b24eb",
     "/main-es2015.3ddf23a9a93e3b80840e.js": "d09d370ab850265e1e9ca451140a8601ec444721",
     "/main-es5.3782cb79c16ae19a3b8c.js": "74698cc18182d7fb0a7199eb707bd179d590d5af",
     "/polyfills-es2015.5926bc4f87fd13489e37.js": "c6df86c17a40fdab95ba54fc349e876c93d8da18",
     "/polyfills-es5.ef468bf00a74522da146.js": "11788a326920287983690d95c5bc4baba46fb23e",
     "/runtime-es2015.f2141db1ccd576fb500a.js": "a207d414dbf9a5f34fe30504211ff01b32ef3fb3",
     "/runtime-es5.6b9143b94be805d16226.js": "9b67ffaadf3c0ada61ae3c97d972e25dae40d655",
-    "/scripts.a70ecc3012d331891073.js": "549e9dfbac09039b0e28eb4932423fd593aea3bb",
+    "/scripts.4863fdc7f271b977b275.js": "419b30d06ec29cbb2684c9e61718aceae8a3f392",
     "/styles.0cc716994728fc77556f.css": "008a59c2c3e1805a1785a25d4ec96f95c7408b5f"
   },
   "navigationUrls": [
