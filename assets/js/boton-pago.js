@@ -1,6 +1,3 @@
-// var user = "integraciones.visanet@necomplus.com";
-// var password = "d5e7nk$M";
-
 var importe;
 var purchasenumber;
 var cargando_transaction = false;
@@ -36,7 +33,27 @@ function processTransaction(_importe, _purchasenumber, _dataClie) {
   
   loaderTransaction(0);
   loaderTransactionResponse(null, false);
-  generarToken();
+  getIpCliente();
+}
+
+function getIpCliente() {
+  $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
+      function(json) {
+        dataCliente.ip = json.ip;     
+        
+        // antifraude
+        dataCliente.antifraud = {
+          "clientIp": dataCliente.ip,
+          "merchantDefineData":{
+            "MDD1": merchantId,
+            "MDD2": dataCliente.nombre + ' ' + dataCliente.apellido,
+            "MDD3":"web"
+          }
+        };
+
+        generarToken();
+      }
+    );
 }
 
 function generarToken() {
@@ -64,8 +81,8 @@ function generarSesion(token) {
   var data = {
     "amount": importe,
     "antifraud": null,
-    "channel": "web",
-    "recurrenceMaxAmount": null
+    "channel": "web"
+    // "recurrenceMaxAmount": null
   };
 
   var settings = {
@@ -81,15 +98,14 @@ function generarSesion(token) {
     "data": JSON.stringify(data)
   }
 
-  $.ajax(settings).done(function (response) {
-    // console.log(response);
+  $.ajax(settings).done(function (response) {    
     generarBoton(response['sessionKey']);
   });
 }
 
 function generarBoton(sessionKey) {  
   var moneda = 'PEN';
-  var logo = 'https://papaya.com.pe/images/logo.png';
+  var logo = '';
   
   /// DEV
   // var nombre = 'Integraciones';
@@ -123,14 +139,14 @@ function generarBoton(sessionKey) {
   scriptEl.setAttribute('src', urlJs);
   scriptEl.setAttribute('data-sessiontoken', sessionKey);
   scriptEl.setAttribute('data-merchantid', merchantId);
-  scriptEl.setAttribute('data-merchantlogo', logo);  
+  // scriptEl.setAttribute('data-merchantlogo', logo);  
   scriptEl.setAttribute('data-purchasenumber', purchasenumber);
   scriptEl.setAttribute('data-channel', 'web');
   scriptEl.setAttribute('data-amount', importe);
   scriptEl.setAttribute('data-cardholdername', nombre);
   scriptEl.setAttribute('data-cardholderlastname', apellido);
   scriptEl.setAttribute('data-cardholderemail', email);
-  scriptEl.setAttribute('data-timeouturl', "javascript:responseForm(self)");
+  scriptEl.setAttribute('data-timeouturl', "timeout.html");
   document.getElementById("boton_pago").appendChild(scriptEl);
 
   document.getElementById("btn-disabled").classList.add("btn-hidden");
@@ -155,19 +171,47 @@ function generateAutorizacion(transactionToken) {
         "antifraud" : null,
         "captureType" : "manual",
         "channel" : "web",
-        "countable" : false,
+        "countable" : true,
         "order" : {
             "amount" : importe,
             "tokenId" : transactionToken,
             "purchaseNumber" : purchasenumber,
             "currency" : "PEN"
-        }
-    };
+        },
+        "recurrence": null,
+        "sponsored": null
+  };
 
   const _url = urlApiAutorization + merchantId;
 
+  // var settings = {
+  //   "async": true,
+  //   "crossDomain": true,
+  //   "url": _url,
+  //   "method": "POST",
+  //   "headers": {
+  //     "Authorization": token,
+  //     "Content-Type": "application/json",
+  //   },
+  //   "processData": false,
+  //   "data": JSON.stringify(data)
+  // }
+
+  // $.ajax(settings)
+  //   .done(function (res) {    
+  //     const hayError = res.errorCode ? true : false;
+  //     loaderTransaction(0);            
+  //     loaderTransactionResponse(res, hayError);
+  //   }).fail(function (error) {
+  //     loaderTransaction(0);
+  //     loaderTransactionResponse(error, true);
+  //   });
+
+
+
   fetch(_url, {
       method: 'POST',
+      // mode: 'cors',
       headers: {
         "Authorization": token,
         "Content-Type": 'application/json'
