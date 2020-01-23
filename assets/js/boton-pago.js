@@ -25,7 +25,7 @@ var urlApiAutorization =  "https://apiprod.vnforapps.com/api.authorization/v3/au
 var urlJs = "https://static-content.vnforapps.com/v2/js/checkout.js"; bWFjcmF6ZS5pbmZvQGdtYWlsLmNvbTpqMzRPeiFuQg==
 
 
-function pagar(_importe, _purchasenumber, _dataClie) {
+function processTransaction(_importe, _purchasenumber, _dataClie) {
   importe = _importe;
   purchasenumber = _purchasenumber;
   dataCliente = _dataClie;
