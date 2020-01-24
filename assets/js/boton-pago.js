@@ -3,6 +3,8 @@ var purchasenumber;
 var cargando_transaction = false;
 var dataCliente;
 
+// 240120 - last update.
+
 // var user = "integraciones.visanet@necomplus.com";
 // var password = "d5e7nk$M";
 // var merchantId = '522591303';
@@ -26,35 +28,16 @@ var urlJs = "https://static-content.vnforapps.com/v2/js/checkout.js";
 // bWFjcmF6ZS5pbmZvQGdtYWlsLmNvbTpqMzRPeiFuQg==
 
 
-function processTransaction(_importe, _purchasenumber, _dataClie) {
-  importe = _importe;
+function pagar(_importe, _purchasenumber, _dataClie) {
+  importe = parseFloat(_importe).toFixed(2).toString();  
   purchasenumber = _purchasenumber;
   dataCliente = _dataClie;
   
   loaderTransaction(0);
-  loaderTransactionResponse(null, false);
-  getIpCliente();
+  loaderTransactionResponse(null, false);  
+  generarToken();
 }
 
-function getIpCliente() {
-  $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
-      function(json) {
-        dataCliente.ip = json.ip;     
-        
-        // antifraude
-        dataCliente.antifraud = {
-          "clientIp": dataCliente.ip,
-          "merchantDefineData":{
-            "MDD1": merchantId,
-            "MDD2": dataCliente.nombre + ' ' + dataCliente.apellido,
-            "MDD3":"web"
-          }
-        };
-
-        generarToken();
-      }
-    );
-}
 
 function generarToken() {
   var settings = {
@@ -81,8 +64,8 @@ function generarSesion(token) {
   var data = {
     "amount": importe,
     "antifraud": null,
-    "channel": "web"
-    // "recurrenceMaxAmount": null
+    "channel": "web",
+    "recurrenceMaxAmount": null
   };
 
   var settings = {
@@ -105,7 +88,7 @@ function generarSesion(token) {
 
 function generarBoton(sessionKey) {  
   var moneda = 'PEN';
-  var logo = '';
+  var logo = 'https://papaya.com.pe/images/logo.png';
   
   /// DEV
   // var nombre = 'Integraciones';
@@ -130,34 +113,42 @@ function generarBoton(sessionKey) {
   
 
   var form = document.createElement("form");
-  form.setAttribute('method', "post");
-  form.setAttribute('action', "javascript:responseForm(self)");
-  form.setAttribute('id', "boton_pago");
+  form.setAttribute('method', "post");      
+  form.setAttribute('action', 'javascript:responseForm(self)');
+  form.setAttribute('id', "boton_pago");  
   document.getElementById("btn_pago").appendChild(form);
 
   let scriptEl = document.createElement('script');
   scriptEl.setAttribute('src', urlJs);
   scriptEl.setAttribute('data-sessiontoken', sessionKey);
-  scriptEl.setAttribute('data-merchantid', merchantId);
-  // scriptEl.setAttribute('data-merchantlogo', logo);  
-  scriptEl.setAttribute('data-purchasenumber', purchasenumber);
   scriptEl.setAttribute('data-channel', 'web');
+  scriptEl.setAttribute('data-merchantid', merchantId);
+  
+  scriptEl.setAttribute('data-purchasenumber', purchasenumber);
   scriptEl.setAttribute('data-amount', importe);
+  
+  scriptEl.setAttribute('data-merchantlogo', logo);  
+    
+  scriptEl.setAttribute('data-expirationminutes', 8);
+  scriptEl.setAttribute('data-timeouturl', "javascript:responseForm(self)");
+
   scriptEl.setAttribute('data-cardholdername', nombre);
   scriptEl.setAttribute('data-cardholderlastname', apellido);
   scriptEl.setAttribute('data-cardholderemail', email);
-  scriptEl.setAttribute('data-timeouturl', "timeout.html");
+  scriptEl.setAttribute('data-usertoken', dataCliente.idcliente);
+
   document.getElementById("boton_pago").appendChild(scriptEl);
 
   document.getElementById("btn-disabled").classList.add("btn-hidden");
 
 }
 
+
 function responseForm(event) {
   // console.log('respuesta', event.message.args[0]);
   loaderTransaction(1);
 
-  const data = event.message.args[0];
+  const data = this.message.args[0];
   transactionToken  = data.token;
   
   generateAutorizacion(transactionToken);
@@ -171,47 +162,19 @@ function generateAutorizacion(transactionToken) {
         "antifraud" : null,
         "captureType" : "manual",
         "channel" : "web",
-        "countable" : true,
+        "countable" : false,
         "order" : {
             "amount" : importe,
-            "tokenId" : transactionToken,
+            "currency" : "PEN",
             "purchaseNumber" : purchasenumber,
-            "currency" : "PEN"
-        },
-        "recurrence": null,
-        "sponsored": null
+            "tokenId" : transactionToken,
+        }
   };
 
   const _url = urlApiAutorization + merchantId;
 
-  // var settings = {
-  //   "async": true,
-  //   "crossDomain": true,
-  //   "url": _url,
-  //   "method": "POST",
-  //   "headers": {
-  //     "Authorization": token,
-  //     "Content-Type": "application/json",
-  //   },
-  //   "processData": false,
-  //   "data": JSON.stringify(data)
-  // }
-
-  // $.ajax(settings)
-  //   .done(function (res) {    
-  //     const hayError = res.errorCode ? true : false;
-  //     loaderTransaction(0);            
-  //     loaderTransactionResponse(res, hayError);
-  //   }).fail(function (error) {
-  //     loaderTransaction(0);
-  //     loaderTransactionResponse(error, true);
-  //   });
-
-
-
   fetch(_url, {
       method: 'POST',
-      // mode: 'cors',
       headers: {
         "Authorization": token,
         "Content-Type": 'application/json'
