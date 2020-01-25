@@ -13,6 +13,8 @@ var dataCliente;
 // var urlApiAutorization =  "https://apitestenv.vnforapps.com/api.authorization/v3/authorization/ecommerce/";
 // var urlJs = "https://static-content-qas.vnforapps.com/v2/js/checkout.js?qa=true";
 
+// var logo = 'http://web-p.test:8080/images/l-pay-2.png';
+
 // aW50ZWdyYWNpb25lcy52aXNhbmV0QG5lY29tcGx1cy5jb206ZDVlN25rJE0=
 
 
@@ -24,6 +26,7 @@ var urlApiSeguridad = "https://apiprod.vnforapps.com/api.security/v1/security";
 var urlApiSesion = "https://apiprod.vnforapps.com/api.ecommerce/v2/ecommerce/token/session/";
 var urlApiAutorization =  "https://apiprod.vnforapps.com/api.authorization/v3/authorization/ecommerce/";
 var urlJs = "https://static-content.vnforapps.com/v2/js/checkout.js"; 
+var logo = 'https://papaya.com.pe/images/l-pay-2.png';
 
 // bWFjcmF6ZS5pbmZvQGdtYWlsLmNvbTpqMzRPeiFuQg==
 
@@ -35,6 +38,22 @@ function pagar(_importe, _purchasenumber, _dataClie) {
   
   loaderTransaction(0);
   loaderTransactionResponse(null, false);  
+  getIpCliente()
+  // generarToken();
+}
+
+function getIpCliente() {
+
+  // antifraude
+  dataCliente.antifraud = {
+    "clientIp": dataCliente.ip,
+    "merchantDefineData":{
+      "MDD4": dataCliente.email,            
+      "MDD32": dataCliente.idcliente,
+      "MDD75": "Invitado",
+      "MDD77": dataCliente.diasRegistrado            
+    }
+  };
   generarToken();
 }
 
@@ -77,9 +96,12 @@ function generarSesion(token) {
       "Authorization": token,
       "Content-Type": "application/json",
     },
+    "dataMap": {
+      "userToken": dataCliente.email
+    },
     "processData": false,
     "data": JSON.stringify(data)
-  }
+  };
 
   $.ajax(settings).done(function (response) {    
     generarBoton(response['sessionKey']);
@@ -87,8 +109,7 @@ function generarSesion(token) {
 }
 
 function generarBoton(sessionKey) {  
-  var moneda = 'PEN';
-  var logo = 'https://papaya.com.pe/images/logo.png';
+  var moneda = 'PEN';  
   
   /// DEV
   // var nombre = 'Integraciones';
@@ -118,7 +139,7 @@ function generarBoton(sessionKey) {
   form.setAttribute('id', "boton_pago");  
   document.getElementById("btn_pago").appendChild(form);
 
-  let scriptEl = document.createElement('script');
+  var scriptEl = document.createElement('script');
   scriptEl.setAttribute('src', urlJs);
   scriptEl.setAttribute('data-sessiontoken', sessionKey);
   scriptEl.setAttribute('data-channel', 'web');
@@ -135,7 +156,7 @@ function generarBoton(sessionKey) {
   scriptEl.setAttribute('data-cardholdername', nombre);
   scriptEl.setAttribute('data-cardholderlastname', apellido);
   scriptEl.setAttribute('data-cardholderemail', email);
-  scriptEl.setAttribute('data-usertoken', dataCliente.idcliente);
+  scriptEl.setAttribute('data-usertoken', dataCliente.email);
 
   document.getElementById("boton_pago").appendChild(scriptEl);
 
@@ -148,7 +169,7 @@ function responseForm(event) {
   // console.log('respuesta', event.message.args[0]);
   loaderTransaction(1);
 
-  const data = this.message.args[0];
+  var data = this.message.args[0];
   transactionToken  = data.token;
   
   generateAutorizacion(transactionToken);
@@ -159,7 +180,7 @@ function generateAutorizacion(transactionToken) {
   cargando_transaction = true;
   var token = localStorage.getItem("token");
   var  data = { 
-        "antifraud" : null,
+        "antifraud" : dataCliente.antifraud,
         "captureType" : "manual",
         "channel" : "web",
         "countable" : false,
@@ -171,7 +192,7 @@ function generateAutorizacion(transactionToken) {
         }
   };
 
-  const _url = urlApiAutorization + merchantId;
+  var _url = urlApiAutorization + merchantId;
 
   fetch(_url, {
       method: 'POST',
@@ -186,7 +207,7 @@ function generateAutorizacion(transactionToken) {
     })
     .then((res) => {
       // console.log(res);
-      const hayError = res.errorCode ? true : false;
+      var hayError = res.errorCode ? true : false;
       loaderTransaction(0);            
       loaderTransactionResponse(res, hayError);
     })
