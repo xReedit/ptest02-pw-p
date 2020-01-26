@@ -12,7 +12,6 @@ var dataCliente;
 // var urlApiSesion = "https://apitestenv.vnforapps.com/api.ecommerce/v2/ecommerce/token/session/";
 // var urlApiAutorization =  "https://apitestenv.vnforapps.com/api.authorization/v3/authorization/ecommerce/";
 // var urlJs = "https://static-content-qas.vnforapps.com/v2/js/checkout.js?qa=true";
-
 // var logo = 'http://web-p.test:8080/images/l-pay-2.png';
 
 // aW50ZWdyYWNpb25lcy52aXNhbmV0QG5lY29tcGx1cy5jb206ZDVlN25rJE0=
@@ -38,7 +37,7 @@ function pagar(_importe, _purchasenumber, _dataClie) {
   
   loaderTransaction(0);
   loaderTransactionResponse(null, false);  
-  getIpCliente()
+  getIpCliente();
   // generarToken();
 }
 
@@ -51,7 +50,9 @@ function getIpCliente() {
       "MDD4": dataCliente.email,            
       "MDD32": dataCliente.idcliente,
       "MDD75": "Invitado",
-      "MDD77": dataCliente.diasRegistrado            
+      "MDD77": dataCliente.diasRegistrado,
+      "MDD89": "1"
+      // "MDD70": "1", // correo electronico confirmado
     }
   };
   generarToken();
@@ -68,7 +69,7 @@ function generarToken() {
       "Authorization": "Basic bWFjcmF6ZS5pbmZvQGdtYWlsLmNvbTpqMzRPeiFuQg==",
       "Accept": "*/*"
     }
-  }
+  };
 
   $.ajax(settings).done(function (response) {
     // console.log(response);
