@@ -51,8 +51,8 @@ function getIpCliente() {
       "MDD32": dataCliente.idcliente,
       "MDD75": "Invitado",
       "MDD77": dataCliente.diasRegistrado,
-      "MDD70": "1", // correo electronico confirmado
       "MDD89": "1"
+      // "MDD70": "1", // correo electronico confirmado
     }
   };
   generarToken();
@@ -157,7 +157,7 @@ function generarBoton(sessionKey) {
   scriptEl.setAttribute('data-cardholdername', nombre);
   scriptEl.setAttribute('data-cardholderlastname', apellido);
   scriptEl.setAttribute('data-cardholderemail', email);
-  scriptEl.setAttribute('data-usertoken', dataCliente.email);
+  scriptEl.setAttribute('data-usertoken', dataCliente.idcliente);
 
   document.getElementById("boton_pago").appendChild(scriptEl);
 
