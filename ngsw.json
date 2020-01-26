@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1580012383428,
+  "timestamp": 1580012881230,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -32,7 +32,7 @@
         "/polyfills-es5.ccda543e0debdfe242a6.js",
         "/runtime-es2015.646eb964820daf14c2a8.js",
         "/runtime-es5.505c6d8d6ec8aeb591b0.js",
-        "/scripts.e345538ae8fc88d6682f.js",
+        "/scripts.76bfb6bba719317f0fff.js",
         "/styles.0cc716994728fc77556f.css"
       ],
       "patterns": []
@@ -334,21 +334,21 @@
     "/assets/images/reactions_1.gif": "20873c10c432b2569094bdda8e1afcec00491ca0",
     "/assets/images/success.gif": "4a23e6e973af6d9cc537853bb8f0c1d918049532",
     "/assets/images/verified-visa.png": "b3a3b5aa5878bf1ded543bd25504dfc710a92fa7",
-    "/assets/js/boton-pago.js": "63224374426fb239381c4a6c5747c2798f222d0e",
+    "/assets/js/boton-pago.js": "a20d63a51f58ef9de1999ea58f3ac4662a2e2ab6",
     "/assets/js/jquery.js": "2115753ca5fb7032aec498db7bb5dca624dbe6be",
     "/assets/js/pwa-i.js": "c87537848e234870638ff062d6b6130fddb9258b",
     "/assets/vendor/animate/animate.css": "4c9f94bcce8734f290a3d0f40a97866a7ef7a316",
     "/common-es2015.a8530147e6136bd8d5fc.js": "a1a5ac18ddb804993e21a0cde7ccb38fff0717f5",
     "/common-es5.fca343e7d4e2ed2b184d.js": "c50646fce0f9d27b31ad9bf8e20e08c3f075a8ba",
     "/favicon.ico": "f8af8972475568f695ade19cb00a8540448b871f",
-    "/index.html": "4a5be78218bf7457f1e512e8102bd523bbbe739e",
+    "/index.html": "6765f7b0689534ce5ad00d23d5daa11a26b4d12b",
     "/main-es2015.cf69011c1f877bd782b0.js": "f3fa9cf31cabd868bc0533b48794675a4336b463",
     "/main-es5.3c597f6585c9cdc8c7fb.js": "0ec4310c38031045db7bf2511b2fb6bb15418293",
     "/polyfills-es2015.5926bc4f87fd13489e37.js": "c6df86c17a40fdab95ba54fc349e876c93d8da18",
     "/polyfills-es5.ccda543e0debdfe242a6.js": "b05bd25cb0c9c7049f099bd6c26a812d6faadc7b",
     "/runtime-es2015.646eb964820daf14c2a8.js": "f96c31e4ee615e819421605a3f6f93fe990175f8",
     "/runtime-es5.505c6d8d6ec8aeb591b0.js": "bc6c6c1e747f7c3a01dc570bcbf4a3fa4ad55cb1",
-    "/scripts.e345538ae8fc88d6682f.js": "4d67cb54eab66e56651bbed45ab7be39d3e3dfb4",
+    "/scripts.76bfb6bba719317f0fff.js": "91a129945ab971a800a05e0dc6656db861fc7d40",
     "/styles.0cc716994728fc77556f.css": "008a59c2c3e1805a1785a25d4ec96f95c7408b5f"
   },
   "navigationUrls": [

@@ -51,8 +51,8 @@ function getIpCliente() {
       "MDD32": dataCliente.idcliente,
       "MDD75": "Invitado",
       "MDD77": dataCliente.diasRegistrado,
+      "MDD70": "1", // correo electronico confirmado
       "MDD89": "1"
-      // "MDD70": "1", // correo electronico confirmado
     }
   };
   generarToken();
