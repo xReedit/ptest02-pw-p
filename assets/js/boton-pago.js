@@ -129,7 +129,7 @@ function generarBoton(sessionKey) {
     "apellido": apellido,
     "importe": importe,
     "email": email
-  }
+  };
 
   localStorage.setItem("data", JSON.stringify(json));  
   
