@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1580127523777,
+  "timestamp": 1580165069418,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -32,7 +32,7 @@
         "/polyfills-es5.ef468bf00a74522da146.js",
         "/runtime-es2015.d2593650fdfa94b7594d.js",
         "/runtime-es5.06a351e9032ad57ae5a9.js",
-        "/scripts.42b3da81c62e9392c4be.js",
+        "/scripts.65dbfd794b7ccbe80ac2.js",
         "/styles.0cc716994728fc77556f.css"
       ],
       "patterns": []
@@ -340,21 +340,21 @@
     "/assets/images/solicitar-atencion.png": "3b76c4d08d94bcd39b7fecf6ffb342e34d3a774e",
     "/assets/images/success.gif": "4a23e6e973af6d9cc537853bb8f0c1d918049532",
     "/assets/images/verified-visa.png": "b3a3b5aa5878bf1ded543bd25504dfc710a92fa7",
-    "/assets/js/boton-pago.js": "8092dc62865bdb4d52b296470b238317e2ce61a5",
+    "/assets/js/boton-pago.js": "92e893303894a974d44425647ff47d00b8a5d83b",
     "/assets/js/jquery.js": "2115753ca5fb7032aec498db7bb5dca624dbe6be",
     "/assets/js/pwa-i.js": "c87537848e234870638ff062d6b6130fddb9258b",
     "/assets/vendor/animate/animate.css": "4c9f94bcce8734f290a3d0f40a97866a7ef7a316",
     "/common-es2015.bf0138da7cd61b9e2713.js": "041acd25ac3510cb3f4d88af06ee984d7afbcd5b",
     "/common-es5.e1ea36ddf67a3cefdd44.js": "55dc99e2d8df3c5d3295c41d9dc1b47c02b9ac06",
     "/favicon.ico": "f8af8972475568f695ade19cb00a8540448b871f",
-    "/index.html": "6417478a4d7eb5caa20ca15b08ed144a1e9f68f8",
+    "/index.html": "be54d52a2d328cafb94a2e32fe2341ad2472fcdb",
     "/main-es2015.a0ea850910a89c7830c4.js": "90d2fb4b7796ddb25c6efadf52c073aa4419f341",
     "/main-es5.0456388727a4c89b2b74.js": "a8b450ab743a611963df35e5157705eb83245cce",
     "/polyfills-es2015.5926bc4f87fd13489e37.js": "c6df86c17a40fdab95ba54fc349e876c93d8da18",
     "/polyfills-es5.ef468bf00a74522da146.js": "11788a326920287983690d95c5bc4baba46fb23e",
     "/runtime-es2015.d2593650fdfa94b7594d.js": "9a40cc9f0a599de2cbb6ef4564606f60e6452afc",
     "/runtime-es5.06a351e9032ad57ae5a9.js": "4441b52376c433b836eea8b06017a21f3a13461b",
-    "/scripts.42b3da81c62e9392c4be.js": "15d6ba2b434dc9620636e72085cd17cb5fc5f02e",
+    "/scripts.65dbfd794b7ccbe80ac2.js": "672ff496038b449d7ad83d75917de3cc3057b40f",
     "/styles.0cc716994728fc77556f.css": "008a59c2c3e1805a1785a25d4ec96f95c7408b5f"
   },
   "navigationUrls": [
