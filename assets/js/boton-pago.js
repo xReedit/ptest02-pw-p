@@ -159,7 +159,7 @@ function generarBoton(sessionKey) {
   scriptEl.setAttribute('data-cardholdername', nombre);
   scriptEl.setAttribute('data-cardholderlastname', apellido);
   scriptEl.setAttribute('data-cardholderemail', email);
-  scriptEl.setAttribute('data-usertoken', dataCliente.email_token);
+  scriptEl.setAttribute('data-usertoken', email);
 
   document.getElementById("boton_pago").appendChild(scriptEl);
 
