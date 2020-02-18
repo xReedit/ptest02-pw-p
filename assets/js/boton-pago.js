@@ -4,7 +4,7 @@ var cargando_transaction = false;
 var dataCliente;
 
 // 240120 - last update.
-
+// DEV
 // var user = "integraciones.visanet@necomplus.com";
 // var password = "d5e7nk$M";
 // var merchantId = '522591303';
