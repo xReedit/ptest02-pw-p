@@ -470,6 +470,17 @@ p, span, div {
 	  background: white;
 	  border-radius: 5px;
   }
+
+  .header-app {
+		/* background: #003770; */
+		background: #3f51b5;
+		color: white;
+		width: 100%;
+
+		top: 0;    
+		position: fixed;
+		z-index: 1;
+	}
   
   @-webkit-keyframes sk-scaleout {
 	0% { -webkit-transform: scale(0) }
