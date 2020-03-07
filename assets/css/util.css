@@ -473,13 +473,19 @@ p, span, div {
 
   .header-app {
 		/* background: #003770; */
+		position: relative;
 		background: #3f51b5;
 		color: white;
 		width: 100%;
 
 		top: 0;    
-		position: fixed;
+		/* position: fixed; */
 		z-index: 1;
+	}
+
+.content-body-app {
+		height: 100vh;
+		background: #E5EFF7;
 	}
   
   @-webkit-keyframes sk-scaleout {
