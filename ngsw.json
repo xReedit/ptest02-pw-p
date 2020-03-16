@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1584354523501,
+  "timestamp": 1584355990349,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -55,6 +55,7 @@
         "/assets/comercios/res-sancarlos.jpg",
         "/assets/css/bootstrap.min.css",
         "/assets/css/loader.css",
+        "/assets/css/update-v1.css",
         "/assets/css/util.css",
         "/assets/css/waves.css",
         "/assets/fonts/font-awesome-4.7.0/HELP-US-OUT.txt",
@@ -236,7 +237,8 @@
     "/assets/comercios/res-sancarlos.jpg": "190c195ea19740004b063564803604941f0e1c57",
     "/assets/css/bootstrap.min.css": "da53279c601607c8b4116f8ccf0ec8bd70215c9f",
     "/assets/css/loader.css": "e66efdfc0bc9da17ec265fc0ddbd31bc983c0218",
-    "/assets/css/util.css": "a33be2ba9ba05f54d7d69451df192e53be9c23b2",
+    "/assets/css/update-v1.css": "dc30554dbfa3c31e54de9492237f9c8b500dae2d",
+    "/assets/css/util.css": "77bec5654ce0c8c7f5ddc4a11ceb331d3b50ad13",
     "/assets/css/waves.css": "c40bf85b0da525843917bfaaa4a51571af400c25",
     "/assets/fonts/font-awesome-4.7.0/HELP-US-OUT.txt": "4f7bf961f1bed448f6ba99aeb9219fabf930ba96",
     "/assets/fonts/font-awesome-4.7.0/css/font-awesome.css": "0140952c64e3f2b74ef64e050f2fe86eab6624c8",
@@ -387,7 +389,7 @@
     "/common-es2015.944009c6fe84d2123a98.js": "513a51b61ff1302f933ccd53c444e007a9063ce9",
     "/common-es5.f5370425ef9fda9ba75b.js": "82e1095f4066777546a00dbbe47ade7c50110f84",
     "/favicon.ico": "f8af8972475568f695ade19cb00a8540448b871f",
-    "/index.html": "49f2109415fdeedb9e4d459bc86a4c549c91241e",
+    "/index.html": "2ee2ea97fe399305131f3980e22e7c8bb73eedcc",
     "/main-es2015.3616342dfbc1468c1d0f.js": "98316bb93f8f0ad929e6b71b3e4088fcc8a04a6e",
     "/main-es5.5b4552066336b7bbe681.js": "fda8af82c8e229ab3b016893c411c381c09c5eef",
     "/polyfills-es2015.473b5b77bf9ada089f73.js": "a91088d1717bf0631e20f19b3542084e914e6d70",
