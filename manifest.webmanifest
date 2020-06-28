@@ -48,6 +48,32 @@
       "src": "assets/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "assets/icons-ios/apple-launch-750x1334.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons-ios/apple-launch-828x1792.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons-ios/apple-launch-1125x2436.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons-ios/apple-launch-1242x2208.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons-ios/apple-launch-1242x2688.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
+
   ]
 }
