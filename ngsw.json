@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1595583865227,
+  "timestamp": 1595606375525,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -41,7 +41,7 @@
         "/polyfills-es5.d2a1c58605deaa696b6d.js",
         "/runtime-es2015.77b6c99e461dc33688fa.js",
         "/runtime-es5.77b6c99e461dc33688fa.js",
-        "/scripts.1f041432b50937e57252.js",
+        "/scripts.bdccf13af7b08c955ebe.js",
         "/styles.a2a6086e269cae5b4e0f.css"
       ],
       "patterns": []
@@ -907,7 +907,7 @@
     "/assets/images/star-rating.icons.svg": "c9b2ed31d6a095b618987d52defd38a28dea458c",
     "/assets/images/success.gif": "4a23e6e973af6d9cc537853bb8f0c1d918049532",
     "/assets/images/verified-visa.png": "b3a3b5aa5878bf1ded543bd25504dfc710a92fa7",
-    "/assets/js/boton-pago.js": "90bb56e8354d92dae298465fe2476d391a42278a",
+    "/assets/js/boton-pago.js": "e180e4a2232a945577f69655c218d9ab49bbfdf3",
     "/assets/js/jquery.js": "2115753ca5fb7032aec498db7bb5dca624dbe6be",
     "/assets/js/pwa-i.js": "c4828aea2a127fb10d8344a5f7fe665fe717eaad",
     "/assets/js/sw-push.js": "4a6afa8ece1bb921acc79ee6727e6e11af41773b",
@@ -915,14 +915,14 @@
     "/common-es2015.0d12ca2ca3871a263b57.js": "1e9596f49bdc04536a728346a433682e882af79c",
     "/common-es5.0d12ca2ca3871a263b57.js": "5d6919140aa20af5ae2780fee77c76190a65c0a7",
     "/favicon.ico": "c8378d32257bb425a55c99661b5f185f69503fcb",
-    "/index.html": "35a4f8b39122de20017fcc2f158dade80ef2b0b6",
+    "/index.html": "4f5a82b3681a492163f7c4a6f5eb907676ac83bb",
     "/main-es2015.b9eb3b2de7ab4451a321.js": "6e852a3e98c48a25755d80f39e5b3369cf341867",
     "/main-es5.b9eb3b2de7ab4451a321.js": "74b7453f9a228bdb67cb4a834e429a726b57d732",
     "/polyfills-es2015.b96b280d56c5d4f4195a.js": "ed8196caaf92f30d700c9beacf94f48d7f0936da",
     "/polyfills-es5.d2a1c58605deaa696b6d.js": "04161ca29d209e8e575be76f47afb14ee945e296",
     "/runtime-es2015.77b6c99e461dc33688fa.js": "2bcbb600f0e3fcfc83d42027ac8327ec89337d13",
     "/runtime-es5.77b6c99e461dc33688fa.js": "f1906e4b27a0e824c8b62d9a4500edff936e0e97",
-    "/scripts.1f041432b50937e57252.js": "dbd7f51b6973e5df4451a83cc00eacf1a8d30809",
+    "/scripts.bdccf13af7b08c955ebe.js": "f1088119f61b2f86ad032ea8c95163c64ef2c10b",
     "/styles.a2a6086e269cae5b4e0f.css": "4267263678f60867dcfcac9df17aa6655bc4d657"
   },
   "navigationUrls": [
