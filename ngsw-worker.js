@@ -1931,7 +1931,25 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
             this.scope.addEventListener('fetch', (event) => this.onFetch(event));
             this.scope.addEventListener('message', (event) => this.onMessage(event));
             this.scope.addEventListener('push', (event) => this.onPush(event));
-            this.scope.addEventListener('notificationclick', (event) => this.onClick(event));
+            // this.scope.addEventListener('notificationclick', (event) => this.onClick(event));
+
+            // agregado funcion click en notificacion 300521
+            this.scope.addEventListener('notificationclick', (event) => {
+                try {
+                    
+                    const _action = event.action;
+                    const _urlAction = event?.notification?.data?.onActionClick[_action] || null;
+                    
+                    if ( _urlAction?.url ) {
+                        clients.openWindow(_urlAction.url);                        
+                    }
+
+                } catch (error) {
+                    this.onClick(event);
+                }
+
+                
+            });
             // The debugger generates debug pages in response to debugging requests.
             this.debugger = new DebugHandler(this, this.adapter);
             // The IdleScheduler will execute idle tasks after a given delay.
