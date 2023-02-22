@@ -613,7 +613,6 @@ let InicioComponent = class InicioComponent {
         setTimeout(() => {
             this.loadAll = true;
             const _infotoken = this.infoToken.getInfoUs();
-            console.log('_infotoken', _infotoken);
             if (_infotoken) {
                 this.infoToken.setIsUsuarioAutorizacion(false);
             }

@@ -10251,6 +10251,8 @@ let ListenStatusService = class ListenStatusService {
         this.isLoaderSendPedido$ = this.isLoaderSendPedidoSource.asObservable();
         this.isFinishLoaderSendPedidoSource = new rxjs_internal_BehaviorSubject__WEBPACK_IMPORTED_MODULE_2__.BehaviorSubject(false);
         this.isFinishLoaderSendPedido$ = this.isFinishLoaderSendPedidoSource.asObservable();
+        this.isMsjConexionLentaSendPedidoSourse = new rxjs_internal_BehaviorSubject__WEBPACK_IMPORTED_MODULE_2__.BehaviorSubject(false);
+        this.isMsjConexionLentaSendPedido$ = this.isMsjConexionLentaSendPedidoSourse.asObservable();
         this.isLoaderCartaSource = new rxjs_internal_BehaviorSubject__WEBPACK_IMPORTED_MODULE_2__.BehaviorSubject(false);
         this.isLoaderCarta$ = this.isLoaderCartaSource.asObservable();
         // observable del metodo de pago seleccionado
@@ -10328,12 +10330,19 @@ let ListenStatusService = class ListenStatusService {
         //   this.isLoaderSendPedidoSource.next(value);
         // }
     }
+    setIisMsjConexionLentaSendPedidoSourse(value) {
+        this.isMsjConexionLentaSendPedidoSourse.next(value);
+    }
+    getIisMsjConexionLentaSendPedidoSourse() {
+        return this.isMsjConexionLentaSendPedidoSourse.getValue();
+    }
     setIsFinishLoaderSendPedidoSource(value) {
         this.isFinishLoaderSendPedidoSource.next(value);
     }
     closeFinishLoaderSendPedidoSource() {
         this.isLoaderSendPedidoSource.next(false);
         this.isFinishLoaderSendPedidoSource.next(false);
+        this.setIisMsjConexionLentaSendPedidoSourse(false);
     }
     setLoaderCarta(value) {
         console.log('setLoaderCarta', value);
@@ -10977,6 +10986,13 @@ let MipedidoService = class MipedidoService {
         // item.subitems_selected = itemInPedido.subitems_selected;
         // item.subitems_view = itemInPedido.subitems_view;
         this.socketService.emit('itemModificado', item);
+        // devuelve temporalmente la cantidad actual a espera del socket
+        // para evitar valores -1
+        // 20022023 acelerar el envio en conexiones lentas
+        if (!isNaN(item.cantidad)) {
+            item.cantidad += sumar ? -1 : 1;
+        }
+        // console.log('item', item);1
         // console.log('listItemsPedido', this.listItemsPedido);
         // console.log('mipedido', this.miPedido);
         // console.log('itemModificado en add', item);
@@ -11869,7 +11885,7 @@ let MipedidoService = class MipedidoService {
             // implement igv 030220
             if (rpt.descripcion === 'I.G.V') {
                 rpt.importe = isActivo ? porcentaje : 0;
-                rptPorcentajes.push(rpt); // solo agrega importe 0 si es IGV
+                // rptPorcentajes.push(rpt); // solo agrega importe 0 si es IGV
             }
             else {
                 rpt.importe = isImpuesto ? isActivo ? importe : 0 : importe;
@@ -12939,17 +12955,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "SocketService": () => (/* binding */ SocketService)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tslib */ 34929);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 22560);
-/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! socket.io-client */ 23751);
-/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/internal/Observable */ 84758);
-/* harmony import */ var _config_config_const__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config/config.const */ 61495);
-/* harmony import */ var src_app_modelos_item_tipoconsumo_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/modelos/item.tipoconsumo.model */ 42991);
-/* harmony import */ var _info_token_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./info-token.service */ 93674);
-/* harmony import */ var rxjs_internal_BehaviorSubject__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/internal/BehaviorSubject */ 88898);
-/* harmony import */ var rxjs_internal_BehaviorSubject__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_BehaviorSubject__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 60124);
+/* harmony import */ var D_Projects_capacitor_pwa_app_pedido_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! tslib */ 34929);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/core */ 22560);
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! socket.io-client */ 23751);
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/internal/Observable */ 84758);
+/* harmony import */ var _config_config_const__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config/config.const */ 61495);
+/* harmony import */ var src_app_modelos_item_tipoconsumo_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/modelos/item.tipoconsumo.model */ 42991);
+/* harmony import */ var _info_token_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./info-token.service */ 93674);
+/* harmony import */ var rxjs_internal_BehaviorSubject__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/internal/BehaviorSubject */ 88898);
+/* harmony import */ var rxjs_internal_BehaviorSubject__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_BehaviorSubject__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ 60124);
+/* harmony import */ var _listen_status_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./listen-status.service */ 70190);
+
+
 
 
 
@@ -12960,478 +12980,569 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SocketService = class SocketService {
-    constructor(infoTockenService, router) {
-        this.infoTockenService = infoTockenService;
-        this.router = router;
-        // private item: ItemModel;
-        this.urlSocket = _config_config_const__WEBPACK_IMPORTED_MODULE_1__.URL_SERVER_SOCKET;
-        this.isSocketOpen = false;
-        this.isSocketOpenReconect = false;
-        // listen is socket open
-        this.isSocketOpenSource = new rxjs_internal_BehaviorSubject__WEBPACK_IMPORTED_MODULE_4__.BehaviorSubject(false);
-        this.isSocketOpen$ = this.isSocketOpenSource.asObservable();
-        this.msjConexSource = new rxjs_internal_BehaviorSubject__WEBPACK_IMPORTED_MODULE_4__.BehaviorSubject('Cargando datos ...');
-        this.msjConex$ = this.msjConexSource.asObservable();
-        this.resTipoConsumo = [];
-        this.verificandoConexion = false;
-    }
-    // _isOutCarta si esta fuera de la carta // si esta en la plataforma de deliverys estableciemientos
-    // isCashAtm si esta desde cash atm
-    connect(infoUser = null, opFrom = 1, _isOutCarta = false, _isCashAtm = false) {
-        if (this.isSocketOpen) {
-            this.infoTockenService.setSocketId(this.socket.id);
-            return;
-        } // para cuando se desconecta y conecta desde el celular
-        // produccion
-        // this.socket = io('/', {
-        //   secure: true,
-        //   rejectUnauthorized: false,
-        //   forceNew: false
-        // });
-        const infToken = this.infoTockenService.infoUsToken || infoUser;
-        const dataSocket = {
-            idorg: infToken.idorg || 0,
-            idsede: infToken.idsede || 0,
-            idusuario: infToken.idusuario,
-            idcliente: infToken.idcliente,
-            iscliente: infToken.isCliente || false,
-            isOutCarta: _isOutCarta,
-            isCashAtm: _isCashAtm,
-            isFromApp: opFrom,
-            firts_socketid: infToken.socketId
-        };
-        // console.log('dataSocket', dataSocket);
-        // desarrollo
-        this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_0__(this.urlSocket, {
-            secure: true,
-            rejectUnauthorized: false,
-            // forceNew: true,
-            query: dataSocket,
-            transports: ['polling'], upgrade: false
-            // forceNew: true
-        });
-        this.listenStatusSocket(); // escucha los estado del socket
-        // this.socket.on('finishLoadDataInitial', () => {
-        //   // setTimeout(() => {
-        //     // this.isSocketOpen = true;
-        //     // this.isSocketOpenSource.next(true);
-        //     this.statusConexSocket(true, '');
-        //     this.isSocketOpenReconect = true; // evita que cargen nuevamente las configuraciones basicas, solo carga carta
-        //   // }, 1000);
-        //   console.log('conected socket finishLoadDataInitial');
-        // });
-        // // this.socket.on('connect', (res: any) => {
-        // //   this.statusConexSocket(true, 'socket event connect');
-        // // });
-        // this.socket.on('connect_failed', (res: any) => {
-        //   console.log('itento fallido de conexion', res);
-        //   this.statusConexSocket(false, 'connect_failed');
-        // });
-        // this.socket.on('connect_error', (res: any) => {
-        //   console.log('error de conexion', res);
-        //   this.statusConexSocket(false, 'connect_error');
-        // });
-        // this.socket.on('disconnect', (res: any) => {
-        //   console.log('disconnect');
-        //   this.statusConexSocket(false, 'disconnect');
-        // });
-        // this.onListenSocketDisconnet();
-    }
-    getIdSocket() {
-        return this.socket.id;
-    }
-    onGetCarta() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('getLaCarta', (res) => {
-                observer.next(res);
-            });
-        });
-    }
-    onGetDataSedeDescuentos() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('getDataSedeDescuentos', (res) => {
-                observer.next(res);
-            });
-        });
-    }
-    onGetTipoConsumo() {
-        // if ( this.isSocketOpen ) { return new Observable(observer => {observer.next(null); }); }
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('getTipoConsumo', (res) => {
-                // this.resTipoConsumo = res;
-                observer.next(res);
-            });
-        });
-    }
-    // onGetTipoConsumo() {
-    //   return this.listen('getTipoConsumo');
-    // }
-    // verificar para eliminar
-    getDataTipoConsumo() {
-        const resTPC = [];
-        this.resTipoConsumo.map((t) => {
-            const _objTpcAdd = new src_app_modelos_item_tipoconsumo_model__WEBPACK_IMPORTED_MODULE_2__.ItemTipoConsumoModel();
-            _objTpcAdd.descripcion = t.descripcion;
-            _objTpcAdd.idtipo_consumo = t.idtipo_consumo;
-            _objTpcAdd.titulo = t.titulo;
-            resTPC.push(_objTpcAdd);
-        });
-        return resTPC;
-    }
-    onItemModificado() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('itemModificado-pwa', (res) => {
-                observer.next(res);
-            });
-        });
-    }
-    // onItemModificado() {
-    //   return this.listen('observer');
-    // }
-    onNuevoItemAddInCarta() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('nuevoItemAddInCarta', (res) => {
-                observer.next(res);
-            });
-        });
-    }
-    // onNuevoItemAddInCarta() {
-    //   return this.listen('nuevoItemAddInCarta');
-    // }
-    // cuando se recupera el stock de pedido que caduco el tiempo
-    onItemResetCant() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('itemResetCant-pwa', (res) => {
-                observer.next(res);
-            });
-        });
-    }
-    // onItemResetCant() {
-    //   return this.listen('itemResetCant');
-    // }
-    // load reglas de la carta y subtotales
-    onReglasCarta() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('getReglasCarta', (res) => {
-                observer.next(res);
-            });
-        });
-    }
-    // onReglasCarta() {
-    //   return this.listen('getReglasCarta');
-    // }
-    // datos de la sede, impresoras
-    // load reglas de la carta y subtotales
-    onGetDatosSede() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('getDataSede', (res) => {
-                observer.next(res);
-            });
-        });
-    }
-    onGetClienteLlama() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('notificar-cliente-llamado', (res) => {
-                observer.next(res);
-            });
-        });
-    }
-    onRemoveClienteLlama() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('notificar-cliente-llamado-remove', (res) => {
-                observer.next(res);
-            });
-        });
-    }
-    onLoadCallClienteLlama() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('load-list-cliente-llamado', (res) => {
-                observer.next(res);
-            });
-        });
-    }
-    // respuesta de hacer un nuevo pedido
-    onGetNuevoPedido() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('nuevoPedido', (res) => {
-                observer.next(res);
-            });
-        });
-    }
-    // cuando el cliente paga el pedido
-    onPedidoPagado() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('pedido-pagado-cliente', (res) => {
-                observer.next(res);
-            });
-        });
-    }
-    onDeliveryPedidoChangeStatus() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('repartidor-notifica-estado-pedido', (estado) => {
-                observer.next(estado);
-            });
-        });
-    }
-    onDeliveryUbicacionRepartidor() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('repartidor-notifica-ubicacion', (coordenadas) => {
-                observer.next(coordenadas);
-            });
-        });
-    }
-    onComercioOpenChangeFromMonitor() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('set-comercio-open-change-from-monitor', (comercioId) => {
-                observer.next(comercioId);
-            });
-        });
-    }
-    // repuesta del mensaje de verificacion
-    onMsjVerificacionResponse() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('mensaje-verificacion-telefono-rpt', (data) => {
-                observer.next(data);
-            });
-        });
-    }
-    // fecha ahora
-    onGetInfoDateNow() {
-        // if ( this.isSocketOpen ) { return new Observable(observer => {observer.next(null); }); }
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('date-now-info', (res) => {
-                // this.resTipoConsumo = res;
-                observer.next(res);
-            });
-        });
-    }
-    // escucha si mesa fue pagada
-    onGetMesaPagada() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('restobar-notifica-pay-pedido-res', (res) => {
-                if (res.importe_restante === 0) { // si es pagado en su totalidad
-                    observer.next(res);
-                }
-            });
-        });
-    }
-    // escucha si hay nuevo pedido en mesa
-    onGetNewPedidoMesa() {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on('nuevoPedido-for-list-mesas', (res) => {
-                // normaliza
-                let pase = false;
-                const _rpt = {
-                    nummesa: '',
-                    nommozo: '',
-                    referencia: '',
-                    flag_is_cliente: 0,
-                    min: 0,
-                    remove: false
-                };
-                let _item_mesa;
-                if (res.m) {
-                    if (res.m !== '') {
-                        _item_mesa = res;
-                        pase = true;
-                    }
-                }
-                else if (res.p_header) {
-                    if (res.p_header.m !== '') {
-                        _item_mesa = res.p_header;
-                        pase = true;
-                    }
-                }
-                if (pase) {
-                    _rpt.nummesa = _item_mesa.m;
-                    _rpt.nommozo = _item_mesa.nom_us;
-                    observer.next(_rpt);
-                }
-            });
-        });
-    }
-    // onDeliveryGetLastIdPedido() {
-    //   return new Observable(observer => {
-    //     this.socket.on('get-lastid-pedido', (res: any) => {
-    //       observer.next(res);
-    //     });
-    //   });
-    // }
-    // zona delivery establecimiento
-    // onGetDatosSede() {
-    //   return this.listen('getDataSede');
-    // }
-    // onListenSocketDisconnet() {
-    //   return new Observable(observer => {
-    //     this.socket.on('disconnect', (res: any) => {
-    //       this.isSocketOpen = false;
-    //       this.isSocketOpenSource.next(false);
-    //     });
-    //   });
-    // }
-    emit(evento, data) {
-        // verificar estado del socket
-        if (this.socket) {
-            this.socket.emit(evento, data);
-        }
-    }
-    emitRes(evento, data) {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.emit(evento, data, (res) => {
-                // console.log('respuesta socket', res);
-                observer.next(res);
-            });
-        });
-    }
-    listen(evento) {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_5__.Observable(observer => {
-            this.socket.on(evento, (res) => {
-                observer.next(res);
-            });
-        });
-    }
-    closeConnection() {
-        try {
-            this.socket.disconnect();
-        }
-        catch (error) { }
-        // this.isSocketOpen = false;
-        // this.isSocketOpenSource.next(false);
-        this.statusConexSocket(false, 'disconnect');
-    }
-    listenStatusSocket() {
-        this.socket.on('finishLoadDataInitial', () => {
-            this.statusConexSocket(true, '');
-            this.isSocketOpenReconect = true; // evita que cargen nuevamente las configuraciones basicas, solo carga carta
-            // console.log('conected socket finishLoadDataInitial');
-        });
-        // estados del navigator
-        window.addEventListener('focus', (event) => {
-            this.verifyConexionSocket();
-        });
-        window.addEventListener('online', () => {
-            this.showStatusConexNavigator(true, 'navigator_online');
-        });
-        window.addEventListener('offline', () => {
-            console.log('out focus');
-            this.showStatusConexNavigator(false, 'navigator_offline');
-        });
-        window.addEventListener('blur', () => {
-            console.log('out focus');
-            // this.showStatusConexNavigator(false, 'navigator_offline');
-        });
-        // estado del socket
-        this.socket.on('connect', () => {
-            // console.log('socket connect');
-            this.infoTockenService.setSocketId(this.socket.id);
-            this.statusConexSocket(true, 'connect');
-            // verifica el tiempo de session
-            if (!this.infoTockenService.verificarContunuarSession()) {
-                this.closeConnection();
-                this.cerrarSessionBeforeTimeSession();
-                return;
-            }
-        });
-        this.socket.on('connect_failed', (res) => {
-            // console.log('itento fallido de conexion', res);
-            this.statusConexSocket(false, 'connect_failed');
-        });
-        this.socket.on('connect_error', (res) => {
-            // console.log('error de conexion', res);
-            this.statusConexSocket(false, 'connect_error');
-        });
-        this.socket.on('disconnect', (res) => {
-            // console.log('disconnect');
-            this.statusConexSocket(false, 'disconnect');
-        });
-        // escucha la verificacion de conexion
-        this.socket.on('verificar-conexion', (res) => {
-            // verifica el tiempo de session
-            if (!this.infoTockenService.verificarContunuarSession()) {
-                this.closeConnection();
-                this.cerrarSessionBeforeTimeSession();
-                return;
-            }
-            if (res === true) {
-                console.log('VERIFY CONECTION => OK');
-                this.verificandoConexion = false;
-                return;
-            }
-            // no hay conexion -- en pruebas ver comportamiento
-            // console.log('VERIFY CONECTION => FALSE');
-            this.closeConnection();
-            this.statusConexSocket(false, 'disconnect');
-            this.cerrarSessionBeforeTimeSession();
-            this.connect();
-            this.verificandoConexion = false;
-        });
-    }
-    statusConexSocket(isConncet, evento) {
-        this.isSocketOpen = isConncet;
-        this.isSocketOpenSource.next(isConncet);
-        let msj = 'Conectando datos ...';
-        switch (evento) {
-            case 'conected': // conectando
-                msj = 'Conectando datos ...';
-                break;
-            case 'connect_failed': // conectando
-                msj = 'Conectando datos ..';
-                this.verificandoConexion = false;
-                break;
-            case 'connect_error': // conectando
-                msj = 'Conectando datos .';
-                this.verificandoConexion = false;
-                break;
-            case 'disconnect': // conectando
-                msj = 'Restableciendo conexion ...';
-                this.verificandoConexion = false;
-                break;
-            case 'navigator_offline': // conectando
-                msj = 'Conexion cerrada -b ...';
-                this.verificandoConexion = false;
-                break;
-            case 'navigator_online': // conectando
-                msj = 'Conectando datos -b ...';
-                break;
-        }
-        this.msjConexSource.next(msj);
-    }
-    showStatusConexNavigator(online, evento) {
-        this.statusConexSocket(online, evento);
-        // this.isSocketOpen = online;
-        // this.isSocketOpenSource.next(online);
-        if (online) {
-            console.log('navegador conectado');
-        }
-        else {
-            console.log('!!! navegador desconectado !!');
-            this.verificandoConexion = false;
-        }
-    }
-    // verifica el estado del socket, si esta cerrado intenta abrirlo
-    verifyConexionSocket() {
-        // console.log('verificando...');
-        if (this.verificandoConexion) {
-            return;
-        }
-        this.verificandoConexion = true;
-        this.emit('verificar-conexion', this.socket.id);
-    }
-    // cierra session despues de que se comprueba que el tiempo de incio se de session supero lo establecido
-    cerrarSessionBeforeTimeSession(reload = false) {
-        this.router.navigate(['../']);
-    }
-};
-SocketService.ctorParameters = () => [
-    { type: _info_token_service__WEBPACK_IMPORTED_MODULE_3__.InfoTockenService },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__.Router }
-];
-SocketService = (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.Injectable)({
-        providedIn: 'root'
-    })
-], SocketService);
+  constructor(infoTockenService, router, listenStatusService) {
+    this.infoTockenService = infoTockenService;
+    this.router = router;
+    this.listenStatusService = listenStatusService; // private item: ItemModel;
 
+    this.urlSocket = _config_config_const__WEBPACK_IMPORTED_MODULE_2__.URL_SERVER_SOCKET;
+    this.isSocketOpen = false;
+    this.isSocketOpenReconect = false; // listen is socket open
+
+    this.isSocketOpenSource = new rxjs_internal_BehaviorSubject__WEBPACK_IMPORTED_MODULE_6__.BehaviorSubject(false);
+    this.isSocketOpen$ = this.isSocketOpenSource.asObservable();
+    this.msjConexSource = new rxjs_internal_BehaviorSubject__WEBPACK_IMPORTED_MODULE_6__.BehaviorSubject('Cargando datos ...');
+    this.msjConex$ = this.msjConexSource.asObservable();
+    this.resTipoConsumo = [];
+    this.verificandoConexion = false;
+  } // _isOutCarta si esta fuera de la carta // si esta en la plataforma de deliverys estableciemientos
+  // isCashAtm si esta desde cash atm
+
+
+  connect(infoUser = null, opFrom = 1, _isOutCarta = false, _isCashAtm = false) {
+    if (this.isSocketOpen) {
+      this.infoTockenService.setSocketId(this.socket.id);
+      return;
+    } // para cuando se desconecta y conecta desde el celular
+    // produccion
+    // this.socket = io('/', {
+    //   secure: true,
+    //   rejectUnauthorized: false,
+    //   forceNew: false
+    // });
+
+
+    const infToken = this.infoTockenService.infoUsToken || infoUser;
+    const dataSocket = {
+      idorg: infToken.idorg || 0,
+      idsede: infToken.idsede || 0,
+      idusuario: infToken.idusuario,
+      idcliente: infToken.idcliente,
+      iscliente: infToken.isCliente || false,
+      isOutCarta: _isOutCarta,
+      isCashAtm: _isCashAtm,
+      isFromApp: opFrom,
+      firts_socketid: infToken.socketId
+    }; // console.log('dataSocket', dataSocket);
+    // desarrollo
+
+    this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_1__(this.urlSocket, {
+      secure: true,
+      rejectUnauthorized: false,
+      forceNew: true,
+      query: dataSocket,
+      transports: ['websocket'] // upgrade: false
+      // forceNew: true
+
+    });
+    this.listenStatusSocket(); // escucha los estado del socket
+    // this.socket.on('finishLoadDataInitial', () => {
+    //   // setTimeout(() => {
+    //     // this.isSocketOpen = true;
+    //     // this.isSocketOpenSource.next(true);
+    //     this.statusConexSocket(true, '');
+    //     this.isSocketOpenReconect = true; // evita que cargen nuevamente las configuraciones basicas, solo carga carta
+    //   // }, 1000);
+    //   console.log('conected socket finishLoadDataInitial');
+    // });
+    // // this.socket.on('connect', (res: any) => {
+    // //   this.statusConexSocket(true, 'socket event connect');
+    // // });
+    // this.socket.on('connect_failed', (res: any) => {
+    //   console.log('itento fallido de conexion', res);
+    //   this.statusConexSocket(false, 'connect_failed');
+    // });
+    // this.socket.on('connect_error', (res: any) => {
+    //   console.log('error de conexion', res);
+    //   this.statusConexSocket(false, 'connect_error');
+    // });
+    // this.socket.on('disconnect', (res: any) => {
+    //   console.log('disconnect');
+    //   this.statusConexSocket(false, 'disconnect');
+    // });
+    // this.onListenSocketDisconnet();
+  }
+
+  getIdSocket() {
+    return this.socket.id;
+  }
+
+  onGetCarta() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('getLaCarta', res => {
+        observer.next(res);
+      });
+    });
+  }
+
+  onGetDataSedeDescuentos() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('getDataSedeDescuentos', res => {
+        observer.next(res);
+      });
+    });
+  }
+
+  onGetTipoConsumo() {
+    // if ( this.isSocketOpen ) { return new Observable(observer => {observer.next(null); }); }
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('getTipoConsumo', res => {
+        // this.resTipoConsumo = res;
+        observer.next(res);
+      });
+    });
+  } // onGetTipoConsumo() {
+  //   return this.listen('getTipoConsumo');
+  // }
+  // verificar para eliminar
+
+
+  getDataTipoConsumo() {
+    const resTPC = [];
+    this.resTipoConsumo.map(t => {
+      const _objTpcAdd = new src_app_modelos_item_tipoconsumo_model__WEBPACK_IMPORTED_MODULE_3__.ItemTipoConsumoModel();
+
+      _objTpcAdd.descripcion = t.descripcion;
+      _objTpcAdd.idtipo_consumo = t.idtipo_consumo;
+      _objTpcAdd.titulo = t.titulo;
+      resTPC.push(_objTpcAdd);
+    });
+    return resTPC;
+  }
+
+  onItemModificado() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('itemModificado-pwa', res => {
+        observer.next(res);
+      });
+    });
+  } // onItemModificado() {
+  //   return this.listen('observer');
+  // }
+
+
+  onNuevoItemAddInCarta() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('nuevoItemAddInCarta', res => {
+        observer.next(res);
+      });
+    });
+  } // onNuevoItemAddInCarta() {
+  //   return this.listen('nuevoItemAddInCarta');
+  // }
+  // cuando se recupera el stock de pedido que caduco el tiempo
+
+
+  onItemResetCant() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('itemResetCant-pwa', res => {
+        observer.next(res);
+      });
+    });
+  } // onItemResetCant() {
+  //   return this.listen('itemResetCant');
+  // }
+  // load reglas de la carta y subtotales
+
+
+  onReglasCarta() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('getReglasCarta', res => {
+        observer.next(res);
+      });
+    });
+  } // onReglasCarta() {
+  //   return this.listen('getReglasCarta');
+  // }
+  // datos de la sede, impresoras
+  // load reglas de la carta y subtotales
+
+
+  onGetDatosSede() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('getDataSede', res => {
+        observer.next(res);
+      });
+    });
+  }
+
+  onGetClienteLlama() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('notificar-cliente-llamado', res => {
+        observer.next(res);
+      });
+    });
+  }
+
+  onRemoveClienteLlama() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('notificar-cliente-llamado-remove', res => {
+        observer.next(res);
+      });
+    });
+  }
+
+  onLoadCallClienteLlama() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('load-list-cliente-llamado', res => {
+        observer.next(res);
+      });
+    });
+  } // respuesta de hacer un nuevo pedido
+
+
+  onGetNuevoPedido() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('nuevoPedido', res => {
+        observer.next(res);
+      });
+    });
+  } // cuando el cliente paga el pedido
+
+
+  onPedidoPagado() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('pedido-pagado-cliente', res => {
+        observer.next(res);
+      });
+    });
+  }
+
+  onDeliveryPedidoChangeStatus() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('repartidor-notifica-estado-pedido', estado => {
+        observer.next(estado);
+      });
+    });
+  }
+
+  onDeliveryUbicacionRepartidor() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('repartidor-notifica-ubicacion', coordenadas => {
+        observer.next(coordenadas);
+      });
+    });
+  }
+
+  onComercioOpenChangeFromMonitor() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('set-comercio-open-change-from-monitor', comercioId => {
+        observer.next(comercioId);
+      });
+    });
+  } // repuesta del mensaje de verificacion
+
+
+  onMsjVerificacionResponse() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('mensaje-verificacion-telefono-rpt', data => {
+        observer.next(data);
+      });
+    });
+  } // fecha ahora
+
+
+  onGetInfoDateNow() {
+    // if ( this.isSocketOpen ) { return new Observable(observer => {observer.next(null); }); }
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('date-now-info', res => {
+        // this.resTipoConsumo = res;
+        observer.next(res);
+      });
+    });
+  } // escucha si mesa fue pagada
+
+
+  onGetMesaPagada() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('restobar-notifica-pay-pedido-res', res => {
+        if (res.importe_restante === 0) {
+          // si es pagado en su totalidad
+          observer.next(res);
+        }
+      });
+    });
+  } // escucha si hay nuevo pedido en mesa
+
+
+  onGetNewPedidoMesa() {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on('nuevoPedido-for-list-mesas', res => {
+        // normaliza
+        let pase = false;
+        const _rpt = {
+          nummesa: '',
+          nommozo: '',
+          referencia: '',
+          flag_is_cliente: 0,
+          min: 0,
+          remove: false
+        };
+
+        let _item_mesa;
+
+        if (res.m) {
+          if (res.m !== '') {
+            _item_mesa = res;
+            pase = true;
+          }
+        } else if (res.p_header) {
+          if (res.p_header.m !== '') {
+            _item_mesa = res.p_header;
+            pase = true;
+          }
+        }
+
+        if (pase) {
+          _rpt.nummesa = _item_mesa.m;
+          _rpt.nommozo = _item_mesa.nom_us;
+          observer.next(_rpt);
+        }
+      });
+    });
+  } // onDeliveryGetLastIdPedido() {
+  //   return new Observable(observer => {
+  //     this.socket.on('get-lastid-pedido', (res: any) => {
+  //       observer.next(res);
+  //     });
+  //   });
+  // }
+  // zona delivery establecimiento
+  // onGetDatosSede() {
+  //   return this.listen('getDataSede');
+  // }
+  // onListenSocketDisconnet() {
+  //   return new Observable(observer => {
+  //     this.socket.on('disconnect', (res: any) => {
+  //       this.isSocketOpen = false;
+  //       this.isSocketOpenSource.next(false);
+  //     });
+  //   });
+  // }
+
+
+  emit(evento, data) {
+    // verificar estado del socket
+    if (this.socket) {
+      this.socket.emit(evento, data);
+    }
+  }
+
+  emitRes(evento, data) {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.emit(evento, data, res => {
+        // console.log('respuesta socket', res);
+        observer.next(res);
+      });
+    });
+  }
+
+  emitResPedido(evento, data) {
+    var _this = this;
+
+    return (0,D_Projects_capacitor_pwa_app_pedido_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+      return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+        _this.socket.emit(evento, data, res => {
+          console.log('respuesta socket', res);
+          observer.next(res);
+        });
+      });
+    })();
+  }
+
+  asyncEmitPedido(eventName, eventNameRes, data) {
+    return new Promise((resolve, reject) => {
+      try {
+        this.socket.emit(eventName, data);
+        this.socket.on(eventNameRes, result => {
+          this.socket.off(eventNameRes);
+          resolve(result);
+        });
+      } catch (error) {
+        return false;
+      } // setTimeout(reject, 1000);
+
+
+      setTimeout(() => {
+        ;
+        this.listenStatusService.setIisMsjConexionLentaSendPedidoSourse(true);
+        return false;
+      }, 6000); // despues de 6 segundos indicara que se acerque al punto wifi  
+    });
+  }
+
+  listen(evento) {
+    return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_7__.Observable(observer => {
+      this.socket.on(evento, res => {
+        observer.next(res);
+      });
+    });
+  }
+
+  closeConnection() {
+    try {
+      this.socket.disconnect();
+    } catch (error) {} // this.isSocketOpen = false;
+    // this.isSocketOpenSource.next(false);
+
+
+    this.statusConexSocket(false, 'disconnect');
+  }
+
+  listenStatusSocket() {
+    this.socket.on('finishLoadDataInitial', () => {
+      this.statusConexSocket(true, '');
+      this.isSocketOpenReconect = true; // evita que cargen nuevamente las configuraciones basicas, solo carga carta
+      // console.log('conected socket finishLoadDataInitial');
+    }); // estados del navigator
+
+    window.addEventListener('focus', event => {
+      this.verifyConexionSocket();
+    });
+    window.addEventListener('online', () => {
+      this.showStatusConexNavigator(true, 'navigator_online');
+    });
+    window.addEventListener('offline', () => {
+      console.log('out focus');
+      this.showStatusConexNavigator(false, 'navigator_offline');
+    });
+    window.addEventListener('blur', () => {
+      console.log('out focus'); // this.showStatusConexNavigator(false, 'navigator_offline');
+    }); // estado del socket
+
+    this.socket.on('connect', () => {
+      // console.log('socket connect');
+      this.infoTockenService.setSocketId(this.socket.id);
+      this.statusConexSocket(true, 'connect'); // verifica el tiempo de session
+
+      if (!this.infoTockenService.verificarContunuarSession()) {
+        this.closeConnection();
+        this.cerrarSessionBeforeTimeSession();
+        return;
+      }
+    });
+    this.socket.on('connect_failed', res => {
+      // console.log('itento fallido de conexion', res);
+      this.statusConexSocket(false, 'connect_failed');
+    });
+    this.socket.on('connect_error', res => {
+      // console.log('error de conexion', res);
+      this.statusConexSocket(false, 'connect_error');
+    });
+    this.socket.on('disconnect', res => {
+      // console.log('disconnect');
+      this.statusConexSocket(false, 'disconnect');
+    }); // escucha la verificacion de conexion
+
+    this.socket.on('verificar-conexion', res => {
+      // verifica el tiempo de session
+      if (!this.infoTockenService.verificarContunuarSession()) {
+        this.closeConnection();
+        this.cerrarSessionBeforeTimeSession();
+        return;
+      }
+
+      if (res === true) {
+        console.log('VERIFY CONECTION => OK');
+        this.verificandoConexion = false;
+        return;
+      } // no hay conexion -- en pruebas ver comportamiento
+      // console.log('VERIFY CONECTION => FALSE');
+
+
+      this.closeConnection();
+      this.statusConexSocket(false, 'disconnect');
+      this.cerrarSessionBeforeTimeSession();
+      this.connect();
+      this.verificandoConexion = false;
+    });
+  }
+
+  statusConexSocket(isConncet, evento) {
+    this.isSocketOpen = isConncet;
+    this.isSocketOpenSource.next(isConncet);
+    let msj = 'Conectando datos ...';
+
+    switch (evento) {
+      case 'conected':
+        // conectando
+        msj = 'Conectando datos ...';
+        break;
+
+      case 'connect_failed':
+        // conectando
+        msj = 'Conectando datos ..';
+        this.verificandoConexion = false;
+        break;
+
+      case 'connect_error':
+        // conectando
+        msj = 'Conectando datos .';
+        this.verificandoConexion = false;
+        break;
+
+      case 'disconnect':
+        // conectando
+        msj = 'Restableciendo conexion ...';
+        this.verificandoConexion = false;
+        break;
+
+      case 'navigator_offline':
+        // conectando
+        msj = 'Conexion cerrada -b ...';
+        this.verificandoConexion = false;
+        break;
+
+      case 'navigator_online':
+        // conectando
+        msj = 'Conectando datos -b ...';
+        break;
+    }
+
+    this.msjConexSource.next(msj);
+  }
+
+  showStatusConexNavigator(online, evento) {
+    this.statusConexSocket(online, evento); // this.isSocketOpen = online;
+    // this.isSocketOpenSource.next(online);
+
+    if (online) {
+      console.log('navegador conectado');
+    } else {
+      console.log('!!! navegador desconectado !!');
+      this.verificandoConexion = false;
+    }
+  } // verifica el estado del socket, si esta cerrado intenta abrirlo
+
+
+  verifyConexionSocket() {
+    // console.log('verificando...');
+    if (this.verificandoConexion) {
+      return;
+    }
+
+    this.verificandoConexion = true;
+    this.emit('verificar-conexion', this.socket.id);
+  } // cierra session despues de que se comprueba que el tiempo de incio se de session supero lo establecido
+
+
+  cerrarSessionBeforeTimeSession(reload = false) {
+    this.router.navigate(['../']);
+  }
+
+};
+
+SocketService.ctorParameters = () => [{
+  type: _info_token_service__WEBPACK_IMPORTED_MODULE_4__.InfoTockenService
+}, {
+  type: _angular_router__WEBPACK_IMPORTED_MODULE_8__.Router
+}, {
+  type: _listen_status_service__WEBPACK_IMPORTED_MODULE_5__.ListenStatusService
+}];
+
+SocketService = (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__decorate)([(0,_angular_core__WEBPACK_IMPORTED_MODULE_10__.Injectable)({
+  providedIn: 'root'
+})], SocketService);
 
 
 /***/ }),
@@ -16612,7 +16723,7 @@ module.exports = "<ng-container *ngIf=\"timerLimitService.isPorgressVisible$ | a
 /***/ ((module) => {
 
 "use strict";
-module.exports = "<mat-toolbar color=\"primary\">   \r\n <mat-toolbar-row [ngClass]=\"{'toolbar-busqueda': isBusqueda}\">\r\n   <ng-container *ngIf=\"!isBusqueda\"> \r\n        \r\n     <!-- <i *ngIf=\"isClienteDelivery\" class=\"fa fa-arrow-left pr-2\" (click)=\"goBackOutEstablecimiento()\"></i>   -->\r\n    <span class=\"nom-comercio\">{{ nomSede | titlecase }}</span>\r\n    <span class=\"example-spacer\"></span>\r\n\r\n    <!-- microfono mozo virtual -->\r\n    <!-- <div class=\"example-ripple-container fs-15\" *ngIf=\"isSpeechVoiceAcivado && isCliente && !isClienteDelivery\">          -->\r\n\r\n     <!-- <div class=\"example-ripple-container fs-15\" *ngIf=\"isActiveMozoVoz\"> \r\n         <app-mozo-virtual-on-speech></app-mozo-virtual-on-speech>\r\n    </div> -->\r\n\r\n     <!-- <button [matMenuTriggerFor]=\"menu\" aria-label=\"Mas Opciones\">\r\n          <i class=\"fa fa-ellipsis-h\"></i>\r\n     </button> -->\r\n     <div [matMenuTriggerFor]=\"menu\" class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\" >\r\n          <i class=\"fa fa-ellipsis-v\"></i>\r\n     </div>\r\n     <mat-menu #menu=\"matMenu\">\r\n          <button mat-menu-item *ngIf=\"!isCliente\" matRipple matRippleCentered=\"true\"\r\n               [matRippleColor]=\"rippleColor\" (click)=\"configPunto()\">\r\n               <i title=\"Configuracion\" class=\"fa fa-wrench\" aria-hidden=\"true\"></i>\r\n               <span class=\"ml-1\">Configuraciones</span>\r\n          </button>\r\n          \r\n          <button mat-menu-item class=\"fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\"\r\n               (click)=\"sharedCarta()\" matTooltip=\"Enlace Copiado\">\r\n               <i title=\"Compartir Carta\" class=\"fa fa-share-alt\" aria-hidden=\"true\"></i>\r\n               <span class=\"ml-1\">Compartir Carta</span>\r\n          </button>\r\n          <button mat-menu-item  matRipple [matRippleColor]=\"rippleColorBusqueda\"\r\n                    matRippleCentered=\"true\" matRippleUnbounded=\"true\" matRippleRadius=\"290\" (click)=\"activaBusqueda()\"\r\n                    title=\"Buscar\">\r\n               <i title=\"Buscar\" class=\"fa fa-search\" aria-hidden=\"true\"></i> \r\n               <span class=\"ml-1\">Buscar</span>\r\n          </button>\r\n          <button mat-menu-item class=\"fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\"\r\n               (click)=\"actualizarPage()\">\r\n               <i title=\"Compartir Carta\" class=\"fa fa-refresh\" aria-hidden=\"true\"></i>\r\n               <span class=\"ml-1\">Actualizar</span>\r\n          </button>\r\n     </mat-menu>\r\n\r\n     <!-- boton configuracion punto de autopedido -->\r\n     <!-- <div *ngIf=\"!isCliente\" class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\"\r\n          (click)=\"configPunto()\">\r\n               <i title=\"Configuracion\" class=\"fa fa-wrench\" aria-hidden=\"true\"></i>     \r\n     </div>\r\n     \r\n     <div class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\"\r\n               (click)=\"sharedCarta()\"\r\n               matTooltip=\"Enlace Copiado\">\r\n               <i title=\"Compartir Carta\" class=\"fa fa-share-alt\" aria-hidden=\"true\"></i>     \r\n     </div>\r\n     <div style=\"display: contents;\">       \r\n          <div class=\"example-ripple-container fs-15\" matRipple \r\n          [matRippleColor]=\"rippleColorBusqueda\"\r\n          matRippleCentered=\"true\"\r\n          matRippleUnbounded=\"true\"\r\n          matRippleRadius=\"290\"\r\n          (click)=\"activaBusqueda()\"\r\n          title=\"Buscar\">\r\n               <i title=\"Buscar\" class=\"fa fa-search\" aria-hidden=\"true\"></i>\r\n          </div>\r\n     </div> -->\r\n\r\n     <!-- cerrar session -->\r\n     <div class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\" title=\"Cerrar Sesion\" (click)=\"cerrarSession()\">\r\n          <i title=\"Cerrar Sesion\" class=\"fa fa-close\" aria-hidden=\"true\"></i>\r\n     </div>       \r\n   </ng-container>\r\n\r\n   <ng-container *ngIf=\"isBusqueda\">\r\n      <div class=\"d-flex w-100\">\r\n       <div class=\"example-ripple-container text-success fs-15\" style=\"margin-left: -15px;\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColorPlomo\" title=\"Atras\" (click)=\"activaBusqueda()\">\r\n            <i title=\"Cerrar Sesion\" class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i>\r\n       </div>\r\n       <input type=\"text\" class=\"text-busqueda w-100\" placeholder=\"Buscar...\" #txtBuscar (keyup)=\"buscarCharAhora(txtBuscar.value)\" autofocus>\r\n       <div [hidden]=\"txtBuscar.value === ''\" class=\"example-ripple-container text-dark fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColorPlomo\"  (click)=\"clearTextBuqueda()\">\r\n            <i title=\"Atras\" class=\"fa fa-times\" aria-hidden=\"true\"></i>\r\n       </div>\r\n      </div>\r\n   </ng-container>\r\n   \r\n    <!-- <button (click)=\"cerrarSession()\">aa</button> -->\r\n </mat-toolbar-row>\r\n</mat-toolbar>\r\n";
+module.exports = "<mat-toolbar color=\"primary\">\r\n     <mat-toolbar-row [ngClass]=\"{'toolbar-busqueda': isBusqueda}\">\r\n          <ng-container *ngIf=\"!isBusqueda\">\r\n\r\n               <!-- <i *ngIf=\"isClienteDelivery\" class=\"fa fa-arrow-left pr-2\" (click)=\"goBackOutEstablecimiento()\"></i>   -->\r\n               <span class=\"nom-comercio\">{{ nomSede | titlecase }}</span>\r\n               <span class=\"example-spacer\"></span>\r\n\r\n               <!-- microfono mozo virtual -->\r\n               <!-- <div class=\"example-ripple-container fs-15\" *ngIf=\"isSpeechVoiceAcivado && isCliente && !isClienteDelivery\">          -->\r\n\r\n               <!-- <div class=\"example-ripple-container fs-15\" *ngIf=\"isActiveMozoVoz\"> \r\n         <app-mozo-virtual-on-speech></app-mozo-virtual-on-speech>\r\n    </div> -->\r\n\r\n               <!-- <button [matMenuTriggerFor]=\"menu\" aria-label=\"Mas Opciones\">\r\n          <i class=\"fa fa-ellipsis-h\"></i>\r\n     </button> -->\r\n               <div [matMenuTriggerFor]=\"menu\" class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\"\r\n                    [matRippleColor]=\"rippleColor\">\r\n                    <i class=\"fa fa-ellipsis-v\"></i>\r\n               </div>\r\n               <mat-menu #menu=\"matMenu\">\r\n                    <button mat-menu-item *ngIf=\"!isCliente\" matRipple matRippleCentered=\"true\"\r\n                         [matRippleColor]=\"rippleColor\" (click)=\"configPunto()\">\r\n                         <i title=\"Configuracion\" class=\"fa fa-wrench\" aria-hidden=\"true\"></i>\r\n                         <span class=\"ml-1\">Configuraciones</span>\r\n                    </button>\r\n\r\n                    <button mat-menu-item class=\"fs-15\" matRipple matRippleCentered=\"true\"\r\n                         [matRippleColor]=\"rippleColor\" (click)=\"sharedCarta()\" matTooltip=\"Enlace Copiado\">\r\n                         <i title=\"Compartir Carta\" class=\"fa fa-share-alt\" aria-hidden=\"true\"></i>\r\n                         <span class=\"ml-1\">Compartir Carta</span>\r\n                    </button>\r\n                    <button mat-menu-item matRipple [matRippleColor]=\"rippleColorBusqueda\" matRippleCentered=\"true\"\r\n                         matRippleUnbounded=\"true\" matRippleRadius=\"290\" (click)=\"activaBusqueda()\" title=\"Buscar\">\r\n                         <i title=\"Buscar\" class=\"fa fa-search\" aria-hidden=\"true\"></i>\r\n                         <span class=\"ml-1\">Buscar</span>\r\n                    </button>\r\n                    <!-- <button mat-menu-item class=\"fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\"\r\n               (click)=\"actualizarPage()\">\r\n               <i title=\"Compartir Carta\" class=\"fa fa-refresh\" aria-hidden=\"true\"></i>\r\n               <span class=\"ml-1\">Actualizar</span>\r\n          </button> -->\r\n               </mat-menu>\r\n\r\n               <!-- boton configuracion punto de autopedido -->\r\n               <!-- <div *ngIf=\"!isCliente\" class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\"\r\n          (click)=\"configPunto()\">\r\n               <i title=\"Configuracion\" class=\"fa fa-wrench\" aria-hidden=\"true\"></i>     \r\n     </div>\r\n     \r\n     <div class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\"\r\n               (click)=\"sharedCarta()\"\r\n               matTooltip=\"Enlace Copiado\">\r\n               <i title=\"Compartir Carta\" class=\"fa fa-share-alt\" aria-hidden=\"true\"></i>     \r\n     </div>\r\n     <div style=\"display: contents;\">       \r\n          <div class=\"example-ripple-container fs-15\" matRipple \r\n          [matRippleColor]=\"rippleColorBusqueda\"\r\n          matRippleCentered=\"true\"\r\n          matRippleUnbounded=\"true\"\r\n          matRippleRadius=\"290\"\r\n          (click)=\"activaBusqueda()\"\r\n          title=\"Buscar\">\r\n               <i title=\"Buscar\" class=\"fa fa-search\" aria-hidden=\"true\"></i>\r\n          </div>\r\n     </div> -->\r\n\r\n               <!-- actualizar -->\r\n               <div class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\"\r\n                    [matRippleColor]=\"rippleColor\" title=\"Actualizar\" (click)=\"actualizarPage()\">\r\n                    <i title=\"Actualizar\" class=\"fa fa-refresh\" aria-hidden=\"true\"></i>\r\n               </div>\r\n\r\n               <!-- cerrar session -->\r\n               <div class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\"\r\n                    [matRippleColor]=\"rippleColor\" title=\"Cerrar Sesion\" (click)=\"cerrarSession()\">\r\n                    <i title=\"Cerrar Sesion\" class=\"fa fa-close\" aria-hidden=\"true\"></i>\r\n               </div>\r\n          </ng-container>\r\n\r\n          <ng-container *ngIf=\"isBusqueda\">\r\n               <div class=\"d-flex w-100\">\r\n                    <div class=\"example-ripple-container text-success fs-15\" style=\"margin-left: -15px;\" matRipple\r\n                         matRippleCentered=\"true\" [matRippleColor]=\"rippleColorPlomo\" title=\"Atras\"\r\n                         (click)=\"activaBusqueda()\">\r\n                         <i title=\"Cerrar Sesion\" class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i>\r\n                    </div>\r\n                    <input type=\"text\" class=\"text-busqueda w-100\" placeholder=\"Buscar...\" #txtBuscar\r\n                         (keyup)=\"buscarCharAhora(txtBuscar.value)\" autofocus>\r\n                    <div [hidden]=\"txtBuscar.value === ''\" class=\"example-ripple-container text-dark fs-15\" matRipple\r\n                         matRippleCentered=\"true\" [matRippleColor]=\"rippleColorPlomo\" (click)=\"clearTextBuqueda()\">\r\n                         <i title=\"Atras\" class=\"fa fa-times\" aria-hidden=\"true\"></i>\r\n                    </div>\r\n               </div>\r\n          </ng-container>\r\n\r\n          <!-- <button (click)=\"cerrarSession()\">aa</button> -->\r\n     </mat-toolbar-row>\r\n</mat-toolbar>";
 
 /***/ }),
 
