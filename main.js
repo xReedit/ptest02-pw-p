@@ -12010,10 +12010,12 @@ let MipedidoService = class MipedidoService {
         let _importeIGV = rowImporteIGV ? rowImporteIGV.importe : 0;
         let _importeSubTotal = rowSubTotal ? rowSubTotal.importe : 0;
         if (_importeIGV > 0) {
-            _importeIGV = parseFloat((_importeSubTotal * _importeIGV).toString()).toFixed(2);
-            _importeSubTotal = _importeSubTotal - _importeIGV;
+            // _importeIGV = parseFloat((_importeSubTotal * _importeIGV).toString()).toFixed(2);
+            const _importeSinIGV = this.xCalcMontoBaseIGV(_importeSubTotal, _importeIGV);
+            _importeIGV = (_importeSubTotal - _importeSinIGV).toFixed(2);
+            _importeSubTotal = _importeSinIGV;
             rowImporteIGV.importe = _importeIGV;
-            rowSubTotal.importe = _importeSubTotal.toFixed(2);
+            rowSubTotal.importe = _importeSubTotal;
         }
         /// IGV --->
         _arrSubtotales = {};
@@ -12028,6 +12030,10 @@ let MipedidoService = class MipedidoService {
         arrSubtotales.push(_arrSubtotales);
         // console.log('totales', arrSubtotales);
         return arrSubtotales;
+    }
+    xCalcMontoBaseIGV(importeTotal, procentaje_IGV) {
+        const _base = (importeTotal / (1 + procentaje_IGV));
+        return _base.toFixed(2);
     }
     calcCostoCantItemsDelivery() {
         let rpt = 0;
