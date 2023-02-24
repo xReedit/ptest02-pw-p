@@ -13037,7 +13037,8 @@ let SocketService = class SocketService {
       rejectUnauthorized: false,
       forceNew: true,
       query: dataSocket,
-      transports: ['websocket'] // upgrade: false
+      transports: ["polling", "websocket"] // transports: ['websocket'],
+      // upgrade: false
       // forceNew: true
 
     });
