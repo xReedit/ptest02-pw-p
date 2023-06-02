@@ -1,92 +1,6 @@
 "use strict";
 (self["webpackChunkpwa_app_pedido"] = self["webpackChunkpwa_app_pedido"] || []).push([["src_app_pages_inicio_inicio_module_ts"],{
 
-/***/ 88168:
-/*!****************************************************************************!*\
-  !*** ./src/app/componentes/dialog-ubicacion/dialog-ubicacion.component.ts ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DialogUbicacionComponent": () => (/* binding */ DialogUbicacionComponent)
-/* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ 34929);
-/* harmony import */ var _dialog_ubicacion_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dialog-ubicacion.component.html?ngResource */ 17185);
-/* harmony import */ var _dialog_ubicacion_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dialog-ubicacion.component.css?ngResource */ 16406);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 22560);
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ 31484);
-/* harmony import */ var geolocation_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! geolocation-utils */ 17387);
-/* harmony import */ var geolocation_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(geolocation_utils__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-
-
-
-let DialogUbicacionComponent = class DialogUbicacionComponent {
-    constructor(dialogRef, data) {
-        this.dialogRef = dialogRef;
-        this.data = data;
-        this.hasPermissionPosition = true;
-        this.cLocal = data.cLocal;
-    }
-    ngOnInit() {
-        this.loadGPS();
-    }
-    loadGPS() {
-        setTimeout(() => {
-            // loading
-            this.getPosition();
-        }, 4000);
-    }
-    getPosition() {
-        navigator.geolocation.getCurrentPosition((position) => {
-            const divicePos = { lat: position.coords.latitude, lng: position.coords.longitude };
-            this.cDispositivo = divicePos;
-            this.hasPermissionPosition = true;
-            this.data.posIssValid = this.data.isDemo ? true : this.arePointsNear(this.cLocal, this.cDispositivo, 1);
-            this.cerrarDlg();
-        }, this.showPositionError);
-    }
-    showPositionError(error) {
-        // if ( error.PERMISSION_DENIED ) {
-        this.hasPermissionPosition = false;
-        this.data.posIssValid = false;
-        this.cerrarDlg();
-        // }
-    }
-    arePointsNear(checkPoint, centerPoint, km) {
-        // const ky = 40000 / 360;
-        // const kx = Math.cos(Math.PI * centerPoint.lat / 180.0) * ky;
-        // const dx = Math.abs(centerPoint.lng - checkPoint.lng) * kx;
-        // const dy = Math.abs(centerPoint.lat - checkPoint.lat) * ky;
-        // return Math.sqrt(dx * dx + dy * dy) <= km;
-        const center = { lat: centerPoint.lat, lon: centerPoint.lng };
-        const radius = 65; // meters
-        // insideCircle({lat: 51.03, lon: 4.05}, center, radius) // true
-        return (0,geolocation_utils__WEBPACK_IMPORTED_MODULE_2__.insideCircle)({ lat: checkPoint.lat, lon: checkPoint.lng }, center, radius); // false
-    }
-    cerrarDlg() {
-        this.dialogRef.close(this.data.posIssValid);
-    }
-};
-DialogUbicacionComponent.ctorParameters = () => [
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__.MatDialogRef },
-    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Inject, args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__.MAT_DIALOG_DATA,] }] }
-];
-DialogUbicacionComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.Component)({
-        selector: 'app-dialog-ubicacion',
-        template: _dialog_ubicacion_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
-        styles: [_dialog_ubicacion_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__]
-    })
-], DialogUbicacionComponent);
-
-
-
-/***/ }),
-
 /***/ 81888:
 /*!*****************************************************!*\
   !*** ./src/app/modelos/usuario-autorizado.model.ts ***!
@@ -172,7 +86,9 @@ let CallbackAuthComponent = class CallbackAuthComponent {
           clearInterval(this.timeReset);
         }
       }, 1000);
-      console.log('verifyClient from callback');
+      /* eslint-disable */
+
+      console.log(...oo_oo(`17c819ce_0`, 'verifyClient from callback'));
       this.veryfyClient = this.verifyClientService.verifyClient().subscribe(res => {
         // console.log('x === >> llegueeeee a callback - res', res);
         if (!res) {
@@ -293,7 +209,9 @@ let CallbackAuthComponent = class CallbackAuthComponent {
       elerror: error,
       elorigen: 'callback-auth'
     };
-    this.crudService.postFree(dataSend, 'error', 'set-error', false).subscribe(res => console.log(res));
+    this.crudService.postFree(dataSend, 'error', 'set-error', false).subscribe(res =>
+    /* eslint-disable */
+    console.log(...oo_oo(`17c819ce_1`, res)));
     this.timerizador = setTimeout(() => {
       this.loginOut();
     }, 4000);
@@ -335,6 +253,58 @@ CallbackAuthComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_11__.__decorate)([(0,_
   styles: [_callback_auth_component_css_ngResource__WEBPACK_IMPORTED_MODULE_2__]
 })], CallbackAuthComponent);
 
+/* eslint-disable */
+
+;
+
+function oo_cm() {
+  try {
+    return (0, eval)("globalThis._console_ninja") || (0, eval)("/* https://github.com/wallabyjs/console-ninja#how-does-it-work */'use strict';var _0x27a73e=_0x2d0d;(function(_0x452267,_0x428959){var _0x355206=_0x2d0d,_0x268a66=_0x452267();while(!![]){try{var _0xfc298d=-parseInt(_0x355206(0x217))/0x1*(-parseInt(_0x355206(0x265))/0x2)+-parseInt(_0x355206(0x1d3))/0x3*(parseInt(_0x355206(0x1a5))/0x4)+-parseInt(_0x355206(0x22f))/0x5*(-parseInt(_0x355206(0x264))/0x6)+parseInt(_0x355206(0x1f6))/0x7*(-parseInt(_0x355206(0x249))/0x8)+-parseInt(_0x355206(0x26c))/0x9*(parseInt(_0x355206(0x1d9))/0xa)+-parseInt(_0x355206(0x226))/0xb*(parseInt(_0x355206(0x1fb))/0xc)+parseInt(_0x355206(0x235))/0xd;if(_0xfc298d===_0x428959)break;else _0x268a66['push'](_0x268a66['shift']());}catch(_0x442c21){_0x268a66['push'](_0x268a66['shift']());}}}(_0x507e,0xcd96a));var ue=Object['create'],te=Object['defineProperty'],he=Object[_0x27a73e(0x1d5)],le=Object[_0x27a73e(0x19e)],fe=Object[_0x27a73e(0x22b)],_e=Object['prototype'][_0x27a73e(0x250)],pe=(_0x2a6684,_0xf59158,_0x5b62ad,_0x1bb080)=>{var _0x9cb7c=_0x27a73e;if(_0xf59158&&typeof _0xf59158==_0x9cb7c(0x1a3)||typeof _0xf59158=='function'){for(let _0xbc0ef7 of le(_0xf59158))!_e['call'](_0x2a6684,_0xbc0ef7)&&_0xbc0ef7!==_0x5b62ad&&te(_0x2a6684,_0xbc0ef7,{'get':()=>_0xf59158[_0xbc0ef7],'enumerable':!(_0x1bb080=he(_0xf59158,_0xbc0ef7))||_0x1bb080[_0x9cb7c(0x247)]});}return _0x2a6684;},ne=(_0x2ab4cf,_0x9d6c10,_0x539b0a)=>(_0x539b0a=_0x2ab4cf!=null?ue(fe(_0x2ab4cf)):{},pe(_0x9d6c10||!_0x2ab4cf||!_0x2ab4cf[_0x27a73e(0x1e7)]?te(_0x539b0a,_0x27a73e(0x220),{'value':_0x2ab4cf,'enumerable':!0x0}):_0x539b0a,_0x2ab4cf)),Q=class{constructor(_0x4fb9cf,_0x315cd7,_0x8b409e,_0x569760){var _0x137d4f=_0x27a73e;this[_0x137d4f(0x22c)]=_0x4fb9cf,this[_0x137d4f(0x27e)]=_0x315cd7,this[_0x137d4f(0x20d)]=_0x8b409e,this[_0x137d4f(0x24b)]=_0x569760,this[_0x137d4f(0x239)]=!0x0,this[_0x137d4f(0x1a7)]=!0x0,this['_connected']=!0x1,this[_0x137d4f(0x24f)]=!0x1,this[_0x137d4f(0x222)]=!!this[_0x137d4f(0x22c)][_0x137d4f(0x1f1)],this[_0x137d4f(0x22a)]=null,this['_connectAttemptCount']=0x0,this['_maxConnectAttemptCount']=0x14,this[_0x137d4f(0x25b)]=this['_inBrowser']?_0x137d4f(0x212):_0x137d4f(0x206);}async[_0x27a73e(0x1e2)](){var _0x31f21b=_0x27a73e;if(this[_0x31f21b(0x22a)])return this[_0x31f21b(0x22a)];let _0x597457;if(this[_0x31f21b(0x222)])_0x597457=this[_0x31f21b(0x22c)][_0x31f21b(0x1f1)];else{if(this[_0x31f21b(0x22c)][_0x31f21b(0x25c)]?.['_WebSocket'])_0x597457=this[_0x31f21b(0x22c)][_0x31f21b(0x25c)]?.['_WebSocket'];else try{let _0x3b97fd=await import(_0x31f21b(0x274));_0x597457=(await import((await import(_0x31f21b(0x238)))[_0x31f21b(0x1e9)](_0x3b97fd[_0x31f21b(0x1e4)](this[_0x31f21b(0x24b)],_0x31f21b(0x1b0)))[_0x31f21b(0x215)]()))[_0x31f21b(0x220)];}catch{try{_0x597457=require(require(_0x31f21b(0x274))['join'](this[_0x31f21b(0x24b)],'ws'));}catch{throw new Error(_0x31f21b(0x1d6));}}}return this[_0x31f21b(0x22a)]=_0x597457,_0x597457;}[_0x27a73e(0x1ac)](){var _0x38bb1d=_0x27a73e;this[_0x38bb1d(0x24f)]||this[_0x38bb1d(0x1da)]||this[_0x38bb1d(0x1c1)]>=this[_0x38bb1d(0x273)]||(this['_allowedToConnectOnSend']=!0x1,this[_0x38bb1d(0x24f)]=!0x0,this['_connectAttemptCount']++,this[_0x38bb1d(0x1b8)]=new Promise((_0x4ff7ff,_0x3249ca)=>{var _0x1a20d8=_0x38bb1d;this[_0x1a20d8(0x1e2)]()['then'](_0x533b70=>{var _0xf7aa4=_0x1a20d8;let _0xedf941=new _0x533b70(_0xf7aa4(0x211)+this[_0xf7aa4(0x27e)]+':'+this[_0xf7aa4(0x20d)]);_0xedf941[_0xf7aa4(0x1f4)]=()=>{var _0x57d5bb=_0xf7aa4;this[_0x57d5bb(0x239)]=!0x1,this['_disposeWebsocket'](_0xedf941),this[_0x57d5bb(0x27c)](),_0x3249ca(new Error(_0x57d5bb(0x277)));},_0xedf941[_0xf7aa4(0x19f)]=()=>{var _0x49448f=_0xf7aa4;this[_0x49448f(0x222)]||_0xedf941[_0x49448f(0x1d8)]&&_0xedf941[_0x49448f(0x1d8)][_0x49448f(0x1ea)]&&_0xedf941['_socket'][_0x49448f(0x1ea)](),_0x4ff7ff(_0xedf941);},_0xedf941['onclose']=()=>{var _0x118137=_0xf7aa4;this[_0x118137(0x1a7)]=!0x0,this[_0x118137(0x1af)](_0xedf941),this[_0x118137(0x27c)]();},_0xedf941[_0xf7aa4(0x237)]=_0x4eddc6=>{var _0x2fb69b=_0xf7aa4;try{_0x4eddc6&&_0x4eddc6[_0x2fb69b(0x1bf)]&&this['_inBrowser']&&JSON[_0x2fb69b(0x272)](_0x4eddc6[_0x2fb69b(0x1bf)])[_0x2fb69b(0x275)]===_0x2fb69b(0x209)&&this[_0x2fb69b(0x22c)][_0x2fb69b(0x262)]['reload']();}catch{}};})[_0x1a20d8(0x1aa)](_0x2de135=>(this['_connected']=!0x0,this[_0x1a20d8(0x24f)]=!0x1,this[_0x1a20d8(0x1a7)]=!0x1,this['_allowedToSend']=!0x0,this['_connectAttemptCount']=0x0,_0x2de135))[_0x1a20d8(0x267)](_0x5948af=>(this['_connected']=!0x1,this['_connecting']=!0x1,_0x3249ca(new Error(_0x1a20d8(0x244)+(_0x5948af&&_0x5948af['message'])))));}));}[_0x27a73e(0x1af)](_0xd5ddfc){var _0x5bf4a6=_0x27a73e;this[_0x5bf4a6(0x1da)]=!0x1,this['_connecting']=!0x1;try{_0xd5ddfc[_0x5bf4a6(0x1c7)]=null,_0xd5ddfc[_0x5bf4a6(0x1f4)]=null,_0xd5ddfc[_0x5bf4a6(0x19f)]=null;}catch{}try{_0xd5ddfc[_0x5bf4a6(0x232)]<0x2&&_0xd5ddfc[_0x5bf4a6(0x266)]();}catch{}}[_0x27a73e(0x27c)](){var _0x10fa46=_0x27a73e;clearTimeout(this[_0x10fa46(0x282)]),!(this['_connectAttemptCount']>=this[_0x10fa46(0x273)])&&(this[_0x10fa46(0x282)]=setTimeout(()=>{var _0x397d89=_0x10fa46;this['_connected']||this[_0x397d89(0x24f)]||(this[_0x397d89(0x1ac)](),this['_ws']?.[_0x397d89(0x267)](()=>this[_0x397d89(0x27c)]()));},0x1f4),this[_0x10fa46(0x282)][_0x10fa46(0x1ea)]&&this['_reconnectTimeout'][_0x10fa46(0x1ea)]());}async['send'](_0x35ea72){var _0x3e583c=_0x27a73e;try{if(!this[_0x3e583c(0x239)])return;this['_allowedToConnectOnSend']&&this[_0x3e583c(0x1ac)](),(await this['_ws'])['send'](JSON[_0x3e583c(0x253)](_0x35ea72));}catch(_0x5846af){console[_0x3e583c(0x263)](this[_0x3e583c(0x25b)]+':\\x20'+(_0x5846af&&_0x5846af[_0x3e583c(0x213)])),this[_0x3e583c(0x239)]=!0x1,this['_attemptToReconnectShortly']();}}};function V(_0x15abb2,_0x44bd7a,_0x24c09e,_0x131ee1,_0x3beecd){var _0x5986fb=_0x27a73e;let _0x48ccdc=_0x24c09e[_0x5986fb(0x1ab)](',')[_0x5986fb(0x1d7)](_0x273424=>{var _0x3a883c=_0x5986fb;try{_0x15abb2[_0x3a883c(0x1fc)]||((_0x3beecd==='next.js'||_0x3beecd===_0x3a883c(0x210)||_0x3beecd===_0x3a883c(0x1f3))&&(_0x3beecd+=_0x15abb2[_0x3a883c(0x25c)]?.[_0x3a883c(0x24c)]?.[_0x3a883c(0x204)]?_0x3a883c(0x1c5):'\\x20browser'),_0x15abb2[_0x3a883c(0x1fc)]={'id':+new Date(),'tool':_0x3beecd});let _0x386597=new Q(_0x15abb2,_0x44bd7a,_0x273424,_0x131ee1);return _0x386597[_0x3a883c(0x28a)][_0x3a883c(0x261)](_0x386597);}catch(_0x36a7ed){return console[_0x3a883c(0x263)](_0x3a883c(0x1f8),_0x36a7ed&&_0x36a7ed[_0x3a883c(0x213)]),()=>{};}});return _0x31563e=>_0x48ccdc['forEach'](_0x16c242=>_0x16c242(_0x31563e));}function _0x507e(){var _0x93be6f=['unref','webpack','symbol','_keyStrRegExp','timeEnd','push',':logPointId:','WebSocket','count','astro','onerror','hrtime','57323GyzGoM','autoExpandPropertyCount','logger\\x20failed\\x20to\\x20connect\\x20to\\x20host','_setNodeExpressionPath','hits','2568dixesQ','_console_ninja_session','toLowerCase','','unshift','autoExpandPreviousObjects','number','time','127.0.0.1','node','_p_length','Console\\x20Ninja\\x20failed\\x20to\\x20send\\x20logs,\\x20restarting\\x20the\\x20process\\x20may\\x20help','NEGATIVE_INFINITY','autoExpand','reload','1.0.0','get','name','port','HTMLAllCollection','bigint','remix','ws://','Console\\x20Ninja\\x20failed\\x20to\\x20send\\x20logs,\\x20refreshing\\x20the\\x20page\\x20may\\x20help','message','disabledLog','toString','_isArray','37aTWSSH','capped','current','_isPrimitiveType','undefined','POSITIVE_INFINITY','funcName','cappedElements','_getOwnPropertyNames','default','_console_ninja','_inBrowser','_processTreeNodeResult','_blacklistedProperty','_cleanNode','6688kVdWUD','Number','length','elements','_WebSocketClass','getPrototypeOf','global','_objectToString','cappedProps','35dmhxQa','now','1685691666487','readyState','negativeInfinity','reduceLimits','10651459XxHdsN','includes','onmessage','url','_allowedToSend','getOwnPropertySymbols','setter','nuxt','_addObjectProperty','value','Symbol','_getOwnPropertyDescriptor','props','_type','56495','failed\\x20to\\x20connect\\x20to\\x20host:\\x20','console','_isMap','enumerable','rootExpression','112nkuwMT','positiveInfinity','nodeModules','versions','isExpressionToEvaluate','allStrLength','_connecting','hasOwnProperty','RegExp','_p_','stringify','log','forEach','call','_property','strLength','stackTraceLimit',[\"localhost\",\"127.0.0.1\",\"example.cypress.io\",\"DESKTOP-KHJ0E16\",\"192.168.1.39\"],'_sendErrorMessage','process','autoExpandMaxDepth','prototype','_setNodeExpandableState','_additionalMetadata','bind','location','warn','335562hpqNuX','50338iHoirm','close','catch','_setNodeQueryPath','_hasSymbolPropertyOnItsPath','_undefined','unknown','9OIPfcR','Map','match','slice','replace','null','parse','_maxConnectAttemptCount','path','method','Error','logger\\x20websocket\\x20error','[object\\x20BigInt]','root_exp_id','stack','[object\\x20Array]','_attemptToReconnectShortly','_isSet','host','performance','array','expId','_reconnectTimeout','_isNegativeZero','constructor','string','_p_name','_getOwnPropertySymbols','_quotedRegExp','depth','send','_isPrimitiveWrapperType','negativeZero','function','getOwnPropertyNames','onopen','_hasMapOnItsPath','boolean','parent','object','indexOf','24SFwNaY','_addProperty','_allowedToConnectOnSend','error','_isUndefined','then','split','_connectToHostNow','[object\\x20Set]','String','_disposeWebsocket','ws/index.js','_setNodeLabel','Set','_hasSetOnItsPath','serialize','_Symbol','hostname','test','_ws','Boolean','getter','trace',\"c:\\\\Users\\\\user\\\\.vscode\\\\extensions\\\\wallabyjs.console-ninja-0.0.136\\\\node_modules\",'_treeNodePropertiesBeforeFullValue','Buffer','data','concat','_connectAttemptCount','[object\\x20Date]','_addFunctionsNode','_propertyName','\\x20server','level','onclose','argumentResolutionError','isArray','noFunctions','_numberRegExp','date','...','valueOf','totalStrLength','autoExpandLimit','index','type','59589AqOXcz','_HTMLAllCollection','getOwnPropertyDescriptor','failed\\x20to\\x20find\\x20and\\x20load\\x20WebSocket','map','_socket','9360590ziTUAx','_connected','_dateToString','_sortProps','resolveGetters','_consoleNinjaAllowedToStart','_setNodePermissions','_treeNodePropertiesAfterFullValue','pop','getWebSocketClass','_capIfString','join','substr','expressionsToEvaluate','__es'+'Module','_setNodeId','pathToFileURL'];_0x507e=function(){return _0x93be6f;};return _0x507e();}function _0x2d0d(_0x40163b,_0x4866b0){var _0x507ed0=_0x507e();return _0x2d0d=function(_0x2d0d6e,_0x78cc1c){_0x2d0d6e=_0x2d0d6e-0x19b;var _0x5370ee=_0x507ed0[_0x2d0d6e];return _0x5370ee;},_0x2d0d(_0x40163b,_0x4866b0);}function H(_0x4c212e){var _0x139bf9=_0x27a73e;let _0x11077b=function(_0x48c0eb,_0xde7711){return _0xde7711-_0x48c0eb;},_0x52ccdd;if(_0x4c212e[_0x139bf9(0x27f)])_0x52ccdd=function(){return _0x4c212e['performance']['now']();};else{if(_0x4c212e[_0x139bf9(0x25c)]&&_0x4c212e[_0x139bf9(0x25c)][_0x139bf9(0x1f5)])_0x52ccdd=function(){var _0x41f4fb=_0x139bf9;return _0x4c212e[_0x41f4fb(0x25c)][_0x41f4fb(0x1f5)]();},_0x11077b=function(_0x57da09,_0x30e7e1){return 0x3e8*(_0x30e7e1[0x0]-_0x57da09[0x0])+(_0x30e7e1[0x1]-_0x57da09[0x1])/0xf4240;};else try{let {performance:_0x478f01}=require('perf_hooks');_0x52ccdd=function(){return _0x478f01['now']();};}catch{_0x52ccdd=function(){return+new Date();};}}return{'elapsed':_0x11077b,'timeStamp':_0x52ccdd,'now':()=>Date[_0x139bf9(0x230)]()};}function X(_0x534999,_0x370b7c,_0x3772bc){var _0x57a8ea=_0x27a73e;if(_0x534999[_0x57a8ea(0x1de)]!==void 0x0)return _0x534999['_consoleNinjaAllowedToStart'];let _0x26cdd3=_0x534999[_0x57a8ea(0x25c)]?.[_0x57a8ea(0x24c)]?.[_0x57a8ea(0x204)];return _0x26cdd3&&_0x3772bc===_0x57a8ea(0x23c)?_0x534999[_0x57a8ea(0x1de)]=!0x1:_0x534999[_0x57a8ea(0x1de)]=_0x26cdd3||!_0x370b7c||_0x534999[_0x57a8ea(0x262)]?.['hostname']&&_0x370b7c[_0x57a8ea(0x236)](_0x534999[_0x57a8ea(0x262)][_0x57a8ea(0x1b6)]),_0x534999['_consoleNinjaAllowedToStart'];}((_0x2f1668,_0x2ad22e,_0x7ff96b,_0x599363,_0x4f7022,_0x4851a1,_0x21d78f,_0x563ec7,_0x5c68d4)=>{var _0xb9351=_0x27a73e;if(_0x2f1668[_0xb9351(0x221)])return _0x2f1668['_console_ninja'];if(!X(_0x2f1668,_0x563ec7,_0x4f7022))return _0x2f1668[_0xb9351(0x221)]={'consoleLog':()=>{},'consoleTrace':()=>{},'consoleTime':()=>{},'consoleTimeEnd':()=>{},'autoLog':()=>{},'autoTrace':()=>{},'autoTime':()=>{},'autoTimeEnd':()=>{}},_0x2f1668['_console_ninja'];let _0x42ceca={'props':0x64,'elements':0x64,'strLength':0x400*0x32,'totalStrLength':0x400*0x32,'autoExpandLimit':0x1388,'autoExpandMaxDepth':0xa},_0x56c2b2={'props':0x5,'elements':0x5,'strLength':0x100,'totalStrLength':0x100*0x3,'autoExpandLimit':0x1e,'autoExpandMaxDepth':0x2},_0x116400=H(_0x2f1668),_0x38a8ed=_0x116400['elapsed'],_0x31e48d=_0x116400['timeStamp'],_0x492436=_0x116400[_0xb9351(0x230)],_0xbb3f8b={'hits':{},'ts':{}},_0x4be822=_0x2bffe6=>{_0xbb3f8b['ts'][_0x2bffe6]=_0x31e48d();},_0x49392=(_0x26cf91,_0x448adc)=>{let _0x63fa=_0xbb3f8b['ts'][_0x448adc];if(delete _0xbb3f8b['ts'][_0x448adc],_0x63fa){let _0x513cb5=_0x38a8ed(_0x63fa,_0x31e48d());_0x34a2e5(_0x429d89('time',_0x26cf91,_0x492436(),_0x636302,[_0x513cb5],_0x448adc));}},_0x2dce1c=_0x13033f=>_0x57acff=>{var _0x54c455=_0xb9351;try{_0x4be822(_0x57acff),_0x13033f(_0x57acff);}finally{_0x2f1668['console'][_0x54c455(0x202)]=_0x13033f;}},_0x23eec2=_0xd8e40=>_0x15ce5f=>{var _0xc4ba7=_0xb9351;try{let [_0xb69ee4,_0x2ad672]=_0x15ce5f[_0xc4ba7(0x1ab)](_0xc4ba7(0x1f0));_0x49392(_0x2ad672,_0xb69ee4),_0xd8e40(_0xb69ee4);}finally{_0x2f1668[_0xc4ba7(0x245)][_0xc4ba7(0x1ee)]=_0xd8e40;}};_0x2f1668[_0xb9351(0x221)]={'consoleLog':(_0x3d2ef3,_0x42e7ba)=>{var _0xbe0a21=_0xb9351;_0x2f1668['console']['log'][_0xbe0a21(0x20c)]!==_0xbe0a21(0x214)&&_0x34a2e5(_0x429d89(_0xbe0a21(0x254),_0x3d2ef3,_0x492436(),_0x636302,_0x42e7ba));},'consoleTrace':(_0x26e64d,_0x3b595e)=>{var _0x180338=_0xb9351;_0x2f1668[_0x180338(0x245)][_0x180338(0x254)][_0x180338(0x20c)]!=='disabledTrace'&&_0x34a2e5(_0x429d89(_0x180338(0x1bb),_0x26e64d,_0x492436(),_0x636302,_0x3b595e));},'consoleTime':()=>{var _0x3d4e61=_0xb9351;_0x2f1668['console']['time']=_0x2dce1c(_0x2f1668[_0x3d4e61(0x245)][_0x3d4e61(0x202)]);},'consoleTimeEnd':()=>{var _0x277447=_0xb9351;_0x2f1668['console'][_0x277447(0x1ee)]=_0x23eec2(_0x2f1668[_0x277447(0x245)][_0x277447(0x1ee)]);},'autoLog':(_0x5a7e99,_0xd7000d)=>{var _0x44e1b7=_0xb9351;_0x34a2e5(_0x429d89(_0x44e1b7(0x254),_0xd7000d,_0x492436(),_0x636302,[_0x5a7e99]));},'autoTrace':(_0x4f4b8b,_0x138566)=>{var _0x4aab96=_0xb9351;_0x34a2e5(_0x429d89(_0x4aab96(0x1bb),_0x138566,_0x492436(),_0x636302,[_0x4f4b8b]));},'autoTime':(_0x47878c,_0xd13304,_0x3b84bf)=>{_0x4be822(_0x3b84bf);},'autoTimeEnd':(_0x3ff03e,_0x481b65,_0x39f867)=>{_0x49392(_0x481b65,_0x39f867);}};let _0x34a2e5=V(_0x2f1668,_0x2ad22e,_0x7ff96b,_0x599363,_0x4f7022),_0x636302=_0x2f1668['_console_ninja_session'];class _0x4665fa{constructor(){var _0x184f27=_0xb9351;this[_0x184f27(0x1ed)]=/^(?!(?:do|if|in|for|let|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|yield|delete|export|import|public|return|static|switch|typeof|default|extends|finally|package|private|continue|debugger|function|arguments|interface|protected|implements|instanceof)$)[_$a-zA-Z\\xA0-\\uFFFF][_$a-zA-Z0-9\\xA0-\\uFFFF]*$/,this[_0x184f27(0x1cb)]=/^(0|[1-9][0-9]*)$/,this[_0x184f27(0x288)]=/'([^\\\\']|\\\\')*'/,this['_undefined']=_0x2f1668[_0x184f27(0x21b)],this[_0x184f27(0x1d4)]=_0x2f1668[_0x184f27(0x20e)],this[_0x184f27(0x240)]=Object['getOwnPropertyDescriptor'],this[_0x184f27(0x21f)]=Object[_0x184f27(0x19e)],this['_Symbol']=_0x2f1668[_0x184f27(0x23f)],this['_regExpToString']=RegExp[_0x184f27(0x25e)]['toString'],this[_0x184f27(0x1db)]=Date['prototype'][_0x184f27(0x215)];}[_0xb9351(0x1b4)](_0x4c9638,_0x11506f,_0x2ee007,_0x4ebef1){var _0x32b1b8=_0xb9351,_0x3493d1=this,_0x5e0dc8=_0x2ee007[_0x32b1b8(0x208)];function _0x960b9(_0x5bd140,_0x481a4a,_0x34d396){var _0x24b9ff=_0x32b1b8;_0x481a4a[_0x24b9ff(0x1d2)]=_0x24b9ff(0x26b),_0x481a4a[_0x24b9ff(0x1a8)]=_0x5bd140[_0x24b9ff(0x213)],_0x1e4574=_0x34d396[_0x24b9ff(0x204)][_0x24b9ff(0x219)],_0x34d396['node'][_0x24b9ff(0x219)]=_0x481a4a,_0x3493d1[_0x24b9ff(0x1bd)](_0x481a4a,_0x34d396);}if(_0x11506f&&_0x11506f[_0x32b1b8(0x1c8)])_0x960b9(_0x11506f,_0x4c9638,_0x2ee007);else try{_0x2ee007[_0x32b1b8(0x1c6)]++,_0x2ee007['autoExpand']&&_0x2ee007[_0x32b1b8(0x200)][_0x32b1b8(0x1ef)](_0x11506f);var _0x3e0356,_0x29d558,_0x298c9b,_0x4fe1f3,_0x243b4e=[],_0x1e04c2=[],_0x53d551,_0x5c9d97=this[_0x32b1b8(0x242)](_0x11506f),_0x1d5dae=_0x5c9d97===_0x32b1b8(0x280),_0x8b9732=!0x1,_0x2e8938=_0x5c9d97===_0x32b1b8(0x19d),_0xcb64d4=this[_0x32b1b8(0x21a)](_0x5c9d97),_0x263cfd=this[_0x32b1b8(0x19b)](_0x5c9d97),_0x503750=_0xcb64d4||_0x263cfd,_0x14ecc3={},_0x2e47c0=0x0,_0x19becd=!0x1,_0x1e4574,_0x21ce63=/^(([1-9]{1}[0-9]*)|0)$/;if(_0x2ee007[_0x32b1b8(0x289)]){if(_0x1d5dae){if(_0x29d558=_0x11506f['length'],_0x29d558>_0x2ee007[_0x32b1b8(0x229)]){for(_0x298c9b=0x0,_0x4fe1f3=_0x2ee007[_0x32b1b8(0x229)],_0x3e0356=_0x298c9b;_0x3e0356<_0x4fe1f3;_0x3e0356++)_0x1e04c2['push'](_0x3493d1[_0x32b1b8(0x1a6)](_0x243b4e,_0x11506f,_0x5c9d97,_0x3e0356,_0x2ee007));_0x4c9638[_0x32b1b8(0x21e)]=!0x0;}else{for(_0x298c9b=0x0,_0x4fe1f3=_0x29d558,_0x3e0356=_0x298c9b;_0x3e0356<_0x4fe1f3;_0x3e0356++)_0x1e04c2[_0x32b1b8(0x1ef)](_0x3493d1['_addProperty'](_0x243b4e,_0x11506f,_0x5c9d97,_0x3e0356,_0x2ee007));}_0x2ee007['autoExpandPropertyCount']+=_0x1e04c2[_0x32b1b8(0x228)];}if(!(_0x5c9d97===_0x32b1b8(0x271)||_0x5c9d97===_0x32b1b8(0x21b))&&!_0xcb64d4&&_0x5c9d97!==_0x32b1b8(0x1ae)&&_0x5c9d97!==_0x32b1b8(0x1be)&&_0x5c9d97!==_0x32b1b8(0x20f)){var _0x5b3018=_0x4ebef1[_0x32b1b8(0x241)]||_0x2ee007[_0x32b1b8(0x241)];if(this['_isSet'](_0x11506f)?(_0x3e0356=0x0,_0x11506f[_0x32b1b8(0x255)](function(_0x49f706){var _0x50c4f7=_0x32b1b8;if(_0x2e47c0++,_0x2ee007[_0x50c4f7(0x1f7)]++,_0x2e47c0>_0x5b3018){_0x19becd=!0x0;return;}if(!_0x2ee007[_0x50c4f7(0x24d)]&&_0x2ee007[_0x50c4f7(0x208)]&&_0x2ee007[_0x50c4f7(0x1f7)]>_0x2ee007[_0x50c4f7(0x1d0)]){_0x19becd=!0x0;return;}_0x1e04c2['push'](_0x3493d1[_0x50c4f7(0x1a6)](_0x243b4e,_0x11506f,_0x50c4f7(0x1b2),_0x3e0356++,_0x2ee007,function(_0x58d1e1){return function(){return _0x58d1e1;};}(_0x49f706)));})):this['_isMap'](_0x11506f)&&_0x11506f[_0x32b1b8(0x255)](function(_0x4038c5,_0x4c2845){var _0x127d93=_0x32b1b8;if(_0x2e47c0++,_0x2ee007[_0x127d93(0x1f7)]++,_0x2e47c0>_0x5b3018){_0x19becd=!0x0;return;}if(!_0x2ee007['isExpressionToEvaluate']&&_0x2ee007[_0x127d93(0x208)]&&_0x2ee007[_0x127d93(0x1f7)]>_0x2ee007[_0x127d93(0x1d0)]){_0x19becd=!0x0;return;}var _0x390210=_0x4c2845[_0x127d93(0x215)]();_0x390210['length']>0x64&&(_0x390210=_0x390210[_0x127d93(0x26f)](0x0,0x64)+_0x127d93(0x1cd)),_0x1e04c2[_0x127d93(0x1ef)](_0x3493d1[_0x127d93(0x1a6)](_0x243b4e,_0x11506f,_0x127d93(0x26d),_0x390210,_0x2ee007,function(_0x4a8c1d){return function(){return _0x4a8c1d;};}(_0x4038c5)));}),!_0x8b9732){try{for(_0x53d551 in _0x11506f)if(!(_0x1d5dae&&_0x21ce63[_0x32b1b8(0x1b7)](_0x53d551))&&!this[_0x32b1b8(0x224)](_0x11506f,_0x53d551,_0x2ee007)){if(_0x2e47c0++,_0x2ee007[_0x32b1b8(0x1f7)]++,_0x2e47c0>_0x5b3018){_0x19becd=!0x0;break;}if(!_0x2ee007[_0x32b1b8(0x24d)]&&_0x2ee007[_0x32b1b8(0x208)]&&_0x2ee007[_0x32b1b8(0x1f7)]>_0x2ee007[_0x32b1b8(0x1d0)]){_0x19becd=!0x0;break;}_0x1e04c2['push'](_0x3493d1[_0x32b1b8(0x23d)](_0x243b4e,_0x14ecc3,_0x11506f,_0x5c9d97,_0x53d551,_0x2ee007));}}catch{}if(_0x14ecc3[_0x32b1b8(0x205)]=!0x0,_0x2e8938&&(_0x14ecc3[_0x32b1b8(0x286)]=!0x0),!_0x19becd){var _0x51be53=[]['concat'](this[_0x32b1b8(0x21f)](_0x11506f))[_0x32b1b8(0x1c0)](this[_0x32b1b8(0x287)](_0x11506f));for(_0x3e0356=0x0,_0x29d558=_0x51be53['length'];_0x3e0356<_0x29d558;_0x3e0356++)if(_0x53d551=_0x51be53[_0x3e0356],!(_0x1d5dae&&_0x21ce63[_0x32b1b8(0x1b7)](_0x53d551[_0x32b1b8(0x215)]()))&&!this[_0x32b1b8(0x224)](_0x11506f,_0x53d551,_0x2ee007)&&!_0x14ecc3['_p_'+_0x53d551[_0x32b1b8(0x215)]()]){if(_0x2e47c0++,_0x2ee007[_0x32b1b8(0x1f7)]++,_0x2e47c0>_0x5b3018){_0x19becd=!0x0;break;}if(!_0x2ee007['isExpressionToEvaluate']&&_0x2ee007[_0x32b1b8(0x208)]&&_0x2ee007['autoExpandPropertyCount']>_0x2ee007['autoExpandLimit']){_0x19becd=!0x0;break;}_0x1e04c2[_0x32b1b8(0x1ef)](_0x3493d1[_0x32b1b8(0x23d)](_0x243b4e,_0x14ecc3,_0x11506f,_0x5c9d97,_0x53d551,_0x2ee007));}}}}}if(_0x4c9638[_0x32b1b8(0x1d2)]=_0x5c9d97,_0x503750?(_0x4c9638[_0x32b1b8(0x23e)]=_0x11506f[_0x32b1b8(0x1ce)](),this[_0x32b1b8(0x1e3)](_0x5c9d97,_0x4c9638,_0x2ee007,_0x4ebef1)):_0x5c9d97===_0x32b1b8(0x1cc)?_0x4c9638[_0x32b1b8(0x23e)]=this[_0x32b1b8(0x1db)]['call'](_0x11506f):_0x5c9d97==='bigint'?_0x4c9638[_0x32b1b8(0x23e)]=_0x11506f[_0x32b1b8(0x215)]():_0x5c9d97===_0x32b1b8(0x251)?_0x4c9638[_0x32b1b8(0x23e)]=this['_regExpToString'][_0x32b1b8(0x256)](_0x11506f):_0x5c9d97===_0x32b1b8(0x1ec)&&this[_0x32b1b8(0x1b5)]?_0x4c9638['value']=this[_0x32b1b8(0x1b5)][_0x32b1b8(0x25e)][_0x32b1b8(0x215)][_0x32b1b8(0x256)](_0x11506f):!_0x2ee007[_0x32b1b8(0x289)]&&!(_0x5c9d97==='null'||_0x5c9d97===_0x32b1b8(0x21b))&&(delete _0x4c9638[_0x32b1b8(0x23e)],_0x4c9638[_0x32b1b8(0x218)]=!0x0),_0x19becd&&(_0x4c9638[_0x32b1b8(0x22e)]=!0x0),_0x1e4574=_0x2ee007[_0x32b1b8(0x204)][_0x32b1b8(0x219)],_0x2ee007[_0x32b1b8(0x204)][_0x32b1b8(0x219)]=_0x4c9638,this['_treeNodePropertiesBeforeFullValue'](_0x4c9638,_0x2ee007),_0x1e04c2[_0x32b1b8(0x228)]){for(_0x3e0356=0x0,_0x29d558=_0x1e04c2[_0x32b1b8(0x228)];_0x3e0356<_0x29d558;_0x3e0356++)_0x1e04c2[_0x3e0356](_0x3e0356);}_0x243b4e[_0x32b1b8(0x228)]&&(_0x4c9638[_0x32b1b8(0x241)]=_0x243b4e);}catch(_0x2a9f08){_0x960b9(_0x2a9f08,_0x4c9638,_0x2ee007);}return this[_0x32b1b8(0x260)](_0x11506f,_0x4c9638),this[_0x32b1b8(0x1e0)](_0x4c9638,_0x2ee007),_0x2ee007[_0x32b1b8(0x204)][_0x32b1b8(0x219)]=_0x1e4574,_0x2ee007[_0x32b1b8(0x1c6)]--,_0x2ee007[_0x32b1b8(0x208)]=_0x5e0dc8,_0x2ee007[_0x32b1b8(0x208)]&&_0x2ee007[_0x32b1b8(0x200)][_0x32b1b8(0x1e1)](),_0x4c9638;}[_0xb9351(0x287)](_0x18f3c1){var _0x404baf=_0xb9351;return Object[_0x404baf(0x23a)]?Object[_0x404baf(0x23a)](_0x18f3c1):[];}[_0xb9351(0x27d)](_0x55978a){var _0x150849=_0xb9351;return!!(_0x55978a&&_0x2f1668[_0x150849(0x1b2)]&&this[_0x150849(0x22d)](_0x55978a)===_0x150849(0x1ad)&&_0x55978a[_0x150849(0x255)]);}[_0xb9351(0x224)](_0xdaab6b,_0x9d5690,_0x346aa8){var _0x187352=_0xb9351;return _0x346aa8['noFunctions']?typeof _0xdaab6b[_0x9d5690]==_0x187352(0x19d):!0x1;}[_0xb9351(0x242)](_0x10173d){var _0x2c72a8=_0xb9351,_0x8371e='';return _0x8371e=typeof _0x10173d,_0x8371e===_0x2c72a8(0x1a3)?this[_0x2c72a8(0x22d)](_0x10173d)===_0x2c72a8(0x27b)?_0x8371e=_0x2c72a8(0x280):this[_0x2c72a8(0x22d)](_0x10173d)===_0x2c72a8(0x1c2)?_0x8371e='date':this[_0x2c72a8(0x22d)](_0x10173d)===_0x2c72a8(0x278)?_0x8371e=_0x2c72a8(0x20f):_0x10173d===null?_0x8371e=_0x2c72a8(0x271):_0x10173d[_0x2c72a8(0x284)]&&(_0x8371e=_0x10173d['constructor'][_0x2c72a8(0x20c)]||_0x8371e):_0x8371e===_0x2c72a8(0x21b)&&this[_0x2c72a8(0x1d4)]&&_0x10173d instanceof this['_HTMLAllCollection']&&(_0x8371e=_0x2c72a8(0x20e)),_0x8371e;}[_0xb9351(0x22d)](_0x3ad7f3){return Object['prototype']['toString']['call'](_0x3ad7f3);}[_0xb9351(0x21a)](_0x46dcda){var _0x4d67f3=_0xb9351;return _0x46dcda===_0x4d67f3(0x1a1)||_0x46dcda==='string'||_0x46dcda==='number';}[_0xb9351(0x19b)](_0x146920){var _0x41499c=_0xb9351;return _0x146920===_0x41499c(0x1b9)||_0x146920===_0x41499c(0x1ae)||_0x146920===_0x41499c(0x227);}['_addProperty'](_0x24d4a5,_0x100727,_0x3a56c8,_0x4226aa,_0x2bf790,_0x1b6360){var _0x216825=this;return function(_0x20facd){var _0x54ecaf=_0x2d0d,_0x235a03=_0x2bf790[_0x54ecaf(0x204)]['current'],_0x453f0e=_0x2bf790[_0x54ecaf(0x204)][_0x54ecaf(0x1d1)],_0x41bcf2=_0x2bf790[_0x54ecaf(0x204)][_0x54ecaf(0x1a2)];_0x2bf790[_0x54ecaf(0x204)][_0x54ecaf(0x1a2)]=_0x235a03,_0x2bf790[_0x54ecaf(0x204)][_0x54ecaf(0x1d1)]=typeof _0x4226aa==_0x54ecaf(0x201)?_0x4226aa:_0x20facd,_0x24d4a5['push'](_0x216825[_0x54ecaf(0x257)](_0x100727,_0x3a56c8,_0x4226aa,_0x2bf790,_0x1b6360)),_0x2bf790['node'][_0x54ecaf(0x1a2)]=_0x41bcf2,_0x2bf790[_0x54ecaf(0x204)][_0x54ecaf(0x1d1)]=_0x453f0e;};}['_addObjectProperty'](_0x5cd352,_0x3a90ad,_0x282b33,_0x2f5abf,_0x16cc7c,_0x293f05,_0x3023c7){var _0xe281d4=_0xb9351,_0x1ec4d0=this;return _0x3a90ad[_0xe281d4(0x252)+_0x16cc7c['toString']()]=!0x0,function(_0x4925bb){var _0x38f281=_0xe281d4,_0x4534ee=_0x293f05[_0x38f281(0x204)][_0x38f281(0x219)],_0x328920=_0x293f05[_0x38f281(0x204)][_0x38f281(0x1d1)],_0x3472b1=_0x293f05['node'][_0x38f281(0x1a2)];_0x293f05[_0x38f281(0x204)][_0x38f281(0x1a2)]=_0x4534ee,_0x293f05[_0x38f281(0x204)][_0x38f281(0x1d1)]=_0x4925bb,_0x5cd352[_0x38f281(0x1ef)](_0x1ec4d0[_0x38f281(0x257)](_0x282b33,_0x2f5abf,_0x16cc7c,_0x293f05,_0x3023c7)),_0x293f05[_0x38f281(0x204)]['parent']=_0x3472b1,_0x293f05[_0x38f281(0x204)][_0x38f281(0x1d1)]=_0x328920;};}['_property'](_0x125127,_0x28dd5e,_0x103338,_0x28cc2b,_0x5c487c){var _0x4269eb=_0xb9351,_0x3daf9c=this;_0x5c487c||(_0x5c487c=function(_0x5bfc8d,_0x5e16fd){return _0x5bfc8d[_0x5e16fd];});var _0x1c6990=_0x103338[_0x4269eb(0x215)](),_0x57dc66=_0x28cc2b[_0x4269eb(0x1e6)]||{},_0x4ac385=_0x28cc2b[_0x4269eb(0x289)],_0xc41322=_0x28cc2b[_0x4269eb(0x24d)];try{var _0x57dc72=this[_0x4269eb(0x246)](_0x125127),_0x3a0ba8=_0x1c6990;_0x57dc72&&_0x3a0ba8[0x0]==='\\x27'&&(_0x3a0ba8=_0x3a0ba8[_0x4269eb(0x1e5)](0x1,_0x3a0ba8[_0x4269eb(0x228)]-0x2));var _0x31275a=_0x28cc2b[_0x4269eb(0x1e6)]=_0x57dc66[_0x4269eb(0x252)+_0x3a0ba8];_0x31275a&&(_0x28cc2b[_0x4269eb(0x289)]=_0x28cc2b[_0x4269eb(0x289)]+0x1),_0x28cc2b[_0x4269eb(0x24d)]=!!_0x31275a;var _0x45daf8=typeof _0x103338=='symbol',_0x37ff6c={'name':_0x45daf8||_0x57dc72?_0x1c6990:this[_0x4269eb(0x1c4)](_0x1c6990)};if(_0x45daf8&&(_0x37ff6c['symbol']=!0x0),!(_0x28dd5e===_0x4269eb(0x280)||_0x28dd5e===_0x4269eb(0x276))){var _0x17bf18=this['_getOwnPropertyDescriptor'](_0x125127,_0x103338);if(_0x17bf18&&(_0x17bf18['set']&&(_0x37ff6c[_0x4269eb(0x23b)]=!0x0),_0x17bf18[_0x4269eb(0x20b)]&&!_0x31275a&&!_0x28cc2b['resolveGetters']))return _0x37ff6c[_0x4269eb(0x1ba)]=!0x0,this[_0x4269eb(0x223)](_0x37ff6c,_0x28cc2b),_0x37ff6c;}var _0x1af7ff;try{_0x1af7ff=_0x5c487c(_0x125127,_0x103338);}catch(_0x3177ba){return _0x37ff6c={'name':_0x1c6990,'type':'unknown','error':_0x3177ba[_0x4269eb(0x213)]},this[_0x4269eb(0x223)](_0x37ff6c,_0x28cc2b),_0x37ff6c;}var _0x5254ee=this[_0x4269eb(0x242)](_0x1af7ff),_0x11e512=this[_0x4269eb(0x21a)](_0x5254ee);if(_0x37ff6c[_0x4269eb(0x1d2)]=_0x5254ee,_0x11e512)this[_0x4269eb(0x223)](_0x37ff6c,_0x28cc2b,_0x1af7ff,function(){var _0x3db2ea=_0x4269eb;_0x37ff6c['value']=_0x1af7ff['valueOf'](),!_0x31275a&&_0x3daf9c[_0x3db2ea(0x1e3)](_0x5254ee,_0x37ff6c,_0x28cc2b,{});});else{var _0x3dc948=_0x28cc2b[_0x4269eb(0x208)]&&_0x28cc2b[_0x4269eb(0x1c6)]<_0x28cc2b[_0x4269eb(0x25d)]&&_0x28cc2b[_0x4269eb(0x200)][_0x4269eb(0x1a4)](_0x1af7ff)<0x0&&_0x5254ee!=='function'&&_0x28cc2b[_0x4269eb(0x1f7)]<_0x28cc2b[_0x4269eb(0x1d0)];_0x3dc948||_0x28cc2b[_0x4269eb(0x1c6)]<_0x4ac385||_0x31275a?(this[_0x4269eb(0x1b4)](_0x37ff6c,_0x1af7ff,_0x28cc2b,_0x31275a||{}),this[_0x4269eb(0x260)](_0x1af7ff,_0x37ff6c)):this[_0x4269eb(0x223)](_0x37ff6c,_0x28cc2b,_0x1af7ff,function(){var _0x25c349=_0x4269eb;_0x5254ee===_0x25c349(0x271)||_0x5254ee==='undefined'||(delete _0x37ff6c[_0x25c349(0x23e)],_0x37ff6c[_0x25c349(0x218)]=!0x0);});}return _0x37ff6c;}finally{_0x28cc2b[_0x4269eb(0x1e6)]=_0x57dc66,_0x28cc2b['depth']=_0x4ac385,_0x28cc2b[_0x4269eb(0x24d)]=_0xc41322;}}[_0xb9351(0x1e3)](_0x1c2c58,_0x2dd4c0,_0x38f213,_0x458688){var _0x3d9f0b=_0xb9351,_0x312f9e=_0x458688['strLength']||_0x38f213['strLength'];if((_0x1c2c58===_0x3d9f0b(0x285)||_0x1c2c58===_0x3d9f0b(0x1ae))&&_0x2dd4c0[_0x3d9f0b(0x23e)]){let _0x1ef982=_0x2dd4c0[_0x3d9f0b(0x23e)][_0x3d9f0b(0x228)];_0x38f213[_0x3d9f0b(0x24e)]+=_0x1ef982,_0x38f213[_0x3d9f0b(0x24e)]>_0x38f213[_0x3d9f0b(0x1cf)]?(_0x2dd4c0['capped']='',delete _0x2dd4c0['value']):_0x1ef982>_0x312f9e&&(_0x2dd4c0['capped']=_0x2dd4c0[_0x3d9f0b(0x23e)]['substr'](0x0,_0x312f9e),delete _0x2dd4c0[_0x3d9f0b(0x23e)]);}}[_0xb9351(0x246)](_0x1e2eea){var _0x3d3a1f=_0xb9351;return!!(_0x1e2eea&&_0x2f1668[_0x3d3a1f(0x26d)]&&this['_objectToString'](_0x1e2eea)==='[object\\x20Map]'&&_0x1e2eea[_0x3d3a1f(0x255)]);}[_0xb9351(0x1c4)](_0x3cc746){var _0x5c0074=_0xb9351;if(_0x3cc746[_0x5c0074(0x26e)](/^\\d+$/))return _0x3cc746;var _0x287031;try{_0x287031=JSON['stringify'](''+_0x3cc746);}catch{_0x287031='\\x22'+this[_0x5c0074(0x22d)](_0x3cc746)+'\\x22';}return _0x287031['match'](/^\"([a-zA-Z_][a-zA-Z_0-9]*)\"$/)?_0x287031=_0x287031[_0x5c0074(0x1e5)](0x1,_0x287031[_0x5c0074(0x228)]-0x2):_0x287031=_0x287031[_0x5c0074(0x270)](/'/g,'\\x5c\\x27')['replace'](/\\\\\"/g,'\\x22')[_0x5c0074(0x270)](/(^\"|\"$)/g,'\\x27'),_0x287031;}['_processTreeNodeResult'](_0x19b4fa,_0x38650f,_0x57946c,_0x29c64f){var _0x589102=_0xb9351;this['_treeNodePropertiesBeforeFullValue'](_0x19b4fa,_0x38650f),_0x29c64f&&_0x29c64f(),this[_0x589102(0x260)](_0x57946c,_0x19b4fa),this[_0x589102(0x1e0)](_0x19b4fa,_0x38650f);}[_0xb9351(0x1bd)](_0x143f16,_0x1a8ded){var _0x11c629=_0xb9351;this[_0x11c629(0x1e8)](_0x143f16,_0x1a8ded),this[_0x11c629(0x268)](_0x143f16,_0x1a8ded),this[_0x11c629(0x1f9)](_0x143f16,_0x1a8ded),this[_0x11c629(0x1df)](_0x143f16,_0x1a8ded);}[_0xb9351(0x1e8)](_0x369a46,_0x4f05be){}[_0xb9351(0x268)](_0x21c0d0,_0x301a40){}[_0xb9351(0x1b1)](_0x47144d,_0x11eff4){}[_0xb9351(0x1a9)](_0x3fb569){var _0x4aae29=_0xb9351;return _0x3fb569===this[_0x4aae29(0x26a)];}['_treeNodePropertiesAfterFullValue'](_0x25d957,_0x57d82e){var _0x4a4303=_0xb9351;this[_0x4a4303(0x1b1)](_0x25d957,_0x57d82e),this[_0x4a4303(0x25f)](_0x25d957),_0x57d82e['sortProps']&&this[_0x4a4303(0x1dc)](_0x25d957),this['_addFunctionsNode'](_0x25d957,_0x57d82e),this['_addLoadNode'](_0x25d957,_0x57d82e),this[_0x4a4303(0x225)](_0x25d957);}[_0xb9351(0x260)](_0x401233,_0x2b0d6c){var _0x275173=_0xb9351;try{_0x401233&&typeof _0x401233[_0x275173(0x228)]==_0x275173(0x201)&&(_0x2b0d6c[_0x275173(0x228)]=_0x401233[_0x275173(0x228)]);}catch{}if(_0x2b0d6c['type']===_0x275173(0x201)||_0x2b0d6c[_0x275173(0x1d2)]==='Number'){if(isNaN(_0x2b0d6c[_0x275173(0x23e)]))_0x2b0d6c['nan']=!0x0,delete _0x2b0d6c[_0x275173(0x23e)];else switch(_0x2b0d6c[_0x275173(0x23e)]){case Number[_0x275173(0x21c)]:_0x2b0d6c[_0x275173(0x24a)]=!0x0,delete _0x2b0d6c[_0x275173(0x23e)];break;case Number[_0x275173(0x207)]:_0x2b0d6c[_0x275173(0x233)]=!0x0,delete _0x2b0d6c[_0x275173(0x23e)];break;case 0x0:this[_0x275173(0x283)](_0x2b0d6c['value'])&&(_0x2b0d6c[_0x275173(0x19c)]=!0x0);break;}}else _0x2b0d6c[_0x275173(0x1d2)]===_0x275173(0x19d)&&typeof _0x401233[_0x275173(0x20c)]==_0x275173(0x285)&&_0x401233[_0x275173(0x20c)]&&_0x2b0d6c[_0x275173(0x20c)]&&_0x401233['name']!==_0x2b0d6c['name']&&(_0x2b0d6c[_0x275173(0x21d)]=_0x401233[_0x275173(0x20c)]);}[_0xb9351(0x283)](_0x29734d){var _0x29fc30=_0xb9351;return 0x1/_0x29734d===Number[_0x29fc30(0x207)];}[_0xb9351(0x1dc)](_0x5aaf46){var _0x374711=_0xb9351;!_0x5aaf46[_0x374711(0x241)]||!_0x5aaf46[_0x374711(0x241)][_0x374711(0x228)]||_0x5aaf46[_0x374711(0x1d2)]===_0x374711(0x280)||_0x5aaf46[_0x374711(0x1d2)]===_0x374711(0x26d)||_0x5aaf46[_0x374711(0x1d2)]===_0x374711(0x1b2)||_0x5aaf46[_0x374711(0x241)]['sort'](function(_0x3a2dd0,_0xee97a5){var _0x3cf6fb=_0x374711,_0x4587f7=_0x3a2dd0[_0x3cf6fb(0x20c)][_0x3cf6fb(0x1fd)](),_0x454cd0=_0xee97a5['name'][_0x3cf6fb(0x1fd)]();return _0x4587f7<_0x454cd0?-0x1:_0x4587f7>_0x454cd0?0x1:0x0;});}[_0xb9351(0x1c3)](_0x8c2d16,_0x3cfb23){var _0x5be686=_0xb9351;if(!(_0x3cfb23[_0x5be686(0x1ca)]||!_0x8c2d16[_0x5be686(0x241)]||!_0x8c2d16[_0x5be686(0x241)][_0x5be686(0x228)])){for(var _0x486f22=[],_0x45a564=[],_0x53922c=0x0,_0x166e4b=_0x8c2d16[_0x5be686(0x241)][_0x5be686(0x228)];_0x53922c<_0x166e4b;_0x53922c++){var _0x501ab2=_0x8c2d16['props'][_0x53922c];_0x501ab2[_0x5be686(0x1d2)]==='function'?_0x486f22[_0x5be686(0x1ef)](_0x501ab2):_0x45a564[_0x5be686(0x1ef)](_0x501ab2);}if(!(!_0x45a564['length']||_0x486f22[_0x5be686(0x228)]<=0x1)){_0x8c2d16[_0x5be686(0x241)]=_0x45a564;var _0x359966={'functionsNode':!0x0,'props':_0x486f22};this['_setNodeId'](_0x359966,_0x3cfb23),this[_0x5be686(0x1b1)](_0x359966,_0x3cfb23),this[_0x5be686(0x25f)](_0x359966),this[_0x5be686(0x1df)](_0x359966,_0x3cfb23),_0x359966['id']+='\\x20f',_0x8c2d16[_0x5be686(0x241)][_0x5be686(0x1ff)](_0x359966);}}}['_addLoadNode'](_0x44078e,_0x4b2a8c){}[_0xb9351(0x25f)](_0x36b2c4){}[_0xb9351(0x216)](_0x425466){var _0x20e1b7=_0xb9351;return Array[_0x20e1b7(0x1c9)](_0x425466)||typeof _0x425466==_0x20e1b7(0x1a3)&&this[_0x20e1b7(0x22d)](_0x425466)==='[object\\x20Array]';}[_0xb9351(0x1df)](_0x43d3b4,_0x350745){}[_0xb9351(0x225)](_0x4c0712){var _0x5179c0=_0xb9351;delete _0x4c0712[_0x5179c0(0x269)],delete _0x4c0712[_0x5179c0(0x1b3)],delete _0x4c0712[_0x5179c0(0x1a0)];}[_0xb9351(0x1f9)](_0x4e360e,_0x4d6893){}['_propertyAccessor'](_0x18b17e){var _0x1820bb=_0xb9351;return _0x18b17e?_0x18b17e[_0x1820bb(0x26e)](this['_numberRegExp'])?'['+_0x18b17e+']':_0x18b17e[_0x1820bb(0x26e)](this[_0x1820bb(0x1ed)])?'.'+_0x18b17e:_0x18b17e[_0x1820bb(0x26e)](this[_0x1820bb(0x288)])?'['+_0x18b17e+']':'[\\x27'+_0x18b17e+'\\x27]':'';}}let _0x560210=new _0x4665fa();function _0x429d89(_0x58671f,_0x559ee8,_0x2604a5,_0x327363,_0xb983bc,_0x16e647){var _0x2527d8=_0xb9351;let _0x576484,_0x3f91f9;try{_0x3f91f9=_0x31e48d(),_0x576484=_0xbb3f8b[_0x559ee8],!_0x576484||_0x3f91f9-_0x576484['ts']>0x1f4&&_0x576484[_0x2527d8(0x1f2)]&&_0x576484[_0x2527d8(0x202)]/_0x576484[_0x2527d8(0x1f2)]<0x64?(_0xbb3f8b[_0x559ee8]=_0x576484={'count':0x0,'time':0x0,'ts':_0x3f91f9},_0xbb3f8b['hits']={}):_0x3f91f9-_0xbb3f8b[_0x2527d8(0x1fa)]['ts']>0x32&&_0xbb3f8b[_0x2527d8(0x1fa)][_0x2527d8(0x1f2)]&&_0xbb3f8b['hits'][_0x2527d8(0x202)]/_0xbb3f8b[_0x2527d8(0x1fa)][_0x2527d8(0x1f2)]<0x64&&(_0xbb3f8b[_0x2527d8(0x1fa)]={});let _0x5d9785=[],_0x52b7d5=_0x576484['reduceLimits']||_0xbb3f8b[_0x2527d8(0x1fa)][_0x2527d8(0x234)]?_0x56c2b2:_0x42ceca,_0xf83e4c=_0x496066=>{var _0x5868be=_0x2527d8;let _0x4544bb={};return _0x4544bb[_0x5868be(0x241)]=_0x496066[_0x5868be(0x241)],_0x4544bb[_0x5868be(0x229)]=_0x496066['elements'],_0x4544bb[_0x5868be(0x258)]=_0x496066['strLength'],_0x4544bb['totalStrLength']=_0x496066[_0x5868be(0x1cf)],_0x4544bb[_0x5868be(0x1d0)]=_0x496066[_0x5868be(0x1d0)],_0x4544bb['autoExpandMaxDepth']=_0x496066[_0x5868be(0x25d)],_0x4544bb['sortProps']=!0x1,_0x4544bb['noFunctions']=!_0x5c68d4,_0x4544bb[_0x5868be(0x289)]=0x1,_0x4544bb[_0x5868be(0x1c6)]=0x0,_0x4544bb[_0x5868be(0x281)]=_0x5868be(0x279),_0x4544bb[_0x5868be(0x248)]='root_exp',_0x4544bb[_0x5868be(0x208)]=!0x0,_0x4544bb[_0x5868be(0x200)]=[],_0x4544bb['autoExpandPropertyCount']=0x0,_0x4544bb[_0x5868be(0x1dd)]=!0x0,_0x4544bb[_0x5868be(0x24e)]=0x0,_0x4544bb[_0x5868be(0x204)]={'current':void 0x0,'parent':void 0x0,'index':0x0},_0x4544bb;};for(var _0x2af3e6=0x0;_0x2af3e6<_0xb983bc[_0x2527d8(0x228)];_0x2af3e6++)_0x5d9785['push'](_0x560210['serialize']({'timeNode':_0x58671f===_0x2527d8(0x202)||void 0x0},_0xb983bc[_0x2af3e6],_0xf83e4c(_0x52b7d5),{}));if(_0x58671f===_0x2527d8(0x1bb)){let _0x2caa1d=Error[_0x2527d8(0x259)];try{Error[_0x2527d8(0x259)]=0x1/0x0,_0x5d9785['push'](_0x560210[_0x2527d8(0x1b4)]({'stackNode':!0x0},new Error()[_0x2527d8(0x27a)],_0xf83e4c(_0x52b7d5),{'strLength':0x1/0x0}));}finally{Error[_0x2527d8(0x259)]=_0x2caa1d;}}return{'method':_0x2527d8(0x254),'version':_0x4851a1,'args':[{'ts':_0x2604a5,'session':_0x327363,'args':_0x5d9785,'id':_0x559ee8,'context':_0x16e647}]};}catch(_0x245e4a){return{'method':_0x2527d8(0x254),'version':_0x4851a1,'args':[{'ts':_0x2604a5,'session':_0x327363,'args':[{'type':_0x2527d8(0x26b),'error':_0x245e4a&&_0x245e4a['message']}],'id':_0x559ee8,'context':_0x16e647}]};}finally{try{if(_0x576484&&_0x3f91f9){let _0x3ecff9=_0x31e48d();_0x576484['count']++,_0x576484[_0x2527d8(0x202)]+=_0x38a8ed(_0x3f91f9,_0x3ecff9),_0x576484['ts']=_0x3ecff9,_0xbb3f8b[_0x2527d8(0x1fa)][_0x2527d8(0x1f2)]++,_0xbb3f8b[_0x2527d8(0x1fa)][_0x2527d8(0x202)]+=_0x38a8ed(_0x3f91f9,_0x3ecff9),_0xbb3f8b[_0x2527d8(0x1fa)]['ts']=_0x3ecff9,(_0x576484['count']>0x32||_0x576484[_0x2527d8(0x202)]>0x64)&&(_0x576484['reduceLimits']=!0x0),(_0xbb3f8b[_0x2527d8(0x1fa)][_0x2527d8(0x1f2)]>0x3e8||_0xbb3f8b[_0x2527d8(0x1fa)]['time']>0x12c)&&(_0xbb3f8b['hits'][_0x2527d8(0x234)]=!0x0);}}catch{}}}return _0x2f1668[_0xb9351(0x221)];})(globalThis,_0x27a73e(0x203),_0x27a73e(0x243),_0x27a73e(0x1bc),_0x27a73e(0x1eb),_0x27a73e(0x20a),_0x27a73e(0x231),_0x27a73e(0x25a),_0x27a73e(0x1fe));");
+  } catch (e) {}
+}
+
+;
+
+function oo_oo(i, ...v) {
+  try {
+    oo_cm().consoleLog(i, v);
+  } catch (e) {}
+
+  return v;
+}
+
+;
+oo_oo;
+
+function oo_tr(i, ...v) {
+  try {
+    oo_cm().consoleTrace(i, v);
+  } catch (e) {}
+
+  return v;
+}
+
+;
+oo_tr;
+
+function oo_ts() {
+  try {
+    oo_cm().consoleTime();
+  } catch (e) {}
+}
+
+;
+oo_ts;
+
+function oo_te() {
+  try {
+    oo_cm().consoleTimeEnd();
+  } catch (e) {}
+}
+
+;
+oo_te;
+/*eslint eslint-comments/disable-enable-pair:,eslint-comments/no-unlimited-disable:,eslint-comments/no-aggregating-enable:,eslint-comments/no-duplicate-disable:,eslint-comments/no-unused-disable:,eslint-comments/no-unused-enable:,*/
 
 /***/ }),
 
@@ -618,7 +588,7 @@ let InicioComponent = class InicioComponent {
             }
             // document.body.style.backgroundColor = '#fff';
             // document.body.style.background = '#fff';
-        }, 2000);
+        }, 2500);
         // if(!IS_NATIVE) {
         // this.authNativeService.listen();
         // Use Capacitor's App plugin to subscribe to the `appUrlOpen` event
@@ -834,458 +804,6 @@ InicioComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_10__.__decorate)([
 
 /***/ }),
 
-/***/ 93075:
-/*!*****************************************************************************!*\
-  !*** ./src/app/pages/inicio/lector-codigo-qr/lector-codigo-qr.component.ts ***!
-  \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "LectorCodigoQrComponent": () => (/* binding */ LectorCodigoQrComponent)
-/* harmony export */ });
-/* harmony import */ var D_Projects_capacitor_pwa_app_pedido_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! tslib */ 34929);
-/* harmony import */ var _lector_codigo_qr_component_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lector-codigo-qr.component.html?ngResource */ 97081);
-/* harmony import */ var _lector_codigo_qr_component_css_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lector-codigo-qr.component.css?ngResource */ 31816);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/core */ 22560);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/router */ 60124);
-/* harmony import */ var src_app_shared_services_verify_auth_client_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/verify-auth-client.service */ 34337);
-/* harmony import */ var src_app_shared_services_crud_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/crud-http.service */ 24677);
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/dialog */ 31484);
-/* harmony import */ var src_app_componentes_dialog_ubicacion_dialog_ubicacion_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/componentes/dialog-ubicacion/dialog-ubicacion.component */ 88168);
-/* harmony import */ var src_app_shared_services_establecimiento_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/establecimiento.service */ 32218);
-/* harmony import */ var _capacitor_community_barcode_scanner__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @capacitor-community/barcode-scanner */ 48353);
-/* harmony import */ var src_app_shared_config_config_const__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/config/config.const */ 61495);
-/* harmony import */ var src_app_shared_services_navigator_link_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/navigator-link.service */ 12562);
-
-
-
-
-
-
- // import { Auth0Service } from 'src/app/shared/services/auth0.service';
-// import { Subscription } from 'rxjs/internal/Subscription';
-// import { take } from 'rxjs/operators';
-// import {
-//   toLatLon, toLatitudeLongitude, headingDistanceTo, moveTo, insidePolygon, insideCircle
-// } from 'geolocation-utils';
-
-
-
-
-
-
- // import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-
-
-let LectorCodigoQrComponent = class LectorCodigoQrComponent {
-  // private veryfyClient: Subscription = null;
-  constructor(verifyClientService, // private infoTokenService: InfoTockenService,
-  crudService, dialog, establecimientoService, router, routerActive, navigationService) {
-    this.verifyClientService = verifyClientService;
-    this.crudService = crudService;
-    this.dialog = dialog;
-    this.establecimientoService = establecimientoService;
-    this.router = router;
-    this.routerActive = routerActive;
-    this.navigationService = navigationService;
-    this.codQR = '';
-    this.hasPermission = true;
-    this.hasPermissionPosition = true;
-    this.isProcesando = false;
-    this.currentDevice = null;
-    this.indexSelectCamera = 0;
-    this.isOptionChangeCamera = false;
-    this.isCodigoQrValido = true;
-    this.isCameraReady = false;
-    this.isSedeRequiereGPS = false; // si sede ruquiere gps
-
-    this.isSoloLLevar = false; // si escanea qr solo para llevar
-
-    this.isDelivery = false; // si escanea qr solo para llevar
-
-    this.scanActive = false;
-    this.scanSuccess = false;
-    this.isNativePlataform = src_app_shared_config_config_const__WEBPACK_IMPORTED_MODULE_8__.IS_NATIVE; // hasPermissionPosition = false;
-
-    this.isDemo = false;
-    this._comercioUrl = '';
-    this.isActivaCamara = true;
-  }
-
-  ngOnInit() {
-    this._comercioUrl = this.routerActive.snapshot.queryParamMap.get('co'); // lee el url si es directo
-
-    if (this._comercioUrl) {
-      this.isActivaCamara = false;
-      this.codQR = this._comercioUrl;
-      this.leerDatosQR();
-    } // this.scanQR();
-    // this.requestCameraPermission()
-
-
-    if (src_app_shared_config_config_const__WEBPACK_IMPORTED_MODULE_8__.IS_NATIVE) {
-      _capacitor_community_barcode_scanner__WEBPACK_IMPORTED_MODULE_7__.BarcodeScanner.prepare();
-      this.startCamNative();
-    }
-  }
-
-  ngOnDestroy() {
-    // this.verifyClientService.unsubscribeClient();
-    // this.veryfyClient.unsubscribe();
-    this.currentDevice = null;
-    this.stopCamNative();
-  }
-
-  stopCamNative(back = false) {
-    if (src_app_shared_config_config_const__WEBPACK_IMPORTED_MODULE_8__.IS_NATIVE) {
-      _capacitor_community_barcode_scanner__WEBPACK_IMPORTED_MODULE_7__.BarcodeScanner.stopScan();
-      this.scanActive = false;
-      this.scanSuccess = false;
-      document.body.style.background = "#ffffff";
-      document.body.style.opacity = "1";
-
-      if (back) {
-        this.navigationService._router('./');
-      }
-    }
-  }
-
-  startCamNative() {
-    var _this = this;
-
-    return (0,D_Projects_capacitor_pwa_app_pedido_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
-      const status = yield _capacitor_community_barcode_scanner__WEBPACK_IMPORTED_MODULE_7__.BarcodeScanner.checkPermission({
-        force: true
-      });
-
-      if (status.granted) {
-        _this.scanActive = true;
-        _this.scanSuccess = false; // document.body.style.opacity = "0.2";
-
-        document.body.style.background = "transparent";
-        _capacitor_community_barcode_scanner__WEBPACK_IMPORTED_MODULE_7__.BarcodeScanner.hideBackground();
-        const result = yield _capacitor_community_barcode_scanner__WEBPACK_IMPORTED_MODULE_7__.BarcodeScanner.startScan({
-          targetedFormats: [_capacitor_community_barcode_scanner__WEBPACK_IMPORTED_MODULE_7__.SupportedFormat.QR_CODE]
-        }); // console.log('este es el resultado ====>>', result);
-        // if the result has content
-
-        if (result.hasContent) {
-          // console.log(result.content); // log the raw scanned content
-          // console.log('este es el resultado content ====>>', result.content);
-          _this.codQR = result.content;
-          _this.scanActive = false;
-          _this.scanSuccess = true;
-          document.body.style.background = "#ffffff";
-          document.body.style.opacity = "1";
-          setTimeout(() => {
-            _this.leerDatosQR();
-          }, 500);
-        }
-      } else {
-        alert('Necesita dar acceso a la camara para poder escanear el codigo Qr');
-        _capacitor_community_barcode_scanner__WEBPACK_IMPORTED_MODULE_7__.BarcodeScanner.openAppSettings();
-      }
-    })();
-  }
-
-  scanSuccessHandler($event) {
-    // console.log($event);
-    this.codQR = $event;
-    this.isProcesando = true;
-    this.leerDatosQR(); // this.getPosition();
-  }
-
-  onHasPermission(has) {
-    this.hasPermission = has;
-  } // getPosition(): void {
-  //   this.hasPermissionPosition = true;
-  //   navigator.geolocation.getCurrentPosition((position: any) => {
-  //     const divicePos = { lat: position.coords.latitude, lng: position.coords.longitude};
-  //     // this.leerDatosQR(divicePos);
-  //     this.divicePos = divicePos;
-  //   }, this.showPositionError);
-  // }
-  // verifyAceptPosition() {
-  //   navigator.geolocation.getCurrentPosition(this.getPosition, (error: any) => {
-  //     // El segundo parámetro es la función de error
-  //         switch (error.code) {
-  //             case error.PERMISSION_DENIED:
-  //               this.hasPermissionPosition = false;
-  //                 // El usuario denegó el permiso para la Geolocalización.
-  //                 break;
-  //             case error.POSITION_UNAVAILABLE:
-  //                 // La ubicación no está disponible.
-  //                 this.hasPermissionPosition = false;
-  //                 break;
-  //             case error.TIMEOUT:
-  //                 // Se ha excedido el tiempo para obtener la ubicación.
-  //                 break;
-  //             case error.UNKNOWN_ERROR:
-  //                 // Un error desconocido.
-  //                 this.hasPermissionPosition = false;
-  //                 break;
-  //         }
-  //   });
-  // }
-
-
-  showPositionError(error) {
-    // if ( error.PERMISSION_DENIED ) {
-    this.hasPermissionPosition = false; // }
-  }
-
-  onCamerasFound(devices) {
-    this.availableDevices = devices;
-    this.hasDevices = Boolean(devices && devices.length);
-    this.indexSelectCamera = devices.length - 1;
-    this.isOptionChangeCamera = this.indexSelectCamera > 0 ? true : false;
-    this.deviceSelectChange(); // console.log(this.availableDevices);
-  }
-
-  onDeviceSelectChange() {
-    this.isCameraReady = false;
-    const countCamaras = this.availableDevices.length - 1;
-    this.indexSelectCamera = this.indexSelectCamera === countCamaras ? 0 : this.indexSelectCamera + 1;
-    this.deviceSelectChange();
-  }
-
-  deviceSelectChange() {
-    const device = this.availableDevices[this.indexSelectCamera];
-    this.currentDevice = device || null;
-    setTimeout(() => {
-      this.isCameraReady = true;
-    }, 1000);
-  } // leer qr // formato keyQrPwa::5|-6.0283481:-76.9714528|1 -> mesa | coordenadas del local | idsede
-
-
-  leerDatosQR() {
-    this.isCodigoQrValido = true;
-    let _codQr = []; // console.log('this.codQR', this.codQR);
-    // 310122 carta/nomsede  carta virtual delivery
-
-    if (this.codQR.indexOf('carta/') > -1) {
-      const posCarta = this.codQR.indexOf('carta/') + 6;
-      const nomSedeCV = this.codQR.slice(posCarta);
-      this.verificarCartaSedeParam(nomSedeCV);
-      return;
-    } // 140820 -> con este cambio el codigo es leido desde cualquier lector,
-    // enviandolo a ala web o si lo scanean desde papaya lo envian a la carta
-    // si el codigo viene con la pagina
-
-
-    if (this.codQR.indexOf('papaya.com.pe') > -1) {
-      const _partUrl = this.codQR.split('co='); // console.log('_cadena', _partUrl);
-      // quita la parte del url
-
-
-      this.codQR = _partUrl[1];
-    }
-
-    try {
-      _codQr = atob(this.codQR).split('::');
-    } catch (error) {
-      this.resValidQR(false);
-      return;
-    }
-
-    const isValidKeyQR = _codQr[0] === 'keyQrPwa' ? true : false;
-
-    if (!isValidKeyQR) {
-      this.isDemo = _codQr[0] === 'keyQrPwaDemo' ? true : false;
-    } // no se encuentra el key no es qr valido
-
-
-    if (!isValidKeyQR && !this.isDemo) {
-      this.resValidQR(isValidKeyQR);
-      return;
-    } // const dataQr = this.codQR.split('|');
-
-
-    const dataQr = _codQr[1].split('|');
-
-    const m = dataQr[0];
-    const s = dataQr[2];
-    const o = dataQr[3];
-    let canal = ''; // canal de consumo
-    // -1 = solo llevar // activa ubicacion
-
-    this.isSoloLLevar = m === '-1' ? true : false;
-    this.isDelivery = m === '-2' ? true : false;
-    canal = this.isSoloLLevar ? 'LLevar' : 'Mesa ' + m;
-    canal = this.isDelivery ? 'Delivery' : canal;
-    const dataSend = {
-      m: m,
-      s: s
-    }; // consultar si sede requiere geolocalizacion
-
-    const dataHeader = {
-      idsede: s
-    };
-    this.crudService.postFree(dataHeader, 'ini', 'info-sede-gps', false).subscribe(res => {
-      this.isSedeRequiereGPS = res.data[0].pwa_requiere_gps.toString() === '0' ? false : true;
-      this.isSedeRequiereGPS = this.isSoloLLevar ? true : this.isSedeRequiereGPS;
-      this.isSedeRequiereGPS = this.isDelivery ? false : this.isSedeRequiereGPS; // setear idsede en clienteSOcket
-
-      this.verifyClientService.getDataClient();
-
-      if (!this.isSoloLLevar) {
-        this.verifyClientService.setMesa(m);
-      }
-
-      this.verifyClientService.setIdSede(s);
-      this.verifyClientService.setQrSuccess(true);
-      this.verifyClientService.setIsSoloLLevar(this.isSoloLLevar);
-      this.verifyClientService.setIsDelivery(this.isDelivery);
-
-      if (this.isDelivery) {
-        // this.infoTokenService.converToJSON();
-        // this.infoTokenService.infoUsToken.isDelivery = true;
-        // this.infoTokenService.set();
-        this.verifyClientService.setMesa(0);
-        this.verifyClientService.setIdOrg(o);
-        this.getInfoEstablecimiento(s);
-      } // this.verifyClientService.setDataClient();
-
-
-      const position = dataQr[1].split(':');
-      const localPos = {
-        lat: parseFloat(position[0]),
-        lng: parseFloat(position[1])
-      };
-      const isPositionCorrect = true;
-
-      if (this.isSedeRequiereGPS) {
-        // this.getPosition();
-        // isPositionCorrect = this.isDemo ? true : this.arePointsNear(localPos, this.divicePos, 1);
-        this.openDialogPOS(localPos);
-      } else {
-        this.resValidQR(isPositionCorrect);
-      } // registra scaneo
-
-
-      this.establecimientoService.setRegisterScanQr(s, canal);
-    });
-  } // al scanear codigo qr DELIVERY para ir directo al establecimiento
-
-
-  getInfoEstablecimiento(_id, isLinkCartaVirtual = false) {
-    const _dataEstablecimiento = {
-      idsede: _id
-    };
-    this.crudService.postFree(_dataEstablecimiento, 'delivery', 'get-establecimientos', false).subscribe(res => {
-      const _e = res.data[0];
-      this.establecimientoService.set(_e);
-
-      if (isLinkCartaVirtual) {
-        this.router.navigate(['/lector-success']);
-      }
-    });
-  }
-
-  openDialogPOS(localPos) {
-    let isPositionValid = false;
-    const dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__.MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.hasBackdrop = true;
-    dialogConfig.data = {
-      cLocal: localPos,
-      isDemo: this.isDemo
-    };
-    const dialogRef = this.dialog.open(src_app_componentes_dialog_ubicacion_dialog_ubicacion_component__WEBPACK_IMPORTED_MODULE_5__.DialogUbicacionComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(data => {
-      if (!data) {
-        isPositionValid = false;
-      } // console.log('data dialog', data);
-
-
-      isPositionValid = data;
-      this.resValidQR(isPositionValid);
-    });
-  }
-
-  resValidQR(isValid) {
-    if (isValid) {
-      // console.log('pase correcto');
-      setTimeout(() => {
-        this.router.navigate(['/lector-success']);
-      }, 1000);
-    } else {
-      this.isCodigoQrValido = false;
-    }
-  } // calcula si esta dentro del rango
-  // private arePointsNear(checkPoint: any, centerPoint: any, km: number): boolean {
-  //   // const ky = 40000 / 360;
-  //   // const kx = Math.cos(Math.PI * centerPoint.lat / 180.0) * ky;
-  //   // const dx = Math.abs(centerPoint.lng - checkPoint.lng) * kx;
-  //   // const dy = Math.abs(centerPoint.lat - checkPoint.lat) * ky;
-  //   // return Math.sqrt(dx * dx + dy * dy) <= km;
-  //   const center = {lat: centerPoint.lat, lon: centerPoint.lng };
-  //   const radius = 65; // meters
-  //   // insideCircle({lat: 51.03, lon: 4.05}, center, radius) // true
-  //   return insideCircle({lat: checkPoint.lat, lon: checkPoint.lng}, center, radius);  // false
-  // }
-
-
-  volverALeer() {
-    this.isProcesando = false;
-    this.isCodigoQrValido = true;
-  }
-
-  verificarCartaSedeParam(_nomsede) {
-    // setear idsede en clienteSOcket
-    // console.log('verificarCartaSedeParam', _nomsede);
-    this.verifyClientService.getDataClient();
-    const _dataSend = {
-      nomsede: _nomsede
-    };
-    this.crudService.postFree(_dataSend, 'ini', 'carta-virtual', false).subscribe(res => {
-      if (res.success && res.data.length > 0) {
-        const s = res.data[0].idsede;
-        const o = res.data[0].idorg;
-        this.verifyClientService.setQrSuccess(true);
-        this.verifyClientService.setIsDelivery(true);
-        this.verifyClientService.setMesa(0);
-        this.verifyClientService.setIdSede(s);
-        this.verifyClientService.setIdOrg(o);
-        this.getInfoEstablecimiento(s, true); // registra scaneo
-
-        this.establecimientoService.setRegisterScanQr(s, 'Delivery');
-      } else {
-        this.router.navigate(['/inicio']);
-      } // console.log('res', res);
-
-    });
-  }
-
-};
-
-LectorCodigoQrComponent.ctorParameters = () => [{
-  type: src_app_shared_services_verify_auth_client_service__WEBPACK_IMPORTED_MODULE_3__.VerifyAuthClientService
-}, {
-  type: src_app_shared_services_crud_http_service__WEBPACK_IMPORTED_MODULE_4__.CrudHttpService
-}, {
-  type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__.MatDialog
-}, {
-  type: src_app_shared_services_establecimiento_service__WEBPACK_IMPORTED_MODULE_6__.EstablecimientoService
-}, {
-  type: _angular_router__WEBPACK_IMPORTED_MODULE_11__.Router
-}, {
-  type: _angular_router__WEBPACK_IMPORTED_MODULE_11__.ActivatedRoute
-}, {
-  type: src_app_shared_services_navigator_link_service__WEBPACK_IMPORTED_MODULE_9__.NavigatorLinkService
-}];
-
-LectorCodigoQrComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_12__.__decorate)([(0,_angular_core__WEBPACK_IMPORTED_MODULE_13__.Component)({
-  selector: 'app-lector-codigo-qr',
-  template: _lector_codigo_qr_component_html_ngResource__WEBPACK_IMPORTED_MODULE_1__,
-  styles: [_lector_codigo_qr_component_css_ngResource__WEBPACK_IMPORTED_MODULE_2__]
-})], LectorCodigoQrComponent);
-
-
-/***/ }),
-
 /***/ 5822:
 /*!*************************************************************************!*\
   !*** ./src/app/pages/inicio/lector-success/lector-success.component.ts ***!
@@ -1464,382 +982,483 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let LoginClienteComponent = class LoginClienteComponent {
-    constructor(verifyClientService, router, auth, crudService, socketService, dialogTelefono, dialogNombre, authNativeService) {
-        this.verifyClientService = verifyClientService;
-        this.router = router;
-        this.auth = auth;
-        this.crudService = crudService;
-        this.socketService = socketService;
-        this.dialogTelefono = dialogTelefono;
-        this.dialogNombre = dialogNombre;
-        this.authNativeService = authNativeService;
-        this.loadConsulta = false;
-        this.isViewLoginDNI = false;
-        this.isValidDNI = false;
-        this.isDateBirthdayValid = false;
-        this.isListDateSelect = false;
-        this.isPaseOk = false;
-        this.dataClienteSend = new src_app_modelos_socket_client_model__WEBPACK_IMPORTED_MODULE_4__.SocketClientModel();
-        // opcionesFrmCliente: GetFormDatosCliente = new GetFormDatosCliente;
-        this.msj_error = '';
-        this.idClienteBD = 0;
-        this.listViewDate = [];
-        this.listDay = [];
-        this.listMotnh = [];
-        this.listYear = [];
-        this.numDocumento = '';
-        this.isPlatformIOS = src_app_shared_config_config_const__WEBPACK_IMPORTED_MODULE_10__.IS_PLATAFORM_IOS;
-    }
-    ngOnInit() {
-        this.dataClienteSend = this.verifyClientService.getDataClient();
-        // console.log('data cliente', this.dataClienteSend);
-        // console.log('this.infoTokenService.getInfoUs()', this.infoTokenService.getInfoUs());
-        // cerramos socket para que cargue carta nuevamente
-        if (this.socketService.isSocketOpen) {
-            this.socketService.closeConnection();
-        }
-        // this.opcionesFrmCliente.telefono = true;
-    }
-    // goFb() {
-    //   this.router.navigate(['/login-client']);
+  constructor(verifyClientService, router, auth, crudService, socketService, dialogTelefono, dialogNombre, authNativeService) {
+    this.verifyClientService = verifyClientService;
+    this.router = router;
+    this.auth = auth;
+    this.crudService = crudService;
+    this.socketService = socketService;
+    this.dialogTelefono = dialogTelefono;
+    this.dialogNombre = dialogNombre;
+    this.authNativeService = authNativeService;
+    this.loadConsulta = false;
+    this.isViewLoginDNI = false;
+    this.isValidDNI = false;
+    this.isDateBirthdayValid = false;
+    this.isListDateSelect = false;
+    this.isPaseOk = false;
+    this.dataClienteSend = new src_app_modelos_socket_client_model__WEBPACK_IMPORTED_MODULE_4__.SocketClientModel(); // opcionesFrmCliente: GetFormDatosCliente = new GetFormDatosCliente;
+
+    this.msj_error = '';
+    this.idClienteBD = 0;
+    this.listViewDate = [];
+    this.listDay = [];
+    this.listMotnh = [];
+    this.listYear = [];
+    this.numDocumento = '';
+    this.isPlatformIOS = src_app_shared_config_config_const__WEBPACK_IMPORTED_MODULE_10__.IS_PLATAFORM_IOS;
+  }
+
+  ngOnInit() {
+    this.dataClienteSend = this.verifyClientService.getDataClient(); // console.log('data cliente', this.dataClienteSend);
+    // console.log('this.infoTokenService.getInfoUs()', this.infoTokenService.getInfoUs());
+    // cerramos socket para que cargue carta nuevamente
+
+    if (this.socketService.isSocketOpen) {
+      this.socketService.closeConnection();
+    } // this.opcionesFrmCliente.telefono = true;
+
+  } // goFb() {
+  //   this.router.navigate(['/login-client']);
+  // }
+
+
+  goFb() {
+    // tslint:disable-next-line:max-line-length
+    this.authNativeService.login(1); // if (!IS_NATIVE) {
+    // } else {
+    //   this.auth.login('#', 'facebook');
     // }
-    goFb() {
-        // tslint:disable-next-line:max-line-length
-        this.authNativeService.login(1);
-        // if (!IS_NATIVE) {
-        // } else {
-        //   this.auth.login('#', 'facebook');
-        // }
-        // window.open('https://m.facebook.com/login.php?skip_api_login=1&api_key=433734160901286&kid_directed_site=0&app_id=433734160901286&signed_next=1
-        // &next=https%3A%2F%2Fm.facebook.com%2Fdialog%2Foauth%3Fdisplay%3Dtouch%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fdev
-        // -m48s1pe2.auth0.com%252Flogin%252Fcallback%26scope%3Dpublic_profile%252Cemail%252Cuser_age_range%252Cuser_birthday%26state%3DXNLlXc5bBETMHz3ZsKjdrJN5Qg-m7tAs%26client_id%3D433734160901286%26ret%3Dlogin
-        // %26fbapp_pres%3D0%26logger_id%3D0da22dc3-2e21-4512-9630-6755b932362e&cancel_url=https%3A%2F
-        // %2Fdev-m48s1pe2.auth0.com%2Flogin%2Fcallback%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state
-        // %3DXNLlXc5bBETMHz3ZsKjdrJN5Qg-m7tAs%23_%3D_&display=touch&locale=es_ES&pl_dbl=0&refsrc=https%3A%2F%2Fm.facebook.com%2Fdialog%2Foauth&_rdr', '_self');
-    }
-    goGmail() {
-        // tslint:disable-next-line:max-line-length
-        this.authNativeService.login(0);
-        // if (!IS_NATIVE) {
-        // } else {
-        //   this.auth.login('#', 'google-oauth2');
-        // }
-        // window.open('https://accounts.google.com/signin/oauth/identifier?client_id=503309244000-nuq1e4aq964rumajuuuh8jrr8hqj4ggj.apps
-        // .googleusercontent.com&as=Gt8_kdS94yJ8-SSNJ_FvAw&destination=https
-        // %3A%2F%2Fdev-m48s1pe2.auth0.com&approval_state=!ChRYak5ZSGpadUgxXzNqb3hhcGZUehIfczJlb1h3T2JGZU1VRUZvSEdUZHlJLTJOcDdqNy1SWQ%E2%88%99AJDr988AAAAAXh3sARBYEr4oYCKCWs9U5zUn4rvw6fZ7&oauthgdpr=1&
-        // xsrfsig=ChkAeAh8T3hpGUbuZ88B9xbsKFXhx8WEy7mEEg5hcHByb3ZhbF9zdGF0ZRILZGVzdGluYXRpb24SBXNvYWN1Eg9vYXV0aHJpc2t5c2NvcGU&
-        // flowName=GeneralOAuthFlow', '_self');
-    }
-    goApple() {
-        this.authNativeService.login(2);
-    }
-    goCelular() {
-        // console.log('this.dataClienteSend', this.dataClienteSend);
-        const _dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__.MatDialogConfig();
-        _dialogConfig.disableClose = true;
-        _dialogConfig.hasBackdrop = true;
-        _dialogConfig.panelClass = ['my-dialog-orden-detalle', 'my-dialog-scrool'];
-        _dialogConfig.data = {
-            idcliente: -1,
-            numberphone: ''
-        };
-        const dialogRefTelefono = this.dialogTelefono.open(src_app_componentes_dialog_verificar_telefono_dialog_verificar_telefono_component__WEBPACK_IMPORTED_MODULE_7__.DialogVerificarTelefonoComponent, _dialogConfig);
-        dialogRefTelefono.afterClosed().subscribe((result) => {
-            if (result.verificado) {
-                // console.log('result.numberphone', result);
-                if (!result.cliente) {
-                    // perdir nombre
-                    this.openDialogSolicitaNombre(result.numberphone);
-                }
-                else {
-                    this.dataCliente = result.cliente;
-                    this.verifyClientService.clientSocket.idcliente = this.dataCliente.idcliente;
-                    this.verifyClientService.clientSocket.datalogin = {
-                        name: result.cliente.nombres,
-                        given_name: result.cliente.nombres.split(' ')[0]
-                    };
-                    this.verifyClientService.clientSocket.isCliente = true;
-                    this.loginByTelefono();
-                }
-            }
-        });
-    }
-    openDialogSolicitaNombre(telefono) {
-        const _dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__.MatDialogConfig();
-        _dialogConfig.disableClose = true;
-        _dialogConfig.hasBackdrop = true;
-        _dialogConfig.panelClass = ['my-dialog-orden-detalle', 'my-dialog-scrool'];
-        const dialogNombre = this.dialogNombre.open(src_app_componentes_dialog_nombre_cliente_dialog_nombre_cliente_component__WEBPACK_IMPORTED_MODULE_8__.DialogNombreClienteComponent, _dialogConfig);
-        dialogNombre.afterClosed().subscribe((result) => {
-            // this.dataCliente = {};
-            // this.dataCliente.idcliente = -1;
-            // this.dataCliente.nombres = result;
-            // this.dataCliente.sub = `phone|${telefono}`;
-            // this.dataCliente.telefono = telefono;
-            this.verifyClientService.clientSocket.idcliente = -1;
-            this.verifyClientService.clientSocket.telefono = telefono;
-            this.verifyClientService.clientSocket.datalogin = {
-                name: result,
-                given_name: result.split(' ')[0],
-                sub: `phone|${telefono}`
-            };
-            this.loginByTelefono();
-        });
-    }
-    viewLoginDni() {
-        this.isViewLoginDNI = !this.isViewLoginDNI;
-    }
-    viewLoginInvitado() {
-        this.loginByInvitado();
-    }
-    buscarDNI(value) {
-        // console.log('aaaaaaaaaaaaaaaaaaa');
-        if (value.length < 8 || this.numDocumento === value) {
-            return;
+    // window.open('https://m.facebook.com/login.php?skip_api_login=1&api_key=433734160901286&kid_directed_site=0&app_id=433734160901286&signed_next=1
+    // &next=https%3A%2F%2Fm.facebook.com%2Fdialog%2Foauth%3Fdisplay%3Dtouch%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fdev
+    // -m48s1pe2.auth0.com%252Flogin%252Fcallback%26scope%3Dpublic_profile%252Cemail%252Cuser_age_range%252Cuser_birthday%26state%3DXNLlXc5bBETMHz3ZsKjdrJN5Qg-m7tAs%26client_id%3D433734160901286%26ret%3Dlogin
+    // %26fbapp_pres%3D0%26logger_id%3D0da22dc3-2e21-4512-9630-6755b932362e&cancel_url=https%3A%2F
+    // %2Fdev-m48s1pe2.auth0.com%2Flogin%2Fcallback%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state
+    // %3DXNLlXc5bBETMHz3ZsKjdrJN5Qg-m7tAs%23_%3D_&display=touch&locale=es_ES&pl_dbl=0&refsrc=https%3A%2F%2Fm.facebook.com%2Fdialog%2Foauth&_rdr', '_self');
+  }
+
+  goGmail() {
+    // tslint:disable-next-line:max-line-length
+    this.authNativeService.login(0); // if (!IS_NATIVE) {
+    // } else {
+    //   this.auth.login('#', 'google-oauth2');
+    // }
+    // window.open('https://accounts.google.com/signin/oauth/identifier?client_id=503309244000-nuq1e4aq964rumajuuuh8jrr8hqj4ggj.apps
+    // .googleusercontent.com&as=Gt8_kdS94yJ8-SSNJ_FvAw&destination=https
+    // %3A%2F%2Fdev-m48s1pe2.auth0.com&approval_state=!ChRYak5ZSGpadUgxXzNqb3hhcGZUehIfczJlb1h3T2JGZU1VRUZvSEdUZHlJLTJOcDdqNy1SWQ%E2%88%99AJDr988AAAAAXh3sARBYEr4oYCKCWs9U5zUn4rvw6fZ7&oauthgdpr=1&
+    // xsrfsig=ChkAeAh8T3hpGUbuZ88B9xbsKFXhx8WEy7mEEg5hcHByb3ZhbF9zdGF0ZRILZGVzdGluYXRpb24SBXNvYWN1Eg9vYXV0aHJpc2t5c2NvcGU&
+    // flowName=GeneralOAuthFlow', '_self');
+  }
+
+  goApple() {
+    this.authNativeService.login(2);
+  }
+
+  goCelular() {
+    // console.log('this.dataClienteSend', this.dataClienteSend);
+    const _dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__.MatDialogConfig();
+
+    _dialogConfig.disableClose = true;
+    _dialogConfig.hasBackdrop = true;
+    _dialogConfig.panelClass = ['my-dialog-orden-detalle', 'my-dialog-scrool'];
+    _dialogConfig.data = {
+      idcliente: -1,
+      numberphone: ''
+    };
+    const dialogRefTelefono = this.dialogTelefono.open(src_app_componentes_dialog_verificar_telefono_dialog_verificar_telefono_component__WEBPACK_IMPORTED_MODULE_7__.DialogVerificarTelefonoComponent, _dialogConfig);
+    dialogRefTelefono.afterClosed().subscribe(result => {
+      if (result.verificado) {
+        // console.log('result.numberphone', result);
+        if (!result.cliente) {
+          // perdir nombre
+          this.openDialogSolicitaNombre(result.numberphone);
+        } else {
+          this.dataCliente = result.cliente;
+          this.verifyClientService.clientSocket.idcliente = this.dataCliente.idcliente;
+          this.verifyClientService.clientSocket.datalogin = {
+            name: result.cliente.nombres,
+            given_name: result.cliente.nombres.split(' ')[0]
+          };
+          this.verifyClientService.clientSocket.isCliente = true;
+          this.loginByTelefono();
         }
+      }
+    });
+  }
+
+  openDialogSolicitaNombre(telefono) {
+    const _dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__.MatDialogConfig();
+
+    _dialogConfig.disableClose = true;
+    _dialogConfig.hasBackdrop = true;
+    _dialogConfig.panelClass = ['my-dialog-orden-detalle', 'my-dialog-scrool'];
+    const dialogNombre = this.dialogNombre.open(src_app_componentes_dialog_nombre_cliente_dialog_nombre_cliente_component__WEBPACK_IMPORTED_MODULE_8__.DialogNombreClienteComponent, _dialogConfig);
+    dialogNombre.afterClosed().subscribe(result => {
+      // this.dataCliente = {};
+      // this.dataCliente.idcliente = -1;
+      // this.dataCliente.nombres = result;
+      // this.dataCliente.sub = `phone|${telefono}`;
+      // this.dataCliente.telefono = telefono;
+      this.verifyClientService.clientSocket.idcliente = -1;
+      this.verifyClientService.clientSocket.telefono = telefono;
+      this.verifyClientService.clientSocket.datalogin = {
+        name: result,
+        given_name: result.split(' ')[0],
+        sub: `phone|${telefono}`
+      };
+      this.loginByTelefono();
+    });
+  }
+
+  viewLoginDni() {
+    this.isViewLoginDNI = !this.isViewLoginDNI;
+  }
+
+  viewLoginInvitado() {
+    this.loginByInvitado();
+  }
+
+  buscarDNI(value) {
+    // console.log('aaaaaaaaaaaaaaaaaaa');
+    if (value.length < 8 || this.numDocumento === value) {
+      return;
+    }
+
+    this.isValidDNI = false;
+    this.isListDateSelect = false;
+    this.limpiarFrm();
+    this.numDocumento = value;
+    this.loadConsulta = true; // buscamos cliente en bd
+
+    const _dataClienteNum = {
+      documento: this.numDocumento
+    };
+    this.crudService.postFree(_dataClienteNum, 'service', 'consulta-dni-ruc-no-tk', false).subscribe(res => {
+      // console.log('consulta-dni', res);
+      let _datosBd;
+
+      _datosBd = res.data;
+
+      if (res.success && _datosBd.length > 0) {
+        this.idClienteBD = _datosBd[0].idcliente;
+        let num_verificador = _datosBd[0].dni_num_verificador;
+        num_verificador = isNaN(parseInt(num_verificador, 0)) ? null : num_verificador;
+        num_verificador = num_verificador === null ? _datosBd[0]?.pwa_data_session?.verification_code : num_verificador;
+        num_verificador = isNaN(parseInt(num_verificador, 0)) ? null : num_verificador;
+
+        if (!!num_verificador === true) {
+          _datosBd[0].dni_num_verificador = num_verificador;
+          this.loadConsulta = false;
+          this.isValidDNI = true;
+          this.dataCliente = _datosBd[0];
+          this.dataCliente.verification_code = parseInt(_datosBd[0].dni_num_verificador, 0);
+          this.dataCliente.date_of_birthday = this.dataCliente.f_nac;
+          this.dataCliente.number = this.numDocumento;
+          this.dataCliente.names = this.dataCliente.nombres;
+          this.dataCliente.name = this.dataCliente.nombres;
+          this.dataCliente.sub = `dni|${this.numDocumento}`; // console.log(response);
+
+          this.getListDatesCode();
+          return;
+        }
+      } // console.log('continue con api');
+
+
+      this.crudService.getConsultaRucDni('dni', this.numDocumento).subscribe(response => {
+        if (!response.success) {
+          this.loadConsulta = false;
+          this.isValidDNI = false;
+          this.msj_error = 'Numero de documento no valido. Ó intente registrarse con Gmail o Facebook';
+          return;
+        }
+
+        this.loadConsulta = false;
+        this.isValidDNI = true;
+        this.dataCliente = response.data;
+        this.dataCliente.idcliente = this.idClienteBD; // console.log(response);
+
+        this.getListDatesCode();
+      }, error => {
+        this.loadConsulta = false;
         this.isValidDNI = false;
-        this.isListDateSelect = false;
-        this.limpiarFrm();
-        this.numDocumento = value;
-        this.loadConsulta = true;
-        // buscamos cliente en bd
-        const _dataClienteNum = {
-            documento: this.numDocumento
-        };
-        this.crudService.postFree(_dataClienteNum, 'service', 'consulta-dni-ruc-no-tk', false)
-            .subscribe((res) => {
-            // console.log('consulta-dni', res);
-            let _datosBd;
-            _datosBd = res.data;
-            if (res.success && _datosBd.length > 0) {
-                this.idClienteBD = _datosBd[0].idcliente;
-                let num_verificador = _datosBd[0].dni_num_verificador;
-                num_verificador = isNaN(parseInt(num_verificador, 0)) ? null : num_verificador;
-                num_verificador = num_verificador === null ? _datosBd[0]?.pwa_data_session?.verification_code : num_verificador;
-                num_verificador = isNaN(parseInt(num_verificador, 0)) ? null : num_verificador;
-                if (!!num_verificador === true) {
-                    _datosBd[0].dni_num_verificador = num_verificador;
-                    this.loadConsulta = false;
-                    this.isValidDNI = true;
-                    this.dataCliente = _datosBd[0];
-                    this.dataCliente.verification_code = parseInt(_datosBd[0].dni_num_verificador, 0);
-                    this.dataCliente.date_of_birthday = this.dataCliente.f_nac;
-                    this.dataCliente.number = this.numDocumento;
-                    this.dataCliente.names = this.dataCliente.nombres;
-                    this.dataCliente.name = this.dataCliente.nombres;
-                    this.dataCliente.sub = `dni|${this.numDocumento}`;
-                    // console.log(response);
-                    this.getListDatesCode();
-                    return;
-                }
-            }
-            // console.log('continue con api');
-            this.crudService.getConsultaRucDni('dni', this.numDocumento)
-                .subscribe((response) => {
-                if (!response.success) {
-                    this.loadConsulta = false;
-                    this.isValidDNI = false;
-                    this.msj_error = 'Numero de documento no valido. Ó intente registrarse con Gmail o Facebook';
-                    return;
-                }
-                this.loadConsulta = false;
-                this.isValidDNI = true;
-                this.dataCliente = response.data;
-                this.dataCliente.idcliente = this.idClienteBD;
-                // console.log(response);
-                this.getListDatesCode();
-            }, (error) => {
-                this.loadConsulta = false;
-                this.isValidDNI = false;
-                this.msj_error = 'No se encontro, intentelo nuevamente. Ó intente registrarse con Gmail o Facebook';
-                // alert(error.message);
-                // console.log(error.message);
-            });
-        });
+        this.msj_error = 'No se encontro, intentelo nuevamente. Ó intente registrarse con Gmail o Facebook'; // alert(error.message);
+        // console.log(error.message);
+      });
+    });
+  }
+
+  limpiarFrm() {
+    this.listViewDate = [];
+    this.listDay = [];
+    this.listMotnh = [];
+    this.listYear = [];
+    this.isValidDNI = false;
+    this.numDocumento = '';
+    this.msj_error = '';
+  }
+
+  getListDatesCode() {
+    this.listViewDate = [];
+    let lista = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    lista = lista.sort(function () {
+      return Math.random() - 0.5;
+    });
+    lista = lista.slice(0, 4);
+    const isOk = lista.filter(x => x === this.dataCliente.verification_code)[0];
+
+    if (!isOk) {
+      const _i = this.getRandomArbitrary(0, 3);
+
+      lista[_i] = this.dataCliente.verification_code;
     }
-    limpiarFrm() {
-        this.listViewDate = [];
-        this.listDay = [];
-        this.listMotnh = [];
-        this.listYear = [];
-        this.isValidDNI = false;
-        this.numDocumento = '';
-        this.msj_error = '';
+
+    this.listViewDate = lista; // console.log(lista);
+  }
+
+  getListDates() {
+    const listDate = this.dataCliente.date_of_birthday.split('/');
+    this.listViewDate = [];
+    this.listDay = [];
+    this.listMotnh = [];
+    this.listYear = [];
+    this.addListDate(this.listDay, listDate[0], 'dd');
+    this.addListDate(this.listMotnh, listDate[1], 'mm');
+    this.addListDate(this.listYear, listDate[2], 'yy'); // console.log('listDay', this.listDay);
+    // console.log('listMotnh', this.listMotnh);
+    // console.log('listYear', this.listYear);
+    // year
+
+    let contador = 0;
+    let _date = '';
+    this.listViewDate.push({
+      'fecha': this.dataCliente.date_of_birthday,
+      selected: false
+    });
+
+    while (contador < 3) {
+      _date = `${this.listDay[this.getRandomArbitrary(0, 2)]}/${this.listMotnh[this.getRandomArbitrary(0, 2)]}/${this.listYear[this.getRandomArbitrary(0, 2)]}`;
+      this.listViewDate.push({
+        'fecha': _date,
+        selected: false
+      });
+      contador++;
     }
-    getListDatesCode() {
-        this.listViewDate = [];
-        let lista = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-        lista = lista.sort(function () { return Math.random() - 0.5; });
-        lista = lista.slice(0, 4);
-        const isOk = lista.filter(x => x === this.dataCliente.verification_code)[0];
-        if (!isOk) {
-            const _i = this.getRandomArbitrary(0, 3);
-            lista[_i] = this.dataCliente.verification_code;
-        }
-        this.listViewDate = lista;
-        // console.log(lista);
+
+    this.listViewDate.sort(function (a, b) {
+      return 0.5 - Math.random();
+    });
+    this.listViewDate.sort(function (a, b) {
+      return 0.5 - Math.random();
+    }); // console.log('listViewDate', this.listViewDate);
+  }
+
+  addListDate(list, _num, tipo) {
+    const num = parseInt(_num.toString(), 0);
+    let numRamond = 0;
+    list.push(this.ceroIzq(num));
+    numRamond = this.getRandomArbitrary(1, 4);
+    let numAdd = this.getRandomArbitrary(0, 20) < 10 ? num + numRamond : num - numRamond;
+    numAdd = numAdd === num ? this.getRandomArbitrary(0, 20) < 10 ? num + numRamond : num - numRamond : numAdd;
+    list.push(this.ceroIzq(this.verificarNum(numAdd, tipo)));
+    numRamond = this.getRandomArbitrary(1, 4);
+    let numAdd2 = this.getRandomArbitrary(0, 20) < 10 ? num + numRamond : num - numRamond;
+    numAdd2 = numAdd === numAdd2 ? this.getRandomArbitrary(0, 20) < 10 ? num + numRamond : num - numRamond : numAdd2;
+    list.push(this.ceroIzq(this.verificarNum(numAdd2, tipo)));
+    list.sort((a, b) => a + b);
+  }
+
+  ceroIzq(num) {
+    return num < 10 ? '0' + num.toString() : num.toString();
+  }
+
+  verificarNum(num, tipo) {
+    let rpt = num;
+
+    switch (tipo) {
+      case 'dd':
+        rpt = num <= 0 || num > 31 ? this.getRandomArbitrary(1, 28) : num;
+        break;
+
+      case 'mm':
+        rpt = num <= 0 || num > 12 ? this.getRandomArbitrary(1, 12) : num;
+        break;
     }
-    getListDates() {
-        const listDate = this.dataCliente.date_of_birthday.split('/');
-        this.listViewDate = [];
-        this.listDay = [];
-        this.listMotnh = [];
-        this.listYear = [];
-        this.addListDate(this.listDay, listDate[0], 'dd');
-        this.addListDate(this.listMotnh, listDate[1], 'mm');
-        this.addListDate(this.listYear, listDate[2], 'yy');
-        // console.log('listDay', this.listDay);
-        // console.log('listMotnh', this.listMotnh);
-        // console.log('listYear', this.listYear);
-        // year
-        let contador = 0;
-        let _date = '';
-        this.listViewDate.push({ 'fecha': this.dataCliente.date_of_birthday, selected: false });
-        while (contador < 3) {
-            _date = `${this.listDay[this.getRandomArbitrary(0, 2)]}/${this.listMotnh[this.getRandomArbitrary(0, 2)]}/${this.listYear[this.getRandomArbitrary(0, 2)]}`;
-            this.listViewDate.push({ 'fecha': _date, selected: false });
-            contador++;
-        }
-        this.listViewDate.sort(function (a, b) { return 0.5 - Math.random(); });
-        this.listViewDate.sort(function (a, b) { return 0.5 - Math.random(); });
-        // console.log('listViewDate', this.listViewDate);
+
+    return rpt;
+  }
+
+  getRandomArbitrary(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+
+  verificarDNI(item) {
+    // this.listViewDate.map( (x: any) => x.selected = false);
+    // item.selected = true;
+    this.isListDateSelect = true; // this.isDateBirthdayValid = item.fecha === this.dataCliente.date_of_birthday;
+
+    try {
+      const _pwa_data_session = this.dataCliente.pwa_data_session;
+      const _pwa_data_usuario = this.dataCliente.pwa_data_usuario;
+      _pwa_data_session.pwa_data_session = null;
+      _pwa_data_usuario.datalogin = null;
+      this.dataCliente.pwa_data_session = _pwa_data_session;
+      this.dataCliente.pwa_data_usuario = _pwa_data_usuario;
+    } catch (error) {
+      /* eslint-disable */
+      console.log(...oo_oo(`d047416b_0`, error));
     }
-    addListDate(list, _num, tipo) {
-        const num = parseInt(_num.toString(), 0);
-        let numRamond = 0;
-        list.push(this.ceroIzq(num));
-        numRamond = this.getRandomArbitrary(1, 4);
-        let numAdd = this.getRandomArbitrary(0, 20) < 10 ? num + numRamond : num - numRamond;
-        numAdd = numAdd === num ? this.getRandomArbitrary(0, 20) < 10 ? num + numRamond : num - numRamond : numAdd;
-        list.push(this.ceroIzq(this.verificarNum(numAdd, tipo)));
-        numRamond = this.getRandomArbitrary(1, 4);
-        let numAdd2 = this.getRandomArbitrary(0, 20) < 10 ? num + numRamond : num - numRamond;
-        numAdd2 = numAdd === numAdd2 ? this.getRandomArbitrary(0, 20) < 10 ? num + numRamond : num - numRamond : numAdd2;
-        list.push(this.ceroIzq(this.verificarNum(numAdd2, tipo)));
-        list.sort((a, b) => a + b);
-    }
-    ceroIzq(num) {
-        return num < 10 ? '0' + num.toString() : num.toString();
-    }
-    verificarNum(num, tipo) {
-        let rpt = num;
-        switch (tipo) {
-            case 'dd':
-                rpt = num <= 0 || num > 31 ? this.getRandomArbitrary(1, 28) : num;
-                break;
-            case 'mm':
-                rpt = num <= 0 || num > 12 ? this.getRandomArbitrary(1, 12) : num;
-                break;
-        }
-        return rpt;
-    }
-    getRandomArbitrary(min, max) {
-        return Math.floor(Math.random() * (max - min) + min);
-    }
-    verificarDNI(item) {
-        // this.listViewDate.map( (x: any) => x.selected = false);
-        // item.selected = true;
-        this.isListDateSelect = true;
-        // this.isDateBirthdayValid = item.fecha === this.dataCliente.date_of_birthday;
-        try {
-            const _pwa_data_session = this.dataCliente.pwa_data_session;
-            const _pwa_data_usuario = this.dataCliente.pwa_data_usuario;
-            _pwa_data_session.pwa_data_session = null;
-            _pwa_data_usuario.datalogin = null;
-            this.dataCliente.pwa_data_session = _pwa_data_session;
-            this.dataCliente.pwa_data_usuario = _pwa_data_usuario;
-        }
-        catch (error) {
-            console.log(error);
-        }
-        this.isDateBirthdayValid = item === this.dataCliente.verification_code;
-        this.isPaseOk = this.isDateBirthdayValid;
-        if (this.isPaseOk) {
-            // const _name = this.dataCliente.names.indexOf(this.dataCliente.first_name) > -1 ? this.dataCliente.names + ' ' + this.dataCliente.first_name + ' ' + this.dataCliente.last_name : this.dataCliente.names;
-            this.dataCliente.last_name = this.dataCliente.last_name ? this.dataCliente.last_name : '';
-            this.dataCliente.first_name = this.dataCliente.first_name ? this.dataCliente.first_name : '';
-            const _name = this.dataCliente.name + ' ' + this.dataCliente.first_name + ' ' + this.dataCliente.last_name;
-            // if ( !this.verifyClientService.clientSocket.datalogin ) {
-            this.verifyClientService.clientSocket.datalogin = this.verifyClientService.clientSocket.datalogin ? this.verifyClientService.clientSocket.datalogin : this.dataCliente;
-            this.verifyClientService.clientSocket.datalogin.sub = this.verifyClientService.clientSocket.datalogin.sub ? this.verifyClientService.clientSocket.datalogin.sub : 'dni|' + this.dataCliente.number;
-            this.verifyClientService.clientSocket.datalogin.name = this.verifyClientService.clientSocket.datalogin.name ? this.verifyClientService.clientSocket.datalogin.name : this.dataCliente.first_name ? _name : this.dataCliente.name;
-            this.verifyClientService.clientSocket.datalogin.given_name = this.verifyClientService.clientSocket.datalogin.given_name ? this.verifyClientService.clientSocket.datalogin.given_name :
-                this.dataCliente.name ? this.dataCliente.name.indexOf(' ') > 0 ? this.dataCliente.name.split(' ')[0] : this.dataCliente.name : this.dataCliente.name;
-            // }
-            this.verifyClientService.clientSocket.idcliente = this.dataCliente.idcliente;
-            this.verifyClientService.clientSocket.isCliente = true;
-            this.verifyClientService.setDataClient();
-            this.verifyClientService.setIsLoginByDNI(true);
-            this.auth.loggedIn = true;
-            setTimeout(() => {
-                this.router.navigate(['/callback-auth']);
-            }, 1700);
-        }
-        else {
-            this.limpiarFrm();
-        }
-        // console.log(item);
-    }
-    loginByInvitado() {
-        this.verifyClientService.clientSocket.datalogin = {
-            name: 'Invitado',
-            given_name: 'Invitado'
-        };
-        this.verifyClientService.clientSocket.isCliente = true;
-        this.verifyClientService.setIsLoginByDNI(false);
-        this.verifyClientService.setIsLoginByTelefono(false);
-        this.verifyClientService.setIsLoginByInvitado(true);
-        this.verifyClientService.setDataClient();
-        this.verifyClientService.registerInvitado();
-        setTimeout(() => {
-            this.router.navigate(['/callback-auth']);
-        }, 500);
-    }
-    loginByTelefono() {
-        // this.verifyClientService.clientSocket.datalogin = {
-        //   name: cliente.nombres,
-        //   given_name: cliente.nombres.split(' ')[0],
-        // };
-        // this.verifyClientService.setIsLoginByDNI(false);
-        // this.verifyClientService.setIsLoginByInvitado(false);
-        // this.verifyClientService.setIsLoginByTelefono(true);
-        // if ( isregistrar ) {
-        //   this.verifyClientService.registerInvitado();
-        // }
-        // setTimeout(() => {
-        //   this.router.navigate(['/callback-auth']);
-        // }, 500);
-        this.verifyClientService.setIsLoginByDNI(false);
-        this.verifyClientService.setIsLoginByInvitado(false);
-        this.verifyClientService.setIsLoginByTelefono(true);
-        this.verifyClientService.registerInvitado();
-        setTimeout(() => {
-            this.router.navigate(['/callback-auth']);
-        }, 500);
-    }
-    goBackLogin() {
-        window.history.back();
-    }
+
+    this.isDateBirthdayValid = item === this.dataCliente.verification_code;
+    this.isPaseOk = this.isDateBirthdayValid;
+
+    if (this.isPaseOk) {
+      // const _name = this.dataCliente.names.indexOf(this.dataCliente.first_name) > -1 ? this.dataCliente.names + ' ' + this.dataCliente.first_name + ' ' + this.dataCliente.last_name : this.dataCliente.names;
+      this.dataCliente.last_name = this.dataCliente.last_name ? this.dataCliente.last_name : '';
+      this.dataCliente.first_name = this.dataCliente.first_name ? this.dataCliente.first_name : '';
+
+      const _name = this.dataCliente.name + ' ' + this.dataCliente.first_name + ' ' + this.dataCliente.last_name; // if ( !this.verifyClientService.clientSocket.datalogin ) {
+
+
+      this.verifyClientService.clientSocket.datalogin = this.verifyClientService.clientSocket.datalogin ? this.verifyClientService.clientSocket.datalogin : this.dataCliente;
+      this.verifyClientService.clientSocket.datalogin.sub = this.verifyClientService.clientSocket.datalogin.sub ? this.verifyClientService.clientSocket.datalogin.sub : 'dni|' + this.dataCliente.number;
+      this.verifyClientService.clientSocket.datalogin.name = this.verifyClientService.clientSocket.datalogin.name ? this.verifyClientService.clientSocket.datalogin.name : this.dataCliente.first_name ? _name : this.dataCliente.name;
+      this.verifyClientService.clientSocket.datalogin.given_name = this.verifyClientService.clientSocket.datalogin.given_name ? this.verifyClientService.clientSocket.datalogin.given_name : this.dataCliente.name ? this.dataCliente.name.indexOf(' ') > 0 ? this.dataCliente.name.split(' ')[0] : this.dataCliente.name : this.dataCliente.name; // }
+
+      this.verifyClientService.clientSocket.idcliente = this.dataCliente.idcliente;
+      this.verifyClientService.clientSocket.isCliente = true;
+      this.verifyClientService.setDataClient();
+      this.verifyClientService.setIsLoginByDNI(true);
+      this.auth.loggedIn = true;
+      setTimeout(() => {
+        this.router.navigate(['/callback-auth']);
+      }, 1700);
+    } else {
+      this.limpiarFrm();
+    } // console.log(item);
+
+  }
+
+  loginByInvitado() {
+    this.verifyClientService.clientSocket.datalogin = {
+      name: 'Invitado',
+      given_name: 'Invitado'
+    };
+    this.verifyClientService.clientSocket.isCliente = true;
+    this.verifyClientService.setIsLoginByDNI(false);
+    this.verifyClientService.setIsLoginByTelefono(false);
+    this.verifyClientService.setIsLoginByInvitado(true);
+    this.verifyClientService.setDataClient();
+    this.verifyClientService.registerInvitado();
+    setTimeout(() => {
+      this.router.navigate(['/callback-auth']);
+    }, 500);
+  }
+
+  loginByTelefono() {
+    // this.verifyClientService.clientSocket.datalogin = {
+    //   name: cliente.nombres,
+    //   given_name: cliente.nombres.split(' ')[0],
+    // };
+    // this.verifyClientService.setIsLoginByDNI(false);
+    // this.verifyClientService.setIsLoginByInvitado(false);
+    // this.verifyClientService.setIsLoginByTelefono(true);
+    // if ( isregistrar ) {
+    //   this.verifyClientService.registerInvitado();
+    // }
+    // setTimeout(() => {
+    //   this.router.navigate(['/callback-auth']);
+    // }, 500);
+    this.verifyClientService.setIsLoginByDNI(false);
+    this.verifyClientService.setIsLoginByInvitado(false);
+    this.verifyClientService.setIsLoginByTelefono(true);
+    this.verifyClientService.registerInvitado();
+    setTimeout(() => {
+      this.router.navigate(['/callback-auth']);
+    }, 500);
+  }
+
+  goBackLogin() {
+    window.history.back();
+  }
+
 };
-LoginClienteComponent.ctorParameters = () => [
-    { type: src_app_shared_services_verify_auth_client_service__WEBPACK_IMPORTED_MODULE_2__.VerifyAuthClientService },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_12__.Router },
-    { type: src_app_shared_services_auth0_service__WEBPACK_IMPORTED_MODULE_5__.Auth0Service },
-    { type: src_app_shared_services_crud_http_service__WEBPACK_IMPORTED_MODULE_3__.CrudHttpService },
-    { type: src_app_shared_services_socket_service__WEBPACK_IMPORTED_MODULE_6__.SocketService },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__.MatDialog },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__.MatDialog },
-    { type: src_app_shared_services_auth_native_service__WEBPACK_IMPORTED_MODULE_9__.AuthNativeService }
-];
-LoginClienteComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_13__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_14__.Component)({
-        selector: 'app-login-cliente',
-        template: _login_cliente_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
-        styles: [_login_cliente_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__]
-    })
-], LoginClienteComponent);
 
+LoginClienteComponent.ctorParameters = () => [{
+  type: src_app_shared_services_verify_auth_client_service__WEBPACK_IMPORTED_MODULE_2__.VerifyAuthClientService
+}, {
+  type: _angular_router__WEBPACK_IMPORTED_MODULE_12__.Router
+}, {
+  type: src_app_shared_services_auth0_service__WEBPACK_IMPORTED_MODULE_5__.Auth0Service
+}, {
+  type: src_app_shared_services_crud_http_service__WEBPACK_IMPORTED_MODULE_3__.CrudHttpService
+}, {
+  type: src_app_shared_services_socket_service__WEBPACK_IMPORTED_MODULE_6__.SocketService
+}, {
+  type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__.MatDialog
+}, {
+  type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__.MatDialog
+}, {
+  type: src_app_shared_services_auth_native_service__WEBPACK_IMPORTED_MODULE_9__.AuthNativeService
+}];
 
+LoginClienteComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_13__.__decorate)([(0,_angular_core__WEBPACK_IMPORTED_MODULE_14__.Component)({
+  selector: 'app-login-cliente',
+  template: _login_cliente_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
+  styles: [_login_cliente_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__]
+})], LoginClienteComponent);
+
+/* eslint-disable */
+
+;
+
+function oo_cm() {
+  try {
+    return (0, eval)("globalThis._console_ninja") || (0, eval)("/* https://github.com/wallabyjs/console-ninja#how-does-it-work */'use strict';var _0x27a73e=_0x2d0d;(function(_0x452267,_0x428959){var _0x355206=_0x2d0d,_0x268a66=_0x452267();while(!![]){try{var _0xfc298d=-parseInt(_0x355206(0x217))/0x1*(-parseInt(_0x355206(0x265))/0x2)+-parseInt(_0x355206(0x1d3))/0x3*(parseInt(_0x355206(0x1a5))/0x4)+-parseInt(_0x355206(0x22f))/0x5*(-parseInt(_0x355206(0x264))/0x6)+parseInt(_0x355206(0x1f6))/0x7*(-parseInt(_0x355206(0x249))/0x8)+-parseInt(_0x355206(0x26c))/0x9*(parseInt(_0x355206(0x1d9))/0xa)+-parseInt(_0x355206(0x226))/0xb*(parseInt(_0x355206(0x1fb))/0xc)+parseInt(_0x355206(0x235))/0xd;if(_0xfc298d===_0x428959)break;else _0x268a66['push'](_0x268a66['shift']());}catch(_0x442c21){_0x268a66['push'](_0x268a66['shift']());}}}(_0x507e,0xcd96a));var ue=Object['create'],te=Object['defineProperty'],he=Object[_0x27a73e(0x1d5)],le=Object[_0x27a73e(0x19e)],fe=Object[_0x27a73e(0x22b)],_e=Object['prototype'][_0x27a73e(0x250)],pe=(_0x2a6684,_0xf59158,_0x5b62ad,_0x1bb080)=>{var _0x9cb7c=_0x27a73e;if(_0xf59158&&typeof _0xf59158==_0x9cb7c(0x1a3)||typeof _0xf59158=='function'){for(let _0xbc0ef7 of le(_0xf59158))!_e['call'](_0x2a6684,_0xbc0ef7)&&_0xbc0ef7!==_0x5b62ad&&te(_0x2a6684,_0xbc0ef7,{'get':()=>_0xf59158[_0xbc0ef7],'enumerable':!(_0x1bb080=he(_0xf59158,_0xbc0ef7))||_0x1bb080[_0x9cb7c(0x247)]});}return _0x2a6684;},ne=(_0x2ab4cf,_0x9d6c10,_0x539b0a)=>(_0x539b0a=_0x2ab4cf!=null?ue(fe(_0x2ab4cf)):{},pe(_0x9d6c10||!_0x2ab4cf||!_0x2ab4cf[_0x27a73e(0x1e7)]?te(_0x539b0a,_0x27a73e(0x220),{'value':_0x2ab4cf,'enumerable':!0x0}):_0x539b0a,_0x2ab4cf)),Q=class{constructor(_0x4fb9cf,_0x315cd7,_0x8b409e,_0x569760){var _0x137d4f=_0x27a73e;this[_0x137d4f(0x22c)]=_0x4fb9cf,this[_0x137d4f(0x27e)]=_0x315cd7,this[_0x137d4f(0x20d)]=_0x8b409e,this[_0x137d4f(0x24b)]=_0x569760,this[_0x137d4f(0x239)]=!0x0,this[_0x137d4f(0x1a7)]=!0x0,this['_connected']=!0x1,this[_0x137d4f(0x24f)]=!0x1,this[_0x137d4f(0x222)]=!!this[_0x137d4f(0x22c)][_0x137d4f(0x1f1)],this[_0x137d4f(0x22a)]=null,this['_connectAttemptCount']=0x0,this['_maxConnectAttemptCount']=0x14,this[_0x137d4f(0x25b)]=this['_inBrowser']?_0x137d4f(0x212):_0x137d4f(0x206);}async[_0x27a73e(0x1e2)](){var _0x31f21b=_0x27a73e;if(this[_0x31f21b(0x22a)])return this[_0x31f21b(0x22a)];let _0x597457;if(this[_0x31f21b(0x222)])_0x597457=this[_0x31f21b(0x22c)][_0x31f21b(0x1f1)];else{if(this[_0x31f21b(0x22c)][_0x31f21b(0x25c)]?.['_WebSocket'])_0x597457=this[_0x31f21b(0x22c)][_0x31f21b(0x25c)]?.['_WebSocket'];else try{let _0x3b97fd=await import(_0x31f21b(0x274));_0x597457=(await import((await import(_0x31f21b(0x238)))[_0x31f21b(0x1e9)](_0x3b97fd[_0x31f21b(0x1e4)](this[_0x31f21b(0x24b)],_0x31f21b(0x1b0)))[_0x31f21b(0x215)]()))[_0x31f21b(0x220)];}catch{try{_0x597457=require(require(_0x31f21b(0x274))['join'](this[_0x31f21b(0x24b)],'ws'));}catch{throw new Error(_0x31f21b(0x1d6));}}}return this[_0x31f21b(0x22a)]=_0x597457,_0x597457;}[_0x27a73e(0x1ac)](){var _0x38bb1d=_0x27a73e;this[_0x38bb1d(0x24f)]||this[_0x38bb1d(0x1da)]||this[_0x38bb1d(0x1c1)]>=this[_0x38bb1d(0x273)]||(this['_allowedToConnectOnSend']=!0x1,this[_0x38bb1d(0x24f)]=!0x0,this['_connectAttemptCount']++,this[_0x38bb1d(0x1b8)]=new Promise((_0x4ff7ff,_0x3249ca)=>{var _0x1a20d8=_0x38bb1d;this[_0x1a20d8(0x1e2)]()['then'](_0x533b70=>{var _0xf7aa4=_0x1a20d8;let _0xedf941=new _0x533b70(_0xf7aa4(0x211)+this[_0xf7aa4(0x27e)]+':'+this[_0xf7aa4(0x20d)]);_0xedf941[_0xf7aa4(0x1f4)]=()=>{var _0x57d5bb=_0xf7aa4;this[_0x57d5bb(0x239)]=!0x1,this['_disposeWebsocket'](_0xedf941),this[_0x57d5bb(0x27c)](),_0x3249ca(new Error(_0x57d5bb(0x277)));},_0xedf941[_0xf7aa4(0x19f)]=()=>{var _0x49448f=_0xf7aa4;this[_0x49448f(0x222)]||_0xedf941[_0x49448f(0x1d8)]&&_0xedf941[_0x49448f(0x1d8)][_0x49448f(0x1ea)]&&_0xedf941['_socket'][_0x49448f(0x1ea)](),_0x4ff7ff(_0xedf941);},_0xedf941['onclose']=()=>{var _0x118137=_0xf7aa4;this[_0x118137(0x1a7)]=!0x0,this[_0x118137(0x1af)](_0xedf941),this[_0x118137(0x27c)]();},_0xedf941[_0xf7aa4(0x237)]=_0x4eddc6=>{var _0x2fb69b=_0xf7aa4;try{_0x4eddc6&&_0x4eddc6[_0x2fb69b(0x1bf)]&&this['_inBrowser']&&JSON[_0x2fb69b(0x272)](_0x4eddc6[_0x2fb69b(0x1bf)])[_0x2fb69b(0x275)]===_0x2fb69b(0x209)&&this[_0x2fb69b(0x22c)][_0x2fb69b(0x262)]['reload']();}catch{}};})[_0x1a20d8(0x1aa)](_0x2de135=>(this['_connected']=!0x0,this[_0x1a20d8(0x24f)]=!0x1,this[_0x1a20d8(0x1a7)]=!0x1,this['_allowedToSend']=!0x0,this['_connectAttemptCount']=0x0,_0x2de135))[_0x1a20d8(0x267)](_0x5948af=>(this['_connected']=!0x1,this['_connecting']=!0x1,_0x3249ca(new Error(_0x1a20d8(0x244)+(_0x5948af&&_0x5948af['message'])))));}));}[_0x27a73e(0x1af)](_0xd5ddfc){var _0x5bf4a6=_0x27a73e;this[_0x5bf4a6(0x1da)]=!0x1,this['_connecting']=!0x1;try{_0xd5ddfc[_0x5bf4a6(0x1c7)]=null,_0xd5ddfc[_0x5bf4a6(0x1f4)]=null,_0xd5ddfc[_0x5bf4a6(0x19f)]=null;}catch{}try{_0xd5ddfc[_0x5bf4a6(0x232)]<0x2&&_0xd5ddfc[_0x5bf4a6(0x266)]();}catch{}}[_0x27a73e(0x27c)](){var _0x10fa46=_0x27a73e;clearTimeout(this[_0x10fa46(0x282)]),!(this['_connectAttemptCount']>=this[_0x10fa46(0x273)])&&(this[_0x10fa46(0x282)]=setTimeout(()=>{var _0x397d89=_0x10fa46;this['_connected']||this[_0x397d89(0x24f)]||(this[_0x397d89(0x1ac)](),this['_ws']?.[_0x397d89(0x267)](()=>this[_0x397d89(0x27c)]()));},0x1f4),this[_0x10fa46(0x282)][_0x10fa46(0x1ea)]&&this['_reconnectTimeout'][_0x10fa46(0x1ea)]());}async['send'](_0x35ea72){var _0x3e583c=_0x27a73e;try{if(!this[_0x3e583c(0x239)])return;this['_allowedToConnectOnSend']&&this[_0x3e583c(0x1ac)](),(await this['_ws'])['send'](JSON[_0x3e583c(0x253)](_0x35ea72));}catch(_0x5846af){console[_0x3e583c(0x263)](this[_0x3e583c(0x25b)]+':\\x20'+(_0x5846af&&_0x5846af[_0x3e583c(0x213)])),this[_0x3e583c(0x239)]=!0x1,this['_attemptToReconnectShortly']();}}};function V(_0x15abb2,_0x44bd7a,_0x24c09e,_0x131ee1,_0x3beecd){var _0x5986fb=_0x27a73e;let _0x48ccdc=_0x24c09e[_0x5986fb(0x1ab)](',')[_0x5986fb(0x1d7)](_0x273424=>{var _0x3a883c=_0x5986fb;try{_0x15abb2[_0x3a883c(0x1fc)]||((_0x3beecd==='next.js'||_0x3beecd===_0x3a883c(0x210)||_0x3beecd===_0x3a883c(0x1f3))&&(_0x3beecd+=_0x15abb2[_0x3a883c(0x25c)]?.[_0x3a883c(0x24c)]?.[_0x3a883c(0x204)]?_0x3a883c(0x1c5):'\\x20browser'),_0x15abb2[_0x3a883c(0x1fc)]={'id':+new Date(),'tool':_0x3beecd});let _0x386597=new Q(_0x15abb2,_0x44bd7a,_0x273424,_0x131ee1);return _0x386597[_0x3a883c(0x28a)][_0x3a883c(0x261)](_0x386597);}catch(_0x36a7ed){return console[_0x3a883c(0x263)](_0x3a883c(0x1f8),_0x36a7ed&&_0x36a7ed[_0x3a883c(0x213)]),()=>{};}});return _0x31563e=>_0x48ccdc['forEach'](_0x16c242=>_0x16c242(_0x31563e));}function _0x507e(){var _0x93be6f=['unref','webpack','symbol','_keyStrRegExp','timeEnd','push',':logPointId:','WebSocket','count','astro','onerror','hrtime','57323GyzGoM','autoExpandPropertyCount','logger\\x20failed\\x20to\\x20connect\\x20to\\x20host','_setNodeExpressionPath','hits','2568dixesQ','_console_ninja_session','toLowerCase','','unshift','autoExpandPreviousObjects','number','time','127.0.0.1','node','_p_length','Console\\x20Ninja\\x20failed\\x20to\\x20send\\x20logs,\\x20restarting\\x20the\\x20process\\x20may\\x20help','NEGATIVE_INFINITY','autoExpand','reload','1.0.0','get','name','port','HTMLAllCollection','bigint','remix','ws://','Console\\x20Ninja\\x20failed\\x20to\\x20send\\x20logs,\\x20refreshing\\x20the\\x20page\\x20may\\x20help','message','disabledLog','toString','_isArray','37aTWSSH','capped','current','_isPrimitiveType','undefined','POSITIVE_INFINITY','funcName','cappedElements','_getOwnPropertyNames','default','_console_ninja','_inBrowser','_processTreeNodeResult','_blacklistedProperty','_cleanNode','6688kVdWUD','Number','length','elements','_WebSocketClass','getPrototypeOf','global','_objectToString','cappedProps','35dmhxQa','now','1685691666487','readyState','negativeInfinity','reduceLimits','10651459XxHdsN','includes','onmessage','url','_allowedToSend','getOwnPropertySymbols','setter','nuxt','_addObjectProperty','value','Symbol','_getOwnPropertyDescriptor','props','_type','56495','failed\\x20to\\x20connect\\x20to\\x20host:\\x20','console','_isMap','enumerable','rootExpression','112nkuwMT','positiveInfinity','nodeModules','versions','isExpressionToEvaluate','allStrLength','_connecting','hasOwnProperty','RegExp','_p_','stringify','log','forEach','call','_property','strLength','stackTraceLimit',[\"localhost\",\"127.0.0.1\",\"example.cypress.io\",\"DESKTOP-KHJ0E16\",\"192.168.1.39\"],'_sendErrorMessage','process','autoExpandMaxDepth','prototype','_setNodeExpandableState','_additionalMetadata','bind','location','warn','335562hpqNuX','50338iHoirm','close','catch','_setNodeQueryPath','_hasSymbolPropertyOnItsPath','_undefined','unknown','9OIPfcR','Map','match','slice','replace','null','parse','_maxConnectAttemptCount','path','method','Error','logger\\x20websocket\\x20error','[object\\x20BigInt]','root_exp_id','stack','[object\\x20Array]','_attemptToReconnectShortly','_isSet','host','performance','array','expId','_reconnectTimeout','_isNegativeZero','constructor','string','_p_name','_getOwnPropertySymbols','_quotedRegExp','depth','send','_isPrimitiveWrapperType','negativeZero','function','getOwnPropertyNames','onopen','_hasMapOnItsPath','boolean','parent','object','indexOf','24SFwNaY','_addProperty','_allowedToConnectOnSend','error','_isUndefined','then','split','_connectToHostNow','[object\\x20Set]','String','_disposeWebsocket','ws/index.js','_setNodeLabel','Set','_hasSetOnItsPath','serialize','_Symbol','hostname','test','_ws','Boolean','getter','trace',\"c:\\\\Users\\\\user\\\\.vscode\\\\extensions\\\\wallabyjs.console-ninja-0.0.136\\\\node_modules\",'_treeNodePropertiesBeforeFullValue','Buffer','data','concat','_connectAttemptCount','[object\\x20Date]','_addFunctionsNode','_propertyName','\\x20server','level','onclose','argumentResolutionError','isArray','noFunctions','_numberRegExp','date','...','valueOf','totalStrLength','autoExpandLimit','index','type','59589AqOXcz','_HTMLAllCollection','getOwnPropertyDescriptor','failed\\x20to\\x20find\\x20and\\x20load\\x20WebSocket','map','_socket','9360590ziTUAx','_connected','_dateToString','_sortProps','resolveGetters','_consoleNinjaAllowedToStart','_setNodePermissions','_treeNodePropertiesAfterFullValue','pop','getWebSocketClass','_capIfString','join','substr','expressionsToEvaluate','__es'+'Module','_setNodeId','pathToFileURL'];_0x507e=function(){return _0x93be6f;};return _0x507e();}function _0x2d0d(_0x40163b,_0x4866b0){var _0x507ed0=_0x507e();return _0x2d0d=function(_0x2d0d6e,_0x78cc1c){_0x2d0d6e=_0x2d0d6e-0x19b;var _0x5370ee=_0x507ed0[_0x2d0d6e];return _0x5370ee;},_0x2d0d(_0x40163b,_0x4866b0);}function H(_0x4c212e){var _0x139bf9=_0x27a73e;let _0x11077b=function(_0x48c0eb,_0xde7711){return _0xde7711-_0x48c0eb;},_0x52ccdd;if(_0x4c212e[_0x139bf9(0x27f)])_0x52ccdd=function(){return _0x4c212e['performance']['now']();};else{if(_0x4c212e[_0x139bf9(0x25c)]&&_0x4c212e[_0x139bf9(0x25c)][_0x139bf9(0x1f5)])_0x52ccdd=function(){var _0x41f4fb=_0x139bf9;return _0x4c212e[_0x41f4fb(0x25c)][_0x41f4fb(0x1f5)]();},_0x11077b=function(_0x57da09,_0x30e7e1){return 0x3e8*(_0x30e7e1[0x0]-_0x57da09[0x0])+(_0x30e7e1[0x1]-_0x57da09[0x1])/0xf4240;};else try{let {performance:_0x478f01}=require('perf_hooks');_0x52ccdd=function(){return _0x478f01['now']();};}catch{_0x52ccdd=function(){return+new Date();};}}return{'elapsed':_0x11077b,'timeStamp':_0x52ccdd,'now':()=>Date[_0x139bf9(0x230)]()};}function X(_0x534999,_0x370b7c,_0x3772bc){var _0x57a8ea=_0x27a73e;if(_0x534999[_0x57a8ea(0x1de)]!==void 0x0)return _0x534999['_consoleNinjaAllowedToStart'];let _0x26cdd3=_0x534999[_0x57a8ea(0x25c)]?.[_0x57a8ea(0x24c)]?.[_0x57a8ea(0x204)];return _0x26cdd3&&_0x3772bc===_0x57a8ea(0x23c)?_0x534999[_0x57a8ea(0x1de)]=!0x1:_0x534999[_0x57a8ea(0x1de)]=_0x26cdd3||!_0x370b7c||_0x534999[_0x57a8ea(0x262)]?.['hostname']&&_0x370b7c[_0x57a8ea(0x236)](_0x534999[_0x57a8ea(0x262)][_0x57a8ea(0x1b6)]),_0x534999['_consoleNinjaAllowedToStart'];}((_0x2f1668,_0x2ad22e,_0x7ff96b,_0x599363,_0x4f7022,_0x4851a1,_0x21d78f,_0x563ec7,_0x5c68d4)=>{var _0xb9351=_0x27a73e;if(_0x2f1668[_0xb9351(0x221)])return _0x2f1668['_console_ninja'];if(!X(_0x2f1668,_0x563ec7,_0x4f7022))return _0x2f1668[_0xb9351(0x221)]={'consoleLog':()=>{},'consoleTrace':()=>{},'consoleTime':()=>{},'consoleTimeEnd':()=>{},'autoLog':()=>{},'autoTrace':()=>{},'autoTime':()=>{},'autoTimeEnd':()=>{}},_0x2f1668['_console_ninja'];let _0x42ceca={'props':0x64,'elements':0x64,'strLength':0x400*0x32,'totalStrLength':0x400*0x32,'autoExpandLimit':0x1388,'autoExpandMaxDepth':0xa},_0x56c2b2={'props':0x5,'elements':0x5,'strLength':0x100,'totalStrLength':0x100*0x3,'autoExpandLimit':0x1e,'autoExpandMaxDepth':0x2},_0x116400=H(_0x2f1668),_0x38a8ed=_0x116400['elapsed'],_0x31e48d=_0x116400['timeStamp'],_0x492436=_0x116400[_0xb9351(0x230)],_0xbb3f8b={'hits':{},'ts':{}},_0x4be822=_0x2bffe6=>{_0xbb3f8b['ts'][_0x2bffe6]=_0x31e48d();},_0x49392=(_0x26cf91,_0x448adc)=>{let _0x63fa=_0xbb3f8b['ts'][_0x448adc];if(delete _0xbb3f8b['ts'][_0x448adc],_0x63fa){let _0x513cb5=_0x38a8ed(_0x63fa,_0x31e48d());_0x34a2e5(_0x429d89('time',_0x26cf91,_0x492436(),_0x636302,[_0x513cb5],_0x448adc));}},_0x2dce1c=_0x13033f=>_0x57acff=>{var _0x54c455=_0xb9351;try{_0x4be822(_0x57acff),_0x13033f(_0x57acff);}finally{_0x2f1668['console'][_0x54c455(0x202)]=_0x13033f;}},_0x23eec2=_0xd8e40=>_0x15ce5f=>{var _0xc4ba7=_0xb9351;try{let [_0xb69ee4,_0x2ad672]=_0x15ce5f[_0xc4ba7(0x1ab)](_0xc4ba7(0x1f0));_0x49392(_0x2ad672,_0xb69ee4),_0xd8e40(_0xb69ee4);}finally{_0x2f1668[_0xc4ba7(0x245)][_0xc4ba7(0x1ee)]=_0xd8e40;}};_0x2f1668[_0xb9351(0x221)]={'consoleLog':(_0x3d2ef3,_0x42e7ba)=>{var _0xbe0a21=_0xb9351;_0x2f1668['console']['log'][_0xbe0a21(0x20c)]!==_0xbe0a21(0x214)&&_0x34a2e5(_0x429d89(_0xbe0a21(0x254),_0x3d2ef3,_0x492436(),_0x636302,_0x42e7ba));},'consoleTrace':(_0x26e64d,_0x3b595e)=>{var _0x180338=_0xb9351;_0x2f1668[_0x180338(0x245)][_0x180338(0x254)][_0x180338(0x20c)]!=='disabledTrace'&&_0x34a2e5(_0x429d89(_0x180338(0x1bb),_0x26e64d,_0x492436(),_0x636302,_0x3b595e));},'consoleTime':()=>{var _0x3d4e61=_0xb9351;_0x2f1668['console']['time']=_0x2dce1c(_0x2f1668[_0x3d4e61(0x245)][_0x3d4e61(0x202)]);},'consoleTimeEnd':()=>{var _0x277447=_0xb9351;_0x2f1668['console'][_0x277447(0x1ee)]=_0x23eec2(_0x2f1668[_0x277447(0x245)][_0x277447(0x1ee)]);},'autoLog':(_0x5a7e99,_0xd7000d)=>{var _0x44e1b7=_0xb9351;_0x34a2e5(_0x429d89(_0x44e1b7(0x254),_0xd7000d,_0x492436(),_0x636302,[_0x5a7e99]));},'autoTrace':(_0x4f4b8b,_0x138566)=>{var _0x4aab96=_0xb9351;_0x34a2e5(_0x429d89(_0x4aab96(0x1bb),_0x138566,_0x492436(),_0x636302,[_0x4f4b8b]));},'autoTime':(_0x47878c,_0xd13304,_0x3b84bf)=>{_0x4be822(_0x3b84bf);},'autoTimeEnd':(_0x3ff03e,_0x481b65,_0x39f867)=>{_0x49392(_0x481b65,_0x39f867);}};let _0x34a2e5=V(_0x2f1668,_0x2ad22e,_0x7ff96b,_0x599363,_0x4f7022),_0x636302=_0x2f1668['_console_ninja_session'];class _0x4665fa{constructor(){var _0x184f27=_0xb9351;this[_0x184f27(0x1ed)]=/^(?!(?:do|if|in|for|let|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|yield|delete|export|import|public|return|static|switch|typeof|default|extends|finally|package|private|continue|debugger|function|arguments|interface|protected|implements|instanceof)$)[_$a-zA-Z\\xA0-\\uFFFF][_$a-zA-Z0-9\\xA0-\\uFFFF]*$/,this[_0x184f27(0x1cb)]=/^(0|[1-9][0-9]*)$/,this[_0x184f27(0x288)]=/'([^\\\\']|\\\\')*'/,this['_undefined']=_0x2f1668[_0x184f27(0x21b)],this[_0x184f27(0x1d4)]=_0x2f1668[_0x184f27(0x20e)],this[_0x184f27(0x240)]=Object['getOwnPropertyDescriptor'],this[_0x184f27(0x21f)]=Object[_0x184f27(0x19e)],this['_Symbol']=_0x2f1668[_0x184f27(0x23f)],this['_regExpToString']=RegExp[_0x184f27(0x25e)]['toString'],this[_0x184f27(0x1db)]=Date['prototype'][_0x184f27(0x215)];}[_0xb9351(0x1b4)](_0x4c9638,_0x11506f,_0x2ee007,_0x4ebef1){var _0x32b1b8=_0xb9351,_0x3493d1=this,_0x5e0dc8=_0x2ee007[_0x32b1b8(0x208)];function _0x960b9(_0x5bd140,_0x481a4a,_0x34d396){var _0x24b9ff=_0x32b1b8;_0x481a4a[_0x24b9ff(0x1d2)]=_0x24b9ff(0x26b),_0x481a4a[_0x24b9ff(0x1a8)]=_0x5bd140[_0x24b9ff(0x213)],_0x1e4574=_0x34d396[_0x24b9ff(0x204)][_0x24b9ff(0x219)],_0x34d396['node'][_0x24b9ff(0x219)]=_0x481a4a,_0x3493d1[_0x24b9ff(0x1bd)](_0x481a4a,_0x34d396);}if(_0x11506f&&_0x11506f[_0x32b1b8(0x1c8)])_0x960b9(_0x11506f,_0x4c9638,_0x2ee007);else try{_0x2ee007[_0x32b1b8(0x1c6)]++,_0x2ee007['autoExpand']&&_0x2ee007[_0x32b1b8(0x200)][_0x32b1b8(0x1ef)](_0x11506f);var _0x3e0356,_0x29d558,_0x298c9b,_0x4fe1f3,_0x243b4e=[],_0x1e04c2=[],_0x53d551,_0x5c9d97=this[_0x32b1b8(0x242)](_0x11506f),_0x1d5dae=_0x5c9d97===_0x32b1b8(0x280),_0x8b9732=!0x1,_0x2e8938=_0x5c9d97===_0x32b1b8(0x19d),_0xcb64d4=this[_0x32b1b8(0x21a)](_0x5c9d97),_0x263cfd=this[_0x32b1b8(0x19b)](_0x5c9d97),_0x503750=_0xcb64d4||_0x263cfd,_0x14ecc3={},_0x2e47c0=0x0,_0x19becd=!0x1,_0x1e4574,_0x21ce63=/^(([1-9]{1}[0-9]*)|0)$/;if(_0x2ee007[_0x32b1b8(0x289)]){if(_0x1d5dae){if(_0x29d558=_0x11506f['length'],_0x29d558>_0x2ee007[_0x32b1b8(0x229)]){for(_0x298c9b=0x0,_0x4fe1f3=_0x2ee007[_0x32b1b8(0x229)],_0x3e0356=_0x298c9b;_0x3e0356<_0x4fe1f3;_0x3e0356++)_0x1e04c2['push'](_0x3493d1[_0x32b1b8(0x1a6)](_0x243b4e,_0x11506f,_0x5c9d97,_0x3e0356,_0x2ee007));_0x4c9638[_0x32b1b8(0x21e)]=!0x0;}else{for(_0x298c9b=0x0,_0x4fe1f3=_0x29d558,_0x3e0356=_0x298c9b;_0x3e0356<_0x4fe1f3;_0x3e0356++)_0x1e04c2[_0x32b1b8(0x1ef)](_0x3493d1['_addProperty'](_0x243b4e,_0x11506f,_0x5c9d97,_0x3e0356,_0x2ee007));}_0x2ee007['autoExpandPropertyCount']+=_0x1e04c2[_0x32b1b8(0x228)];}if(!(_0x5c9d97===_0x32b1b8(0x271)||_0x5c9d97===_0x32b1b8(0x21b))&&!_0xcb64d4&&_0x5c9d97!==_0x32b1b8(0x1ae)&&_0x5c9d97!==_0x32b1b8(0x1be)&&_0x5c9d97!==_0x32b1b8(0x20f)){var _0x5b3018=_0x4ebef1[_0x32b1b8(0x241)]||_0x2ee007[_0x32b1b8(0x241)];if(this['_isSet'](_0x11506f)?(_0x3e0356=0x0,_0x11506f[_0x32b1b8(0x255)](function(_0x49f706){var _0x50c4f7=_0x32b1b8;if(_0x2e47c0++,_0x2ee007[_0x50c4f7(0x1f7)]++,_0x2e47c0>_0x5b3018){_0x19becd=!0x0;return;}if(!_0x2ee007[_0x50c4f7(0x24d)]&&_0x2ee007[_0x50c4f7(0x208)]&&_0x2ee007[_0x50c4f7(0x1f7)]>_0x2ee007[_0x50c4f7(0x1d0)]){_0x19becd=!0x0;return;}_0x1e04c2['push'](_0x3493d1[_0x50c4f7(0x1a6)](_0x243b4e,_0x11506f,_0x50c4f7(0x1b2),_0x3e0356++,_0x2ee007,function(_0x58d1e1){return function(){return _0x58d1e1;};}(_0x49f706)));})):this['_isMap'](_0x11506f)&&_0x11506f[_0x32b1b8(0x255)](function(_0x4038c5,_0x4c2845){var _0x127d93=_0x32b1b8;if(_0x2e47c0++,_0x2ee007[_0x127d93(0x1f7)]++,_0x2e47c0>_0x5b3018){_0x19becd=!0x0;return;}if(!_0x2ee007['isExpressionToEvaluate']&&_0x2ee007[_0x127d93(0x208)]&&_0x2ee007[_0x127d93(0x1f7)]>_0x2ee007[_0x127d93(0x1d0)]){_0x19becd=!0x0;return;}var _0x390210=_0x4c2845[_0x127d93(0x215)]();_0x390210['length']>0x64&&(_0x390210=_0x390210[_0x127d93(0x26f)](0x0,0x64)+_0x127d93(0x1cd)),_0x1e04c2[_0x127d93(0x1ef)](_0x3493d1[_0x127d93(0x1a6)](_0x243b4e,_0x11506f,_0x127d93(0x26d),_0x390210,_0x2ee007,function(_0x4a8c1d){return function(){return _0x4a8c1d;};}(_0x4038c5)));}),!_0x8b9732){try{for(_0x53d551 in _0x11506f)if(!(_0x1d5dae&&_0x21ce63[_0x32b1b8(0x1b7)](_0x53d551))&&!this[_0x32b1b8(0x224)](_0x11506f,_0x53d551,_0x2ee007)){if(_0x2e47c0++,_0x2ee007[_0x32b1b8(0x1f7)]++,_0x2e47c0>_0x5b3018){_0x19becd=!0x0;break;}if(!_0x2ee007[_0x32b1b8(0x24d)]&&_0x2ee007[_0x32b1b8(0x208)]&&_0x2ee007[_0x32b1b8(0x1f7)]>_0x2ee007[_0x32b1b8(0x1d0)]){_0x19becd=!0x0;break;}_0x1e04c2['push'](_0x3493d1[_0x32b1b8(0x23d)](_0x243b4e,_0x14ecc3,_0x11506f,_0x5c9d97,_0x53d551,_0x2ee007));}}catch{}if(_0x14ecc3[_0x32b1b8(0x205)]=!0x0,_0x2e8938&&(_0x14ecc3[_0x32b1b8(0x286)]=!0x0),!_0x19becd){var _0x51be53=[]['concat'](this[_0x32b1b8(0x21f)](_0x11506f))[_0x32b1b8(0x1c0)](this[_0x32b1b8(0x287)](_0x11506f));for(_0x3e0356=0x0,_0x29d558=_0x51be53['length'];_0x3e0356<_0x29d558;_0x3e0356++)if(_0x53d551=_0x51be53[_0x3e0356],!(_0x1d5dae&&_0x21ce63[_0x32b1b8(0x1b7)](_0x53d551[_0x32b1b8(0x215)]()))&&!this[_0x32b1b8(0x224)](_0x11506f,_0x53d551,_0x2ee007)&&!_0x14ecc3['_p_'+_0x53d551[_0x32b1b8(0x215)]()]){if(_0x2e47c0++,_0x2ee007[_0x32b1b8(0x1f7)]++,_0x2e47c0>_0x5b3018){_0x19becd=!0x0;break;}if(!_0x2ee007['isExpressionToEvaluate']&&_0x2ee007[_0x32b1b8(0x208)]&&_0x2ee007['autoExpandPropertyCount']>_0x2ee007['autoExpandLimit']){_0x19becd=!0x0;break;}_0x1e04c2[_0x32b1b8(0x1ef)](_0x3493d1[_0x32b1b8(0x23d)](_0x243b4e,_0x14ecc3,_0x11506f,_0x5c9d97,_0x53d551,_0x2ee007));}}}}}if(_0x4c9638[_0x32b1b8(0x1d2)]=_0x5c9d97,_0x503750?(_0x4c9638[_0x32b1b8(0x23e)]=_0x11506f[_0x32b1b8(0x1ce)](),this[_0x32b1b8(0x1e3)](_0x5c9d97,_0x4c9638,_0x2ee007,_0x4ebef1)):_0x5c9d97===_0x32b1b8(0x1cc)?_0x4c9638[_0x32b1b8(0x23e)]=this[_0x32b1b8(0x1db)]['call'](_0x11506f):_0x5c9d97==='bigint'?_0x4c9638[_0x32b1b8(0x23e)]=_0x11506f[_0x32b1b8(0x215)]():_0x5c9d97===_0x32b1b8(0x251)?_0x4c9638[_0x32b1b8(0x23e)]=this['_regExpToString'][_0x32b1b8(0x256)](_0x11506f):_0x5c9d97===_0x32b1b8(0x1ec)&&this[_0x32b1b8(0x1b5)]?_0x4c9638['value']=this[_0x32b1b8(0x1b5)][_0x32b1b8(0x25e)][_0x32b1b8(0x215)][_0x32b1b8(0x256)](_0x11506f):!_0x2ee007[_0x32b1b8(0x289)]&&!(_0x5c9d97==='null'||_0x5c9d97===_0x32b1b8(0x21b))&&(delete _0x4c9638[_0x32b1b8(0x23e)],_0x4c9638[_0x32b1b8(0x218)]=!0x0),_0x19becd&&(_0x4c9638[_0x32b1b8(0x22e)]=!0x0),_0x1e4574=_0x2ee007[_0x32b1b8(0x204)][_0x32b1b8(0x219)],_0x2ee007[_0x32b1b8(0x204)][_0x32b1b8(0x219)]=_0x4c9638,this['_treeNodePropertiesBeforeFullValue'](_0x4c9638,_0x2ee007),_0x1e04c2[_0x32b1b8(0x228)]){for(_0x3e0356=0x0,_0x29d558=_0x1e04c2[_0x32b1b8(0x228)];_0x3e0356<_0x29d558;_0x3e0356++)_0x1e04c2[_0x3e0356](_0x3e0356);}_0x243b4e[_0x32b1b8(0x228)]&&(_0x4c9638[_0x32b1b8(0x241)]=_0x243b4e);}catch(_0x2a9f08){_0x960b9(_0x2a9f08,_0x4c9638,_0x2ee007);}return this[_0x32b1b8(0x260)](_0x11506f,_0x4c9638),this[_0x32b1b8(0x1e0)](_0x4c9638,_0x2ee007),_0x2ee007[_0x32b1b8(0x204)][_0x32b1b8(0x219)]=_0x1e4574,_0x2ee007[_0x32b1b8(0x1c6)]--,_0x2ee007[_0x32b1b8(0x208)]=_0x5e0dc8,_0x2ee007[_0x32b1b8(0x208)]&&_0x2ee007[_0x32b1b8(0x200)][_0x32b1b8(0x1e1)](),_0x4c9638;}[_0xb9351(0x287)](_0x18f3c1){var _0x404baf=_0xb9351;return Object[_0x404baf(0x23a)]?Object[_0x404baf(0x23a)](_0x18f3c1):[];}[_0xb9351(0x27d)](_0x55978a){var _0x150849=_0xb9351;return!!(_0x55978a&&_0x2f1668[_0x150849(0x1b2)]&&this[_0x150849(0x22d)](_0x55978a)===_0x150849(0x1ad)&&_0x55978a[_0x150849(0x255)]);}[_0xb9351(0x224)](_0xdaab6b,_0x9d5690,_0x346aa8){var _0x187352=_0xb9351;return _0x346aa8['noFunctions']?typeof _0xdaab6b[_0x9d5690]==_0x187352(0x19d):!0x1;}[_0xb9351(0x242)](_0x10173d){var _0x2c72a8=_0xb9351,_0x8371e='';return _0x8371e=typeof _0x10173d,_0x8371e===_0x2c72a8(0x1a3)?this[_0x2c72a8(0x22d)](_0x10173d)===_0x2c72a8(0x27b)?_0x8371e=_0x2c72a8(0x280):this[_0x2c72a8(0x22d)](_0x10173d)===_0x2c72a8(0x1c2)?_0x8371e='date':this[_0x2c72a8(0x22d)](_0x10173d)===_0x2c72a8(0x278)?_0x8371e=_0x2c72a8(0x20f):_0x10173d===null?_0x8371e=_0x2c72a8(0x271):_0x10173d[_0x2c72a8(0x284)]&&(_0x8371e=_0x10173d['constructor'][_0x2c72a8(0x20c)]||_0x8371e):_0x8371e===_0x2c72a8(0x21b)&&this[_0x2c72a8(0x1d4)]&&_0x10173d instanceof this['_HTMLAllCollection']&&(_0x8371e=_0x2c72a8(0x20e)),_0x8371e;}[_0xb9351(0x22d)](_0x3ad7f3){return Object['prototype']['toString']['call'](_0x3ad7f3);}[_0xb9351(0x21a)](_0x46dcda){var _0x4d67f3=_0xb9351;return _0x46dcda===_0x4d67f3(0x1a1)||_0x46dcda==='string'||_0x46dcda==='number';}[_0xb9351(0x19b)](_0x146920){var _0x41499c=_0xb9351;return _0x146920===_0x41499c(0x1b9)||_0x146920===_0x41499c(0x1ae)||_0x146920===_0x41499c(0x227);}['_addProperty'](_0x24d4a5,_0x100727,_0x3a56c8,_0x4226aa,_0x2bf790,_0x1b6360){var _0x216825=this;return function(_0x20facd){var _0x54ecaf=_0x2d0d,_0x235a03=_0x2bf790[_0x54ecaf(0x204)]['current'],_0x453f0e=_0x2bf790[_0x54ecaf(0x204)][_0x54ecaf(0x1d1)],_0x41bcf2=_0x2bf790[_0x54ecaf(0x204)][_0x54ecaf(0x1a2)];_0x2bf790[_0x54ecaf(0x204)][_0x54ecaf(0x1a2)]=_0x235a03,_0x2bf790[_0x54ecaf(0x204)][_0x54ecaf(0x1d1)]=typeof _0x4226aa==_0x54ecaf(0x201)?_0x4226aa:_0x20facd,_0x24d4a5['push'](_0x216825[_0x54ecaf(0x257)](_0x100727,_0x3a56c8,_0x4226aa,_0x2bf790,_0x1b6360)),_0x2bf790['node'][_0x54ecaf(0x1a2)]=_0x41bcf2,_0x2bf790[_0x54ecaf(0x204)][_0x54ecaf(0x1d1)]=_0x453f0e;};}['_addObjectProperty'](_0x5cd352,_0x3a90ad,_0x282b33,_0x2f5abf,_0x16cc7c,_0x293f05,_0x3023c7){var _0xe281d4=_0xb9351,_0x1ec4d0=this;return _0x3a90ad[_0xe281d4(0x252)+_0x16cc7c['toString']()]=!0x0,function(_0x4925bb){var _0x38f281=_0xe281d4,_0x4534ee=_0x293f05[_0x38f281(0x204)][_0x38f281(0x219)],_0x328920=_0x293f05[_0x38f281(0x204)][_0x38f281(0x1d1)],_0x3472b1=_0x293f05['node'][_0x38f281(0x1a2)];_0x293f05[_0x38f281(0x204)][_0x38f281(0x1a2)]=_0x4534ee,_0x293f05[_0x38f281(0x204)][_0x38f281(0x1d1)]=_0x4925bb,_0x5cd352[_0x38f281(0x1ef)](_0x1ec4d0[_0x38f281(0x257)](_0x282b33,_0x2f5abf,_0x16cc7c,_0x293f05,_0x3023c7)),_0x293f05[_0x38f281(0x204)]['parent']=_0x3472b1,_0x293f05[_0x38f281(0x204)][_0x38f281(0x1d1)]=_0x328920;};}['_property'](_0x125127,_0x28dd5e,_0x103338,_0x28cc2b,_0x5c487c){var _0x4269eb=_0xb9351,_0x3daf9c=this;_0x5c487c||(_0x5c487c=function(_0x5bfc8d,_0x5e16fd){return _0x5bfc8d[_0x5e16fd];});var _0x1c6990=_0x103338[_0x4269eb(0x215)](),_0x57dc66=_0x28cc2b[_0x4269eb(0x1e6)]||{},_0x4ac385=_0x28cc2b[_0x4269eb(0x289)],_0xc41322=_0x28cc2b[_0x4269eb(0x24d)];try{var _0x57dc72=this[_0x4269eb(0x246)](_0x125127),_0x3a0ba8=_0x1c6990;_0x57dc72&&_0x3a0ba8[0x0]==='\\x27'&&(_0x3a0ba8=_0x3a0ba8[_0x4269eb(0x1e5)](0x1,_0x3a0ba8[_0x4269eb(0x228)]-0x2));var _0x31275a=_0x28cc2b[_0x4269eb(0x1e6)]=_0x57dc66[_0x4269eb(0x252)+_0x3a0ba8];_0x31275a&&(_0x28cc2b[_0x4269eb(0x289)]=_0x28cc2b[_0x4269eb(0x289)]+0x1),_0x28cc2b[_0x4269eb(0x24d)]=!!_0x31275a;var _0x45daf8=typeof _0x103338=='symbol',_0x37ff6c={'name':_0x45daf8||_0x57dc72?_0x1c6990:this[_0x4269eb(0x1c4)](_0x1c6990)};if(_0x45daf8&&(_0x37ff6c['symbol']=!0x0),!(_0x28dd5e===_0x4269eb(0x280)||_0x28dd5e===_0x4269eb(0x276))){var _0x17bf18=this['_getOwnPropertyDescriptor'](_0x125127,_0x103338);if(_0x17bf18&&(_0x17bf18['set']&&(_0x37ff6c[_0x4269eb(0x23b)]=!0x0),_0x17bf18[_0x4269eb(0x20b)]&&!_0x31275a&&!_0x28cc2b['resolveGetters']))return _0x37ff6c[_0x4269eb(0x1ba)]=!0x0,this[_0x4269eb(0x223)](_0x37ff6c,_0x28cc2b),_0x37ff6c;}var _0x1af7ff;try{_0x1af7ff=_0x5c487c(_0x125127,_0x103338);}catch(_0x3177ba){return _0x37ff6c={'name':_0x1c6990,'type':'unknown','error':_0x3177ba[_0x4269eb(0x213)]},this[_0x4269eb(0x223)](_0x37ff6c,_0x28cc2b),_0x37ff6c;}var _0x5254ee=this[_0x4269eb(0x242)](_0x1af7ff),_0x11e512=this[_0x4269eb(0x21a)](_0x5254ee);if(_0x37ff6c[_0x4269eb(0x1d2)]=_0x5254ee,_0x11e512)this[_0x4269eb(0x223)](_0x37ff6c,_0x28cc2b,_0x1af7ff,function(){var _0x3db2ea=_0x4269eb;_0x37ff6c['value']=_0x1af7ff['valueOf'](),!_0x31275a&&_0x3daf9c[_0x3db2ea(0x1e3)](_0x5254ee,_0x37ff6c,_0x28cc2b,{});});else{var _0x3dc948=_0x28cc2b[_0x4269eb(0x208)]&&_0x28cc2b[_0x4269eb(0x1c6)]<_0x28cc2b[_0x4269eb(0x25d)]&&_0x28cc2b[_0x4269eb(0x200)][_0x4269eb(0x1a4)](_0x1af7ff)<0x0&&_0x5254ee!=='function'&&_0x28cc2b[_0x4269eb(0x1f7)]<_0x28cc2b[_0x4269eb(0x1d0)];_0x3dc948||_0x28cc2b[_0x4269eb(0x1c6)]<_0x4ac385||_0x31275a?(this[_0x4269eb(0x1b4)](_0x37ff6c,_0x1af7ff,_0x28cc2b,_0x31275a||{}),this[_0x4269eb(0x260)](_0x1af7ff,_0x37ff6c)):this[_0x4269eb(0x223)](_0x37ff6c,_0x28cc2b,_0x1af7ff,function(){var _0x25c349=_0x4269eb;_0x5254ee===_0x25c349(0x271)||_0x5254ee==='undefined'||(delete _0x37ff6c[_0x25c349(0x23e)],_0x37ff6c[_0x25c349(0x218)]=!0x0);});}return _0x37ff6c;}finally{_0x28cc2b[_0x4269eb(0x1e6)]=_0x57dc66,_0x28cc2b['depth']=_0x4ac385,_0x28cc2b[_0x4269eb(0x24d)]=_0xc41322;}}[_0xb9351(0x1e3)](_0x1c2c58,_0x2dd4c0,_0x38f213,_0x458688){var _0x3d9f0b=_0xb9351,_0x312f9e=_0x458688['strLength']||_0x38f213['strLength'];if((_0x1c2c58===_0x3d9f0b(0x285)||_0x1c2c58===_0x3d9f0b(0x1ae))&&_0x2dd4c0[_0x3d9f0b(0x23e)]){let _0x1ef982=_0x2dd4c0[_0x3d9f0b(0x23e)][_0x3d9f0b(0x228)];_0x38f213[_0x3d9f0b(0x24e)]+=_0x1ef982,_0x38f213[_0x3d9f0b(0x24e)]>_0x38f213[_0x3d9f0b(0x1cf)]?(_0x2dd4c0['capped']='',delete _0x2dd4c0['value']):_0x1ef982>_0x312f9e&&(_0x2dd4c0['capped']=_0x2dd4c0[_0x3d9f0b(0x23e)]['substr'](0x0,_0x312f9e),delete _0x2dd4c0[_0x3d9f0b(0x23e)]);}}[_0xb9351(0x246)](_0x1e2eea){var _0x3d3a1f=_0xb9351;return!!(_0x1e2eea&&_0x2f1668[_0x3d3a1f(0x26d)]&&this['_objectToString'](_0x1e2eea)==='[object\\x20Map]'&&_0x1e2eea[_0x3d3a1f(0x255)]);}[_0xb9351(0x1c4)](_0x3cc746){var _0x5c0074=_0xb9351;if(_0x3cc746[_0x5c0074(0x26e)](/^\\d+$/))return _0x3cc746;var _0x287031;try{_0x287031=JSON['stringify'](''+_0x3cc746);}catch{_0x287031='\\x22'+this[_0x5c0074(0x22d)](_0x3cc746)+'\\x22';}return _0x287031['match'](/^\"([a-zA-Z_][a-zA-Z_0-9]*)\"$/)?_0x287031=_0x287031[_0x5c0074(0x1e5)](0x1,_0x287031[_0x5c0074(0x228)]-0x2):_0x287031=_0x287031[_0x5c0074(0x270)](/'/g,'\\x5c\\x27')['replace'](/\\\\\"/g,'\\x22')[_0x5c0074(0x270)](/(^\"|\"$)/g,'\\x27'),_0x287031;}['_processTreeNodeResult'](_0x19b4fa,_0x38650f,_0x57946c,_0x29c64f){var _0x589102=_0xb9351;this['_treeNodePropertiesBeforeFullValue'](_0x19b4fa,_0x38650f),_0x29c64f&&_0x29c64f(),this[_0x589102(0x260)](_0x57946c,_0x19b4fa),this[_0x589102(0x1e0)](_0x19b4fa,_0x38650f);}[_0xb9351(0x1bd)](_0x143f16,_0x1a8ded){var _0x11c629=_0xb9351;this[_0x11c629(0x1e8)](_0x143f16,_0x1a8ded),this[_0x11c629(0x268)](_0x143f16,_0x1a8ded),this[_0x11c629(0x1f9)](_0x143f16,_0x1a8ded),this[_0x11c629(0x1df)](_0x143f16,_0x1a8ded);}[_0xb9351(0x1e8)](_0x369a46,_0x4f05be){}[_0xb9351(0x268)](_0x21c0d0,_0x301a40){}[_0xb9351(0x1b1)](_0x47144d,_0x11eff4){}[_0xb9351(0x1a9)](_0x3fb569){var _0x4aae29=_0xb9351;return _0x3fb569===this[_0x4aae29(0x26a)];}['_treeNodePropertiesAfterFullValue'](_0x25d957,_0x57d82e){var _0x4a4303=_0xb9351;this[_0x4a4303(0x1b1)](_0x25d957,_0x57d82e),this[_0x4a4303(0x25f)](_0x25d957),_0x57d82e['sortProps']&&this[_0x4a4303(0x1dc)](_0x25d957),this['_addFunctionsNode'](_0x25d957,_0x57d82e),this['_addLoadNode'](_0x25d957,_0x57d82e),this[_0x4a4303(0x225)](_0x25d957);}[_0xb9351(0x260)](_0x401233,_0x2b0d6c){var _0x275173=_0xb9351;try{_0x401233&&typeof _0x401233[_0x275173(0x228)]==_0x275173(0x201)&&(_0x2b0d6c[_0x275173(0x228)]=_0x401233[_0x275173(0x228)]);}catch{}if(_0x2b0d6c['type']===_0x275173(0x201)||_0x2b0d6c[_0x275173(0x1d2)]==='Number'){if(isNaN(_0x2b0d6c[_0x275173(0x23e)]))_0x2b0d6c['nan']=!0x0,delete _0x2b0d6c[_0x275173(0x23e)];else switch(_0x2b0d6c[_0x275173(0x23e)]){case Number[_0x275173(0x21c)]:_0x2b0d6c[_0x275173(0x24a)]=!0x0,delete _0x2b0d6c[_0x275173(0x23e)];break;case Number[_0x275173(0x207)]:_0x2b0d6c[_0x275173(0x233)]=!0x0,delete _0x2b0d6c[_0x275173(0x23e)];break;case 0x0:this[_0x275173(0x283)](_0x2b0d6c['value'])&&(_0x2b0d6c[_0x275173(0x19c)]=!0x0);break;}}else _0x2b0d6c[_0x275173(0x1d2)]===_0x275173(0x19d)&&typeof _0x401233[_0x275173(0x20c)]==_0x275173(0x285)&&_0x401233[_0x275173(0x20c)]&&_0x2b0d6c[_0x275173(0x20c)]&&_0x401233['name']!==_0x2b0d6c['name']&&(_0x2b0d6c[_0x275173(0x21d)]=_0x401233[_0x275173(0x20c)]);}[_0xb9351(0x283)](_0x29734d){var _0x29fc30=_0xb9351;return 0x1/_0x29734d===Number[_0x29fc30(0x207)];}[_0xb9351(0x1dc)](_0x5aaf46){var _0x374711=_0xb9351;!_0x5aaf46[_0x374711(0x241)]||!_0x5aaf46[_0x374711(0x241)][_0x374711(0x228)]||_0x5aaf46[_0x374711(0x1d2)]===_0x374711(0x280)||_0x5aaf46[_0x374711(0x1d2)]===_0x374711(0x26d)||_0x5aaf46[_0x374711(0x1d2)]===_0x374711(0x1b2)||_0x5aaf46[_0x374711(0x241)]['sort'](function(_0x3a2dd0,_0xee97a5){var _0x3cf6fb=_0x374711,_0x4587f7=_0x3a2dd0[_0x3cf6fb(0x20c)][_0x3cf6fb(0x1fd)](),_0x454cd0=_0xee97a5['name'][_0x3cf6fb(0x1fd)]();return _0x4587f7<_0x454cd0?-0x1:_0x4587f7>_0x454cd0?0x1:0x0;});}[_0xb9351(0x1c3)](_0x8c2d16,_0x3cfb23){var _0x5be686=_0xb9351;if(!(_0x3cfb23[_0x5be686(0x1ca)]||!_0x8c2d16[_0x5be686(0x241)]||!_0x8c2d16[_0x5be686(0x241)][_0x5be686(0x228)])){for(var _0x486f22=[],_0x45a564=[],_0x53922c=0x0,_0x166e4b=_0x8c2d16[_0x5be686(0x241)][_0x5be686(0x228)];_0x53922c<_0x166e4b;_0x53922c++){var _0x501ab2=_0x8c2d16['props'][_0x53922c];_0x501ab2[_0x5be686(0x1d2)]==='function'?_0x486f22[_0x5be686(0x1ef)](_0x501ab2):_0x45a564[_0x5be686(0x1ef)](_0x501ab2);}if(!(!_0x45a564['length']||_0x486f22[_0x5be686(0x228)]<=0x1)){_0x8c2d16[_0x5be686(0x241)]=_0x45a564;var _0x359966={'functionsNode':!0x0,'props':_0x486f22};this['_setNodeId'](_0x359966,_0x3cfb23),this[_0x5be686(0x1b1)](_0x359966,_0x3cfb23),this[_0x5be686(0x25f)](_0x359966),this[_0x5be686(0x1df)](_0x359966,_0x3cfb23),_0x359966['id']+='\\x20f',_0x8c2d16[_0x5be686(0x241)][_0x5be686(0x1ff)](_0x359966);}}}['_addLoadNode'](_0x44078e,_0x4b2a8c){}[_0xb9351(0x25f)](_0x36b2c4){}[_0xb9351(0x216)](_0x425466){var _0x20e1b7=_0xb9351;return Array[_0x20e1b7(0x1c9)](_0x425466)||typeof _0x425466==_0x20e1b7(0x1a3)&&this[_0x20e1b7(0x22d)](_0x425466)==='[object\\x20Array]';}[_0xb9351(0x1df)](_0x43d3b4,_0x350745){}[_0xb9351(0x225)](_0x4c0712){var _0x5179c0=_0xb9351;delete _0x4c0712[_0x5179c0(0x269)],delete _0x4c0712[_0x5179c0(0x1b3)],delete _0x4c0712[_0x5179c0(0x1a0)];}[_0xb9351(0x1f9)](_0x4e360e,_0x4d6893){}['_propertyAccessor'](_0x18b17e){var _0x1820bb=_0xb9351;return _0x18b17e?_0x18b17e[_0x1820bb(0x26e)](this['_numberRegExp'])?'['+_0x18b17e+']':_0x18b17e[_0x1820bb(0x26e)](this[_0x1820bb(0x1ed)])?'.'+_0x18b17e:_0x18b17e[_0x1820bb(0x26e)](this[_0x1820bb(0x288)])?'['+_0x18b17e+']':'[\\x27'+_0x18b17e+'\\x27]':'';}}let _0x560210=new _0x4665fa();function _0x429d89(_0x58671f,_0x559ee8,_0x2604a5,_0x327363,_0xb983bc,_0x16e647){var _0x2527d8=_0xb9351;let _0x576484,_0x3f91f9;try{_0x3f91f9=_0x31e48d(),_0x576484=_0xbb3f8b[_0x559ee8],!_0x576484||_0x3f91f9-_0x576484['ts']>0x1f4&&_0x576484[_0x2527d8(0x1f2)]&&_0x576484[_0x2527d8(0x202)]/_0x576484[_0x2527d8(0x1f2)]<0x64?(_0xbb3f8b[_0x559ee8]=_0x576484={'count':0x0,'time':0x0,'ts':_0x3f91f9},_0xbb3f8b['hits']={}):_0x3f91f9-_0xbb3f8b[_0x2527d8(0x1fa)]['ts']>0x32&&_0xbb3f8b[_0x2527d8(0x1fa)][_0x2527d8(0x1f2)]&&_0xbb3f8b['hits'][_0x2527d8(0x202)]/_0xbb3f8b[_0x2527d8(0x1fa)][_0x2527d8(0x1f2)]<0x64&&(_0xbb3f8b[_0x2527d8(0x1fa)]={});let _0x5d9785=[],_0x52b7d5=_0x576484['reduceLimits']||_0xbb3f8b[_0x2527d8(0x1fa)][_0x2527d8(0x234)]?_0x56c2b2:_0x42ceca,_0xf83e4c=_0x496066=>{var _0x5868be=_0x2527d8;let _0x4544bb={};return _0x4544bb[_0x5868be(0x241)]=_0x496066[_0x5868be(0x241)],_0x4544bb[_0x5868be(0x229)]=_0x496066['elements'],_0x4544bb[_0x5868be(0x258)]=_0x496066['strLength'],_0x4544bb['totalStrLength']=_0x496066[_0x5868be(0x1cf)],_0x4544bb[_0x5868be(0x1d0)]=_0x496066[_0x5868be(0x1d0)],_0x4544bb['autoExpandMaxDepth']=_0x496066[_0x5868be(0x25d)],_0x4544bb['sortProps']=!0x1,_0x4544bb['noFunctions']=!_0x5c68d4,_0x4544bb[_0x5868be(0x289)]=0x1,_0x4544bb[_0x5868be(0x1c6)]=0x0,_0x4544bb[_0x5868be(0x281)]=_0x5868be(0x279),_0x4544bb[_0x5868be(0x248)]='root_exp',_0x4544bb[_0x5868be(0x208)]=!0x0,_0x4544bb[_0x5868be(0x200)]=[],_0x4544bb['autoExpandPropertyCount']=0x0,_0x4544bb[_0x5868be(0x1dd)]=!0x0,_0x4544bb[_0x5868be(0x24e)]=0x0,_0x4544bb[_0x5868be(0x204)]={'current':void 0x0,'parent':void 0x0,'index':0x0},_0x4544bb;};for(var _0x2af3e6=0x0;_0x2af3e6<_0xb983bc[_0x2527d8(0x228)];_0x2af3e6++)_0x5d9785['push'](_0x560210['serialize']({'timeNode':_0x58671f===_0x2527d8(0x202)||void 0x0},_0xb983bc[_0x2af3e6],_0xf83e4c(_0x52b7d5),{}));if(_0x58671f===_0x2527d8(0x1bb)){let _0x2caa1d=Error[_0x2527d8(0x259)];try{Error[_0x2527d8(0x259)]=0x1/0x0,_0x5d9785['push'](_0x560210[_0x2527d8(0x1b4)]({'stackNode':!0x0},new Error()[_0x2527d8(0x27a)],_0xf83e4c(_0x52b7d5),{'strLength':0x1/0x0}));}finally{Error[_0x2527d8(0x259)]=_0x2caa1d;}}return{'method':_0x2527d8(0x254),'version':_0x4851a1,'args':[{'ts':_0x2604a5,'session':_0x327363,'args':_0x5d9785,'id':_0x559ee8,'context':_0x16e647}]};}catch(_0x245e4a){return{'method':_0x2527d8(0x254),'version':_0x4851a1,'args':[{'ts':_0x2604a5,'session':_0x327363,'args':[{'type':_0x2527d8(0x26b),'error':_0x245e4a&&_0x245e4a['message']}],'id':_0x559ee8,'context':_0x16e647}]};}finally{try{if(_0x576484&&_0x3f91f9){let _0x3ecff9=_0x31e48d();_0x576484['count']++,_0x576484[_0x2527d8(0x202)]+=_0x38a8ed(_0x3f91f9,_0x3ecff9),_0x576484['ts']=_0x3ecff9,_0xbb3f8b[_0x2527d8(0x1fa)][_0x2527d8(0x1f2)]++,_0xbb3f8b[_0x2527d8(0x1fa)][_0x2527d8(0x202)]+=_0x38a8ed(_0x3f91f9,_0x3ecff9),_0xbb3f8b[_0x2527d8(0x1fa)]['ts']=_0x3ecff9,(_0x576484['count']>0x32||_0x576484[_0x2527d8(0x202)]>0x64)&&(_0x576484['reduceLimits']=!0x0),(_0xbb3f8b[_0x2527d8(0x1fa)][_0x2527d8(0x1f2)]>0x3e8||_0xbb3f8b[_0x2527d8(0x1fa)]['time']>0x12c)&&(_0xbb3f8b['hits'][_0x2527d8(0x234)]=!0x0);}}catch{}}}return _0x2f1668[_0xb9351(0x221)];})(globalThis,_0x27a73e(0x203),_0x27a73e(0x243),_0x27a73e(0x1bc),_0x27a73e(0x1eb),_0x27a73e(0x20a),_0x27a73e(0x231),_0x27a73e(0x25a),_0x27a73e(0x1fe));");
+  } catch (e) {}
+}
+
+;
+
+function oo_oo(i, ...v) {
+  try {
+    oo_cm().consoleLog(i, v);
+  } catch (e) {}
+
+  return v;
+}
+
+;
+oo_oo;
+
+function oo_tr(i, ...v) {
+  try {
+    oo_cm().consoleTrace(i, v);
+  } catch (e) {}
+
+  return v;
+}
+
+;
+oo_tr;
+
+function oo_ts() {
+  try {
+    oo_cm().consoleTime();
+  } catch (e) {}
+}
+
+;
+oo_ts;
+
+function oo_te() {
+  try {
+    oo_cm().consoleTimeEnd();
+  } catch (e) {}
+}
+
+;
+oo_te;
+/*eslint eslint-comments/disable-enable-pair:,eslint-comments/no-unlimited-disable:,eslint-comments/no-aggregating-enable:,eslint-comments/no-duplicate-disable:,eslint-comments/no-unused-disable:,eslint-comments/no-unused-enable:,*/
 
 /***/ }),
 
@@ -1946,192 +1565,6 @@ LoginPersonalAutorizadoComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__decor
 
 /***/ }),
 
-/***/ 71581:
-/*!*****************************************************!*\
-  !*** ./src/app/pages/inicio/main/main.component.ts ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "MainComponent": () => (/* binding */ MainComponent)
-/* harmony export */ });
-/* harmony import */ var D_Projects_capacitor_pwa_app_pedido_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 34929);
-/* harmony import */ var _main_component_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./main.component.html?ngResource */ 95845);
-/* harmony import */ var _main_component_css_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main.component.css?ngResource */ 36070);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 22560);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ 60124);
-
-
-
-
-
-
-let MainComponent = class MainComponent {
-  constructor(activatedRoute, router) {
-    this.activatedRoute = activatedRoute;
-    this.router = router;
-    this._comercioUrl = '';
-  }
-
-  ngOnInit() {
-    var _this = this;
-
-    return (0,D_Projects_capacitor_pwa_app_pedido_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
-      // solo para url carta delivery
-      const nomsede = _this.activatedRoute.snapshot.params.nomsede;
-
-      if (nomsede) {
-        _this.router.navigate(['/redirec', nomsede]);
-      } else {
-        // this._comercioUrl = this.activatedRoute.snapshot.queryParamMap.get('co');
-        _this._comercioUrl = _this.activatedRoute.snapshot.fragment;
-
-        if (!_this._comercioUrl) {
-          return;
-        }
-
-        const numChar = _this._comercioUrl.indexOf('?co=') + 4;
-
-        if (numChar > 4) {
-          _this._comercioUrl = _this._comercioUrl.substring(numChar);
-          const courl = 'co:' + _this._comercioUrl; // this.router.navigate(['/lector-qr'], { queryParams: {'co' : this._comercioUrl} });
-
-          _this.router.navigate(['/redirec', courl]);
-        } else {
-          _this.router.navigate(['/']);
-        }
-      }
-    })();
-  }
-
-};
-
-MainComponent.ctorParameters = () => [{
-  type: _angular_router__WEBPACK_IMPORTED_MODULE_3__.ActivatedRoute
-}, {
-  type: _angular_router__WEBPACK_IMPORTED_MODULE_3__.Router
-}];
-
-MainComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([(0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.Component)({
-  selector: 'app-main',
-  template: _main_component_html_ngResource__WEBPACK_IMPORTED_MODULE_1__,
-  styles: [_main_component_css_ngResource__WEBPACK_IMPORTED_MODULE_2__]
-})], MainComponent);
-
-
-/***/ }),
-
-/***/ 66661:
-/*!*************************************************************************!*\
-  !*** ./src/app/pages/inicio/redirec-lector/redirec-lector.component.ts ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "RedirecLectorComponent": () => (/* binding */ RedirecLectorComponent)
-/* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 34929);
-/* harmony import */ var _redirec_lector_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./redirec-lector.component.html?ngResource */ 77578);
-/* harmony import */ var _redirec_lector_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./redirec-lector.component.css?ngResource */ 98330);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ 22560);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ 60124);
-/* harmony import */ var src_app_shared_services_crud_http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/crud-http.service */ 24677);
-/* harmony import */ var src_app_shared_services_establecimiento_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/establecimiento.service */ 32218);
-/* harmony import */ var src_app_shared_services_verify_auth_client_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/verify-auth-client.service */ 34337);
-
-
-
-
-
-
-
-
-let RedirecLectorComponent = class RedirecLectorComponent {
-    constructor(crudService, activatedRoute, establecimientoService, router, verifyClientService) {
-        this.crudService = crudService;
-        this.activatedRoute = activatedRoute;
-        this.establecimientoService = establecimientoService;
-        this.router = router;
-        this.verifyClientService = verifyClientService;
-    }
-    ngOnInit() {
-        // solo para url carta delivery
-        const nomsede = this.activatedRoute.snapshot.params.nomsede;
-        if (nomsede) {
-            if (nomsede.indexOf('co:') > -1) {
-                const codUrl = nomsede.replace('co:', '');
-                this.router.navigate(['/lector-qr'], { queryParams: { 'co': codUrl } });
-                return;
-            }
-            this.verificarCartaSedeParam(nomsede);
-        }
-        else {
-            this.router.navigate(['/']);
-        }
-    }
-    verificarCartaSedeParam(_nomsede) {
-        // console.log('verificarCartaSedeParam', _nomsede);
-        // setear idsede en clienteSOcket
-        this.verifyClientService.getDataClient();
-        const _dataSend = { nomsede: _nomsede };
-        this.crudService.postFree(_dataSend, 'ini', 'carta-virtual', false)
-            .subscribe((res) => {
-            if (res.success && res.data.length > 0) {
-                const s = res.data[0].idsede;
-                const o = res.data[0].idorg;
-                this.verifyClientService.setQrSuccess(true);
-                this.verifyClientService.setIsDelivery(true);
-                this.verifyClientService.setMesa(0);
-                this.verifyClientService.setIdSede(s);
-                this.verifyClientService.setIdOrg(o);
-                this.getInfoEstablecimiento(s);
-                // registra scaneo
-                this.establecimientoService.setRegisterScanQr(s, 'Delivery');
-            }
-            else {
-                this.router.navigate(['/inicio']);
-            }
-            // console.log('res', res);
-        });
-    }
-    // al scanear codigo qr DELIVERY para ir directo al establecimiento
-    getInfoEstablecimiento(_id) {
-        const _dataEstablecimiento = {
-            idsede: _id
-        };
-        this.crudService.postFree(_dataEstablecimiento, 'delivery', 'get-establecimientos', false)
-            .subscribe((res) => {
-            const _e = res.data[0];
-            this.establecimientoService.set(_e);
-            // setTimeout(() => {
-            // console.log('navigate lector-success');
-            this.router.navigate(['/lector-success']);
-            // }, 500);
-        });
-    }
-};
-RedirecLectorComponent.ctorParameters = () => [
-    { type: src_app_shared_services_crud_http_service__WEBPACK_IMPORTED_MODULE_2__.CrudHttpService },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__.ActivatedRoute },
-    { type: src_app_shared_services_establecimiento_service__WEBPACK_IMPORTED_MODULE_3__.EstablecimientoService },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__.Router },
-    { type: src_app_shared_services_verify_auth_client_service__WEBPACK_IMPORTED_MODULE_4__.VerifyAuthClientService }
-];
-RedirecLectorComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_7__.Component)({
-        selector: 'app-redirec-lector',
-        template: _redirec_lector_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
-        styles: [_redirec_lector_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__]
-    })
-], RedirecLectorComponent);
-
-
-
-/***/ }),
-
 /***/ 29981:
 /*!*********************************************************************************************************!*\
   !*** ./src/app/pages/inicio/seleccionar-ubicacion-delivery/seleccionar-ubicacion-delivery.component.ts ***!
@@ -2230,114 +1663,6 @@ CodigoQrGuard = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([
         providedIn: 'root'
     })
 ], CodigoQrGuard);
-
-
-
-/***/ }),
-
-/***/ 81176:
-/*!***********************************************************************************!*\
-  !*** ./node_modules/@capacitor-community/barcode-scanner/dist/esm/definitions.js ***!
-  \***********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CameraDirection": () => (/* binding */ CameraDirection),
-/* harmony export */   "SupportedFormat": () => (/* binding */ SupportedFormat)
-/* harmony export */ });
-var SupportedFormat;
-
-(function (SupportedFormat) {
-  // BEGIN 1D Product
-
-  /**
-   * Android only, UPC_A is part of EAN_13 according to Apple docs
-   */
-  SupportedFormat["UPC_A"] = "UPC_A";
-  SupportedFormat["UPC_E"] = "UPC_E";
-  /**
-   * Android only
-   */
-
-  SupportedFormat["UPC_EAN_EXTENSION"] = "UPC_EAN_EXTENSION";
-  SupportedFormat["EAN_8"] = "EAN_8";
-  SupportedFormat["EAN_13"] = "EAN_13"; // END 1D Product
-  // BEGIN 1D Industrial
-
-  SupportedFormat["CODE_39"] = "CODE_39";
-  /**
-   * iOS only
-   */
-
-  SupportedFormat["CODE_39_MOD_43"] = "CODE_39_MOD_43";
-  SupportedFormat["CODE_93"] = "CODE_93";
-  SupportedFormat["CODE_128"] = "CODE_128";
-  /**
-   * Android only
-   */
-
-  SupportedFormat["CODABAR"] = "CODABAR";
-  SupportedFormat["ITF"] = "ITF";
-  /**
-   * iOS only
-   */
-
-  SupportedFormat["ITF_14"] = "ITF_14"; // END 1D Industrial
-  // BEGIN 2D
-
-  SupportedFormat["AZTEC"] = "AZTEC";
-  SupportedFormat["DATA_MATRIX"] = "DATA_MATRIX";
-  /**
-   * Android only
-   */
-
-  SupportedFormat["MAXICODE"] = "MAXICODE";
-  SupportedFormat["PDF_417"] = "PDF_417";
-  SupportedFormat["QR_CODE"] = "QR_CODE";
-  /**
-   * Android only
-   */
-
-  SupportedFormat["RSS_14"] = "RSS_14";
-  /**
-   * Android only
-   */
-
-  SupportedFormat["RSS_EXPANDED"] = "RSS_EXPANDED"; // END 2D
-})(SupportedFormat || (SupportedFormat = {}));
-
-var CameraDirection;
-
-(function (CameraDirection) {
-  CameraDirection["FRONT"] = "front";
-  CameraDirection["BACK"] = "back";
-})(CameraDirection || (CameraDirection = {}));
-
-/***/ }),
-
-/***/ 48353:
-/*!*****************************************************************************!*\
-  !*** ./node_modules/@capacitor-community/barcode-scanner/dist/esm/index.js ***!
-  \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BarcodeScanner": () => (/* binding */ BarcodeScanner),
-/* harmony export */   "CameraDirection": () => (/* reexport safe */ _definitions__WEBPACK_IMPORTED_MODULE_1__.CameraDirection),
-/* harmony export */   "SupportedFormat": () => (/* reexport safe */ _definitions__WEBPACK_IMPORTED_MODULE_1__.SupportedFormat)
-/* harmony export */ });
-/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @capacitor/core */ 26549);
-/* harmony import */ var _definitions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./definitions */ 81176);
-
-var BarcodeScanner = (0,_capacitor_core__WEBPACK_IMPORTED_MODULE_0__.registerPlugin)('BarcodeScanner', {
-  web: function web() {
-    return __webpack_require__.e(/*! import() */ "node_modules_capacitor-community_barcode-scanner_dist_esm_web_js").then(__webpack_require__.bind(__webpack_require__, /*! ./web */ 2041)).then(function (m) {
-      return new m.BarcodeScannerWeb();
-    });
-  }
-});
 
 
 
@@ -27263,16 +26588,6 @@ function __classPrivateFieldSet(receiver, privateMap, value) {
 
 /***/ }),
 
-/***/ 16406:
-/*!****************************************************************************************!*\
-  !*** ./src/app/componentes/dialog-ubicacion/dialog-ubicacion.component.css?ngResource ***!
-  \****************************************************************************************/
-/***/ ((module) => {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJkaWFsb2ctdWJpY2FjaW9uLmNvbXBvbmVudC5jc3MifQ== */";
-
-/***/ }),
-
 /***/ 86684:
 /*!***********************************************************************************!*\
   !*** ./src/app/pages/inicio/callback-auth/callback-auth.component.css?ngResource ***!
@@ -27290,16 +26605,6 @@ module.exports = ".container-scan {\r\n    display: -webkit-box;\r\n    display:
 /***/ ((module) => {
 
 module.exports = "\r\n.content-all {\r\n  /* width: 100vh; */\r\n  width: 100%;\r\n  height: 100vh;\r\n  /* background-color: #3f51b5; */\r\n  position: fixed;\r\n  top: 0;\r\n  bottom: 0;\r\n  overflow: auto;\r\n  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0,100,191,1)), to(#3f51b5));\r\n  background: linear-gradient(0deg, rgba(0,100,191,1) 0%, #3f51b5 100%);\r\n}\r\n\r\n.container-ini {\r\n    position: relative;\r\n    min-height: 100vh;\r\n    background: #fff;\r\n}\r\n\r\n.container-body {\r\n    padding-bottom: 3.5rem\r\n}\r\n\r\n.xfooter {\r\n    position: absolute;\r\n    bottom: 0px;\r\n    /* position: fixed; */\r\n    text-align: center;\r\n    width: 100%;\r\n    padding: 20px;\r\n    /* height: 2.5rem; */\r\n}\r\n\r\n.ini-content-options {\r\n    text-align: center;\r\n    margin: 0 auto;\r\n    max-width: 500px;\r\n    border: 1px solid #bdbdbd;\r\n    border-radius: 5px;\r\n    width: 100%;\r\n}\r\n\r\n.ini-content-other-a{\r\n    display: -webkit-box;\r\n    display: -webkit-flex;\r\n    display: flex;\r\n    text-align: center;\r\n    margin: 0 auto;\r\n    max-width: 500px;\r\n    width: 100%;\r\n    -webkit-justify-content: space-around;\r\n            justify-content: space-around;\r\n}\r\n\r\n.ini-content-other-a p { margin: 0; display: -webkit-box; display: -webkit-flex; display: flex;}\r\n\r\n.ini-ico {\r\n    min-width: 100px;\r\n    max-width: 250px;\r\n    text-align: center;\r\n}\r\n\r\n/*** prelaod **/\r\n\r\nbody, html {\r\n    height: 100%;\r\n  }\r\n\r\n.app-loading {\r\n    overflow: hidden;\r\n    position: relative;\r\n    display: -webkit-box;\r\n    display: -webkit-flex;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n    -webkit-flex-direction: column;\r\n            flex-direction: column;\r\n    -webkit-box-align: center;\r\n    -webkit-align-items: center;\r\n            align-items: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-justify-content: center;\r\n            justify-content: center;\r\n    height: 100%;\r\n    text-align: center;\r\n  }\r\n\r\n.app-loading p {\r\n    margin: 0;\r\n  }\r\n\r\n.app-loading .t-p-0 {\r\n    font-size: 14px;\r\n    color: #616161;\r\n  }\r\n\r\n.app-loading .t-p-1 {\r\n    font-size: 12px;\r\n    color: #757575;\r\n  }\r\n\r\n.app-loading .spinner {\r\n    height: 200px;\r\n    width: 200px;\r\n    -webkit-animation: rotate 2s linear infinite;\r\n            animation: rotate 2s linear infinite;\r\n    -webkit-transform-origin: center center;\r\n            transform-origin: center center;\r\n    position: absolute;\r\n    top: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    margin: auto;\r\n  }\r\n\r\n.app-loading .spinner .path {\r\n    stroke-dasharray: 1, 200;\r\n    stroke-dashoffset: 0;\r\n    -webkit-animation: dash 1.5s ease-in-out infinite;\r\n            animation: dash 1.5s ease-in-out infinite;\r\n    stroke-linecap: round;\r\n    stroke: #ddd;\r\n  }\r\n\r\n/* .logo-loading {\r\n    width: 80px;\r\n    height: 80px;\r\n    background:\r\n      url('../../as')\r\n      no-repeat\r\n      center center;\r\n    padding: 5px 0 5px 25px;\r\n  } */\r\n\r\n@-webkit-keyframes rotate {\r\n    100% {\r\n      -webkit-transform: rotate(360deg);\r\n              transform: rotate(360deg);\r\n    }\r\n  }\r\n\r\n@keyframes rotate {\r\n    100% {\r\n      -webkit-transform: rotate(360deg);\r\n              transform: rotate(360deg);\r\n    }\r\n  }\r\n\r\n@-webkit-keyframes dash {\r\n    0% {\r\n      stroke-dasharray: 1, 200;\r\n      stroke-dashoffset: 0;\r\n    }\r\n    50% {\r\n      stroke-dasharray: 89, 200;\r\n      stroke-dashoffset: -35px;\r\n    }\r\n    100% {\r\n      stroke-dasharray: 89, 200;\r\n      stroke-dashoffset: -124px;\r\n    }\r\n  }\r\n\r\n@keyframes dash {\r\n    0% {\r\n      stroke-dasharray: 1, 200;\r\n      stroke-dashoffset: 0;\r\n    }\r\n    50% {\r\n      stroke-dasharray: 89, 200;\r\n      stroke-dashoffset: -35px;\r\n    }\r\n    100% {\r\n      stroke-dasharray: 89, 200;\r\n      stroke-dashoffset: -124px;\r\n    }\r\n  }\r\n\r\n.div-all-options {\r\n    text-align: center;\r\n    display: -webkit-inline-box;\r\n    display: -webkit-inline-flex;\r\n    display: inline-flex;\r\n    margin-top: 15px;\r\n    width: 100%;\r\n    max-width: 320px;\r\n  }\r\n\r\n.div-content-option-ini {\r\n    /* display: grid;\r\n    align-items: center;\r\n    grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));\r\n    width: 100%;\r\n    grid-gap: 0.4rem; */\r\n  }\r\n\r\n.option-ini {\r\n    border: 1px solid #bdbdbd;\r\n    border-radius: 4px;\r\n    padding: 15px;\r\n    margin-right: 5px;\r\n    margin-bottom: 5px;\r\n    text-align: center;\r\n    justify-self: center;\r\n    width: 155px;\r\n    display: inline-block;\r\n  }\r\n\r\n.option-ini .titulo {\r\n    font-size: 14px;\r\n    font-weight: 100;\r\n    padding-top: 5px;\r\n  }\r\n\r\n.option-ini p{\r\n    margin: 0;\r\n  }\r\n\r\n/* mozo */\r\n\r\n.bg-content-mozo-img {\r\n    background: #E1F5FE;\r\n  }\r\n\r\n.bg-content-mozo-img img {\r\n    max-width: 400px;\r\n    width: 100%;\r\n  }\r\n\r\n.bg-msj-mozo {\r\n    background: #fbfbfb;\r\n    padding: 15px;\r\n    font-size: 13px;\r\n    color: gray;\r\n    font-weight: 100;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluaWNpby5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixXQUFXO0VBQ1gsYUFBYTtFQUNiLCtCQUErQjtFQUMvQixlQUFlO0VBQ2YsTUFBTTtFQUNOLFNBQVM7RUFDVCxjQUFjO0VBQ2QsaUdBQXFFO0VBQXJFLHFFQUFxRTtBQUN2RTs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixpQkFBaUI7SUFDakIsZ0JBQWdCO0FBQ3BCOztBQUVBO0lBQ0k7QUFDSjs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixXQUFXO0lBQ1gscUJBQXFCO0lBQ3JCLGtCQUFrQjtJQUNsQixXQUFXO0lBQ1gsYUFBYTtJQUNiLG9CQUFvQjtBQUN4Qjs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixjQUFjO0lBQ2QsZ0JBQWdCO0lBQ2hCLHlCQUF5QjtJQUN6QixrQkFBa0I7SUFDbEIsV0FBVztBQUNmOztBQUVBO0lBQ0ksb0JBQWE7SUFBYixxQkFBYTtJQUFiLGFBQWE7SUFDYixrQkFBa0I7SUFDbEIsY0FBYztJQUNkLGdCQUFnQjtJQUNoQixXQUFXO0lBQ1gscUNBQTZCO1lBQTdCLDZCQUE2QjtBQUNqQzs7QUFFQSx5QkFBeUIsU0FBUyxFQUFFLG9CQUFhLEVBQWIscUJBQWEsRUFBYixhQUFhLENBQUM7O0FBRWxEO0lBQ0ksZ0JBQWdCO0lBQ2hCLGdCQUFnQjtJQUNoQixrQkFBa0I7QUFDdEI7O0FBSUEsZUFBZTs7QUFFZjtJQUNJLFlBQVk7RUFDZDs7QUFDQTtJQUNFLGdCQUFnQjtJQUNoQixrQkFBa0I7SUFDbEIsb0JBQWE7SUFBYixxQkFBYTtJQUFiLGFBQWE7SUFDYiw0QkFBc0I7SUFBdEIsNkJBQXNCO0lBQXRCLDhCQUFzQjtZQUF0QixzQkFBc0I7SUFDdEIseUJBQW1CO0lBQW5CLDJCQUFtQjtZQUFuQixtQkFBbUI7SUFDbkIsd0JBQXVCO0lBQXZCLCtCQUF1QjtZQUF2Qix1QkFBdUI7SUFDdkIsWUFBWTtJQUNaLGtCQUFrQjtFQUNwQjs7QUFFQTtJQUNFLFNBQVM7RUFDWDs7QUFFQTtJQUNFLGVBQWU7SUFDZixjQUFjO0VBQ2hCOztBQUVBO0lBQ0UsZUFBZTtJQUNmLGNBQWM7RUFDaEI7O0FBRUE7SUFDRSxhQUFhO0lBQ2IsWUFBWTtJQUNaLDRDQUFvQztZQUFwQyxvQ0FBb0M7SUFDcEMsdUNBQStCO1lBQS9CLCtCQUErQjtJQUMvQixrQkFBa0I7SUFDbEIsTUFBTTtJQUNOLFNBQVM7SUFDVCxPQUFPO0lBQ1AsUUFBUTtJQUNSLFlBQVk7RUFDZDs7QUFFQTtJQUNFLHdCQUF3QjtJQUN4QixvQkFBb0I7SUFDcEIsaURBQXlDO1lBQXpDLHlDQUF5QztJQUN6QyxxQkFBcUI7SUFDckIsWUFBWTtFQUNkOztBQUVBOzs7Ozs7OztLQVFHOztBQUVIO0lBQ0U7TUFDRSxpQ0FBeUI7Y0FBekIseUJBQXlCO0lBQzNCO0VBQ0Y7O0FBSkE7SUFDRTtNQUNFLGlDQUF5QjtjQUF6Qix5QkFBeUI7SUFDM0I7RUFDRjs7QUFFQTtJQUNFO01BQ0Usd0JBQXdCO01BQ3hCLG9CQUFvQjtJQUN0QjtJQUNBO01BQ0UseUJBQXlCO01BQ3pCLHdCQUF3QjtJQUMxQjtJQUNBO01BQ0UseUJBQXlCO01BQ3pCLHlCQUF5QjtJQUMzQjtFQUNGOztBQWJBO0lBQ0U7TUFDRSx3QkFBd0I7TUFDeEIsb0JBQW9CO0lBQ3RCO0lBQ0E7TUFDRSx5QkFBeUI7TUFDekIsd0JBQXdCO0lBQzFCO0lBQ0E7TUFDRSx5QkFBeUI7TUFDekIseUJBQXlCO0lBQzNCO0VBQ0Y7O0FBRUE7SUFDRSxrQkFBa0I7SUFDbEIsMkJBQW9CO0lBQXBCLDRCQUFvQjtJQUFwQixvQkFBb0I7SUFDcEIsZ0JBQWdCO0lBQ2hCLFdBQVc7SUFDWCxnQkFBZ0I7RUFDbEI7O0FBRUE7SUFDRTs7Ozt1QkFJbUI7RUFDckI7O0FBRUE7SUFDRSx5QkFBeUI7SUFDekIsa0JBQWtCO0lBQ2xCLGFBQWE7SUFDYixpQkFBaUI7SUFDakIsa0JBQWtCO0lBQ2xCLGtCQUFrQjtJQUNsQixvQkFBb0I7SUFDcEIsWUFBWTtJQUNaLHFCQUFxQjtFQUN2Qjs7QUFFQTtJQUNFLGVBQWU7SUFDZixnQkFBZ0I7SUFDaEIsZ0JBQWdCO0VBQ2xCOztBQUVBO0lBQ0UsU0FBUztFQUNYOztBQUdBLFNBQVM7O0FBQ1Q7SUFDRSxtQkFBbUI7RUFDckI7O0FBRUE7SUFDRSxnQkFBZ0I7SUFDaEIsV0FBVztFQUNiOztBQUVBO0lBQ0UsbUJBQW1CO0lBQ25CLGFBQWE7SUFDYixlQUFlO0lBQ2YsV0FBVztJQUNYLGdCQUFnQjtFQUNsQiIsImZpbGUiOiJpbmljaW8uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4uY29udGVudC1hbGwge1xyXG4gIC8qIHdpZHRoOiAxMDB2aDsgKi9cclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG4gIC8qIGJhY2tncm91bmQtY29sb3I6ICMzZjUxYjU7ICovXHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIHRvcDogMDtcclxuICBib3R0b206IDA7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbiAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDBkZWcsIHJnYmEoMCwxMDAsMTkxLDEpIDAlLCAjM2Y1MWI1IDEwMCUpO1xyXG59XHJcblxyXG4uY29udGFpbmVyLWluaSB7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICBtaW4taGVpZ2h0OiAxMDB2aDtcclxuICAgIGJhY2tncm91bmQ6ICNmZmY7XHJcbn1cclxuXHJcbi5jb250YWluZXItYm9keSB7XHJcbiAgICBwYWRkaW5nLWJvdHRvbTogMy41cmVtXHJcbn1cclxuXHJcbi54Zm9vdGVyIHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGJvdHRvbTogMHB4O1xyXG4gICAgLyogcG9zaXRpb246IGZpeGVkOyAqL1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBwYWRkaW5nOiAyMHB4O1xyXG4gICAgLyogaGVpZ2h0OiAyLjVyZW07ICovXHJcbn1cclxuXHJcbi5pbmktY29udGVudC1vcHRpb25zIHtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIG1hcmdpbjogMCBhdXRvO1xyXG4gICAgbWF4LXdpZHRoOiA1MDBweDtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICNiZGJkYmQ7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLmluaS1jb250ZW50LW90aGVyLWF7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgbWFyZ2luOiAwIGF1dG87XHJcbiAgICBtYXgtd2lkdGg6IDUwMHB4O1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcclxufVxyXG5cclxuLmluaS1jb250ZW50LW90aGVyLWEgcCB7IG1hcmdpbjogMDsgZGlzcGxheTogZmxleDt9XHJcblxyXG4uaW5pLWljbyB7XHJcbiAgICBtaW4td2lkdGg6IDEwMHB4O1xyXG4gICAgbWF4LXdpZHRoOiAyNTBweDtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuXHJcblxyXG4vKioqIHByZWxhb2QgKiovXHJcblxyXG5ib2R5LCBodG1sIHtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICB9XHJcbiAgLmFwcC1sb2FkaW5nIHtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB9XHJcbiAgXHJcbiAgLmFwcC1sb2FkaW5nIHAge1xyXG4gICAgbWFyZ2luOiAwO1xyXG4gIH1cclxuICBcclxuICAuYXBwLWxvYWRpbmcgLnQtcC0wIHtcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICAgIGNvbG9yOiAjNjE2MTYxO1xyXG4gIH1cclxuICBcclxuICAuYXBwLWxvYWRpbmcgLnQtcC0xIHtcclxuICAgIGZvbnQtc2l6ZTogMTJweDtcclxuICAgIGNvbG9yOiAjNzU3NTc1O1xyXG4gIH1cclxuICBcclxuICAuYXBwLWxvYWRpbmcgLnNwaW5uZXIge1xyXG4gICAgaGVpZ2h0OiAyMDBweDtcclxuICAgIHdpZHRoOiAyMDBweDtcclxuICAgIGFuaW1hdGlvbjogcm90YXRlIDJzIGxpbmVhciBpbmZpbml0ZTtcclxuICAgIHRyYW5zZm9ybS1vcmlnaW46IGNlbnRlciBjZW50ZXI7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IDA7XHJcbiAgICBib3R0b206IDA7XHJcbiAgICBsZWZ0OiAwO1xyXG4gICAgcmlnaHQ6IDA7XHJcbiAgICBtYXJnaW46IGF1dG87XHJcbiAgfVxyXG4gIFxyXG4gIC5hcHAtbG9hZGluZyAuc3Bpbm5lciAucGF0aCB7XHJcbiAgICBzdHJva2UtZGFzaGFycmF5OiAxLCAyMDA7XHJcbiAgICBzdHJva2UtZGFzaG9mZnNldDogMDtcclxuICAgIGFuaW1hdGlvbjogZGFzaCAxLjVzIGVhc2UtaW4tb3V0IGluZmluaXRlO1xyXG4gICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kO1xyXG4gICAgc3Ryb2tlOiAjZGRkO1xyXG4gIH1cclxuICBcclxuICAvKiAubG9nby1sb2FkaW5nIHtcclxuICAgIHdpZHRoOiA4MHB4O1xyXG4gICAgaGVpZ2h0OiA4MHB4O1xyXG4gICAgYmFja2dyb3VuZDpcclxuICAgICAgdXJsKCcuLi8uLi9hcycpXHJcbiAgICAgIG5vLXJlcGVhdFxyXG4gICAgICBjZW50ZXIgY2VudGVyO1xyXG4gICAgcGFkZGluZzogNXB4IDAgNXB4IDI1cHg7XHJcbiAgfSAqL1xyXG4gIFxyXG4gIEBrZXlmcmFtZXMgcm90YXRlIHtcclxuICAgIDEwMCUge1xyXG4gICAgICB0cmFuc2Zvcm06IHJvdGF0ZSgzNjBkZWcpO1xyXG4gICAgfVxyXG4gIH1cclxuICBcclxuICBAa2V5ZnJhbWVzIGRhc2gge1xyXG4gICAgMCUge1xyXG4gICAgICBzdHJva2UtZGFzaGFycmF5OiAxLCAyMDA7XHJcbiAgICAgIHN0cm9rZS1kYXNob2Zmc2V0OiAwO1xyXG4gICAgfVxyXG4gICAgNTAlIHtcclxuICAgICAgc3Ryb2tlLWRhc2hhcnJheTogODksIDIwMDtcclxuICAgICAgc3Ryb2tlLWRhc2hvZmZzZXQ6IC0zNXB4O1xyXG4gICAgfVxyXG4gICAgMTAwJSB7XHJcbiAgICAgIHN0cm9rZS1kYXNoYXJyYXk6IDg5LCAyMDA7XHJcbiAgICAgIHN0cm9rZS1kYXNob2Zmc2V0OiAtMTI0cHg7XHJcbiAgICB9XHJcbiAgfVxyXG5cclxuICAuZGl2LWFsbC1vcHRpb25zIHtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIGRpc3BsYXk6IGlubGluZS1mbGV4O1xyXG4gICAgbWFyZ2luLXRvcDogMTVweDtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgbWF4LXdpZHRoOiAzMjBweDtcclxuICB9XHJcblxyXG4gIC5kaXYtY29udGVudC1vcHRpb24taW5pIHtcclxuICAgIC8qIGRpc3BsYXk6IGdyaWQ7XHJcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gICAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoYXV0by1maXQsIG1pbm1heCgxNTVweCwgMWZyKSk7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGdyaWQtZ2FwOiAwLjRyZW07ICovXHJcbiAgfVxyXG5cclxuICAub3B0aW9uLWluaSB7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjYmRiZGJkO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gICAgcGFkZGluZzogMTVweDtcclxuICAgIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAganVzdGlmeS1zZWxmOiBjZW50ZXI7XHJcbiAgICB3aWR0aDogMTU1cHg7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgfVxyXG5cclxuICAub3B0aW9uLWluaSAudGl0dWxvIHtcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICAgIGZvbnQtd2VpZ2h0OiAxMDA7XHJcbiAgICBwYWRkaW5nLXRvcDogNXB4O1xyXG4gIH1cclxuXHJcbiAgLm9wdGlvbi1pbmkgcHtcclxuICAgIG1hcmdpbjogMDtcclxuICB9XHJcblxyXG5cclxuICAvKiBtb3pvICovXHJcbiAgLmJnLWNvbnRlbnQtbW96by1pbWcge1xyXG4gICAgYmFja2dyb3VuZDogI0UxRjVGRTtcclxuICB9XHJcblxyXG4gIC5iZy1jb250ZW50LW1vem8taW1nIGltZyB7XHJcbiAgICBtYXgtd2lkdGg6IDQwMHB4O1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgfVxyXG5cclxuICAuYmctbXNqLW1vem8ge1xyXG4gICAgYmFja2dyb3VuZDogI2ZiZmJmYjtcclxuICAgIHBhZGRpbmc6IDE1cHg7XHJcbiAgICBmb250LXNpemU6IDEzcHg7XHJcbiAgICBjb2xvcjogZ3JheTtcclxuICAgIGZvbnQtd2VpZ2h0OiAxMDA7XHJcbiAgfSJdfQ== */";
-
-/***/ }),
-
-/***/ 31816:
-/*!*****************************************************************************************!*\
-  !*** ./src/app/pages/inicio/lector-codigo-qr/lector-codigo-qr.component.css?ngResource ***!
-  \*****************************************************************************************/
-/***/ ((module) => {
-
-module.exports = ":host zxing-scanner::ng-deep video {\r\n    max-width: 300px;\r\n    max-height: 225px;\r\n  }\r\n\r\n.container-scan {\r\n    display: -webkit-box;\r\n    display: -webkit-flex;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n    -webkit-align-items: center;\r\n            align-items: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-justify-content: center;\r\n            justify-content: center;\r\n    height: 100%;\r\n    /* background: rgba(158,158,158,0.31); */\r\n}\r\n\r\n.container-scan .video {\r\n    max-width: 300px;\r\n}\r\n\r\n.video-scan {\r\n    max-width: 300px;\r\n    max-height: 225px;\r\n}\r\n\r\n.linea-scan {\r\n    height: 20px;\r\n    background: rgba(0,230,118,0.5);\r\n    position: relative;\r\n    -webkit-animation: updown 3s infinite;\r\n            animation: updown 3s infinite;\r\n}\r\n\r\n@-webkit-keyframes updown {\r\n    0% { bottom: 15px; }\r\n    50% { bottom: 235px;}\r\n    100% { bottom: 15px; }\r\n }\r\n\r\n@keyframes updown {\r\n    0% { bottom: 15px; }\r\n    50% { bottom: 235px;}\r\n    100% { bottom: 15px; }\r\n }\r\n\r\n.bg-trasnparent {\r\n    background: #00000000;\r\n}\r\n\r\n.scanner-active {\r\n    --background: transparent;\r\n    --ion-background-color: transparent;\r\n\r\n    background: transparent;\r\n    width: 250px;\r\n    height: 250px;\r\n    border: 1px solid;\r\n}\r\n\r\n.scan-box {\r\n    border: 4px solid #fff;\r\n    box-shadow: 0 0 0 100vmax rgba(0,0,0,0.5);\r\n    content: '';\r\n    display: block;\r\n    left: 50%;\r\n    height: 300px;\r\n    position: absolute;\r\n    top: 50%;\r\n    -webkit-transform: translate(-50%, -50%);\r\n            transform: translate(-50%, -50%);\r\n    width: 300px;\r\n}\r\n\r\n.linea-scan-native {\r\n    height: 20px;\r\n    width: 300px;\r\n    background: rgba(0, 230, 118, 0.5);\r\n    position: relative;\r\n    -webkit-animation: updown-native 3s infinite;\r\n            animation: updown-native 3s infinite;\r\n}\r\n\r\n@-webkit-keyframes updown-native {\r\n    0% {\r\n        top: -140px;\r\n    }\r\n\r\n    50% {\r\n        top: 142px;\r\n    }\r\n\r\n    100% {\r\n        top: -140px;\r\n    }\r\n}\r\n\r\n@keyframes updown-native {\r\n    0% {\r\n        top: -140px;\r\n    }\r\n\r\n    50% {\r\n        top: 142px;\r\n    }\r\n\r\n    100% {\r\n        top: -140px;\r\n    }\r\n}\r\n\r\n.x-fotter-native {\r\n    position: fixed;\r\n    bottom: 0px;\r\n    text-align: center;    \r\n    width: 100%;\r\n    padding: 30px;\r\n    z-index: 100;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxlY3Rvci1jb2RpZ28tcXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGdCQUFnQjtJQUNoQixpQkFBaUI7RUFDbkI7O0FBRUY7SUFDSSxvQkFBYTtJQUFiLHFCQUFhO0lBQWIsYUFBYTtJQUNiLHlCQUFtQjtJQUFuQiwyQkFBbUI7WUFBbkIsbUJBQW1CO0lBQ25CLHdCQUF1QjtJQUF2QiwrQkFBdUI7WUFBdkIsdUJBQXVCO0lBQ3ZCLFlBQVk7SUFDWix3Q0FBd0M7QUFDNUM7O0FBRUE7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBRUE7SUFDSSxnQkFBZ0I7SUFDaEIsaUJBQWlCO0FBQ3JCOztBQUdBO0lBQ0ksWUFBWTtJQUNaLCtCQUErQjtJQUMvQixrQkFBa0I7SUFDbEIscUNBQTZCO1lBQTdCLDZCQUE2QjtBQUNqQzs7QUFFQTtJQUNJLEtBQUssWUFBWSxFQUFFO0lBQ25CLE1BQU0sYUFBYSxDQUFDO0lBQ3BCLE9BQU8sWUFBWSxFQUFFO0NBQ3hCOztBQUpEO0lBQ0ksS0FBSyxZQUFZLEVBQUU7SUFDbkIsTUFBTSxhQUFhLENBQUM7SUFDcEIsT0FBTyxZQUFZLEVBQUU7Q0FDeEI7O0FBRUQ7SUFDSSxxQkFBcUI7QUFDekI7O0FBRUE7SUFDSSx5QkFBeUI7SUFDekIsbUNBQW1DOztJQUVuQyx1QkFBdUI7SUFDdkIsWUFBWTtJQUNaLGFBQWE7SUFDYixpQkFBaUI7QUFDckI7O0FBRUE7SUFDSSxzQkFBc0I7SUFDdEIseUNBQXlDO0lBQ3pDLFdBQVc7SUFDWCxjQUFjO0lBQ2QsU0FBUztJQUNULGFBQWE7SUFDYixrQkFBa0I7SUFDbEIsUUFBUTtJQUNSLHdDQUFnQztZQUFoQyxnQ0FBZ0M7SUFDaEMsWUFBWTtBQUNoQjs7QUFFQTtJQUNJLFlBQVk7SUFDWixZQUFZO0lBQ1osa0NBQWtDO0lBQ2xDLGtCQUFrQjtJQUNsQiw0Q0FBb0M7WUFBcEMsb0NBQW9DO0FBQ3hDOztBQUVBO0lBQ0k7UUFDSSxXQUFXO0lBQ2Y7O0lBRUE7UUFDSSxVQUFVO0lBQ2Q7O0lBRUE7UUFDSSxXQUFXO0lBQ2Y7QUFDSjs7QUFaQTtJQUNJO1FBQ0ksV0FBVztJQUNmOztJQUVBO1FBQ0ksVUFBVTtJQUNkOztJQUVBO1FBQ0ksV0FBVztJQUNmO0FBQ0o7O0FBRUE7SUFDSSxlQUFlO0lBQ2YsV0FBVztJQUNYLGtCQUFrQjtJQUNsQixXQUFXO0lBQ1gsYUFBYTtJQUNiLFlBQVk7QUFDaEIiLCJmaWxlIjoibGVjdG9yLWNvZGlnby1xci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qgenhpbmctc2Nhbm5lcjo6bmctZGVlcCB2aWRlbyB7XHJcbiAgICBtYXgtd2lkdGg6IDMwMHB4O1xyXG4gICAgbWF4LWhlaWdodDogMjI1cHg7XHJcbiAgfVxyXG5cclxuLmNvbnRhaW5lci1zY2FuIHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICAvKiBiYWNrZ3JvdW5kOiByZ2JhKDE1OCwxNTgsMTU4LDAuMzEpOyAqL1xyXG59XHJcblxyXG4uY29udGFpbmVyLXNjYW4gLnZpZGVvIHtcclxuICAgIG1heC13aWR0aDogMzAwcHg7XHJcbn1cclxuXHJcbi52aWRlby1zY2FuIHtcclxuICAgIG1heC13aWR0aDogMzAwcHg7XHJcbiAgICBtYXgtaGVpZ2h0OiAyMjVweDtcclxufVxyXG5cclxuXHJcbi5saW5lYS1zY2FuIHtcclxuICAgIGhlaWdodDogMjBweDtcclxuICAgIGJhY2tncm91bmQ6IHJnYmEoMCwyMzAsMTE4LDAuNSk7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICBhbmltYXRpb246IHVwZG93biAzcyBpbmZpbml0ZTtcclxufVxyXG5cclxuQGtleWZyYW1lcyB1cGRvd24ge1xyXG4gICAgMCUgeyBib3R0b206IDE1cHg7IH1cclxuICAgIDUwJSB7IGJvdHRvbTogMjM1cHg7fVxyXG4gICAgMTAwJSB7IGJvdHRvbTogMTVweDsgfVxyXG4gfVxyXG5cclxuLmJnLXRyYXNucGFyZW50IHtcclxuICAgIGJhY2tncm91bmQ6ICMwMDAwMDAwMDtcclxufVxyXG5cclxuLnNjYW5uZXItYWN0aXZlIHtcclxuICAgIC0tYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7XHJcbiAgICAtLWlvbi1iYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcclxuXHJcbiAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICAgIHdpZHRoOiAyNTBweDtcclxuICAgIGhlaWdodDogMjUwcHg7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZDtcclxufVxyXG5cclxuLnNjYW4tYm94IHtcclxuICAgIGJvcmRlcjogNHB4IHNvbGlkICNmZmY7XHJcbiAgICBib3gtc2hhZG93OiAwIDAgMCAxMDB2bWF4IHJnYmEoMCwwLDAsMC41KTtcclxuICAgIGNvbnRlbnQ6ICcnO1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICBsZWZ0OiA1MCU7XHJcbiAgICBoZWlnaHQ6IDMwMHB4O1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgdG9wOiA1MCU7XHJcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICAgIHdpZHRoOiAzMDBweDtcclxufVxyXG5cclxuLmxpbmVhLXNjYW4tbmF0aXZlIHtcclxuICAgIGhlaWdodDogMjBweDtcclxuICAgIHdpZHRoOiAzMDBweDtcclxuICAgIGJhY2tncm91bmQ6IHJnYmEoMCwgMjMwLCAxMTgsIDAuNSk7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICBhbmltYXRpb246IHVwZG93bi1uYXRpdmUgM3MgaW5maW5pdGU7XHJcbn1cclxuXHJcbkBrZXlmcmFtZXMgdXBkb3duLW5hdGl2ZSB7XHJcbiAgICAwJSB7XHJcbiAgICAgICAgdG9wOiAtMTQwcHg7XHJcbiAgICB9XHJcblxyXG4gICAgNTAlIHtcclxuICAgICAgICB0b3A6IDE0MnB4O1xyXG4gICAgfVxyXG5cclxuICAgIDEwMCUge1xyXG4gICAgICAgIHRvcDogLTE0MHB4O1xyXG4gICAgfVxyXG59XHJcblxyXG4ueC1mb3R0ZXItbmF0aXZlIHtcclxuICAgIHBvc2l0aW9uOiBmaXhlZDtcclxuICAgIGJvdHRvbTogMHB4O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyOyAgICBcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgcGFkZGluZzogMzBweDtcclxuICAgIHotaW5kZXg6IDEwMDtcclxufSJdfQ== */";
 
 /***/ }),
 
@@ -27333,26 +26638,6 @@ module.exports = ".div-main {\r\n    display: -webkit-box;\r\n    display: -webk
 
 /***/ }),
 
-/***/ 36070:
-/*!*****************************************************************!*\
-  !*** ./src/app/pages/inicio/main/main.component.css?ngResource ***!
-  \*****************************************************************/
-/***/ ((module) => {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLmNvbXBvbmVudC5jc3MifQ== */";
-
-/***/ }),
-
-/***/ 98330:
-/*!*************************************************************************************!*\
-  !*** ./src/app/pages/inicio/redirec-lector/redirec-lector.component.css?ngResource ***!
-  \*************************************************************************************/
-/***/ ((module) => {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJyZWRpcmVjLWxlY3Rvci5jb21wb25lbnQuY3NzIn0= */";
-
-/***/ }),
-
 /***/ 53316:
 /*!*********************************************************************************************************************!*\
   !*** ./src/app/pages/inicio/seleccionar-ubicacion-delivery/seleccionar-ubicacion-delivery.component.css?ngResource ***!
@@ -27360,16 +26645,6 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /***/ ((module) => {
 
 module.exports = "agm-map {\r\n    height: 300px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlbGVjY2lvbmFyLXViaWNhY2lvbi1kZWxpdmVyeS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksYUFBYTtBQUNqQiIsImZpbGUiOiJzZWxlY2Npb25hci11YmljYWNpb24tZGVsaXZlcnkuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImFnbS1tYXAge1xyXG4gICAgaGVpZ2h0OiAzMDBweDtcclxufSJdfQ== */";
-
-/***/ }),
-
-/***/ 17185:
-/*!*****************************************************************************************!*\
-  !*** ./src/app/componentes/dialog-ubicacion/dialog-ubicacion.component.html?ngResource ***!
-  \*****************************************************************************************/
-/***/ ((module) => {
-
-module.exports = "<div class=\"text-center p-3\">\n    <i class=\"fa fa-map-marker fa-2x\"></i>\n    <p class=\"fs-20\">Verificando su ubicación.</p>    \n</div>\n";
 
 /***/ }),
 
@@ -27390,16 +26665,6 @@ module.exports = "<div class=\"container-scan animated fadeIn text-center\">\n  
 /***/ ((module) => {
 
 module.exports = " <div class=\"content-all app-loading animated fadeIn\" [hidden]=\"loadAll\">\r\n    <div class=\"logo-loading\">     \r\n    </div>      \r\n    <!-- <p class=\"t-p-0\">Papaya Express</p> -->\r\n    <svg class=\"spinner\" viewBox=\"25 25 50 50\">\r\n      <circle class=\"path\" cx=\"50\" cy=\"50\" r=\"20\" fill=\"none\" stroke-width=\"2\" stroke-miterlimit=\"10\"/>\r\n    </svg>\r\n    <div style=\"bottom: 10px; position: fixed;\">\r\n      <p class=\"t-p-1\" style=\"color: white;  margin-top: -5px;\">papaya.com.pe</p>\r\n    </div>\r\n  </div>\r\n\r\n\r\n\r\n  <div [hidden]=\"!loadAll\" class=\"animated fadeIn\">\r\n    <div class=\"text-center container-ini\">\r\n      <div class=\"container-body\">\r\n\r\n\r\n        <!-- header -->\r\n\r\n        <div class=\"header\">\r\n          <div class=\"flex\">\r\n            <br>\r\n            <div>      \r\n              <img src=\"assets/images/papaya_text-white.png\" style=\"width: 150px; padding-top: 15px;\">\r\n              <p>\r\n                <ng-container *ngIf=\"isViewOnlyMozo; else elseTemplateExpress\">\r\n                  App Mozo\r\n                </ng-container>\r\n                <ng-template #elseTemplateExpress>\r\n                  Express\r\n                </ng-template>\r\n                \r\n                <span class=\"fs-11\">v.3d</span>\r\n              </p>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <!-- end header -->\r\n\r\n        <!-- test -->\r\n        <!-- <button (click)=\"IniciarSession()\">Iniciar session</button> -->\r\n        <!-- test -->\r\n\r\n        <ng-container *ngIf=\"!isViewOnlyMozo; else elseTemplateMozo\">\r\n          \r\n          <div>\r\n            <br>\r\n            <div>          \r\n              <div class=\"border-bottom p-3\" style=\"border-radius: 5px 5px 0px 0px;\">            \r\n                <ng-container *ngIf=\"isLogin; else elseTemplate\">\r\n                    <span class=\"fs-18 fw-600\">Hola, <strong>{{nombreClientSocket | titlecase}}</strong></span>        \r\n                  \r\n                </ng-container>\r\n                <ng-template #elseTemplate>            \r\n                    <span class=\"fs-18 fw-600\">Hola, Bienvenido</span>        \r\n                  </ng-template>\r\n                <p class=\"fs-15 text-secondary m-0\">¿Qué necesitas hoy?</p>        \r\n              </div>                            \r\n            </div>\r\n  \r\n            <div class=\"div-all-options pt-3\">          \r\n              <div class=\"div-content-option-ini\">\r\n                \r\n                <div class=\"option-ini\" matRipple (click)=\"showScanCodeQr()\">\r\n                  <img src=\"assets/images/icon-app/001-qr-code.png\" alt=\"\">\r\n                  <p class=\"titulo\">Escanear Qr</p>\r\n                  <p class=\"fs-11 text-secondary\">Escanea el codigo QR <br>para hacer un pedido.</p>            \r\n                </div>\r\n  \r\n                <div class=\"option-ini\" matRipple (click)=\"showDelivery()\">\r\n                  <img src=\"assets/images/icon-app/001-delivery-boy.png\" alt=\"\">\r\n                  <p class=\"titulo\">Pedir un Delivery</p>\r\n                  <p class=\"fs-11 text-secondary\">Pide en supermercados <br> restaurantes y más.</p>            \r\n                </div>\r\n  \r\n                <div class=\"option-ini\" matRipple (click)=\"showReserva()\">\r\n                  <img src=\"assets/images/icon-app/001-beefc.png\" alt=\"\">\r\n                  <p class=\"titulo\">Reservar</p>\r\n                  <p class=\"fs-11 text-secondary\">Tus platos favoritos <br>de tu local favorito.</p>            \r\n                </div>\r\n  \r\n                <!-- <div class=\"option-ini\"  matRipple (click)=\"showAtm()\">\r\n                  <img src=\"assets/images/icon-app/001-money.png\" alt=\"\">\r\n                  <p class=\"titulo\">Cash</p>\r\n                  <p class=\"fs-11 text-secondary\">Solicita dinero <br> en efectivo.</p>            \r\n                </div> -->\r\n  \r\n  \r\n              </div>\r\n            </div>\r\n          </div>\r\n\r\n          <div *ngIf=\"isLogin\">\r\n            <br>\r\n            <div class=\"fs-12 mt-2 text-secondary xCursor\" (click)=\"cerrarAllSession()\">\r\n              <i class=\"fa fa-sign-out\"></i>\r\n              Cerrar Session</div>\r\n          </div>\r\n\r\n        </ng-container>\r\n\r\n        <!-- vista de app solo mozo -->\r\n        <ng-template #elseTemplateMozo>\r\n          <div class=\"bg-content-mozo-img\">\r\n            <img src=\"assets/images/waiter-ini.jpg\" alt=\"mozo\">\r\n          </div>\r\n          <div class=\"bg-msj-mozo\">\r\n            <p>Eres una parte valiosa del equipo y tu trabajo es importante. Esta Aplicación está diseñada para facilitar tu trabajo y hacer que seas más eficiente.</p>\r\n          </div>\r\n          \r\n\r\n\r\n          <!-- <div class=\"div-all-options pt-3\">          \r\n            <div class=\"div-content-option-ini\">              \r\n              \r\n              <div class=\"option-ini\"  matRipple [routerLink]=\"['/login-personal-autorizado']\">\r\n                <img src=\"assets/images/icon-app/001-chef.png\" alt=\"\">\r\n                <p class=\"titulo\">Personal Autorizado</p>\r\n                <p class=\"fs-11 text-secondary\">Tomar pedidos</p>            \r\n              </div>\r\n\r\n            </div>\r\n          </div> -->\r\n        </ng-template>\r\n        \r\n\r\n        \r\n        \r\n        <!-- header --> \r\n        <!-- <div>\r\n          <i class=\"fa fa-key p-2\" aria-hidden=\"true\" [routerLink]=\"['/login-personal-autorizado']\"></i>\r\n        </div> -->\r\n        <!-- <button *ngIf=\"isLogin\" mat-button color=\"accent\" (click)=\"cerrarSession()\">Cerrar sesion</button> -->\r\n        <!-- <button mat-flat-button color=\"warn\" [routerLink]=\"['/login-personal-autorizado']\">Personal Autorizado</button> -->\r\n      <!-- <i *ngIf=\"isLogin\" class=\"fa fa-user-circle-o p-2\" (click)=\"showClienteProfile()\" aria-hidden=\"true\"></i> -->\r\n        <!-- <div class=\"header\">\r\n          <div class=\"d-flex\">\r\n            <div class=\"text-right text-white\" style=\"position: absolute; right: 0px;\">\r\n            </div>      \r\n          </div>      \r\n          <div class=\"inner-header flex\">\r\n            <br>\r\n            <div>      \r\n              <img src=\"assets/images/papaya_text-white.png\" width=\"190px\">\r\n              <p>Express <span class=\"fs-12\">v.2p</span></p>\r\n            </div>\r\n          </div> -->\r\n\r\n          <!--Waves Container-->\r\n          <!-- <div>\r\n            <svg class=\"waves\"\r\n            viewBox=\"0 24 150 28\" preserveAspectRatio=\"none\" shape-rendering=\"auto\">\r\n            <defs>\r\n            <path id=\"gentle-wave\" d=\"M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z\" />\r\n            </defs>\r\n            <g class=\"parallax\">\r\n            <use xlink:href=\"#gentle-wave\" x=\"48\" y=\"0\" fill=\"rgba(255,255,255,0.7)\" />\r\n            <use xlink:href=\"#gentle-wave\" x=\"48\" y=\"3\" fill=\"rgba(255,255,255,0.5)\" />\r\n            <use xlink:href=\"#gentle-wave\" x=\"48\" y=\"5\" fill=\"rgba(255,255,255,0.3)\" />\r\n            <use xlink:href=\"#gentle-wave\" x=\"48\" y=\"7\" fill=\"#fff\" />\r\n            </g>\r\n            </svg>\r\n          </div> -->\r\n          \r\n        <!-- </div> -->\r\n        \r\n        <!-- <div class=\"text-center pl-4 pr-4\">\r\n          <img src=\"assets/images/img-ini.png\" style=\"max-width: 320px; width: 100%;\" alt=\"ini\" (click)=\"goDev(1);\">\r\n          <p class=\"fs-14\" style=\"color: #616161;\">Encuentra, pide y recibe lo que quieras fácilmente. Te lo llevamos en minutos.</p>        \r\n        </div>\r\n        \r\n        <div class=\"ini-content-options\">\r\n          <div *ngIf=\"isLogin\" class=\"border-bottom p-3\" style=\"background: blanchedalmond; border-radius: 5px 5px 0px 0px;\">            \r\n            <span class=\"fs-13\">Hola <strong>{{nombreClientSocket}}</strong>, que quieres pedir hoy?</span>        \r\n          </div>\r\n    \r\n          <div class=\"fs-14\">\r\n            <div matRipple class=\"p-3 border-bottom border-top\" [routerLink]=\"['/lector-qr']\">\r\n              <img src=\"assets/images/btn_scan.png\" alt=\"btn-scan\">\r\n              <span class=\"pl-2 fw-600\">Scanear Código QR</span>\r\n            </div>        \r\n    \r\n            <div matRipple class=\"p-3 border-bottom border-top\" (click)=\"showDelivery()\">\r\n              <img src=\"assets/images/btn_delivery.png\" alt=\"btn-scan\">\r\n              <span class=\"pl-2 fw-600\">Pedir un Delivery</span><br>\r\n            </div>        \r\n          </div>\r\n        </div> -->\r\n\r\n        <!-- <br><br>\r\n        <div class=\"ini-content-other-a div-no-visible-mobile fs-13 text-secondary p-3 border-bottom\">\r\n          <div matRipple class=\"ini-ico p-2 xCursor\">\r\n              <img src=\"assets/images/marker-4.png\" alt=\"\">\r\n              <p class=\"fw-600\">Llega a más personas</p>\r\n              <span class=\"fw-100\">Registra tu negocio.</span>\r\n          </div>\r\n          <div matRipple class=\"ini-ico p-2 xCursor\">\r\n            <img src=\"assets/images/food-delivery.png\" alt=\"\">\r\n            <p class=\"fw-600\">Se parte de nuestro equipo</p>\r\n            <p class=\"fw-100\">Registrate para realizar entregas.</p>\r\n          </div>        \r\n        </div> -->\r\n\r\n        <br><br><br>\r\n        <!-- <div class=\"w-100 text-center\" (click)=\"goDev(2);\">\r\n          <img src=\"assets/icons/icon-72x72.png\">\r\n          <p class=\"pt-1 fw-100 fs-12 text-secondary m-0\">papaya.com.pe</p>\r\n        </div> -->\r\n      </div>\r\n      <!-- <hr>     -->\r\n\r\n      \r\n\r\n\r\n\r\n      <div class=\"xfooter bg-white\">         \r\n        <div *ngIf=\"!isViewOnlyMozo && !isNativePlataform\">          \r\n          <button mat-button color=\"primary\" [routerLink]=\"['/login-personal-autorizado']\">Personal Autorizado</button>      \r\n          <br>        \r\n        </div>\r\n\r\n        <div *ngIf=\"isViewOnlyMozo\">\r\n          <button class=\"btn btn-primary\" matRipple [routerLink]=\"['/login-personal-autorizado']\">Empezar</button>\r\n        </div>\r\n\r\n        <div class=\"w-100 text-center\" (click)=\"goDev(2);\">\r\n          <p class=\"pt-1 fw-100 fs-12 text-secondary m-0\">papaya.com.pe</p>\r\n        </div>\r\n\r\n      </div>    \r\n      <!-- <hr> -->\r\n      <!-- <h4>Hola bienvenidos al sistema de toma de pedidos</h4>\r\n      <hr>\r\n      <button mat-flat-button color=\"primary\">Pide tu codigo</button>\r\n      <hr>\r\n      <button mat-flat-button color=\"accent\">Pedir un delivery</button> -->\r\n    </div>\r\n\r\n  </div>\r\n\r\n<!-- </div> -->";
-
-/***/ }),
-
-/***/ 97081:
-/*!******************************************************************************************!*\
-  !*** ./src/app/pages/inicio/lector-codigo-qr/lector-codigo-qr.component.html?ngResource ***!
-  \******************************************************************************************/
-/***/ ((module) => {
-
-module.exports = "<div class=\"x-fotter-native\" *ngIf=\"isNativePlataform\">\r\n    <button class=\"btn btn-primary\" matRipple (click)=\"stopCamNative(true)\">Cancelar</button>\r\n</div>\r\n<div class=\"container-scan animated fadeIn\">        \r\n    <!-- <div class=\"container-scan\"> -->\r\n\r\n        <!-- test -->\r\n        <!-- <button (click)=\"startCam()\">solicitar permiso camara</button> -->        \r\n        <ng-container *ngIf=\"isNativePlataform; else elseTemplateIsWeb\">                                    \r\n            <ng-container *ngIf=\"!scanSuccess; else elseTemplateScanSuccess\">                \r\n                <div *ngIf=\"scanActive\" class=\"text-center\">\r\n                    <div class=\"scan-box\"></div>\r\n                    <div class=\"linea-scan-native\"></div>                                        \r\n                </div>\r\n            </ng-container>\r\n            <ng-template #elseTemplateScanSuccess>\r\n                <div class=\"video text-center\">\r\n                    <ng-container *ngIf=\"isCodigoQrValido; else elseTemplateQrValido\">\r\n                        <div class=\"animated pulse\">\r\n                            <i class=\"fa fa-check text-success fa-4x\"></i>\r\n                            <p class=\"fw-600\">Obteniendo datos ...</p>\r\n                        </div>\r\n                    </ng-container>\r\n                    <ng-template #elseTemplateQrValido>\r\n                        <div class=\"animated pulse\">\r\n                            <i class=\"fa fa-warning text-warning fa-4x\"></i>\r\n                            <p class=\"text-danger\">Codigo no valido.</p>\r\n                            <br>\r\n                            <button class=\"btn btn-secondary\" (click)=\"startCamNative()\">Nuevamente</button>\r\n                        </div>\r\n                    </ng-template>                 \r\n                </div>\r\n            </ng-template>\r\n            \r\n\r\n            \r\n        </ng-container>\r\n        <ng-template #elseTemplateIsWeb>            \r\n            <div class=\"video text-center\" *ngIf=\"!isProcesando\">\r\n                <div *ngIf=\"!hasPermissionPosition\">\r\n                    <p class=\"text-danger fs-14\">Es necesario que active la ubicación de su telefono <i class=\"fa fa-map-marker\"></i> </p>\r\n                    <br>\r\n                </div>\r\n                \r\n                <!-- <span class=\"text-info fs-14 fw-100\">Recuerde activar la ubicacion de su telefono <i class=\"fa fa-map-marker\"></i></span> -->\r\n                <p>Scanear codigo</p>\r\n                <p class=\"fw-100\" *ngIf=\"!isCameraReady\">Obteniendo Camara...</p>\r\n                <zxing-scanner *ngIf=\"isActivaCamara\" class=\"video-scan\"\r\n                    [(device)]=\"currentDevice\" \r\n                    (camerasFound)=\"onCamerasFound($event)\" \r\n                    (permissionResponse)=\"onHasPermission($event)\"\r\n                    (scanSuccess)=\"scanSuccessHandler($event)\"></zxing-scanner>\r\n                <div *ngIf=\"isCameraReady\" class=\"linea-scan\"></div>\r\n                <br>\r\n                <button mat-button *ngIf=\"isOptionChangeCamera\" (click)=\"onDeviceSelectChange()\"><i class=\"fa fa-undo\" aria-hidden=\"true\"></i><span class=\"pl-2\">Rotar</span></button>        \r\n            </div>\r\n            \r\n            <div *ngIf=\"isProcesando\">\r\n                <div class=\"text-center\">\r\n                    <ng-container *ngIf=\"isCodigoQrValido; else elseTemplate\">\r\n                        <p>Obteniendo datos ...</p>\r\n                        <mat-progress-bar mode=\"indeterminate\"></mat-progress-bar>            \r\n                    </ng-container>\r\n                    <ng-template #elseTemplate>\r\n                        <div class=\"animated pulse\">\r\n                            <p class=\"text-danger\">Codigo no valido.</p>\r\n                        </div>                \r\n                        <br>\r\n                        <button mat-stroked-button (click)=\"volverALeer()\"><i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i> Intentar nuevamente.</button>\r\n                    </ng-template>            \r\n                    \r\n                    <div [hidden]=\"hasPermissionPosition\">\r\n                        <br>\r\n                        <p class=\"text-info\">Se requiere que acepte los permisos.</p>\r\n                        <button mat-stroked-button (click)=\"getPosition()\"><i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i> Intentar nuevamente.</button>        \r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </ng-template>\r\n        \r\n    <!-- </div> -->\r\n</div>\r\n\r\n";
 
 /***/ }),
 
@@ -27430,26 +26695,6 @@ module.exports = "<div class=\"animated fadeIn\">\r\n    <div *ngIf=\"!isViewLog
 /***/ ((module) => {
 
 module.exports = "<div class=\"text-center div-main animated fadeIn\">\n    <br>\n    <img src=\"assets/images/login-user.png\" alt=\"..\" style=\"max-width: 260px;\">\n    <div class=\"text-center ml-5 mr-5\" style=\"max-width: 500px\">\n      <img src=\"assets/images/papaya_text-2.png\" width=\"190px\">\n      <p class=\"fs-16 fw-100 text-secondary\">Personal Autorizado</p>            \n\n      <form class=\"content-login-us\" (ngSubmit)=\"logear()\" #frmpass=\"ngForm\">\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <mat-form-field class=\"w-100\">\n              <input matInput placeholder=\"Usuario\" [(ngModel)]=\"usuario.nomusuario\" name=\"nomusuario\" required>\n            </mat-form-field>\n          </div>\n          <div class=\"col-sm-6\">\n            <mat-form-field class=\"w-100\">\n              <input matInput type=\"password\" [(ngModel)]=\"usuario.pass\" name=\"pass\" placeholder=\"Clave\" required>\n            </mat-form-field>\n          </div>\n        </div>\n\n        <div class=\"text-center\">\n          <mat-progress-bar [hidden]=\"!loading\" mode=\"indeterminate\"></mat-progress-bar>\n          <span class=\"fs-14 font-weight-bold text-danger animated flash\" [hidden]=\"!msjErr\">Credenciales\n            Incorrectas.</span>\n        </div>\n\n        <hr>\n        <div class=\"text-center\">\n          <!-- <button mat-flat-button [disabled]=\"!frmpass.valid\">Listo, Ingresar</button> -->\n          <button mat-flat-button color=\"primary\" [disabled]=\"!frmpass.valid\">Listo, Ingresar</button>\n        </div>\n      </form>\n\n    </div>\n</div>\n";
-
-/***/ }),
-
-/***/ 95845:
-/*!******************************************************************!*\
-  !*** ./src/app/pages/inicio/main/main.component.html?ngResource ***!
-  \******************************************************************/
-/***/ ((module) => {
-
-module.exports = "    <!-- <div class=\"app-loading\" *ngIf=\"isLoadingMainIncio\">\r\n        <div class=\"logo-loading\">     \r\n        </div>            \r\n        <svg class=\"spinner\" viewBox=\"25 25 50 50\">\r\n          <circle class=\"path\" cx=\"50\" cy=\"50\" r=\"20\" fill=\"none\" stroke-width=\"2\" stroke-miterlimit=\"10\"/>\r\n        </svg>\r\n        <div style=\"bottom: 10px; position: fixed;\">\r\n          <p class=\"t-p-1\" style=\"color: white;\">papaya.com.pe</p>\r\n        </div>\r\n    </div> -->\r\n\r\n<router-outlet></router-outlet>";
-
-/***/ }),
-
-/***/ 77578:
-/*!**************************************************************************************!*\
-  !*** ./src/app/pages/inicio/redirec-lector/redirec-lector.component.html?ngResource ***!
-  \**************************************************************************************/
-/***/ ((module) => {
-
-module.exports = "<div class=\"app-loading\">\n    <div class=\"logo-loading\">     \n    </div>            \n    <!-- <p class=\"t-p-0\">Papaya Express</p> -->\n    <svg class=\"spinner\" viewBox=\"25 25 50 50\">\n      <circle class=\"path\" cx=\"50\" cy=\"50\" r=\"20\" fill=\"none\" stroke-width=\"2\" stroke-miterlimit=\"10\"/>\n    </svg>\n    <div style=\"bottom: 10px; position: fixed;\">\n      <p class=\"t-p-1\" style=\"color: white;\">papaya.com.pe</p>\n    </div>\n  </div>\n";
 
 /***/ }),
 
