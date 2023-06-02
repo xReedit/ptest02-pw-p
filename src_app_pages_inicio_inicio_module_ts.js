@@ -442,7 +442,7 @@ const routes = [{
             },
             {
                 path: 'carta/:nomsede',
-                component: _main_main_component__WEBPACK_IMPORTED_MODULE_0__.MainComponent,
+                component: _redirec_lector_redirec_lector_component__WEBPACK_IMPORTED_MODULE_9__.RedirecLectorComponent,
                 data: { titulo: 'Login Personal Autorizado' }
             },
             {

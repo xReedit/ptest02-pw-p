@@ -9752,6 +9752,8 @@ let MainComponent = class MainComponent {
 
       if (nomsede) {
         _this.router.navigate(['/redirec', nomsede]);
+
+        return;
       } else {
         // this._comercioUrl = this.activatedRoute.snapshot.queryParamMap.get('co');
         _this._comercioUrl = _this.activatedRoute.snapshot.fragment;
