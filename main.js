@@ -9354,6 +9354,7 @@ let LectorCodigoQrComponent = class LectorCodigoQrComponent {
       this.isActivaCamara = false;
       this.codQR = this._comercioUrl;
       this.leerDatosQR();
+      return;
     } // this.scanQR();
     // this.requestCameraPermission()
 
