@@ -108,13 +108,13 @@ const routes = [
     },
     {
         path: 'pagar-cuenta',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_shared_services_estado-pedido-cliente_service_ts-src_app_shared_services_regi-9006c9"), __webpack_require__.e("common"), __webpack_require__.e("src_app_pages_pagar-cuenta_pagar-cuenta_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/pagar-cuenta/pagar-cuenta.module */ 73453)).then(m => m.PagarCuentaModule),
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_shared_services_notificacion-push_service_ts"), __webpack_require__.e("default-src_app_shared_services_estado-pedido-cliente_service_ts-src_app_shared_services_regi-9006c9"), __webpack_require__.e("src_app_pages_pagar-cuenta_pagar-cuenta_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/pagar-cuenta/pagar-cuenta.module */ 73453)).then(m => m.PagarCuentaModule),
         canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__.AuthGuard],
         data: { 'tituloModulo': 'Cuenta' }
     },
     {
         path: 'pedido-confirmado',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_pages_pedido-confirmado_pedido-confirmado_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/pedido-confirmado/pedido-confirmado.module */ 15037)).then(m => m.PedidoConfirmadoModule),
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_shared_services_notificacion-push_service_ts"), __webpack_require__.e("src_app_pages_pedido-confirmado_pedido-confirmado_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/pedido-confirmado/pedido-confirmado.module */ 15037)).then(m => m.PedidoConfirmadoModule),
         canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__.AuthGuard],
         data: { 'tituloModulo': 'pedido-confirmado' }
     },
@@ -126,7 +126,7 @@ const routes = [
     },
     {
         path: 'zona-delivery',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_shared_shared_module_ts"), __webpack_require__.e("common"), __webpack_require__.e("src_app_pages_zona-establecimientos_zona-establecimientos_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/zona-establecimientos/zona-establecimientos.module */ 32599)).then(m => m.ZonaEstablecimientosModule),
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_shared_services_notificacion-push_service_ts"), __webpack_require__.e("default-src_app_shared_shared_module_ts"), __webpack_require__.e("src_app_pages_zona-establecimientos_zona-establecimientos_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/zona-establecimientos/zona-establecimientos.module */ 32599)).then(m => m.ZonaEstablecimientosModule),
         // canActivate: [ClienteProfileGuard],
         data: { 'tituloModulo': 'Cliente Zona Delivery' }
     },
@@ -260,20 +260,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppModule": () => (/* binding */ AppModule)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ 34929);
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser */ 34497);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 22560);
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/platform-browser/animations */ 37146);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ 2508);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 34929);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser */ 34497);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 22560);
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser/animations */ 37146);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ 2508);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app-routing.module */ 90158);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.component */ 55041);
 /* harmony import */ var _core_core_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./core/core.module */ 40294);
-/* harmony import */ var _angular_service_worker__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/service-worker */ 63769);
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../environments/environment */ 92340);
-/* harmony import */ var ngx_socket_io__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-socket-io */ 84935);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/common */ 94666);
-/* harmony import */ var _auth0_auth0_angular__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @auth0/auth0-angular */ 66437);
-/* harmony import */ var _auth_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./auth.config */ 73824);
+/* harmony import */ var ngx_socket_io__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-socket-io */ 84935);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common */ 94666);
+/* harmony import */ var _auth0_auth0_angular__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @auth0/auth0-angular */ 66437);
+/* harmony import */ var _auth_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./auth.config */ 73824);
 
 
 
@@ -282,9 +280,6 @@ __webpack_require__.r(__webpack_exports__);
 // import { SharedModule } from './shared/shared.module';
 
 
-
-
-// import { GlobalErrorHandler } from './shared/services/error.global.handler';
 
 
 
@@ -298,47 +293,47 @@ __webpack_require__.r(__webpack_exports__);
 // const redirectUri = `<%= "${config.appId}" %>://${account.namespace}/capacitor/<%= "${config.appId}" %>/callback`;
 // import { DirectionsMapDirectiveDirective } from './shared/directivas/directions-map-directive.directive';
 const configAuth = {
-    domain: _auth_config__WEBPACK_IMPORTED_MODULE_4__.domain,
-    clientId: _auth_config__WEBPACK_IMPORTED_MODULE_4__.clientId,
-    redirectUri: _auth_config__WEBPACK_IMPORTED_MODULE_4__.callbackUri,
+    domain: _auth_config__WEBPACK_IMPORTED_MODULE_3__.domain,
+    clientId: _auth_config__WEBPACK_IMPORTED_MODULE_3__.clientId,
+    redirectUri: _auth_config__WEBPACK_IMPORTED_MODULE_3__.callbackUri,
     cacheLocation: "localstorage",
     useRefreshTokens: true
 };
 let AppModule = class AppModule {
 };
-AppModule = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.NgModule)({
+AppModule = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.NgModule)({
         declarations: [
             _app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent,
             // DirectionsMapDirectiveDirective,
             // DebounceClickDirective
         ],
         imports: [
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__.BrowserModule,
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__.BrowserAnimationsModule,
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__.BrowserModule,
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__.BrowserAnimationsModule,
             // SharedModule,
             // ReactiveFormsModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_9__.FormsModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_8__.FormsModule,
             _app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule,
             _core_core_module__WEBPACK_IMPORTED_MODULE_2__.CoreModule,
-            ngx_socket_io__WEBPACK_IMPORTED_MODULE_10__.SocketIoModule,
-            _angular_service_worker__WEBPACK_IMPORTED_MODULE_11__.ServiceWorkerModule.register('ngsw-worker.js', {
-                enabled: _environments_environment__WEBPACK_IMPORTED_MODULE_3__.environment.production,
-                registrationStrategy: 'registerWhenStable:30000'
-            }),
+            ngx_socket_io__WEBPACK_IMPORTED_MODULE_9__.SocketIoModule,
+            //ServiceWorkerModule.register('ngsw-worker.js', { 
+            //enabled: environment.production,
+            // registrationStrategy: 'registerWhenStable:30000'
+            //}),
             // AgmCoreModule.forRoot({
             //   apiKey: 'AIzaSyAknWQFyVH1RpR2OAL0vRTHTapaIpfKSqo',
             //   libraries: ['places']
             // }),
-            _auth0_auth0_angular__WEBPACK_IMPORTED_MODULE_12__.AuthModule.forRoot(configAuth),
+            _auth0_auth0_angular__WEBPACK_IMPORTED_MODULE_10__.AuthModule.forRoot(configAuth),
             // ServiceWorkerModule.register('assets/js/custom-service-worker.js', { enabled: environment.production })
         ],
         providers: [
             // {provide: ErrorHandler, useClass: GlobalErrorHandler},
-            { provide: _angular_common__WEBPACK_IMPORTED_MODULE_13__.LocationStrategy, useClass: _angular_common__WEBPACK_IMPORTED_MODULE_13__.PathLocationStrategy } // 22012022 eliminar el #
+            { provide: _angular_common__WEBPACK_IMPORTED_MODULE_11__.LocationStrategy, useClass: _angular_common__WEBPACK_IMPORTED_MODULE_11__.PathLocationStrategy } // 22012022 eliminar el #
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent],
-        schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_6__.CUSTOM_ELEMENTS_SCHEMA]
+        schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_5__.CUSTOM_ELEMENTS_SCHEMA]
     })
 ], AppModule);
 
