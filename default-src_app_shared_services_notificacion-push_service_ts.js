@@ -40,7 +40,6 @@ let NotificacionPushService = class NotificacionPushService {
     // });
 
     this.swPush.notificationClicks.subscribe(event => {
-      alert('aaaaaaaaaaa');
       console.log('clic notification', event); // const url = event.notification.data.url;
       // window.location.reload();
       // window.open('reparto.papaya.com.pe');
