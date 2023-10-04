@@ -3993,7 +3993,7 @@ let ConfirmarDeliveryComponent = class ConfirmarDeliveryComponent {
         this.isCalculandoDistanciaA = true;
         // evalua si el comercio tiene repartidor propio y si el entorno es web
         if (this.establecimientoService.establecimiento.pwa_delivery_servicio_propio === 1 && !src_app_shared_config_config_const__WEBPACK_IMPORTED_MODULE_16__.IS_NATIVE) {
-            // entonces calculamos la distancia con los parametros de la tienda en linea
+            // entonces calculamos la distancia con los parametros de la tienda en linea      
             const _parametrosTiendaLinea = this.establecimientoService.get().parametros_tienda_linea;
             if (_parametrosTiendaLinea) {
                 this.calcDistanceService.getDistanciaKmRoute(direccionCliente, this.dirEstablecimiento)
@@ -4024,31 +4024,33 @@ let ConfirmarDeliveryComponent = class ConfirmarDeliveryComponent {
                         return;
                     }
                 });
+                return;
             }
         }
-        else {
-            // this.calcDistanceService.calculateRoute(direccionCliente, this.dirEstablecimiento, false);
-            this.calcDistanceService.calculateRouteObserver(direccionCliente, this.dirEstablecimiento, false)
-                .subscribe((resEstablecimiento) => {
-                // console.log('calculateRouteObserver', resEstablecimiento);
-                // setTimeout(() => {
-                // this.dirEstablecimiento = this.dirEstablecimiento;
-                // this.establecimientoService.set(this.dirEstablecimiento);
-                // this.infoEstablecimiento.c_servicio = this.dirEstablecimiento.c_servicio;
-                // this.resData.costoTotalDelivery = this.dirEstablecimiento.c_servicio; // this.infoEstablecimiento.costo_total_servicio_delivery;
-                this.dirEstablecimiento = resEstablecimiento;
-                this.establecimientoService.set(resEstablecimiento);
-                this.infoEstablecimiento.c_servicio = resEstablecimiento.c_servicio;
-                this.resData.costoTotalDelivery = resEstablecimiento.c_servicio; // 
-                this.isDireccionClienteCorrecta = true;
-                const _arrSubtotales = this.miPedidoService.getArrSubTotales(this.dirEstablecimiento.rulesSubTotales);
-                localStorage.setItem('sys::st', btoa(JSON.stringify(_arrSubtotales)));
-                this._listSubtotales = _arrSubtotales;
-                this.isCalculandoDistanciaA = false;
-                this.verificarMontoMinimo();
-                // }, 1500);
-            });
-        }
+        // else {
+        // console.log('eeeeeeaaa');
+        // this.calcDistanceService.calculateRoute(direccionCliente, this.dirEstablecimiento, false);
+        this.calcDistanceService.calculateRouteObserver(direccionCliente, this.dirEstablecimiento, false)
+            .subscribe((resEstablecimiento) => {
+            // console.log('calculateRouteObserver', resEstablecimiento);
+            // setTimeout(() => {
+            // this.dirEstablecimiento = this.dirEstablecimiento;
+            // this.establecimientoService.set(this.dirEstablecimiento);
+            // this.infoEstablecimiento.c_servicio = this.dirEstablecimiento.c_servicio;
+            // this.resData.costoTotalDelivery = this.dirEstablecimiento.c_servicio; // this.infoEstablecimiento.costo_total_servicio_delivery;
+            this.dirEstablecimiento = resEstablecimiento;
+            this.establecimientoService.set(resEstablecimiento);
+            this.infoEstablecimiento.c_servicio = resEstablecimiento.c_servicio;
+            this.resData.costoTotalDelivery = resEstablecimiento.c_servicio; // 
+            this.isDireccionClienteCorrecta = true;
+            const _arrSubtotales = this.miPedidoService.getArrSubTotales(this.dirEstablecimiento.rulesSubTotales);
+            localStorage.setItem('sys::st', btoa(JSON.stringify(_arrSubtotales)));
+            this._listSubtotales = _arrSubtotales;
+            this.isCalculandoDistanciaA = false;
+            this.verificarMontoMinimo();
+            // }, 1500);
+        });
+        // }
     }
     openDialogTiempoEntrega() {
         const _dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__.MatDialogConfig();
