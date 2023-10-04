@@ -367,7 +367,7 @@ const auth0Domain = domain;
 // const iosOrAndroid = IS_NATIVE;
 // solo nativo
 // export const callbackUri = `${appId}://${auth0Domain}/capacitor/${appId}/callback`    
-console.log('IS_NATIVE', _shared_config_config_const__WEBPACK_IMPORTED_MODULE_1__.IS_NATIVE);
+// console.log('IS_NATIVE', IS_NATIVE);
 const callbackUri = _shared_config_config_const__WEBPACK_IMPORTED_MODULE_1__.IS_NATIVE
     ? `${appId}://${auth0Domain}/capacitor/${appId}/callback-auth`
     : 'http://localhost:1800/callback-auth';
@@ -3494,14 +3494,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ConfirmarDeliveryComponent": () => (/* binding */ ConfirmarDeliveryComponent)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! tslib */ 34929);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! tslib */ 34929);
 /* harmony import */ var _confirmar_delivery_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./confirmar-delivery.component.html?ngResource */ 82894);
 /* harmony import */ var _confirmar_delivery_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./confirmar-delivery.component.css?ngResource */ 75754);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/core */ 22560);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/core */ 22560);
 /* harmony import */ var src_app_shared_services_info_token_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/info-token.service */ 93674);
 /* harmony import */ var src_app_modelos_delivery_direccion_cliente_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/modelos/delivery.direccion.cliente.model */ 69808);
 /* harmony import */ var src_app_shared_services_establecimiento_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/establecimiento.service */ 32218);
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/dialog */ 31484);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/dialog */ 31484);
 /* harmony import */ var _dialog_metodo_pago_dialog_metodo_pago_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../dialog-metodo-pago/dialog-metodo-pago.component */ 21957);
 /* harmony import */ var _dialog_verificar_telefono_dialog_verificar_telefono_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../dialog-verificar-telefono/dialog-verificar-telefono.component */ 56216);
 /* harmony import */ var src_app_shared_services_verify_auth_client_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/verify-auth-client.service */ 34337);
@@ -3513,6 +3513,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dialog_tiempo_entrega_dialog_tiempo_entrega_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../dialog-tiempo-entrega/dialog-tiempo-entrega.component */ 4778);
 /* harmony import */ var src_app_shared_services_utilitarios_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/shared/services/utilitarios.service */ 60961);
 /* harmony import */ var _dialog_direccion_cliente_delivery_dialog_direccion_cliente_delivery_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../dialog-direccion-cliente-delivery/dialog-direccion-cliente-delivery.component */ 10535);
+/* harmony import */ var src_app_shared_config_config_const__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! src/app/shared/config/config.const */ 61495);
 
 
 
@@ -3523,6 +3524,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // import { CrudHttpService } from 'src/app/shared/services/crud-http.service';
+
 
 
 
@@ -3590,8 +3592,9 @@ let ConfirmarDeliveryComponent = class ConfirmarDeliveryComponent {
         this.isCalculandoDistanciaA = false;
         this.isRestaurante = false;
         this.isCubierto = false;
-        this.isReady = new _angular_core__WEBPACK_IMPORTED_MODULE_16__.EventEmitter();
-        this.dataDelivery = new _angular_core__WEBPACK_IMPORTED_MODULE_16__.EventEmitter();
+        this.isDireccionClienteCorrecta = false;
+        this.isReady = new _angular_core__WEBPACK_IMPORTED_MODULE_17__.EventEmitter();
+        this.dataDelivery = new _angular_core__WEBPACK_IMPORTED_MODULE_17__.EventEmitter();
         this.nombreClienteValido = false;
         this.isShowNombreClienteLoginInvitado = false;
     }
@@ -3767,20 +3770,57 @@ let ConfirmarDeliveryComponent = class ConfirmarDeliveryComponent {
         }
     }
     verificarFormValid() {
-        // console.log('this.nombreClienteValido', this.nombreClienteValido);
-        this.isValidForm = this.isTiempoEntregaValid;
-        this.isValidForm = this.resData.importeTotal >= this.montoMinimoPedido && this.isValidForm ? true : false;
-        this.isValidForm = !this.metodoPagoSelected.idtipo_pago ? false : this.isValidForm;
-        this.isValidForm = !this.direccionCliente.ciudad && !this.isRecojoLocalCheked ? false : this.isValidForm;
-        this.isValidForm = this.resData.telefono.trim().length >= 5 ? this.isValidForm : false;
-        this.isValidForm = this.isValidForm && !this.isCalculandoDistanciaA;
-        this.isValidForm = this.isValidForm && this.nombreClienteValido;
-        // if ( !this.direccionCliente.codigo && !this.isRecojoLocalCheked ) { this.isValidForm = false; }
-        console.log('this.isValidForm', this.isValidForm);
+        // this.isValidForm = this.isTiempoEntregaValid;
+        // this.isValidForm = this.resData.importeTotal >= this.montoMinimoPedido && this.isValidForm ? true : false;
+        // this.isValidForm = !this.metodoPagoSelected.idtipo_pago ? false : this.isValidForm;    
+        // this.isValidForm = !this.isDireccionClienteCorrecta && !this.isRecojoLocalCheked ? false : this.isValidForm;
+        // this.isValidForm = this.resData.telefono.trim().length >= 5 ? this.isValidForm : false;
+        // this.isValidForm = this.isValidForm && !this.isCalculandoDistanciaA;
+        // this.isValidForm = this.isValidForm && this.nombreClienteValido;
+        // this.isReady.emit(this.isValidForm);
+        // // if ( !this.direccionCliente.codigo && !this.isRecojoLocalCheked ) { this.isValidForm = false; }    
+        this.isDireccionClienteCorrecta = this.direccionCliente.latitude && this.direccionCliente.longitude ? true : false;
+        this.isValidForm = false;
+        if (!this.isTiempoEntregaValid) {
+            console.error('isTiempoEntregaValid', this.isTiempoEntregaValid);
+            this.isReady.emit(this.isValidForm);
+            return;
+        }
+        if (this.resData.importeTotal < this.montoMinimoPedido) {
+            console.error('resData.importeTotal', this.resData.importeTotal);
+            this.isReady.emit(this.isValidForm);
+            return;
+        }
+        if (!this.metodoPagoSelected.idtipo_pago) {
+            console.error('resData.metodoPagoSelected', this.metodoPagoSelected.idtipo_pago);
+            this.isReady.emit(this.isValidForm);
+            return;
+        }
+        if (!this.isDireccionClienteCorrecta && !this.isRecojoLocalCheked) {
+            console.error('isDireccionClienteCorrecta', this.isDireccionClienteCorrecta);
+            this.isReady.emit(this.isValidForm);
+            return;
+        }
+        if (this.resData.telefono.trim().length < 5) {
+            console.error('resData.telefono', this.resData.telefono.trim().length);
+            this.isReady.emit(this.isValidForm);
+            return;
+        }
+        if (this.isCalculandoDistanciaA) {
+            console.error('isCalculandoDistanciaA', this.isCalculandoDistanciaA);
+            this.isReady.emit(this.isValidForm);
+            return;
+        }
+        if (!this.nombreClienteValido) {
+            console.error('nombreClienteValido', this.nombreClienteValido);
+            this.isReady.emit(this.isValidForm);
+            return;
+        }
+        this.isValidForm = true;
         this.isReady.emit(this.isValidForm);
     }
     openDialogMetodoPago() {
-        const _dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__.MatDialogConfig();
+        const _dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__.MatDialogConfig();
         // _dialogConfig.width = '380px';
         _dialogConfig.disableClose = true;
         _dialogConfig.hasBackdrop = true;
@@ -3799,7 +3839,7 @@ let ConfirmarDeliveryComponent = class ConfirmarDeliveryComponent {
         });
     }
     openDialogTipoComprobnate() {
-        const _dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__.MatDialogConfig();
+        const _dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__.MatDialogConfig();
         _dialogConfig.width = '380px';
         _dialogConfig.disableClose = true;
         _dialogConfig.hasBackdrop = true;
@@ -3809,7 +3849,7 @@ let ConfirmarDeliveryComponent = class ConfirmarDeliveryComponent {
         });
     }
     openDialogsendSMS() {
-        const _dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__.MatDialogConfig();
+        const _dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__.MatDialogConfig();
         _dialogConfig.disableClose = true;
         _dialogConfig.hasBackdrop = true;
         // _dialogConfig.panelClass = 'my-full-screen-dialog';
@@ -3863,7 +3903,7 @@ let ConfirmarDeliveryComponent = class ConfirmarDeliveryComponent {
         this.resData.propina = propina;
     }
     openDialogDireccion() {
-        const _dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__.MatDialogConfig();
+        const _dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__.MatDialogConfig();
         _dialogConfig.disableClose = true;
         _dialogConfig.hasBackdrop = true;
         _dialogConfig.panelClass = ['my-dialog-orden-detalle', 'my-dialog-scrool'];
@@ -3875,20 +3915,28 @@ let ConfirmarDeliveryComponent = class ConfirmarDeliveryComponent {
             if (!data) {
                 return;
             }
-            console.log('direcion', data);
+            // console.log('direcion', data);
             // this.verifyClientService.setDireccionDeliverySelected(data);
             // this.setDireccion(data);
             this.msjErrorDir = '';
             this.direccionCliente = data;
             // if ( this.direccionCliente.codigo !== this.infoEstablecimiento.codigo_postal ) {
-            if (this.direccionCliente.ciudad.toLocaleLowerCase() !== this.infoEstablecimiento.ciudad.toLocaleLowerCase()) {
-                // el servicio no esta disponible en esta ubicacion
-                // this.direccionCliente = this.direccionClienteIni;
-                // this.infoToken.direccionEnvioSelected = null;
-                this.direccionCliente.codigo = null;
-                this.msjErrorDir = 'Servicio no disponible en esta dirección.';
-                this.verificarMontoMinimo();
-                return;
+            // if ( this.direccionCliente.ciudad.toLocaleLowerCase() !== this.infoEstablecimiento.ciudad.toLocaleLowerCase() ) {
+            //   // el servicio no esta disponible en esta ubicacion
+            //   // this.direccionCliente = this.direccionClienteIni;
+            //   // this.infoToken.direccionEnvioSelected = null;
+            //   this.direccionCliente.codigo = null;
+            //   this.msjErrorDir = 'Servicio no disponible en esta dirección.';
+            //   this.verificarMontoMinimo();
+            //   return;
+            // }
+            // solo para el app // si es web es tienda online
+            if (src_app_shared_config_config_const__WEBPACK_IMPORTED_MODULE_16__.IS_NATIVE) {
+                if (this.direccionCliente.ciudad.toLocaleLowerCase() !== this.infoEstablecimiento.ciudad.toLocaleLowerCase()) {
+                    this.direccionCliente.codigo = null;
+                    this.msjErrorDir = 'Servicio no disponible en esta dirección.';
+                    return;
+                }
             }
             this.infoToken.direccionEnvioSelected = this.direccionCliente;
             // esto para poder guardar en el procedure
@@ -3898,7 +3946,7 @@ let ConfirmarDeliveryComponent = class ConfirmarDeliveryComponent {
     }
     // anterior
     openDialogDireccion_anterior() {
-        const _DdialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__.MatDialogConfig();
+        const _DdialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__.MatDialogConfig();
         _DdialogConfig.disableClose = true;
         _DdialogConfig.hasBackdrop = true;
         _DdialogConfig.panelClass = ['my-dialog-orden-detalle', 'my-dialog-scrool'];
@@ -3921,6 +3969,9 @@ let ConfirmarDeliveryComponent = class ConfirmarDeliveryComponent {
                 // this.direccionCliente = this.direccionClienteIni;
                 // this.infoToken.direccionEnvioSelected = null;
                 this.direccionCliente.codigo = null;
+                this.direccionCliente.latitude = null;
+                this.direccionCliente.longitude = null;
+                this.isDireccionClienteCorrecta = false;
                 this.msjErrorDir = 'Servicio no disponible en esta dirección.';
                 this.verificarMontoMinimo();
                 return;
@@ -3933,31 +3984,74 @@ let ConfirmarDeliveryComponent = class ConfirmarDeliveryComponent {
         });
     }
     calcularCostoEntrega(direccionCliente) {
+        this.isDireccionClienteCorrecta = false;
+        // verificar si direccionCliente tiene las propiedades de latitude y longitude
+        if (!direccionCliente.latitude || !direccionCliente.longitude) {
+            return;
+        }
         this.isReady.emit(false);
         this.isCalculandoDistanciaA = true;
-        // this.calcDistanceService.calculateRoute(direccionCliente, this.dirEstablecimiento, false);
-        this.calcDistanceService.calculateRouteObserver(direccionCliente, this.dirEstablecimiento, false)
-            .subscribe((resEstablecimiento) => {
-            // console.log('calculateRouteObserver', resEstablecimiento);
-            // setTimeout(() => {
-            // this.dirEstablecimiento = this.dirEstablecimiento;
-            // this.establecimientoService.set(this.dirEstablecimiento);
-            // this.infoEstablecimiento.c_servicio = this.dirEstablecimiento.c_servicio;
-            // this.resData.costoTotalDelivery = this.dirEstablecimiento.c_servicio; // this.infoEstablecimiento.costo_total_servicio_delivery;
-            this.dirEstablecimiento = resEstablecimiento;
-            this.establecimientoService.set(resEstablecimiento);
-            this.infoEstablecimiento.c_servicio = resEstablecimiento.c_servicio;
-            this.resData.costoTotalDelivery = resEstablecimiento.c_servicio; // 
-            const _arrSubtotales = this.miPedidoService.getArrSubTotales(this.dirEstablecimiento.rulesSubTotales);
-            localStorage.setItem('sys::st', btoa(JSON.stringify(_arrSubtotales)));
-            this._listSubtotales = _arrSubtotales;
-            this.isCalculandoDistanciaA = false;
-            this.verificarMontoMinimo();
-            // }, 1500);
-        });
+        // evalua si el comercio tiene repartidor propio y si el entorno es web
+        if (this.establecimientoService.establecimiento.pwa_delivery_servicio_propio === 1 && !src_app_shared_config_config_const__WEBPACK_IMPORTED_MODULE_16__.IS_NATIVE) {
+            // entonces calculamos la distancia con los parametros de la tienda en linea
+            const _parametrosTiendaLinea = this.establecimientoService.get().parametros_tienda_linea;
+            if (_parametrosTiendaLinea) {
+                this.calcDistanceService.getDistanciaKmRoute(direccionCliente, this.dirEstablecimiento)
+                    .subscribe((distanciaKm) => {
+                    const costoEntrega = this.calcDistanceService.costoEntregaTiendaEnLinea(_parametrosTiendaLinea, distanciaKm);
+                    if (costoEntrega.success) {
+                        this.dirEstablecimiento.c_servicio = costoEntrega.costo_servicio;
+                        this.dirEstablecimiento.distancia_mt = costoEntrega.distancia_en_km.toString();
+                        this.dirEstablecimiento.distancia_km = costoEntrega.distancia_en_km.toString();
+                        this.dirEstablecimiento.isCalcApiGoogle = true;
+                        this.establecimientoService.set(this.dirEstablecimiento);
+                        this.infoEstablecimiento.c_servicio = this.dirEstablecimiento.c_servicio;
+                        this.resData.costoTotalDelivery = this.dirEstablecimiento.c_servicio; // 
+                        const _arrSubtotales = this.miPedidoService.getArrSubTotales(this.dirEstablecimiento.rulesSubTotales);
+                        localStorage.setItem('sys::st', btoa(JSON.stringify(_arrSubtotales)));
+                        this._listSubtotales = _arrSubtotales;
+                        this.isCalculandoDistanciaA = false;
+                        this.isDireccionClienteCorrecta = true;
+                        this.verificarMontoMinimo();
+                        return;
+                    }
+                    else {
+                        // la distancia es mayor a limite de distancia
+                        this.msjErrorDir = costoEntrega.mensaje;
+                        this.direccionCliente.latitude = null;
+                        this.direccionCliente.longitude = null;
+                        this.isDireccionClienteCorrecta = false;
+                        return;
+                    }
+                });
+            }
+        }
+        else {
+            // this.calcDistanceService.calculateRoute(direccionCliente, this.dirEstablecimiento, false);
+            this.calcDistanceService.calculateRouteObserver(direccionCliente, this.dirEstablecimiento, false)
+                .subscribe((resEstablecimiento) => {
+                // console.log('calculateRouteObserver', resEstablecimiento);
+                // setTimeout(() => {
+                // this.dirEstablecimiento = this.dirEstablecimiento;
+                // this.establecimientoService.set(this.dirEstablecimiento);
+                // this.infoEstablecimiento.c_servicio = this.dirEstablecimiento.c_servicio;
+                // this.resData.costoTotalDelivery = this.dirEstablecimiento.c_servicio; // this.infoEstablecimiento.costo_total_servicio_delivery;
+                this.dirEstablecimiento = resEstablecimiento;
+                this.establecimientoService.set(resEstablecimiento);
+                this.infoEstablecimiento.c_servicio = resEstablecimiento.c_servicio;
+                this.resData.costoTotalDelivery = resEstablecimiento.c_servicio; // 
+                this.isDireccionClienteCorrecta = true;
+                const _arrSubtotales = this.miPedidoService.getArrSubTotales(this.dirEstablecimiento.rulesSubTotales);
+                localStorage.setItem('sys::st', btoa(JSON.stringify(_arrSubtotales)));
+                this._listSubtotales = _arrSubtotales;
+                this.isCalculandoDistanciaA = false;
+                this.verificarMontoMinimo();
+                // }, 1500);
+            });
+        }
     }
     openDialogTiempoEntrega() {
-        const _dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__.MatDialogConfig();
+        const _dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__.MatDialogConfig();
         // _dialogConfig.width = '480px';
         // _dialogConfig.disableClose = false;
         // _dialogConfig.hasBackdrop = true;
@@ -3980,21 +4074,21 @@ ConfirmarDeliveryComponent.ctorParameters = () => [
     { type: src_app_shared_services_verify_auth_client_service__WEBPACK_IMPORTED_MODULE_7__.VerifyAuthClientService },
     { type: src_app_shared_services_establecimiento_service__WEBPACK_IMPORTED_MODULE_4__.EstablecimientoService },
     { type: src_app_shared_services_calc_distancia_service__WEBPACK_IMPORTED_MODULE_10__.CalcDistanciaService },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__.MatDialog },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__.MatDialog },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__.MatDialog },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__.MatDialog },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__.MatDialog },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__.MatDialog },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__.MatDialog },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__.MatDialog },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__.MatDialog },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__.MatDialog },
     { type: src_app_shared_services_utilitarios_service__WEBPACK_IMPORTED_MODULE_14__.UtilitariosService },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__.MatDialog }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__.MatDialog }
 ];
 ConfirmarDeliveryComponent.propDecorators = {
-    listSubtotales: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_16__.Input }],
-    isReady: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_16__.Output }],
-    dataDelivery: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_16__.Output }]
+    listSubtotales: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_17__.Input }],
+    isReady: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_17__.Output }],
+    dataDelivery: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_17__.Output }]
 };
-ConfirmarDeliveryComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_18__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_16__.Component)({
+ConfirmarDeliveryComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_19__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_17__.Component)({
         selector: 'app-confirmar-delivery',
         template: _confirmar_delivery_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
         styles: [_confirmar_delivery_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__]
@@ -4317,19 +4411,6 @@ let DatosDeliveryComponent = class DatosDeliveryComponent {
             this.direccionCliente = data;
             // esto para poder guardar en el procedure
             this.direccionCliente.idcliente_pwa_direccion = this.direccionCliente.idcliente_pwa_direccion === null ? 0 : this.direccionCliente.idcliente_pwa_direccion;
-            // console.log('aaaa calculateRoute');
-            // let c_servicio = this.calcDistanceService.calculateRoute(<DeliveryDireccionCliente>data, this.dirEstablecimiento, false);
-            // // recalcular
-            // setTimeout(() => {
-            //   c_servicio = this.dirEstablecimiento.c_servicio;
-            //   this.establecimientoService.set(this.dirEstablecimiento);
-            //   this.infoEstablecimiento.c_servicio = c_servicio; // this.dirEstablecimiento.c_servicio;
-            //   this.resData.costoTotalDelivery = c_servicio; // this.dirEstablecimiento.c_servicio; // this.infoEstablecimiento.costo_total_servicio_delivery;
-            //   const _arrSubtotales = this.miPedidoService.getArrSubTotales(this.dirEstablecimiento.rulesSubTotales);
-            //   localStorage.setItem('sys::st', btoa(JSON.stringify(_arrSubtotales)));
-            //   this._listSubtotales = _arrSubtotales;
-            //   this.setearData();
-            // }, 800);
             this.calcDistanceService.calculateRouteObserver(data, this.dirEstablecimiento, false)
                 .subscribe((resEstablecimiento) => {
                 // const c_servicio = this.dirEstablecimiento.c_servicio;
@@ -4366,14 +4447,10 @@ let DatosDeliveryComponent = class DatosDeliveryComponent {
             // this.setDireccion(data);
             this.msjErrorDir = '';
             this.direccionCliente = data;
-            // if ( this.direccionCliente.codigo !== this.infoEstablecimiento.codigo_postal ) {
+            // el servicio no esta disponible en esta ubicacion          
             if (this.direccionCliente.ciudad.toLocaleLowerCase() !== this.infoEstablecimiento.ciudad.toLocaleLowerCase()) {
-                // el servicio no esta disponible en esta ubicacion
-                // this.direccionCliente = this.direccionClienteIni;
-                // this.infoToken.direccionEnvioSelected = null;
                 this.direccionCliente.codigo = null;
                 this.msjErrorDir = 'Servicio no disponible en esta dirección.';
-                // this.verificarMontoMinimo();
                 return;
             }
             // this.infoToken.direccionEnvioSelected = this.direccionCliente;
@@ -4388,6 +4465,7 @@ let DatosDeliveryComponent = class DatosDeliveryComponent {
         // this.calcDistanceService.calculateRoute(direccionCliente, this.dirEstablecimiento, false);
         this.calcDistanceService.calculateRouteObserver(direccionCliente, this.dirEstablecimiento, false)
             .subscribe((resEstablecimiento) => {
+            // console.log('calculo normal');
             // setTimeout(() => {
             // this.dirEstablecimiento = this.dirEstablecimiento;
             this.dirEstablecimiento = resEstablecimiento;
@@ -9354,7 +9432,7 @@ let AuthGuard = class AuthGuard {
         const infoToken = this.infoTokenService.getInfoUs();
         const res = infoToken.isCliente ? infoToken.isDelivery || infoToken.isReserva ? true : this.verifyClientService.getIsQrSuccess() && us : us;
         // if ( us )
-        console.log('AuthGuard res ====> ', res);
+        // console.log('AuthGuard res ====> ', res);
         return res;
     }
 };
@@ -9459,8 +9537,7 @@ let AuthNativeService = class AuthNativeService {
     this.userAuthNative$ = this.authNative.isAuthenticated$.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.switchMap)(() => this.authNative.user$));
     this.processLoginInit = false;
     this.userAuthNative$.subscribe(res => {
-      console.log('AuthService ressss ===>> user ', JSON.stringify(res));
-
+      // console.log('AuthService ressss ===>> user ', JSON.stringify(res));
       if (res) {
         this.isLoginSuccess = true;
         this.usLoginSuccess(res);
@@ -9824,13 +9901,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CalcDistanciaService": () => (/* binding */ CalcDistanciaService)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 34929);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 22560);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ 34929);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 22560);
 /* harmony import */ var _establecimiento_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./establecimiento.service */ 32218);
-/* harmony import */ var rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/internal/Observable */ 84758);
+/* harmony import */ var rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/internal/Observable */ 84758);
 /* harmony import */ var geolocation_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! geolocation-utils */ 17387);
 /* harmony import */ var geolocation_utils__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(geolocation_utils__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _maps_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./maps-service.service */ 2469);
+/* harmony import */ var _utilitarios_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utilitarios.service */ 60961);
+
 
 
 
@@ -9838,9 +9917,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CalcDistanciaService = class CalcDistanciaService {
-    constructor(estableciminetoService, mapsService) {
+    constructor(estableciminetoService, mapsService, utilService) {
         this.estableciminetoService = estableciminetoService;
         this.mapsService = mapsService;
+        this.utilService = utilService;
         this.directionsService = new google.maps.DirectionsService();
         // private directionsDisplay = new google.maps.DirectionsRenderer();
         this.origin = {};
@@ -9983,7 +10063,7 @@ let CalcDistanciaService = class CalcDistanciaService {
         // });
     }
     calculateRouteObserver(dirCliente, dirEstablecimiento, buscarEnCache = true) {
-        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_3__.Observable(observer => {
+        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_4__.Observable(observer => {
             let c_servicio = 0;
             c_servicio = dirEstablecimiento.c_minimo;
             const c_km = dirEstablecimiento.c_km; // costo x km adicional
@@ -9995,57 +10075,25 @@ let CalcDistanciaService = class CalcDistanciaService {
                 dirEstablecimiento.distancia_km = reskm.toString();
                 dirEstablecimiento.isCalcApiGoogle = true;
                 c_servicio = this.calCostoDistancia(dirEstablecimiento, reskm);
-                console.log('reskm', reskm);
-                console.log('c_servicio', c_servicio);
+                // console.log('reskm', reskm);
+                // console.log('c_servicio', c_servicio);
                 dirEstablecimiento.c_servicio = c_servicio;
                 observer.next(dirEstablecimiento);
                 observer.complete();
             });
-            // dirEstablecimiento.latitude = typeof dirEstablecimiento.latitude === 'string' ? parseFloat(dirEstablecimiento.latitude) : dirEstablecimiento.latitude;
-            // dirEstablecimiento.longitude = typeof dirEstablecimiento.longitude === 'string' ? parseFloat(dirEstablecimiento.longitude) : dirEstablecimiento.longitude;
-            // dirCliente.latitude = typeof dirCliente.latitude === 'string' ? parseFloat(dirCliente.latitude) : dirCliente.latitude;
-            // dirCliente.longitude = typeof dirCliente.longitude === 'string' ? parseFloat(dirCliente.longitude) : dirCliente.longitude;
-            // if ( buscarEnCache ) {
-            //   const _establecimientoCacheado = <any>this.estableciminetoService.getFindDirClienteCacheEstableciemto(dirCliente, dirEstablecimiento);
-            //   if ( _establecimientoCacheado ) {
-            //     // console.log('from calcDistance cache', _establecimientoCacheado);
-            //     dirEstablecimiento.distancia_km = _establecimientoCacheado.distancia_km;
-            //     dirEstablecimiento.c_servicio = this.calCostoDistancia(dirEstablecimiento, _establecimientoCacheado.distancia_km);
-            //     // console.log('rpt a', dirEstablecimiento);
-            //     observer.next(dirEstablecimiento);
-            //     return;
-            //   }
-            // }
-            // // con google // //
-            //  // cordenadas
-            // this.origin = {
-            //   lat: dirCliente.latitude, lng: dirCliente.longitude
-            // };
-            // // console.log('this.origin', this.origin);
-            // this.destination = {
-            //   lat: dirEstablecimiento.latitude, lng: dirEstablecimiento.longitude
-            // };
-            // const request = {
-            //   origin: this.origin,
-            //   destination: this.destination,
-            //   travelMode: google.maps.TravelMode.DRIVING
-            // };
-            // let km = 0;
-            // // console.log('calculando.. 1');
-            // this.directionsService.route(request, (result: any, status) => {
-            //   if (status === 'OK') {
-            //     // this.directionsRenderer.setDirections(result);            
-            //     km = result.routes[0].legs[0].distance.value;
-            //     const _kmReal =  km / 1000;
-            //     dirEstablecimiento.distancia_mt = km.toString();
-            //     dirEstablecimiento.distancia_km = (_kmReal).toFixed(2);
-            //     dirEstablecimiento.isCalcApiGoogle = true;
-            //     // km = parseInt((km / 1000).toFixed(), 0);
-            //     c_servicio = this.calCostoDistancia(dirEstablecimiento, _kmReal);
-            //     dirEstablecimiento.c_servicio = c_servicio;           
-            //     observer.next(dirEstablecimiento);
-            //   }
-            // });
+        });
+    }
+    // obtener la distancia en kilometros del establecimiento a la direccion del cliente, retornar la distancia en kilometros
+    getDistanciaKmRoute(dirCliente, dirEstablecimiento) {
+        return new rxjs_internal_Observable__WEBPACK_IMPORTED_MODULE_4__.Observable(observer => {
+            let km = 0;
+            const _origen = `${dirEstablecimiento.latitude},${dirEstablecimiento.longitude}`;
+            const _destino = `${dirCliente.latitude},${dirCliente.longitude}`;
+            this.mapsService.calcularRuta(_origen, _destino).subscribe(reskm => {
+                km = reskm;
+                observer.next(km);
+                observer.complete();
+            });
         });
     }
     // distancia_km > tambien del elemento cacheado
@@ -10064,9 +10112,24 @@ let CalcDistanciaService = class CalcDistanciaService {
         // console.log('calculando.. ', c_servicio);
         return c_servicio;
     }
-    // regla x km adicional
-    // private reglaKm() {
-    // }
+    // 1023 // calcular costo de entrega, recibiendo parametros para calcular la distancia
+    costoEntregaTiendaEnLinea(parametros, distanciaEnKm, isTiendaLinea = false) {
+        const radioBasico = typeof parametros.km_base === 'string' ? parseFloat(parametros.km_base) : parametros.km_base; // Radio básico de 2 km
+        const costoBasico = typeof parametros.km_base_costo === 'string' ? parseFloat(parametros.km_base_costo) : parametros.km_base_costo; // Costo básico de $3.00
+        const costoAdicionalPorKilometro = typeof parametros.km_adicional_costo === 'string' ? parseFloat(parametros.km_adicional_costo) : parametros.km_adicional_costo; // Costo adicional por kilómetro de $2.00
+        const radioMaximo = typeof parametros.km_limite === 'string' ? parseFloat(parametros.km_limite) : parametros.km_limite; // Radio máximo de 10 km
+        if (distanciaEnKm > radioMaximo) {
+            return { mensaje: "😔 Lo siento, el servicio no disponible en esta zona 🗺️\n Verifique que la direccion sea la correcta. *Tambien puede adjuntarnos su ubicación.*", success: false };
+        }
+        let costoServicio = costoBasico;
+        const distanciaAdicional = distanciaEnKm - radioBasico;
+        if (distanciaAdicional > 0) {
+            const costoAdicional = distanciaAdicional * costoAdicionalPorKilometro;
+            costoServicio = parseFloat(costoServicio) + costoAdicional;
+        }
+        costoServicio = this.utilService.roundAmount(costoServicio); // redondea
+        return { distancia_en_km: distanciaEnKm.toFixed(2), costo_servicio: costoServicio, success: true };
+    }
     // retorna true si esta cerca
     calcDistancia(coordOrigen, coordDetino) {
         const center = { lat: coordDetino.latitude, lon: coordDetino.longitude };
@@ -10100,10 +10163,11 @@ let CalcDistanciaService = class CalcDistanciaService {
 };
 CalcDistanciaService.ctorParameters = () => [
     { type: _establecimiento_service__WEBPACK_IMPORTED_MODULE_0__.EstablecimientoService },
-    { type: _maps_service_service__WEBPACK_IMPORTED_MODULE_2__.MapsServiceService }
+    { type: _maps_service_service__WEBPACK_IMPORTED_MODULE_2__.MapsServiceService },
+    { type: _utilitarios_service__WEBPACK_IMPORTED_MODULE_3__.UtilitariosService }
 ];
-CalcDistanciaService = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.Injectable)({
+CalcDistanciaService = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.Injectable)({
         providedIn: 'root'
     })
 ], CalcDistanciaService);
@@ -10397,7 +10461,6 @@ let EstablecimientoService = class EstablecimientoService {
         // console.log('get-establecimientos _dataSend', _dataSend);
         this.crudService.postFree(_dataSend, 'delivery', 'get-establecimientos', false)
             .subscribe(res => {
-            // console.log('get-establecimientos', res);
             this.establecimiento = res.data[0];
             this.set(this.establecimiento);
         });
@@ -10462,6 +10525,25 @@ let EstablecimientoService = class EstablecimientoService {
                 // console.log(res);
             });
         }
+    }
+    getParametrosTiendaLinea() {
+        let _dirEstablecimineto = this.get();
+        const _dataSend = {
+            idsede: _dirEstablecimineto.idsede
+        };
+        this.crudService.postFree(_dataSend, 'delivery', 'get-parametros-tienda-linea', false)
+            .subscribe(res => {
+            // console.log('res', res);
+            if (res.data.length === 0) {
+                return;
+            }
+            const _data = res.data[0];
+            _dirEstablecimineto.parametros_tienda_linea = _data.parametros;
+            // console.log('_dirEstablecimineto', _dirEstablecimineto);
+            this.set(_dirEstablecimineto);
+            // this.set(_dirEstablecimineto);
+            // console.log(res);
+        });
     }
     getClienteAutocomplete(search) {
         const _dataSend = { buscar: search, only_sede: true };
@@ -11147,7 +11229,7 @@ let ListenStatusService = class ListenStatusService {
         this.setIisMsjConexionLentaSendPedidoSourse(false);
     }
     setLoaderCarta(value) {
-        console.log('setLoaderCarta', value);
+        // console.log('setLoaderCarta', value);
         this.isLoaderCartaSource.next(value);
     }
     setMetodoPagoSelected(metodoSelected) {
@@ -15872,6 +15954,19 @@ let UtilitariosService = class UtilitariosService {
       (rv[x[key]] = rv[x[key]] || []).push(x);
       return rv;
     }, {});
+  }
+
+  roundAmount(amount) {
+    // Extraer la parte entera y decimal del número
+    const integerPart = Math.floor(amount);
+    const decimalPart = amount - integerPart; // Redondear hacia abajo si el decimal es menor a 0.50
+
+    if (decimalPart < 0.50) {
+      return integerPart;
+    } else {
+      // Redondear hacia arriba si el decimal es 0.50 o mayor
+      return integerPart + 0.50;
+    }
   }
 
 };

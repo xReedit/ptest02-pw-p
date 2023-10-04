@@ -349,6 +349,7 @@ let CartaComponent = class CartaComponent {
         });
         // console.log('aaa');
         this.establecimientoService.getComsionEntrega();
+        this.establecimientoService.getParametrosTiendaLinea();
         // if (!this.socketService.isSocketOpen) {
         this.unsubscribeCarta = this.socketService.onGetCarta().subscribe((res) => {
             // console.log('onGetCarta', res);
@@ -2140,8 +2141,7 @@ let ResumenPedidoComponent = class ResumenPedidoComponent {
   }
 
   confirmarPeiddo() {
-    console.log('confirmarPeiddo ==');
-
+    // console.log('confirmarPeiddo ==');
     if (this.isVisibleConfirmarAnimated) {
       // enviar pedido
       if (this.isRequiereMesa || !this.isDeliveryValid) {
