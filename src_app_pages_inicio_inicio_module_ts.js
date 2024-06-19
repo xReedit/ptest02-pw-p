@@ -1,22 +1,6 @@
 "use strict";
 (self["webpackChunkpwa_app_pedido"] = self["webpackChunkpwa_app_pedido"] || []).push([["src_app_pages_inicio_inicio_module_ts"],{
 
-/***/ 81888:
-/*!*****************************************************!*\
-  !*** ./src/app/modelos/usuario-autorizado.model.ts ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "UsuarioAutorizadoModel": () => (/* binding */ UsuarioAutorizadoModel)
-/* harmony export */ });
-class UsuarioAutorizadoModel {
-}
-
-
-/***/ }),
-
 /***/ 19668:
 /*!***********************************************************************!*\
   !*** ./src/app/pages/inicio/callback-auth/callback-auth.component.ts ***!

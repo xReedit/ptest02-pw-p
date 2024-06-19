@@ -3172,6 +3172,68 @@ CompPropinaDeliveryComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)
 
 /***/ }),
 
+/***/ 52595:
+/*!**************************************************************************************!*\
+  !*** ./src/app/componentes/comp-teclado-numerico/comp-teclado-numerico.component.ts ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CompTecladoNumerico": () => (/* binding */ CompTecladoNumerico)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 34929);
+/* harmony import */ var _comp_teclado_numerico_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./comp-teclado-numerico.component.html?ngResource */ 2002);
+/* harmony import */ var _comp_teclado_numerico_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./comp-teclado-numerico.component.css?ngResource */ 35305);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 22560);
+
+
+
+
+let CompTecladoNumerico = class CompTecladoNumerico {
+    constructor() {
+        this.numberEntered = new _angular_core__WEBPACK_IMPORTED_MODULE_2__.EventEmitter();
+        this.numberOut = new _angular_core__WEBPACK_IMPORTED_MODULE_2__.EventEmitter();
+        this.rippleColor = 'rgb(255,238,88, 0.5)';
+        this.numReturn = '';
+        this.addNumber = (num) => {
+            this.numReturn = `${this.numReturn}${num}`;
+            console.log('num', num);
+            this.numberOut.emit(this.numReturn);
+        };
+        this.deleteNumber = () => {
+            //revome last number
+            this.numReturn = this.numReturn.slice(0, -1);
+            console.log('deleteNumber');
+            this.numberOut.emit(this.numReturn);
+        };
+        this.enterNumber = () => {
+            console.log('enterNumber');
+            // disparar un evento con el numero
+            this.numberEntered.emit(this.numReturn);
+        };
+    }
+    ngOnInit() {
+    }
+};
+CompTecladoNumerico.ctorParameters = () => [];
+CompTecladoNumerico.propDecorators = {
+    numberEntered: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__.Output }],
+    numberOut: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__.Output }]
+};
+CompTecladoNumerico = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.Component)({
+        selector: 'comp-teclado-numerico',
+        template: _comp_teclado_numerico_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
+        styles: [_comp_teclado_numerico_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__]
+    })
+], CompTecladoNumerico);
+
+
+
+/***/ }),
+
 /***/ 31179:
 /*!**************************************************************************!*\
   !*** ./src/app/componentes/comp-view-promo/comp-view-promo.component.ts ***!
@@ -3244,15 +3306,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ComponentesModule": () => (/* binding */ ComponentesModule)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! tslib */ 34929);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! @angular/core */ 22560);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! @angular/common */ 94666);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! tslib */ 34929);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! @angular/core */ 22560);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! @angular/common */ 94666);
 /* harmony import */ var _datos_delivery_datos_delivery_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datos-delivery/datos-delivery.component */ 25010);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! @angular/forms */ 2508);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! @angular/forms */ 2508);
 /* harmony import */ var _core_material_material_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/material/material.module */ 22717);
 /* harmony import */ var _shared_directivas_debounce_click_directive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/directivas/debounce-click.directive */ 22627);
 /* harmony import */ var _encuesta_opcion_encuesta_opcion_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./encuesta-opcion/encuesta-opcion.component */ 89101);
-/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! @agm/core */ 93333);
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! @agm/core */ 93333);
 /* harmony import */ var _agregar_direccion_agregar_direccion_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./agregar-direccion/agregar-direccion.component */ 40197);
 /* harmony import */ var _item_comercio_item_comercio_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./item-comercio/item-comercio.component */ 39912);
 /* harmony import */ var _seleccionar_direccion_seleccionar_direccion_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./seleccionar-direccion/seleccionar-direccion.component */ 72438);
@@ -3283,21 +3345,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _select_ciudad_delivery_select_ciudad_delivery_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./select-ciudad-delivery/select-ciudad-delivery.component */ 76972);
 /* harmony import */ var _comp_datos_reserva_comp_datos_reserva_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./comp-datos-reserva/comp-datos-reserva.component */ 69593);
 /* harmony import */ var _comp_get_hora_comp_get_hora_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./comp-get-hora/comp-get-hora.component */ 24571);
-/* harmony import */ var _dialog_calificacion_sede_dialog_calificacion_sede_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./dialog-calificacion-sede/dialog-calificacion-sede.component */ 17415);
-/* harmony import */ var _dialog_nombre_cliente_dialog_nombre_cliente_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./dialog-nombre-cliente/dialog-nombre-cliente.component */ 31849);
-/* harmony import */ var _dialog_direccion_cliente_delivery_dialog_direccion_cliente_delivery_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./dialog-direccion-cliente-delivery/dialog-direccion-cliente-delivery.component */ 10535);
-/* harmony import */ var _comp_list_item_pedido_cliente_comp_list_item_pedido_cliente_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./comp-list-item-pedido-cliente/comp-list-item-pedido-cliente.component */ 74462);
-/* harmony import */ var _text_nom_cliente_text_nom_cliente_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./text-nom-cliente/text-nom-cliente.component */ 32072);
-/* harmony import */ var _dialog_config_punto_dialog_config_punto_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./dialog-config-punto/dialog-config-punto.component */ 88081);
-/* harmony import */ var _mozo_virtual_mozo_virtual_on_speech_mozo_virtual_on_speech_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./mozo-virtual/mozo-virtual-on-speech/mozo-virtual-on-speech.component */ 67668);
-/* harmony import */ var _mozo_virtual_mozo_show_traduce_text_mozo_show_traduce_text_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./mozo-virtual/mozo-show-traduce-text/mozo-show-traduce-text.component */ 51377);
-/* harmony import */ var _item_promocion_item_promocion_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./item-promocion/item-promocion.component */ 78453);
-/* harmony import */ var _mozo_virtual_mozo_dialog_mozo_dialog_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./mozo-virtual/mozo-dialog/mozo-dialog.component */ 71441);
-/* harmony import */ var _comp_view_promo_comp_view_promo_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./comp-view-promo/comp-view-promo.component */ 31179);
-/* harmony import */ var _comp_list_call_client_comp_list_call_client_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./comp-list-call-client/comp-list-call-client.component */ 34566);
-/* harmony import */ var _datos_facturacion_cliente_datos_facturacion_cliente_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./datos-facturacion-cliente/datos-facturacion-cliente.component */ 89106);
-/* harmony import */ var _comp_list_mesas_comp_list_mesas_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./comp-list-mesas/comp-list-mesas.component */ 72189);
-/* harmony import */ var _dialog_out_auth_ios_dialog_out_auth_ios_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./dialog-out-auth-ios/dialog-out-auth-ios.component */ 78326);
+/* harmony import */ var _comp_teclado_numerico_comp_teclado_numerico_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./comp-teclado-numerico/comp-teclado-numerico.component */ 52595);
+/* harmony import */ var _dialog_calificacion_sede_dialog_calificacion_sede_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./dialog-calificacion-sede/dialog-calificacion-sede.component */ 17415);
+/* harmony import */ var _dialog_nombre_cliente_dialog_nombre_cliente_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./dialog-nombre-cliente/dialog-nombre-cliente.component */ 31849);
+/* harmony import */ var _dialog_direccion_cliente_delivery_dialog_direccion_cliente_delivery_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./dialog-direccion-cliente-delivery/dialog-direccion-cliente-delivery.component */ 10535);
+/* harmony import */ var _comp_list_item_pedido_cliente_comp_list_item_pedido_cliente_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./comp-list-item-pedido-cliente/comp-list-item-pedido-cliente.component */ 74462);
+/* harmony import */ var _text_nom_cliente_text_nom_cliente_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./text-nom-cliente/text-nom-cliente.component */ 32072);
+/* harmony import */ var _dialog_config_punto_dialog_config_punto_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./dialog-config-punto/dialog-config-punto.component */ 88081);
+/* harmony import */ var _mozo_virtual_mozo_virtual_on_speech_mozo_virtual_on_speech_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./mozo-virtual/mozo-virtual-on-speech/mozo-virtual-on-speech.component */ 67668);
+/* harmony import */ var _mozo_virtual_mozo_show_traduce_text_mozo_show_traduce_text_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./mozo-virtual/mozo-show-traduce-text/mozo-show-traduce-text.component */ 51377);
+/* harmony import */ var _item_promocion_item_promocion_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./item-promocion/item-promocion.component */ 78453);
+/* harmony import */ var _mozo_virtual_mozo_dialog_mozo_dialog_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./mozo-virtual/mozo-dialog/mozo-dialog.component */ 71441);
+/* harmony import */ var _comp_view_promo_comp_view_promo_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./comp-view-promo/comp-view-promo.component */ 31179);
+/* harmony import */ var _comp_list_call_client_comp_list_call_client_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./comp-list-call-client/comp-list-call-client.component */ 34566);
+/* harmony import */ var _datos_facturacion_cliente_datos_facturacion_cliente_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./datos-facturacion-cliente/datos-facturacion-cliente.component */ 89106);
+/* harmony import */ var _comp_list_mesas_comp_list_mesas_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./comp-list-mesas/comp-list-mesas.component */ 72189);
+/* harmony import */ var _dialog_out_auth_ios_dialog_out_auth_ios_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./dialog-out-auth-ios/dialog-out-auth-ios.component */ 78326);
+/* harmony import */ var _dialog_change_user_dialog_change_user_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./dialog-change-user/dialog-change-user.component */ 58384);
 
 
 
@@ -3340,7 +3404,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 // import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+
 
 
 
@@ -3358,8 +3424,8 @@ __webpack_require__.r(__webpack_exports__);
 
 let ComponentesModule = class ComponentesModule {
 };
-ComponentesModule = (0,tslib__WEBPACK_IMPORTED_MODULE_49__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_50__.NgModule)({
+ComponentesModule = (0,tslib__WEBPACK_IMPORTED_MODULE_51__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_52__.NgModule)({
         declarations: [
             _datos_delivery_datos_delivery_component__WEBPACK_IMPORTED_MODULE_0__.DatosDeliveryComponent,
             _shared_directivas_debounce_click_directive__WEBPACK_IMPORTED_MODULE_2__.DebounceClickDirective,
@@ -3393,32 +3459,34 @@ ComponentesModule = (0,tslib__WEBPACK_IMPORTED_MODULE_49__.__decorate)([
             _select_ciudad_delivery_select_ciudad_delivery_component__WEBPACK_IMPORTED_MODULE_31__.SelectCiudadDeliveryComponent,
             _comp_datos_reserva_comp_datos_reserva_component__WEBPACK_IMPORTED_MODULE_32__.CompDatosReservaComponent,
             _comp_get_hora_comp_get_hora_component__WEBPACK_IMPORTED_MODULE_33__.CompGetHoraComponent,
-            _dialog_calificacion_sede_dialog_calificacion_sede_component__WEBPACK_IMPORTED_MODULE_34__.DialogCalificacionSedeComponent,
-            _dialog_nombre_cliente_dialog_nombre_cliente_component__WEBPACK_IMPORTED_MODULE_35__.DialogNombreClienteComponent,
-            _dialog_direccion_cliente_delivery_dialog_direccion_cliente_delivery_component__WEBPACK_IMPORTED_MODULE_36__.DialogDireccionClienteDeliveryComponent,
-            _comp_list_item_pedido_cliente_comp_list_item_pedido_cliente_component__WEBPACK_IMPORTED_MODULE_37__.CompListItemPedidoClienteComponent,
-            _text_nom_cliente_text_nom_cliente_component__WEBPACK_IMPORTED_MODULE_38__.TextNomClienteComponent,
-            _dialog_config_punto_dialog_config_punto_component__WEBPACK_IMPORTED_MODULE_39__.DialogConfigPuntoComponent,
-            _mozo_virtual_mozo_virtual_on_speech_mozo_virtual_on_speech_component__WEBPACK_IMPORTED_MODULE_40__.MozoVirtualOnSpeechComponent,
-            _mozo_virtual_mozo_show_traduce_text_mozo_show_traduce_text_component__WEBPACK_IMPORTED_MODULE_41__.MozoShowTraduceTextComponent,
-            _item_promocion_item_promocion_component__WEBPACK_IMPORTED_MODULE_42__.ItemPromocionComponent,
-            _mozo_virtual_mozo_dialog_mozo_dialog_component__WEBPACK_IMPORTED_MODULE_43__.MozoDialogComponent,
-            _comp_view_promo_comp_view_promo_component__WEBPACK_IMPORTED_MODULE_44__.CompViewPromoComponent,
-            _comp_list_call_client_comp_list_call_client_component__WEBPACK_IMPORTED_MODULE_45__.CompListCallClientComponent,
-            _datos_facturacion_cliente_datos_facturacion_cliente_component__WEBPACK_IMPORTED_MODULE_46__.DatosFacturacionClienteComponent,
-            _comp_list_mesas_comp_list_mesas_component__WEBPACK_IMPORTED_MODULE_47__.CompListMesasComponent,
-            _dialog_out_auth_ios_dialog_out_auth_ios_component__WEBPACK_IMPORTED_MODULE_48__.DialogOutAuthIosComponent,
+            _dialog_calificacion_sede_dialog_calificacion_sede_component__WEBPACK_IMPORTED_MODULE_35__.DialogCalificacionSedeComponent,
+            _dialog_nombre_cliente_dialog_nombre_cliente_component__WEBPACK_IMPORTED_MODULE_36__.DialogNombreClienteComponent,
+            _dialog_direccion_cliente_delivery_dialog_direccion_cliente_delivery_component__WEBPACK_IMPORTED_MODULE_37__.DialogDireccionClienteDeliveryComponent,
+            _comp_list_item_pedido_cliente_comp_list_item_pedido_cliente_component__WEBPACK_IMPORTED_MODULE_38__.CompListItemPedidoClienteComponent,
+            _text_nom_cliente_text_nom_cliente_component__WEBPACK_IMPORTED_MODULE_39__.TextNomClienteComponent,
+            _dialog_config_punto_dialog_config_punto_component__WEBPACK_IMPORTED_MODULE_40__.DialogConfigPuntoComponent,
+            _mozo_virtual_mozo_virtual_on_speech_mozo_virtual_on_speech_component__WEBPACK_IMPORTED_MODULE_41__.MozoVirtualOnSpeechComponent,
+            _mozo_virtual_mozo_show_traduce_text_mozo_show_traduce_text_component__WEBPACK_IMPORTED_MODULE_42__.MozoShowTraduceTextComponent,
+            _item_promocion_item_promocion_component__WEBPACK_IMPORTED_MODULE_43__.ItemPromocionComponent,
+            _mozo_virtual_mozo_dialog_mozo_dialog_component__WEBPACK_IMPORTED_MODULE_44__.MozoDialogComponent,
+            _comp_view_promo_comp_view_promo_component__WEBPACK_IMPORTED_MODULE_45__.CompViewPromoComponent,
+            _comp_list_call_client_comp_list_call_client_component__WEBPACK_IMPORTED_MODULE_46__.CompListCallClientComponent,
+            _datos_facturacion_cliente_datos_facturacion_cliente_component__WEBPACK_IMPORTED_MODULE_47__.DatosFacturacionClienteComponent,
+            _comp_list_mesas_comp_list_mesas_component__WEBPACK_IMPORTED_MODULE_48__.CompListMesasComponent,
+            _dialog_out_auth_ios_dialog_out_auth_ios_component__WEBPACK_IMPORTED_MODULE_49__.DialogOutAuthIosComponent,
+            _dialog_change_user_dialog_change_user_component__WEBPACK_IMPORTED_MODULE_50__.DialogChangeUser,
+            _comp_teclado_numerico_comp_teclado_numerico_component__WEBPACK_IMPORTED_MODULE_34__.CompTecladoNumerico
             // DialogDesicionComponent,
             // DialogUbicacionComponent
         ],
         imports: [
-            _agm_core__WEBPACK_IMPORTED_MODULE_51__.AgmCoreModule.forRoot({
+            _agm_core__WEBPACK_IMPORTED_MODULE_53__.AgmCoreModule.forRoot({
                 apiKey: 'AIzaSyAknWQFyVH1RpR2OAL0vRTHTapaIpfKSqo',
                 libraries: ['places']
             }),
-            _angular_common__WEBPACK_IMPORTED_MODULE_52__.CommonModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_53__.ReactiveFormsModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_53__.FormsModule,
+            _angular_common__WEBPACK_IMPORTED_MODULE_54__.CommonModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_55__.ReactiveFormsModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_55__.FormsModule,
             _core_material_material_module__WEBPACK_IMPORTED_MODULE_1__.MaterialModule,
             angular_star_rating__WEBPACK_IMPORTED_MODULE_17__.StarRatingModule.forRoot(),
             // NgxMaterialTimepickerModule
@@ -3453,18 +3521,20 @@ ComponentesModule = (0,tslib__WEBPACK_IMPORTED_MODULE_49__.__decorate)([
             _select_ciudad_delivery_select_ciudad_delivery_component__WEBPACK_IMPORTED_MODULE_31__.SelectCiudadDeliveryComponent,
             _comp_datos_reserva_comp_datos_reserva_component__WEBPACK_IMPORTED_MODULE_32__.CompDatosReservaComponent,
             _comp_get_hora_comp_get_hora_component__WEBPACK_IMPORTED_MODULE_33__.CompGetHoraComponent,
-            _dialog_calificacion_sede_dialog_calificacion_sede_component__WEBPACK_IMPORTED_MODULE_34__.DialogCalificacionSedeComponent,
-            _comp_list_item_pedido_cliente_comp_list_item_pedido_cliente_component__WEBPACK_IMPORTED_MODULE_37__.CompListItemPedidoClienteComponent,
-            _text_nom_cliente_text_nom_cliente_component__WEBPACK_IMPORTED_MODULE_38__.TextNomClienteComponent,
-            _dialog_config_punto_dialog_config_punto_component__WEBPACK_IMPORTED_MODULE_39__.DialogConfigPuntoComponent,
-            _mozo_virtual_mozo_virtual_on_speech_mozo_virtual_on_speech_component__WEBPACK_IMPORTED_MODULE_40__.MozoVirtualOnSpeechComponent,
-            _mozo_virtual_mozo_show_traduce_text_mozo_show_traduce_text_component__WEBPACK_IMPORTED_MODULE_41__.MozoShowTraduceTextComponent,
-            _item_promocion_item_promocion_component__WEBPACK_IMPORTED_MODULE_42__.ItemPromocionComponent,
-            _mozo_virtual_mozo_dialog_mozo_dialog_component__WEBPACK_IMPORTED_MODULE_43__.MozoDialogComponent,
-            _comp_view_promo_comp_view_promo_component__WEBPACK_IMPORTED_MODULE_44__.CompViewPromoComponent,
-            _comp_list_call_client_comp_list_call_client_component__WEBPACK_IMPORTED_MODULE_45__.CompListCallClientComponent,
-            _datos_facturacion_cliente_datos_facturacion_cliente_component__WEBPACK_IMPORTED_MODULE_46__.DatosFacturacionClienteComponent,
-            _comp_list_mesas_comp_list_mesas_component__WEBPACK_IMPORTED_MODULE_47__.CompListMesasComponent
+            _dialog_calificacion_sede_dialog_calificacion_sede_component__WEBPACK_IMPORTED_MODULE_35__.DialogCalificacionSedeComponent,
+            _comp_list_item_pedido_cliente_comp_list_item_pedido_cliente_component__WEBPACK_IMPORTED_MODULE_38__.CompListItemPedidoClienteComponent,
+            _text_nom_cliente_text_nom_cliente_component__WEBPACK_IMPORTED_MODULE_39__.TextNomClienteComponent,
+            _dialog_config_punto_dialog_config_punto_component__WEBPACK_IMPORTED_MODULE_40__.DialogConfigPuntoComponent,
+            _mozo_virtual_mozo_virtual_on_speech_mozo_virtual_on_speech_component__WEBPACK_IMPORTED_MODULE_41__.MozoVirtualOnSpeechComponent,
+            _mozo_virtual_mozo_show_traduce_text_mozo_show_traduce_text_component__WEBPACK_IMPORTED_MODULE_42__.MozoShowTraduceTextComponent,
+            _item_promocion_item_promocion_component__WEBPACK_IMPORTED_MODULE_43__.ItemPromocionComponent,
+            _mozo_virtual_mozo_dialog_mozo_dialog_component__WEBPACK_IMPORTED_MODULE_44__.MozoDialogComponent,
+            _comp_view_promo_comp_view_promo_component__WEBPACK_IMPORTED_MODULE_45__.CompViewPromoComponent,
+            _comp_list_call_client_comp_list_call_client_component__WEBPACK_IMPORTED_MODULE_46__.CompListCallClientComponent,
+            _datos_facturacion_cliente_datos_facturacion_cliente_component__WEBPACK_IMPORTED_MODULE_47__.DatosFacturacionClienteComponent,
+            _comp_list_mesas_comp_list_mesas_component__WEBPACK_IMPORTED_MODULE_48__.CompListMesasComponent,
+            _dialog_change_user_dialog_change_user_component__WEBPACK_IMPORTED_MODULE_50__.DialogChangeUser,
+            _comp_teclado_numerico_comp_teclado_numerico_component__WEBPACK_IMPORTED_MODULE_34__.CompTecladoNumerico
             // DialogDesicionComponent
         ],
         // entryComponents: [
@@ -4839,6 +4909,153 @@ DialogCalificacionComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)(
 
 /***/ }),
 
+/***/ 58384:
+/*!********************************************************************************!*\
+  !*** ./src/app/componentes/dialog-change-user/dialog-change-user.component.ts ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DialogChangeUser": () => (/* binding */ DialogChangeUser)
+/* harmony export */ });
+/* harmony import */ var D_Projects_capacitor_pwa_app_pedido_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! tslib */ 34929);
+/* harmony import */ var _dialog_change_user_component_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dialog-change-user.component.html?ngResource */ 84453);
+/* harmony import */ var _dialog_change_user_component_css_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dialog-change-user.component.css?ngResource */ 14369);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ 22560);
+/* harmony import */ var _shared_services_crud_http_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/services/crud-http.service */ 24677);
+/* harmony import */ var src_app_modelos_usuario_autorizado_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/modelos/usuario-autorizado.model */ 81888);
+/* harmony import */ var src_app_shared_services_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/auth.service */ 10629);
+/* harmony import */ var src_app_shared_services_info_token_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/info-token.service */ 93674);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/dialog */ 31484);
+
+
+
+
+
+
+
+
+
+
+let DialogChangeUser = class DialogChangeUser {
+  constructor(crudService, authService, infoToken, dialogRef) {
+    this.crudService = crudService;
+    this.authService = authService;
+    this.infoToken = infoToken;
+    this.dialogRef = dialogRef;
+    this.nomUsuarioChange = {};
+    this.listUsuarios = [];
+    this.usuario = new src_app_modelos_usuario_autorizado_model__WEBPACK_IMPORTED_MODULE_4__.UsuarioAutorizadoModel();
+    this.isShowPassword = false;
+    this.rippleColor = 'rgb(255,238,88, 0.5)';
+    this.numberPassword = '';
+    this.rptNoSuccess = '';
+    this.loading = false;
+  }
+
+  ngOnInit() {
+    this.loadMozos();
+  }
+
+  changeUser() {}
+
+  loadMozos() {
+    var _this = this;
+
+    return (0,D_Projects_capacitor_pwa_app_pedido_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+      _this.listUsuarios = _this.getSotrageListMozos();
+
+      if (_this.listUsuarios.length > 0) {
+        return;
+      }
+
+      _this.crudService.getAll('pedido', 'get-user-mozo-change-user', false, false).subscribe(res => {
+        console.log(res);
+        _this.listUsuarios = res.data;
+
+        _this.saveStorageListMozos();
+      });
+    })();
+  }
+
+  saveStorageListMozos() {
+    localStorage.setItem('sys::list-mozos', JSON.stringify(this.listUsuarios));
+  }
+
+  getSotrageListMozos() {
+    const listMozos = JSON.parse(localStorage.getItem('sys::list-mozos'));
+    return listMozos ? listMozos : [];
+  }
+
+  selectUser(user) {
+    this.rptNoSuccess = '';
+    this.loading = false;
+    this.nomUsuarioChange = user;
+    this.isShowPassword = true;
+  }
+
+  writeNumber(num) {
+    this.numberPassword = num;
+  }
+
+  runChangeUser(pass) {
+    this.rptNoSuccess = '';
+    this.claveUsuarioChange = pass;
+    this.changeLoginUser();
+  }
+
+  changeLoginUser() {
+    if (this.loading) {
+      return;
+    }
+
+    this.loading = true;
+    this.usuario.nomusuario = this.nomUsuarioChange.usuario;
+    this.usuario.pass = this.claveUsuarioChange;
+    this.authService.getUserLogged(this.usuario).subscribe(res => {
+      console.log('res', res);
+
+      if (res.success) {
+        this.authService.setLocalToken(res.token);
+        this.authService.setLocalTokenAuth(res.token);
+        this.authService.setLoggedStatus(true);
+        this.authService.setLocalUsuario(this.usuario);
+        this.infoToken.changeUserMozo(this.nomUsuarioChange);
+        this.infoToken.setIsUsuarioAutorizacion(true); // this.infoToken.converToJSON();
+
+        this.dialogRef.close(this.nomUsuarioChange);
+        this.loading = false;
+      } else {
+        this.rptNoSuccess = res.error;
+        this.loading = false;
+      }
+    });
+  }
+
+};
+
+DialogChangeUser.ctorParameters = () => [{
+  type: _shared_services_crud_http_service__WEBPACK_IMPORTED_MODULE_3__.CrudHttpService
+}, {
+  type: src_app_shared_services_auth_service__WEBPACK_IMPORTED_MODULE_5__.AuthServiceSotrage
+}, {
+  type: src_app_shared_services_info_token_service__WEBPACK_IMPORTED_MODULE_6__.InfoTockenService
+}, {
+  type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__.MatDialogRef
+}];
+
+DialogChangeUser = (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__decorate)([(0,_angular_core__WEBPACK_IMPORTED_MODULE_9__.Component)({
+  selector: 'dialog-change-user.',
+  template: _dialog_change_user_component_html_ngResource__WEBPACK_IMPORTED_MODULE_1__,
+  styles: [_dialog_change_user_component_css_ngResource__WEBPACK_IMPORTED_MODULE_2__]
+})], DialogChangeUser);
+
+
+/***/ }),
+
 /***/ 88081:
 /*!**********************************************************************************!*\
   !*** ./src/app/componentes/dialog-config-punto/dialog-config-punto.component.ts ***!
@@ -4850,13 +5067,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "DialogConfigPuntoComponent": () => (/* binding */ DialogConfigPuntoComponent)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ 34929);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 34929);
 /* harmony import */ var _dialog_config_punto_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dialog-config-punto.component.html?ngResource */ 37515);
 /* harmony import */ var _dialog_config_punto_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dialog-config-punto.component.css?ngResource */ 33805);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 22560);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ 22560);
 /* harmony import */ var src_app_shared_services_crud_http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/crud-http.service */ 24677);
 /* harmony import */ var src_app_shared_services_establecimiento_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/establecimiento.service */ 32218);
 /* harmony import */ var src_app_shared_services_info_token_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/info-token.service */ 93674);
+/* harmony import */ var src_app_shared_services_listen_status_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/listen-status.service */ 70190);
+
 
 
 
@@ -4865,10 +5084,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let DialogConfigPuntoComponent = class DialogConfigPuntoComponent {
-    constructor(crudService, establecimientoService, infoTokenService) {
+    constructor(crudService, establecimientoService, infoTokenService, listenStatusService) {
         this.crudService = crudService;
         this.establecimientoService = establecimientoService;
         this.infoTokenService = infoTokenService;
+        this.listenStatusService = listenStatusService;
     }
     ngOnInit() {
         // cargar impresoras disponibles
@@ -4882,8 +5102,10 @@ let DialogConfigPuntoComponent = class DialogConfigPuntoComponent {
             this.selectedValueImpresora = _puntoConfig.impresora;
             this.isTomaPedidoRapido = _puntoConfig.istoma_pedido_rapido;
             this.selectedValueCanConsumo = _puntoConfig.canal_consumo;
+            this.isPuntoTomaPedido = _puntoConfig.ispunto_toma_pedidos;
             this.infoTokenService.setIsPuntoAutoPedido(this.isPuntoAutoPedidoCheck);
             this.infoTokenService.setIsTomaPedidoRapido(this.isTomaPedidoRapido);
+            this.infoTokenService.setIsPuntoTomaPedidos(this.isPuntoTomaPedido);
         }
     }
     setConifg() {
@@ -4892,12 +5114,15 @@ let DialogConfigPuntoComponent = class DialogConfigPuntoComponent {
             istoma_pedido_rapido: this.isTomaPedidoRapido,
             canal_consumo: this.selectedValueCanConsumo,
             ispunto_autopedido: this.isPuntoAutoPedidoCheck,
+            ispunto_toma_pedidos: this.isPuntoTomaPedido,
             impresora: this.selectedValueImpresora
         };
         localStorage.setItem('sys::punto', JSON.stringify(dataStorage));
         // console.log('dataStorage', dataStorage);
         this.infoTokenService.setIsPuntoAutoPedido(this.isPuntoAutoPedidoCheck);
         this.infoTokenService.setIsTomaPedidoRapido(this.isTomaPedidoRapido);
+        this.infoTokenService.setIsPuntoTomaPedidos(this.isPuntoTomaPedido);
+        this.listenStatusService.setPuntoTomaPedidos(this.isPuntoTomaPedido);
         location.reload();
     }
     loadCanalesConsumo() {
@@ -4920,10 +5145,11 @@ let DialogConfigPuntoComponent = class DialogConfigPuntoComponent {
 DialogConfigPuntoComponent.ctorParameters = () => [
     { type: src_app_shared_services_crud_http_service__WEBPACK_IMPORTED_MODULE_2__.CrudHttpService },
     { type: src_app_shared_services_establecimiento_service__WEBPACK_IMPORTED_MODULE_3__.EstablecimientoService },
-    { type: src_app_shared_services_info_token_service__WEBPACK_IMPORTED_MODULE_4__.InfoTockenService }
+    { type: src_app_shared_services_info_token_service__WEBPACK_IMPORTED_MODULE_4__.InfoTockenService },
+    { type: src_app_shared_services_listen_status_service__WEBPACK_IMPORTED_MODULE_5__.ListenStatusService }
 ];
-DialogConfigPuntoComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.Component)({
+DialogConfigPuntoComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_7__.Component)({
         selector: 'app-dialog-config-punto',
         template: _dialog_config_punto_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
         styles: [_dialog_config_punto_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__]
@@ -7867,23 +8093,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ToolBarComponent": () => (/* binding */ ToolBarComponent),
 /* harmony export */   "myCustomTooltipDefaults": () => (/* binding */ myCustomTooltipDefaults)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! tslib */ 34929);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! tslib */ 34929);
 /* harmony import */ var _tool_bar_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tool-bar.component.html?ngResource */ 34956);
 /* harmony import */ var _tool_bar_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tool-bar.component.css?ngResource */ 64191);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/core */ 22560);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/core */ 22560);
 /* harmony import */ var src_app_shared_services_navigator_link_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/navigator-link.service */ 12562);
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/dialog */ 31484);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/dialog */ 31484);
 /* harmony import */ var src_app_pages_pedido_resumen_pedido_dialog_reset_dialog_reset_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/pages/pedido/resumen-pedido/dialog-reset/dialog-reset.component */ 26544);
 /* harmony import */ var src_app_shared_services_mipedido_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/mipedido.service */ 31375);
 /* harmony import */ var src_app_shared_services_listen_status_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/listen-status.service */ 70190);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! rxjs/operators */ 59151);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! rxjs/operators */ 59151);
 /* harmony import */ var src_app_shared_services_info_token_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/info-token.service */ 93674);
 /* harmony import */ var src_app_shared_services_utilitarios_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/utilitarios.service */ 60961);
-/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/tooltip */ 6896);
+/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/tooltip */ 6896);
 /* harmony import */ var src_app_shared_services_crud_http_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/crud-http.service */ 24677);
 /* harmony import */ var src_app_componentes_dialog_config_punto_dialog_config_punto_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/componentes/dialog-config-punto/dialog-config-punto.component */ 88081);
 /* harmony import */ var src_app_shared_services_establecimiento_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/services/establecimiento.service */ 32218);
 /* harmony import */ var src_app_shared_services_speech_comand_analizer_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/services/speech/comand-analizer.service */ 83371);
+/* harmony import */ var src_app_componentes_dialog_change_user_dialog_change_user_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/componentes/dialog-change-user/dialog-change-user.component */ 58384);
+
 
 
 
@@ -7929,16 +8157,21 @@ let ToolBarComponent = class ToolBarComponent {
         this.isCliente = false;
         this.isSpeechVoiceAcivado = false;
         this.isActiveMozoVoz = false;
+        this.isPuntoTomaPedidos = false;
         this.nomSede = '';
+        this.nomUsuario = '';
     }
     ngOnInit() {
         // console.log('establecimientoService', this.establecimientoService.get());
         this.isSpeechVoiceAcivado = this.establecimientoService.get().speech_disabled === 1;
+        this.isPuntoTomaPedidos = this.infoTokenService.infoUsToken.isPuntoTomaPedidos;
+        this.nomUsuario = this.infoTokenService.infoUsToken.usuario;
+        console.log('this.isPuntoTomaPedidos', this.isPuntoTomaPedidos);
         this.listenStatusService.isBusqueda$.subscribe(res => {
             this.isBusqueda = res;
             // console.log('liste isBusqueda', res);
         });
-        this.listenStatusService.hayDatosSede$.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_12__.filter)(res => res === true)).subscribe(res => {
+        this.listenStatusService.hayDatosSede$.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_13__.filter)(res => res === true)).subscribe(res => {
             this.getNomSede();
         });
         this.isClienteDelivery = this.infoTokenService.isDelivery();
@@ -7989,7 +8222,7 @@ let ToolBarComponent = class ToolBarComponent {
         window.localStorage.setItem('sys::find', '');
     }
     cerrarSession() {
-        const dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__.MatDialogConfig();
+        const dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__.MatDialogConfig();
         dialogConfig.data = { idMjs: 1 };
         const dialogReset = this.dialog.open(src_app_pages_pedido_resumen_pedido_dialog_reset_dialog_reset_component__WEBPACK_IMPORTED_MODULE_3__.DialogResetComponent, dialogConfig);
         dialogReset.afterClosed().subscribe(result => {
@@ -8004,7 +8237,7 @@ let ToolBarComponent = class ToolBarComponent {
         });
     }
     goBackOutEstablecimiento() {
-        const dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__.MatDialogConfig();
+        const dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__.MatDialogConfig();
         dialogConfig.data = { idMjs: 2 };
         const dialogReset = this.dialog.open(src_app_pages_pedido_resumen_pedido_dialog_reset_dialog_reset_component__WEBPACK_IMPORTED_MODULE_3__.DialogResetComponent, dialogConfig);
         dialogReset.afterClosed().subscribe(result => {
@@ -8022,7 +8255,7 @@ let ToolBarComponent = class ToolBarComponent {
         this.utilitariosSerivce.sharedNative(this.urlSharedCartaVirtual, this.nomSede);
     }
     configPunto() {
-        const dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__.MatDialogConfig();
+        const dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__.MatDialogConfig();
         // dialogConfig.panelClass = 'dialog-item-edit';
         dialogConfig.panelClass = ['my-dialog-orden-detalle', 'my-dialog-scrool'];
         this.dialog.open(src_app_componentes_dialog_config_punto_dialog_config_punto_component__WEBPACK_IMPORTED_MODULE_9__.DialogConfigPuntoComponent, dialogConfig);
@@ -8033,13 +8266,18 @@ let ToolBarComponent = class ToolBarComponent {
     actualizarPage() {
         location.reload();
     }
+    changeUser() {
+        this.dialog.open(src_app_componentes_dialog_change_user_dialog_change_user_component__WEBPACK_IMPORTED_MODULE_12__.DialogChangeUser).afterClosed().subscribe((res) => {
+            this.nomUsuario = res.usuario;
+        });
+    }
 };
 ToolBarComponent.ctorParameters = () => [
     { type: src_app_shared_services_mipedido_service__WEBPACK_IMPORTED_MODULE_4__.MipedidoService },
     { type: src_app_shared_services_navigator_link_service__WEBPACK_IMPORTED_MODULE_2__.NavigatorLinkService },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__.MatDialog },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__.MatDialog },
     { type: src_app_shared_services_listen_status_service__WEBPACK_IMPORTED_MODULE_5__.ListenStatusService },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_14__.Renderer2 },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_15__.Renderer2 },
     { type: src_app_shared_services_info_token_service__WEBPACK_IMPORTED_MODULE_6__.InfoTockenService },
     { type: src_app_shared_services_utilitarios_service__WEBPACK_IMPORTED_MODULE_7__.UtilitariosService },
     { type: src_app_shared_services_crud_http_service__WEBPACK_IMPORTED_MODULE_8__.CrudHttpService },
@@ -8047,14 +8285,14 @@ ToolBarComponent.ctorParameters = () => [
     { type: src_app_shared_services_speech_comand_analizer_service__WEBPACK_IMPORTED_MODULE_11__.ComandAnalizerService }
 ];
 ToolBarComponent.propDecorators = {
-    txtBuscar: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_14__.ViewChild, args: ['txtBuscar',] }]
+    txtBuscar: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_15__.ViewChild, args: ['txtBuscar',] }]
 };
-ToolBarComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_15__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_14__.Component)({
+ToolBarComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_16__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_15__.Component)({
         selector: 'app-tool-bar',
         template: _tool_bar_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
         providers: [
-            { provide: _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_16__.MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults }
+            { provide: _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_17__.MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults }
         ],
         styles: [_tool_bar_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__]
     })
@@ -8425,6 +8663,23 @@ class TipoConsumoModel {
     constructor() {
         this.secciones = [];
     }
+}
+
+
+/***/ }),
+
+/***/ 81888:
+/*!*****************************************************!*\
+  !*** ./src/app/modelos/usuario-autorizado.model.ts ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UsuarioAutorizadoModel": () => (/* binding */ UsuarioAutorizadoModel)
+/* harmony export */ });
+class UsuarioAutorizadoModel {
 }
 
 
@@ -9215,10 +9470,10 @@ __webpack_require__.r(__webpack_exports__);
 const IS_NATIVE = _capacitor_core__WEBPACK_IMPORTED_MODULE_0__.Capacitor.getPlatform() !== 'web';
 const IS_PLATAFORM_IOS = IS_NATIVE ? _capacitor_core__WEBPACK_IMPORTED_MODULE_0__.Capacitor.getPlatform() === 'ios' : false;
 // pruebas
-// export const URL_SERVER = 'http://192.168.1.39:5819/v3/'; // desarrollo
-// export const URL_SERVER_SOCKET = 'http://192.168.1.39:5819'; // desarrollo
-// export const URL_SERVER_SOCKET_SPEECH = 'http://192.168.1.39:1337'; //
-// export const URL_SERVER_FILE_AUDIO_SPEECH = 'http://192.168.1.39:1337/resources/'; //
+// export const URL_SERVER = 'http://localhost:5819/v3/'; // desarrollo
+// export const URL_SERVER_SOCKET = 'http://localhost:5819'; // desarrollo
+// export const URL_SERVER_SOCKET_SPEECH = 'http://192.168.1.65:1337'; //
+// export const URL_SERVER_FILE_AUDIO_SPEECH = 'http://192.168.1.65:1337/resources/'; //
 // export const URL_IMG_CARTA = 'http://192.168.1.65/restobar/file/'; // imagenes de la carta
 // export const URL_IMG_PROMO = 'http://192.168.1.65/restobar/repositorio/img_promo'; // imagenes de promociones
 // export const URL_IMG_COMERCIO = 'http://192.168.1.65/restobar/print/logo/';
@@ -10562,6 +10817,7 @@ let EstablecimientoService = class EstablecimientoService {
         return new rxjs__WEBPACK_IMPORTED_MODULE_2__.Observable(observer => {
             this.crudService.postFree(_dataSend, 'delivery', 'get-comercio-x-calificar', false)
                 .subscribe((res) => {
+                console.log('res', res);
                 observer.next(res.data);
             });
         });
@@ -10737,6 +10993,10 @@ let InfoTockenService = class InfoTockenService {
         // this.verificarContunuarSession();
         return this.infoUsToken.isTomaPedidoRapido || false;
     }
+    isPuntoTomaPedidos() {
+        // this.verificarContunuarSession();
+        return this.infoUsToken.isPuntoTomaPedidos || false;
+    }
     isUsuarioAutorizado() {
         // this.verificarContunuarSession();
         return this.infoUsToken?.isUsuarioAutorizado || false;
@@ -10880,6 +11140,10 @@ let InfoTockenService = class InfoTockenService {
         this.infoUsToken.isTomaPedidoRapido = val;
         this.set();
     }
+    setIsPuntoTomaPedidos(val) {
+        this.infoUsToken.isPuntoTomaPedidos = val;
+        this.set();
+    }
     setIsUsuarioAutorizacion(val) {
         this.infoUsToken.isUsuarioAutorizado = val;
         this.set();
@@ -10904,6 +11168,13 @@ let InfoTockenService = class InfoTockenService {
     //
     getToken() { return localStorage.getItem('::token'); }
     getTokenAuth() { return localStorage.getItem('::token:auth'); }
+    // cuando es punto pedido y cambia de usuario, solo cambiamos en el infotoken idusuario y nombres
+    changeUserMozo(userMozo) {
+        this.infoUsToken.idusuario = userMozo.idusuario;
+        this.infoUsToken.nombres = userMozo.nombres;
+        this.infoUsToken.usuario = userMozo.usuario;
+        this.set();
+    }
     converToJSON() {
         if (localStorage.getItem('::token')) {
             let _token = JSON.parse(atob(localStorage.getItem('::token').split('.')[1]));
@@ -11095,6 +11366,9 @@ let ListenStatusService = class ListenStatusService {
     // private isDataFromCashAtmSoruce = new BehaviorSubject<any>({});
     // public isDataFromCashAtm$ = this.isDataFromCashAtmSoruce.asObservable();
     constructor() {
+        // para punto de pedidos
+        this.isPuntoTomaPedidosSource = new rxjs_internal_BehaviorSubject__WEBPACK_IMPORTED_MODULE_2__.BehaviorSubject(false);
+        this.isPuntoTomaPedidos$ = this.isPuntoTomaPedidosSource.asObservable();
         // para activar la busqueda
         this.isBusquedaSource = new rxjs_internal_BehaviorSubject__WEBPACK_IMPORTED_MODULE_2__.BehaviorSubject(false);
         this.isBusqueda$ = this.isBusquedaSource.asObservable();
@@ -11241,6 +11515,10 @@ let ListenStatusService = class ListenStatusService {
         this.numberPageShowAtmSoruce.next(num);
     }
     setShowCuentaMesaNumero(num) {
+        // si es 0 no muestra o el mismo valor que tiene no muestra
+        if (num === 0 || num === this.showCuentaMesaNumeroSoruce.value) {
+            return;
+        }
         this.showCuentaMesaNumeroSoruce.next(num);
     }
     setshowLoadListMesas() {
@@ -11248,6 +11526,9 @@ let ListenStatusService = class ListenStatusService {
     }
     setListenGoCarta() {
         this.listenGoBackCartaSource.next(true);
+    }
+    setPuntoTomaPedidos(value) {
+        this.isPuntoTomaPedidosSource.next(value);
     }
 };
 ListenStatusService.ctorParameters = () => [];
@@ -16799,6 +17080,17 @@ module.exports = "\r\n.item-propina {\r\n    padding: 5px;\r\n    border: 1px so
 
 /***/ }),
 
+/***/ 35305:
+/*!**************************************************************************************************!*\
+  !*** ./src/app/componentes/comp-teclado-numerico/comp-teclado-numerico.component.css?ngResource ***!
+  \**************************************************************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = "/* .keypad {\r\n    display: grid;\r\n    grid-template-columns: repeat(3, 1fr);\r\n    grid-gap: 5px;\r\n} */\r\n\r\n.keypad-row {\r\n    display: grid;\r\n    grid-template-columns: repeat(3, 1fr);\r\n    /* grid-gap: 5px; */\r\n}\r\n\r\n.keypad-key {\r\n    font-size: 20px;\r\n    border: 1px solid;\r\n    padding: 15px;\r\n    font-weight: 600;\r\n    width: 80px;\r\n}\r\n\r\n.ket-enter {\r\n    background: #c5e1f1;\r\n}\r\n\r\n.ket-remove {\r\n    background: #f1c5d6;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXAtdGVjbGFkby1udW1lcmljby5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7O0dBSUc7O0FBRUg7SUFDSSxhQUFhO0lBQ2IscUNBQXFDO0lBQ3JDLG1CQUFtQjtBQUN2Qjs7QUFFQTtJQUNJLGVBQWU7SUFDZixpQkFBaUI7SUFDakIsYUFBYTtJQUNiLGdCQUFnQjtJQUNoQixXQUFXO0FBQ2Y7O0FBRUE7SUFDSSxtQkFBbUI7QUFDdkI7O0FBRUE7SUFDSSxtQkFBbUI7QUFDdkIiLCJmaWxlIjoiY29tcC10ZWNsYWRvLW51bWVyaWNvLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiAua2V5cGFkIHtcclxuICAgIGRpc3BsYXk6IGdyaWQ7XHJcbiAgICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdCgzLCAxZnIpO1xyXG4gICAgZ3JpZC1nYXA6IDVweDtcclxufSAqL1xyXG5cclxuLmtleXBhZC1yb3cge1xyXG4gICAgZGlzcGxheTogZ3JpZDtcclxuICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczogcmVwZWF0KDMsIDFmcik7XHJcbiAgICAvKiBncmlkLWdhcDogNXB4OyAqL1xyXG59XHJcblxyXG4ua2V5cGFkLWtleSB7XHJcbiAgICBmb250LXNpemU6IDIwcHg7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZDtcclxuICAgIHBhZGRpbmc6IDE1cHg7XHJcbiAgICBmb250LXdlaWdodDogNjAwO1xyXG4gICAgd2lkdGg6IDgwcHg7XHJcbn1cclxuXHJcbi5rZXQtZW50ZXIge1xyXG4gICAgYmFja2dyb3VuZDogI2M1ZTFmMTtcclxufVxyXG5cclxuLmtldC1yZW1vdmUge1xyXG4gICAgYmFja2dyb3VuZDogI2YxYzVkNjtcclxufSJdfQ== */";
+
+/***/ }),
+
 /***/ 69055:
 /*!**************************************************************************************!*\
   !*** ./src/app/componentes/comp-view-promo/comp-view-promo.component.css?ngResource ***!
@@ -16862,6 +17154,17 @@ module.exports = "::ng-deep .mat-dialog-container {\r\n    padding: 0px;\r\n}\r\
 
 "use strict";
 module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJkaWFsb2ctY2FsaWZpY2FjaW9uLmNvbXBvbmVudC5jc3MifQ== */";
+
+/***/ }),
+
+/***/ 14369:
+/*!********************************************************************************************!*\
+  !*** ./src/app/componentes/dialog-change-user/dialog-change-user.component.css?ngResource ***!
+  \********************************************************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = "\r\n.list-group {\r\n    width: 100%;\r\n    margin-bottom: 20px;\r\n    max-height: 300px;\r\n    background: #494949;\r\n    padding: 5px;\r\n    border-radius: 5px;\r\n}\r\n\r\n.list-items {\r\n    max-height: 280px;\r\n    overflow: auto;\r\n}\r\n\r\n.list-group-item {\r\n    cursor: pointer;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRpYWxvZy1jaGFuZ2UtdXNlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQTtJQUNJLFdBQVc7SUFDWCxtQkFBbUI7SUFDbkIsaUJBQWlCO0lBQ2pCLG1CQUFtQjtJQUNuQixZQUFZO0lBQ1osa0JBQWtCO0FBQ3RCOztBQUVBO0lBQ0ksaUJBQWlCO0lBQ2pCLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxlQUFlO0FBQ25CIiwiZmlsZSI6ImRpYWxvZy1jaGFuZ2UtdXNlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbi5saXN0LWdyb3VwIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcclxuICAgIG1heC1oZWlnaHQ6IDMwMHB4O1xyXG4gICAgYmFja2dyb3VuZDogIzQ5NDk0OTtcclxuICAgIHBhZGRpbmc6IDVweDtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxufVxyXG5cclxuLmxpc3QtaXRlbXMge1xyXG4gICAgbWF4LWhlaWdodDogMjgwcHg7XHJcbiAgICBvdmVyZmxvdzogYXV0bztcclxufVxyXG5cclxuLmxpc3QtZ3JvdXAtaXRlbSB7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbn0iXX0= */";
 
 /***/ }),
 
@@ -17415,6 +17718,17 @@ module.exports = "<div class=\"d-flex content-propina\" >\n    <div matRipple cl
 
 /***/ }),
 
+/***/ 2002:
+/*!***************************************************************************************************!*\
+  !*** ./src/app/componentes/comp-teclado-numerico/comp-teclado-numerico.component.html?ngResource ***!
+  \***************************************************************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = "<!-- botones del teclado numerico + el boton enter -->\r\n<div class=\"content-keypad\">\r\n    <div class=\"keypad\">\r\n        <div class=\"keypad-row\">\r\n            <div matRipple [matRippleColor]=\"rippleColor\" class=\"keypad-key\" (click)=\"addNumber(1)\">1</div>\r\n            <div matRipple [matRippleColor]=\"rippleColor\" class=\"keypad-key\" (click)=\"addNumber(2)\">2</div>\r\n            <div matRipple [matRippleColor]=\"rippleColor\" class=\"keypad-key\" (click)=\"addNumber(3)\">3</div>\r\n        </div>\r\n        <div class=\"keypad-row\">\r\n            <div matRipple [matRippleColor]=\"rippleColor\" class=\"keypad-key\" (click)=\"addNumber(4)\">4</div>\r\n            <div matRipple [matRippleColor]=\"rippleColor\" class=\"keypad-key\" (click)=\"addNumber(5)\">5</div>\r\n            <div matRipple [matRippleColor]=\"rippleColor\" class=\"keypad-key\" (click)=\"addNumber(6)\">6</div>\r\n        </div>  \r\n        <div class=\"keypad-row\">\r\n            <div matRipple [matRippleColor]=\"rippleColor\" class=\"keypad-key\" (click)=\"addNumber(7)\">7</div>\r\n            <div matRipple [matRippleColor]=\"rippleColor\" class=\"keypad-key\" (click)=\"addNumber(8)\">8</div>\r\n            <div matRipple [matRippleColor]=\"rippleColor\" class=\"keypad-key\" (click)=\"addNumber(9)\">9</div>\r\n        </div>  \r\n        <div class=\"keypad-row\">\r\n            <div matRipple [matRippleColor]=\"rippleColor\" class=\"keypad-key\" (click)=\"addNumber(0)\">0</div>\r\n            <div matRipple [matRippleColor]=\"rippleColor\" class=\"keypad-key ket-remove\" (click)=\"deleteNumber()\"><i class=\"fa fa-arrow-left\"></i></div>\r\n            <div matRipple [matRippleColor]=\"rippleColor\" class=\"keypad-key ket-enter\" (click)=\"enterNumber()\"><i class=\"fa fa-check\"></i></div>\r\n        </div>\r\n</div>";
+
+/***/ }),
+
 /***/ 32885:
 /*!***************************************************************************************!*\
   !*** ./src/app/componentes/comp-view-promo/comp-view-promo.component.html?ngResource ***!
@@ -17481,6 +17795,17 @@ module.exports = "<div class=\"p-3\">\n    <app-comp-calificacion [dataCalificad
 
 /***/ }),
 
+/***/ 84453:
+/*!*********************************************************************************************!*\
+  !*** ./src/app/componentes/dialog-change-user/dialog-change-user.component.html?ngResource ***!
+  \*********************************************************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = "<div class=\"dial-user-change\">\r\n    <div class=\"container text-center\">\r\n        <!-- cambiar de usuario, con nomusuario y clave -->\r\n        <div *ngIf=\"!isShowPassword\">\r\n            <div>\r\n                <p class=\"fs-18\">Cambiar de Usuario</p>                \r\n            </div>\r\n            <div>             \r\n                    <div *ngIf=\"listUsuarios.length > 0\" class=\"list-group\">\r\n                        <div class=\"list-items\">\r\n                            <ul>\r\n                                <li class=\"list-group-item\" *ngFor=\"let item of listUsuarios\" (click)=\"selectUser(item)\" matRipple [matRippleColor]=\"rippleColor\">\r\n                                    {{item.nombres}}                            \r\n                                </li>\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n\r\n                <!-- </mat-form-field> -->                \r\n                <!-- <mat-form-field>\r\n                    <mat-label>Clave</mat-label>\r\n                    <input matInput type=\"password\" placeholder=\"Clave\" [(ngModel)]=\"claveUsuarioChange\">\r\n                </mat-form-field> -->\r\n            </div>  \r\n            <!-- botonera -->\r\n            <div>                \r\n                <div>\r\n                    <!-- <button mat-raised-button color=\"primary\" class=\"mr-2\" (click)=\"changeLoginUser()\">Listo</button> -->\r\n                    <button mat-raised-button color=\"accent\" mat-dialog-close>Cancelar</button>\r\n                </div>\r\n            </div>\r\n            \r\n    </div>\r\n\r\n    <!-- password -->\r\n    <div *ngIf=\"isShowPassword\">\r\n        <div>\r\n            <p class=\"fs-18\">Ingrese su clave</p>\r\n        </div>\r\n        <div>\r\n            <div class=\"form-group\">\r\n                <input type=\"password\" class=\"form-control text-center fs-18\" placeholder=\"Clave\" [(ngModel)]=\"numberPassword\" readonly>\r\n            </div>\r\n        </div>\r\n        <div>\r\n           <comp-teclado-numerico (numberOut)=\"writeNumber($event)\" (numberEntered)=\"runChangeUser($event)\"></comp-teclado-numerico>\r\n        </div>        \r\n\r\n        <br>\r\n        <!-- botonera -->\r\n        <div>\r\n            <div>\r\n                <mat-progress-bar [hidden]=\"!loading\" mode=\"indeterminate\"></mat-progress-bar>\r\n                <p class=\"text-danger animated flash\" *ngIf=\"rptNoSuccess!==''\">{{rptNoSuccess}}</p>\r\n                <br>\r\n            </div>\r\n            <div>\r\n                <!-- <button mat-raised-button color=\"primary\" class=\"mr-2\" (click)=\"changeLoginUser()\">Listo</button> -->\r\n                <button mat-raised-button color=\"primary\" (click)=\"isShowPassword=!isShowPassword\">Regresar</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
+
+/***/ }),
+
 /***/ 37515:
 /*!***********************************************************************************************!*\
   !*** ./src/app/componentes/dialog-config-punto/dialog-config-punto.component.html?ngResource ***!
@@ -17488,7 +17813,7 @@ module.exports = "<div class=\"p-3\">\n    <app-comp-calificacion [dataCalificad
 /***/ ((module) => {
 
 "use strict";
-module.exports = "<div >\n    <p class=\"fs-18\">Configuraciones</p>\n    <hr>\n    <mat-checkbox [(ngModel)]=\"isTomaPedidoRapido\">\n        <span class=\"fw-600\">Tomar pedido rápido</span>\n    </mat-checkbox>    \n    <p class=\"fs-12\">Se adjuntara los items al clic, solo mostrará el detalle en los items que tienen opciones por seleccionar. <strong>Elija un canal de consumo predertiminado.</strong></p>\n\n    <mat-form-field>\n        <mat-label>Canal consumo prederminado</mat-label>\n        <mat-select placeholder=\"Canal de consumo\" [(ngModel)]=\"selectedValueCanConsumo\" name=\"selectedValueImpresora\" [(value)] = \"selectedValueCanConsumo\" [compareWith]=\"compareByIdCanal\">\n            <mat-option *ngFor=\"let item of listCanalConsumo\" [value]=\"item\">\n                {{item.descripcion}}\n            </mat-option>\n        </mat-select>\n    </mat-form-field>\n\n    <hr>\n\n    <mat-checkbox [(ngModel)]=\"isPuntoAutoPedidoCheck\">\n        <span class=\"fw-600\">Punto de Autopedido</span>\n    </mat-checkbox>    \n\n    <p class=\"fs-12\">Configurar este equipo como Punto de Autopedido, donde el cliente podra realizar por su cuenta su pedido. \n        Vincule una impresora donde el cliente obtendrá una copia de su pedido.\n        <strong>El canal de consumo será: Para Llevar</strong>\n    </p>\n    <br>\n    \n    <mat-form-field>\n        <mat-label>Impresora Vinculada</mat-label>\n        <mat-select placeholder=\"Impresora\" [(ngModel)]=\"selectedValueImpresora\" name=\"selectedValueImpresora\" [(value)] = \"selectedValueImpresora\" [compareWith]=\"compareById\">\n            <mat-option *ngFor=\"let item of listImpresoras\" [value]=\"item\">\n                {{item.descripcion}}\n            </mat-option>\n        </mat-select>\n    </mat-form-field>\n\n    <hr>\n    <div class=\"d-flex\">\n        <button mat-raised-button color=\"primary\" class=\"mr-2\" (click)=\"setConifg()\" >Listo Aplicar</button>    \n        <button mat-raised-button color=\"accent\" mat-dialog-close>Cerrar</button>    \n    </div>\n</div>";
+module.exports = "<div >\n    <p class=\"fs-18\">Configuraciones</p>\n    <hr>\n    <div>\n        <mat-checkbox [(ngModel)]=\"isTomaPedidoRapido\">\n            <span class=\"fw-600\">Tomar pedido rápido</span>\n        </mat-checkbox>    \n        <p class=\"fs-12\">Se adjuntara los items al clic, solo mostrará el detalle en los items que tienen opciones por seleccionar. <strong>Elija un canal de consumo predertiminado.</strong></p>\n    \n        <mat-form-field>\n            <mat-label>Canal consumo prederminado</mat-label>\n            <mat-select placeholder=\"Canal de consumo\" [(ngModel)]=\"selectedValueCanConsumo\" name=\"selectedValueImpresora\" [(value)] = \"selectedValueCanConsumo\" [compareWith]=\"compareByIdCanal\">\n                <mat-option *ngFor=\"let item of listCanalConsumo\" [value]=\"item\">\n                    {{item.descripcion}}\n                </mat-option>\n            </mat-select>\n        </mat-form-field>\n    \n        <hr>\n    \n        <mat-checkbox [(ngModel)]=\"isPuntoAutoPedidoCheck\">\n            <span class=\"fw-600\">Punto de Autopedido</span>\n        </mat-checkbox>    \n    \n        <p class=\"fs-12\">Configurar este equipo como Punto de Autopedido, donde el cliente podra realizar por su cuenta su pedido. \n            Vincule una impresora donde el cliente obtendrá una copia de su pedido.\n            <strong>El canal de consumo será: Para Llevar</strong>\n        </p>\n        \n        <mat-form-field>\n            <mat-label>Impresora Vinculada</mat-label>\n            <mat-select placeholder=\"Impresora\" [(ngModel)]=\"selectedValueImpresora\" name=\"selectedValueImpresora\" [(value)] = \"selectedValueImpresora\" [compareWith]=\"compareById\">\n                <mat-option *ngFor=\"let item of listImpresoras\" [value]=\"item\">\n                    {{item.descripcion}}\n                </mat-option>\n            </mat-select>\n        </mat-form-field>\n\n        <hr>\n\n        <mat-checkbox [(ngModel)]=\"isPuntoTomaPedido\">\n            <span class=\"fw-600\">Punto de toma de pedidos</span>\n        </mat-checkbox>\n        <p class=\"fs-12\">Configurar este equipo como Punto de toma de pedidos, donde el mesero podra ingresar el pedido del cliente.            \n        </p>\n    </div>\n\n    <hr>\n    <div class=\"d-flex\">\n        <button mat-raised-button color=\"primary\" class=\"mr-2\" (click)=\"setConifg()\" >Listo Aplicar</button>    \n        <button mat-raised-button color=\"accent\" mat-dialog-close>Cerrar</button>    \n    </div>\n</div>";
 
 /***/ }),
 
@@ -17785,7 +18110,7 @@ module.exports = "<ng-container *ngIf=\"timerLimitService.isPorgressVisible$ | a
 /***/ ((module) => {
 
 "use strict";
-module.exports = "<mat-toolbar color=\"primary\">\r\n     <mat-toolbar-row [ngClass]=\"{'toolbar-busqueda': isBusqueda}\">\r\n          <ng-container *ngIf=\"!isBusqueda\">\r\n\r\n               <!-- <i *ngIf=\"isClienteDelivery\" class=\"fa fa-arrow-left pr-2\" (click)=\"goBackOutEstablecimiento()\"></i>   -->\r\n               <span class=\"nom-comercio\">{{ nomSede | titlecase }}</span>\r\n               <span class=\"example-spacer\"></span>\r\n\r\n               <!-- microfono mozo virtual -->\r\n               <!-- <div class=\"example-ripple-container fs-15\" *ngIf=\"isSpeechVoiceAcivado && isCliente && !isClienteDelivery\">          -->\r\n\r\n               <!-- <div class=\"example-ripple-container fs-15\" *ngIf=\"isActiveMozoVoz\"> \r\n         <app-mozo-virtual-on-speech></app-mozo-virtual-on-speech>\r\n    </div> -->\r\n\r\n               <!-- <button [matMenuTriggerFor]=\"menu\" aria-label=\"Mas Opciones\">\r\n          <i class=\"fa fa-ellipsis-h\"></i>\r\n     </button> -->\r\n               <div [matMenuTriggerFor]=\"menu\" class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\"\r\n                    [matRippleColor]=\"rippleColor\">\r\n                    <i class=\"fa fa-ellipsis-v\"></i>\r\n               </div>\r\n               <mat-menu #menu=\"matMenu\">\r\n                    <button mat-menu-item *ngIf=\"!isCliente\" matRipple\r\n                         [matRippleColor]=\"rippleColor\" (click)=\"configPunto()\">\r\n                         <i title=\"Configuracion\" class=\"fa fa-wrench\" aria-hidden=\"true\"></i>\r\n                         <span class=\"ml-1\">Configuraciones</span>\r\n                    </button>\r\n\r\n                    <button mat-menu-item class=\"fs-15\" matRipple\r\n                         [matRippleColor]=\"rippleColor\" (click)=\"sharedCarta()\" matTooltip=\"Enlace Copiado\">\r\n                         <i title=\"Compartir Carta\" class=\"fa fa-share-alt\" aria-hidden=\"true\"></i>\r\n                         <span class=\"ml-1\">Compartir Carta</span>\r\n                    </button>\r\n\r\n                    <!-- <button mat-menu-item matRipple [matRippleColor]=\"rippleColorBusqueda\" matRippleCentered=\"true\"\r\n                         matRippleUnbounded=\"true\" matRippleRadius=\"290\" (click)=\"activaBusqueda()\" title=\"Buscar\">\r\n                         <i title=\"Buscar\" class=\"fa fa-search\" aria-hidden=\"true\"></i>\r\n                         <span class=\"ml-1\">Buscar</span>\r\n                    </button> -->\r\n\r\n                    <!-- <button mat-menu-item class=\"fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\"\r\n               (click)=\"actualizarPage()\">\r\n               <i title=\"Compartir Carta\" class=\"fa fa-refresh\" aria-hidden=\"true\"></i>\r\n               <span class=\"ml-1\">Actualizar</span>\r\n          </button> -->\r\n               </mat-menu>\r\n\r\n               <!-- boton configuracion punto de autopedido -->\r\n               <!-- <div *ngIf=\"!isCliente\" class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\"\r\n          (click)=\"configPunto()\">\r\n               <i title=\"Configuracion\" class=\"fa fa-wrench\" aria-hidden=\"true\"></i>     \r\n     </div>\r\n     \r\n     <div class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\"\r\n               (click)=\"sharedCarta()\"\r\n               matTooltip=\"Enlace Copiado\">\r\n               <i title=\"Compartir Carta\" class=\"fa fa-share-alt\" aria-hidden=\"true\"></i>     \r\n     </div>\r\n     <div style=\"display: contents;\">       \r\n          <div class=\"example-ripple-container fs-15\" matRipple \r\n          [matRippleColor]=\"rippleColorBusqueda\"\r\n          matRippleCentered=\"true\"\r\n          matRippleUnbounded=\"true\"\r\n          matRippleRadius=\"290\"\r\n          (click)=\"activaBusqueda()\"\r\n          title=\"Buscar\">\r\n               <i title=\"Buscar\" class=\"fa fa-search\" aria-hidden=\"true\"></i>\r\n          </div>\r\n     </div> -->\r\n\r\n               \r\n\r\n               <!-- buscar -->\r\n               <div class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\"\r\n                    title=\"Buscar\" (click)=\"activaBusqueda()\">\r\n                    <i title=\"Buscar\" class=\"fa fa-search\" aria-hidden=\"true\"></i>\r\n               </div>\r\n\r\n               <!-- actualizar -->\r\n               <div class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\"\r\n                    [matRippleColor]=\"rippleColor\" title=\"Actualizar\" (click)=\"actualizarPage()\">\r\n                    <i title=\"Actualizar\" class=\"fa fa-refresh\" aria-hidden=\"true\"></i>\r\n               </div>\r\n\r\n               <!-- cerrar session -->\r\n               <div class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\"\r\n                    [matRippleColor]=\"rippleColor\" title=\"Cerrar Sesion\" (click)=\"cerrarSession()\">\r\n                    <i title=\"Cerrar Sesion\" class=\"fa fa-close\" aria-hidden=\"true\"></i>\r\n               </div>\r\n          </ng-container>\r\n\r\n          <ng-container *ngIf=\"isBusqueda\">\r\n               <div class=\"d-flex w-100\">\r\n                    <div class=\"example-ripple-container text-success fs-15\" style=\"margin-left: -15px;\" matRipple\r\n                         matRippleCentered=\"true\" [matRippleColor]=\"rippleColorPlomo\" title=\"Atras\"\r\n                         (click)=\"activaBusqueda()\">\r\n                         <i title=\"Cerrar Sesion\" class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i>\r\n                    </div>\r\n                    <input type=\"text\" class=\"text-busqueda w-100\" placeholder=\"Buscar...\" #txtBuscar\r\n                         (keyup)=\"buscarCharAhora(txtBuscar.value)\" autofocus>\r\n                    <div [hidden]=\"txtBuscar.value === ''\" class=\"example-ripple-container text-dark fs-15\" matRipple\r\n                         matRippleCentered=\"true\" [matRippleColor]=\"rippleColorPlomo\" (click)=\"clearTextBuqueda()\">\r\n                         <i title=\"Atras\" class=\"fa fa-times\" aria-hidden=\"true\"></i>\r\n                    </div>\r\n               </div>\r\n          </ng-container>\r\n\r\n          <!-- <button (click)=\"cerrarSession()\">aa</button> -->\r\n     </mat-toolbar-row>\r\n</mat-toolbar>";
+module.exports = "<mat-toolbar color=\"primary\">\r\n     <mat-toolbar-row [ngClass]=\"{'toolbar-busqueda': isBusqueda}\">\r\n          <ng-container *ngIf=\"!isBusqueda\">\r\n\r\n               <!-- <i *ngIf=\"isClienteDelivery\" class=\"fa fa-arrow-left pr-2\" (click)=\"goBackOutEstablecimiento()\"></i>   -->\r\n               <span class=\"nom-comercio\">{{ nomSede | titlecase }}</span>\r\n               <span class=\"example-spacer\"></span>\r\n\r\n               <!-- microfono mozo virtual -->\r\n               <!-- <div class=\"example-ripple-container fs-15\" *ngIf=\"isSpeechVoiceAcivado && isCliente && !isClienteDelivery\">          -->\r\n\r\n               <!-- <div class=\"example-ripple-container fs-15\" *ngIf=\"isActiveMozoVoz\"> \r\n         <app-mozo-virtual-on-speech></app-mozo-virtual-on-speech>\r\n    </div> -->\r\n\r\n               <!-- <button [matMenuTriggerFor]=\"menu\" aria-label=\"Mas Opciones\">\r\n          <i class=\"fa fa-ellipsis-h\"></i>\r\n     </button> -->\r\n\r\n               <!-- informacion del usuario si es punto de toma de pedidos -->\r\n               <div *ngIf=\"isPuntoTomaPedidos\" class=\"d-flex\">\r\n                    <button class=\"btn btn-sm btn-dark\" (click)=\"changeUser()\">Cambiar</button>\r\n                    <span class=\"fs-15 ml-2 mr-2\">|</span>\r\n                    <span class=\"fs-15\">{{ nomUsuario }}</span>\r\n               </div>\r\n\r\n               <div [matMenuTriggerFor]=\"menu\" class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\"\r\n                    [matRippleColor]=\"rippleColor\">\r\n                    <i class=\"fa fa-ellipsis-v\"></i>\r\n               </div>\r\n               <mat-menu #menu=\"matMenu\">\r\n                    <button mat-menu-item *ngIf=\"!isCliente\" matRipple\r\n                         [matRippleColor]=\"rippleColor\" (click)=\"configPunto()\">\r\n                         <i title=\"Configuracion\" class=\"fa fa-wrench\" aria-hidden=\"true\"></i>\r\n                         <span class=\"ml-1\">Configuraciones</span>\r\n                    </button>\r\n\r\n                    <button mat-menu-item class=\"fs-15\" matRipple\r\n                         [matRippleColor]=\"rippleColor\" (click)=\"sharedCarta()\" matTooltip=\"Enlace Copiado\">\r\n                         <i title=\"Compartir Carta\" class=\"fa fa-share-alt\" aria-hidden=\"true\"></i>\r\n                         <span class=\"ml-1\">Compartir Carta</span>\r\n                    </button>\r\n\r\n                    <!-- <button mat-menu-item matRipple [matRippleColor]=\"rippleColorBusqueda\" matRippleCentered=\"true\"\r\n                         matRippleUnbounded=\"true\" matRippleRadius=\"290\" (click)=\"activaBusqueda()\" title=\"Buscar\">\r\n                         <i title=\"Buscar\" class=\"fa fa-search\" aria-hidden=\"true\"></i>\r\n                         <span class=\"ml-1\">Buscar</span>\r\n                    </button> -->\r\n\r\n                    <!-- <button mat-menu-item class=\"fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\"\r\n               (click)=\"actualizarPage()\">\r\n               <i title=\"Compartir Carta\" class=\"fa fa-refresh\" aria-hidden=\"true\"></i>\r\n               <span class=\"ml-1\">Actualizar</span>\r\n          </button> -->\r\n               </mat-menu>\r\n\r\n               <!-- boton configuracion punto de autopedido -->\r\n               <!-- <div *ngIf=\"!isCliente\" class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\"\r\n          (click)=\"configPunto()\">\r\n               <i title=\"Configuracion\" class=\"fa fa-wrench\" aria-hidden=\"true\"></i>     \r\n     </div>\r\n     \r\n     <div class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\"\r\n               (click)=\"sharedCarta()\"\r\n               matTooltip=\"Enlace Copiado\">\r\n               <i title=\"Compartir Carta\" class=\"fa fa-share-alt\" aria-hidden=\"true\"></i>     \r\n     </div>\r\n     <div style=\"display: contents;\">       \r\n          <div class=\"example-ripple-container fs-15\" matRipple \r\n          [matRippleColor]=\"rippleColorBusqueda\"\r\n          matRippleCentered=\"true\"\r\n          matRippleUnbounded=\"true\"\r\n          matRippleRadius=\"290\"\r\n          (click)=\"activaBusqueda()\"\r\n          title=\"Buscar\">\r\n               <i title=\"Buscar\" class=\"fa fa-search\" aria-hidden=\"true\"></i>\r\n          </div>\r\n     </div> -->\r\n\r\n               \r\n\r\n               <!-- buscar -->\r\n               <div class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\" [matRippleColor]=\"rippleColor\"\r\n                    title=\"Buscar\" (click)=\"activaBusqueda()\">\r\n                    <i title=\"Buscar\" class=\"fa fa-search\" aria-hidden=\"true\"></i>\r\n               </div>\r\n\r\n               <!-- actualizar -->\r\n               <div class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\"\r\n                    [matRippleColor]=\"rippleColor\" title=\"Actualizar\" (click)=\"actualizarPage()\">\r\n                    <i title=\"Actualizar\" class=\"fa fa-refresh\" aria-hidden=\"true\"></i>\r\n               </div>\r\n\r\n               <!-- cerrar session -->\r\n               <div class=\"example-ripple-container fs-15\" matRipple matRippleCentered=\"true\"\r\n                    [matRippleColor]=\"rippleColor\" title=\"Cerrar Sesion\" (click)=\"cerrarSession()\">\r\n                    <i title=\"Cerrar Sesion\" class=\"fa fa-close\" aria-hidden=\"true\"></i>\r\n               </div>\r\n          </ng-container>\r\n\r\n          <ng-container *ngIf=\"isBusqueda\">\r\n               <div class=\"d-flex w-100\">\r\n                    <div class=\"example-ripple-container text-success fs-15\" style=\"margin-left: -15px;\" matRipple\r\n                         matRippleCentered=\"true\" [matRippleColor]=\"rippleColorPlomo\" title=\"Atras\"\r\n                         (click)=\"activaBusqueda()\">\r\n                         <i title=\"Cerrar Sesion\" class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i>\r\n                    </div>\r\n                    <input type=\"text\" class=\"text-busqueda w-100\" placeholder=\"Buscar...\" #txtBuscar\r\n                         (keyup)=\"buscarCharAhora(txtBuscar.value)\" autofocus>\r\n                    <div [hidden]=\"txtBuscar.value === ''\" class=\"example-ripple-container text-dark fs-15\" matRipple\r\n                         matRippleCentered=\"true\" [matRippleColor]=\"rippleColorPlomo\" (click)=\"clearTextBuqueda()\">\r\n                         <i title=\"Atras\" class=\"fa fa-times\" aria-hidden=\"true\"></i>\r\n                    </div>\r\n               </div>\r\n          </ng-container>\r\n\r\n          <!-- <button (click)=\"cerrarSession()\">aa</button> -->\r\n     </mat-toolbar-row>\r\n</mat-toolbar>";
 
 /***/ }),
 
